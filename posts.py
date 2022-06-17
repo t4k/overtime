@@ -31,7 +31,8 @@ with sync_playwright() as playwright:
         soup.find(id="s-ui-cc-container").decompose()  # cookie acknowledgement
         soup.find(class_="s-lg-blog-recent-posts").clear()
         soup.find(class_="s-lg-blog-archive-list").clear()
-        soup.find(id="s_lc_tdh_3271_0").clear()  # widget: LibCal Hours
+        if soup.find(id="s-lc-w-today-cont-0"):
+            soup.find(id="s-lc-w-today-cont-0").decompose()  # widget: LibCal Hours
         filename = (
             f'{repository}/posts/{link.split("/blog/")[-1].replace("/", "_")}.html'
         )
