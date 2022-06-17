@@ -1,4 +1,2 @@
 beautifulsoup4==4.11.1
 playwright==1.22.0
-requests-html==0.10.0
-urllib3==1.26.9
