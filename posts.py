@@ -30,8 +30,8 @@ with sync_playwright() as playwright:
 
     for link in links:
         p.goto(link)
-        # remove content of dynamic elements
         soup = BeautifulSoup(p.content(), "html.parser")
+        # select blogpost content only
         blogpost = soup.find(id=re.compile("^comment-\d+$"))
         filename = (
             f'{repository}/posts/{link.split("/blog/")[-1].replace("/", "_")}.html'
