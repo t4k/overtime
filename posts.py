@@ -32,12 +32,12 @@ with sync_playwright() as playwright:
         p.goto(link)
         # remove content of dynamic elements
         soup = BeautifulSoup(p.content(), "html.parser")
-        soup.find(id=re.compile("^comment-\d+$"))
+        blogpost = soup.find(id=re.compile("^comment-\d+$"))
         filename = (
             f'{repository}/posts/{link.split("/blog/")[-1].replace("/", "_")}.html'
         )
         # write prettified html to file
         with open(filename, "w") as file:
-            file.write(soup.prettify())
+            file.write(blogpost.prettify())
 
     b.close()
