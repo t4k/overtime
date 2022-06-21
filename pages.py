@@ -10,7 +10,7 @@ def main(
     api_site_id: "LibGuides site_id",  # type: ignore
     api_key: "LibGuides API key",  # type: ignore
     site_base_url: "Base URL of LibGuides website",  # type: ignore
-    content_repository: "Content repository in the form owner/repository",  # type: ignore
+    content_repository_name: "Repository name where scraped HTML files will be committed",  # type: ignore
 ):
     """Save and track changes in LibGuides content."""
     api_base_url = "https://lgapi-us.libapps.com"
@@ -25,7 +25,6 @@ def main(
         # retrieve published and private only
         "status": "1,2",
     }
-    repository = content_repository.split("/")[-1]
 
     with sync_playwright() as playwright:
         api_request_context = playwright.request.new_context(base_url=api_base_url)
@@ -85,7 +84,7 @@ def main(
                     if pagemain.find(id="s-lg-page-prevnext"):
                         pagemain.find(id="s-lg-page-prevnext").decompose()
                     # write html to file
-                    with open(f"{repository}/pages/{filename}", "w") as file:
+                    with open(f"{content_repository_name}/pages/{filename}", "w") as file:
                         file.write(pagemain.prettify())
         b.close()
 

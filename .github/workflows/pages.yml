@@ -1,0 +1,54 @@
+name: pages-daily
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '23 8 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.x
+      - name: install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          playwright install firefox
+      - name: Clone content repository
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ secrets.CONTENT_REPOSITORY_OWNER }}/${{ secrets.CONTENT_REPOSITORY_NAME }}
+          token: ${{ secrets.TOKEN }}
+          path: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Delete existing content to track deleted pages
+        run: rm -f pages/*.html
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Get recently updated content
+        run: python pages.py ${{ secrets.API_SITE_ID }} ${{ secrets.API_KEY }} ${{ secrets.SITE_BASE_URL }} ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Configure git identity
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      - name: Stage changes
+        run: git add -A
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Commit any changes
+        run: if [ -n "$(git status --porcelain)" ];
+          then
+            echo "✅ COMMITTING CHANGES";
+            git status;
+            git commit -m "🤖 automated commit of changes";
+          else
+            echo "😶 NO CHANGES DETECTED";
+          fi
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Push changes
+        run: git push
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
