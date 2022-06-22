@@ -1,9 +1,9 @@
-name: posts-weekly
+name: posts-daily
 
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '12 8 * * 0'
+    - cron:  '12 8 * * *'
 
 jobs:
   build:
@@ -31,22 +31,30 @@ jobs:
         run: rm -f posts/*.html
         working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
       - name: Get current content
-        run: python posts.py ${{ secrets.CONTENT_REPOSITORY_OWNER }}/${{ secrets.CONTENT_REPOSITORY_NAME }}
-      - name: Configure git identity
+        run: python posts.py ${{ secrets.SITE_BASE_URL }} ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Configure Git identity
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-      - name: Stage changes
-        run: git add -A
-        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
-      - name: Commit any changes
-        run: if [ -n "$(git status --porcelain)" ];
+      - name: Commit new files
+        run: if [ -n "$(git ls-files --others)" ];
           then
-            echo "✅ COMMITTING CHANGES";
-            git status;
-            git commit -m "🤖 automated commit of changes";
-          else
-            echo "😶 NO CHANGES DETECTED";
+            git ls-files --others | xargs git add --all;
+            git commit -m "🟢 new files";
+          fi
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Commit modified files
+        run: if [ -n "$(git ls-files --modified)" ];
+          then
+            git ls-files --modified | xargs git add --all;
+            git commit -m "🟡 modified files";
+          fi
+        working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
+      - name: Commit deleted files
+        run: if [ -n "$(git ls-files --deleted)" ];
+          then
+            git ls-files --deleted | xargs git add --all;
+            git commit -m "🔴 deleted files";
           fi
         working-directory: ${{ secrets.CONTENT_REPOSITORY_NAME }}
       - name: Push changes
