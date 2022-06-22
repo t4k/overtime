@@ -1,4 +1,3 @@
-import datetime
 import json
 import re
 
@@ -18,9 +17,6 @@ def main(
     api_params = {
         "site_id": api_site_id,
         "key": api_key,
-        "update_type": "last",
-        # sometimes just `yesterday` may not be enough
-        "last_update": "2",
         "expand": "pages",
         # retrieve published and private only
         "status": "1,2",
@@ -31,8 +27,8 @@ def main(
         guides_accessible = json.loads(
             api_request_context.get(api_endpoint, params=api_params).text()
         )
-
-        two_days_ago = datetime.datetime.now() - datetime.timedelta(days=2)
+        with open(f"{content_repository_name}/pages.json", "w") as f:
+            f.write(json.dumps(guides_accessible, indent=4, sort_keys=True))
 
         b = playwright.firefox.launch()
         p = b.new_page()
@@ -47,45 +43,41 @@ def main(
                 # skip pages that are hidden
                 if page["enable_display"] == "0":
                     continue
-                # the date for `today` is greater than the date for `yesterday`
-                if two_days_ago < datetime.datetime.strptime(
-                    page["updated"], "%Y-%m-%d %H:%M:%S"
-                ):
-                    # replace all non-word characters with hyphens
-                    # example:
-                    # “Scientific Researches!—New Discoveries in PNEUMATICKS!”
-                    # -Scientific-Researches--New-Discoveries-in-PNEUMATICKS--
-                    filename_name = re.sub("[^a-zA-Z0-9-]", "-", page["name"])
-                    # replace all consecutive hyphens with single hyphen
-                    # example:
-                    # -Scientific-Researches--New-Discoveries-in-PNEUMATICKS--
-                    # -Scientific-Researches-New-Discoveries-in-PNEUMATICKS-
-                    filename_name = re.sub("--+", "-", filename_name)
-                    # remove all start and end hyphens
-                    # example:
-                    # -Scientific-Researches-New-Discoveries-in-PNEUMATICKS-
-                    # Scientific-Researches-New-Discoveries-in-PNEUMATICKS
-                    filename_name = filename_name.strip("-")
-                    # replace all slash characters with underscores
-                    # example:
-                    # about/policies
-                    # about_policies
-                    if page["friendly_url"]:
-                        filename_friendly_url = f'{re.sub("/", "_", page["friendly_url"].split(site_base_url)[-1])}--'
-                    else:
-                        filename_friendly_url = ""
-                    # construct filename
-                    filename = f'{filename_name}--{filename_friendly_url}g{guide["id"]}-p{page["id"]}.html'
-                    # open the page in a browser
-                    p.goto(page["url"])
-                    soup = BeautifulSoup(p.content(), "html.parser")
-                    # select page main content only
-                    pagemain = soup.find(id="s-lg-guide-main")
-                    if pagemain.find(id="s-lg-page-prevnext"):
-                        pagemain.find(id="s-lg-page-prevnext").decompose()
-                    # write html to file
-                    with open(f"{content_repository_name}/pages/{filename}", "w") as file:
-                        file.write(pagemain.prettify())
+                # replace all non-word characters with hyphens
+                # example:
+                # “Scientific Researches!—New Discoveries in PNEUMATICKS!”
+                # -Scientific-Researches--New-Discoveries-in-PNEUMATICKS--
+                filename_name = re.sub("[^a-zA-Z0-9-]", "-", page["name"])
+                # replace all consecutive hyphens with single hyphen
+                # example:
+                # -Scientific-Researches--New-Discoveries-in-PNEUMATICKS--
+                # -Scientific-Researches-New-Discoveries-in-PNEUMATICKS-
+                filename_name = re.sub("--+", "-", filename_name)
+                # remove all start and end hyphens
+                # example:
+                # -Scientific-Researches-New-Discoveries-in-PNEUMATICKS-
+                # Scientific-Researches-New-Discoveries-in-PNEUMATICKS
+                filename_name = filename_name.strip("-")
+                # replace all slash characters with underscores
+                # example:
+                # about/policies
+                # about_policies
+                if page["friendly_url"]:
+                    filename_friendly_url = f'{re.sub("/", "_", page["friendly_url"].split(site_base_url)[-1])}--'
+                else:
+                    filename_friendly_url = ""
+                # construct filename
+                filename = f'{filename_name}--{filename_friendly_url}g{guide["id"]}-p{page["id"]}.html'
+                # open the page in a browser
+                p.goto(page["url"])
+                soup = BeautifulSoup(p.content(), "html.parser")
+                # select page main content only
+                pagemain = soup.find(id="s-lg-guide-main")
+                if pagemain.find(id="s-lg-page-prevnext"):
+                    pagemain.find(id="s-lg-page-prevnext").decompose()
+                # write html to file
+                with open(f"{content_repository_name}/pages/{filename}", "w") as file:
+                    file.write(pagemain.prettify())
         b.close()
 
 
