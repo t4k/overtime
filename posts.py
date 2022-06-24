@@ -2,7 +2,8 @@ import re
 import time
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+
 
 def main(
     site_base_url: "Base URL of LibGuides website",  # type: ignore
@@ -30,13 +31,19 @@ def main(
                 break
 
         for link in links:
-            p.goto(link["href"])
             soup = BeautifulSoup(p.content(), "html.parser")
             # select blogpost content only
             blogpost = soup.find(id=re.compile("^comment-\d+$"))
-            filename = (
-                f'{content_repository_name}/posts/{link["href"].split("/blog/")[-1].replace("/", "_")}.html'
-            )
+            filename = f'{content_repository_name}/posts/{link["href"].split("/blog/")[-1].replace("/", "_")}.html'
+            # catch any timeouts and continue the loop
+            try:
+                # open the page in a browser
+                p.goto(link["href"])
+            except PlaywrightTimeoutError as e:
+                # write error to file
+                with open(filename, "w") as file:
+                    file.write(e)
+                continue
             # write prettified html to file
             with open(filename, "w") as file:
                 file.write(blogpost.prettify())
