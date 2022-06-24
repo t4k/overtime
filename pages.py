@@ -2,7 +2,7 @@ import json
 import re
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 
 def main(
@@ -68,8 +68,17 @@ def main(
                     filename_friendly_url = ""
                 # construct filename
                 filename = f'{filename_name}--{filename_friendly_url}g{guide["id"]}-p{page["id"]}.html'
-                # open the page in a browser
-                p.goto(page["url"])
+                # catch any timeouts and continue the loop
+                try:
+                    # open the page in a browser
+                    p.goto(page["url"])
+                except PlaywrightTimeoutError as e:
+                    # write error to file
+                    with open(
+                        f"{content_repository_name}/pages/{filename}", "w"
+                    ) as file:
+                        file.write(e)
+                    continue
                 soup = BeautifulSoup(p.content(), "html.parser")
                 # select page main content only
                 pagemain = soup.find(id="s-lg-guide-main")
