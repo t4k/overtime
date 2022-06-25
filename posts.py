@@ -31,14 +31,14 @@ def main(
                 break
 
         for link in links:
-            soup = BeautifulSoup(p.content(), "html.parser")
-            # select blogpost content only
-            blogpost = soup.find(id=re.compile("^comment-\d+$"))
             filename = f'{content_repository_name}/posts/{link["href"].split("/blog/")[-1].replace("/", "_")}.html'
             # catch any timeouts and continue the loop
             try:
                 # open the page in a browser
                 p.goto(link["href"])
+                soup = BeautifulSoup(p.content(), "html.parser")
+                # select blogpost content only
+                blogpost = soup.find(id=re.compile("^comment-\d+$"))
             except PlaywrightTimeoutError as e:
                 # write error to file
                 with open(filename, "w") as file:
