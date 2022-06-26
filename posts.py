@@ -42,7 +42,7 @@ def main(
             except PlaywrightTimeoutError as e:
                 # write error to file
                 with open(filename, "w") as file:
-                    file.write(e)
+                    file.write(str(e))
                 continue
             # write prettified html to file
             with open(filename, "w") as file:

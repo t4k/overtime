@@ -77,7 +77,7 @@ def main(
                     with open(
                         f"{content_repository_name}/pages/{filename}", "w"
                     ) as file:
-                        file.write(e)
+                        file.write(str(e))
                     continue
                 soup = BeautifulSoup(p.content(), "html.parser")
                 # select page main content only
