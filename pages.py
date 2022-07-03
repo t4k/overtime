@@ -2,7 +2,7 @@ import json
 import re
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError, Error as PlaywrightError
 
 
 def main(
@@ -79,6 +79,17 @@ def main(
                     ) as file:
                         file.write(str(e))
                     continue
+                except PlaywrightError as error:
+                    # NS_ERROR_ABORT seems like a browser issue of some kind
+                    if error.message = "NS_ERROR_ABORT":
+                        # write error to file
+                        with open(
+                            f"{content_repository_name}/pages/{filename}", "w"
+                        ) as file:
+                            file.write(str(error))
+                        continue
+                    else:
+                        raise error
                 soup = BeautifulSoup(p.content(), "html.parser")
                 # select page main content only
                 pagemain = soup.find(id="s-lg-guide-main")
