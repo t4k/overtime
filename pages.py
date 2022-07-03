@@ -81,7 +81,7 @@ def main(
                     continue
                 except PlaywrightError as error:
                     # NS_ERROR_ABORT seems like a browser issue of some kind
-                    if error.message = "NS_ERROR_ABORT":
+                    if error.message == "NS_ERROR_ABORT":
                         # write error to file
                         with open(
                             f"{content_repository_name}/pages/{filename}", "w"
