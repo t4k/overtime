@@ -2,7 +2,11 @@ import json
 import re
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError, Error as PlaywrightError
+from playwright.sync_api import (
+    sync_playwright,
+    TimeoutError as PlaywrightTimeoutError,
+    Error as PlaywrightError,
+)
 
 
 def main(
@@ -29,7 +33,7 @@ def main(
         )
         for guide in guides_accessible:
             # count_hit increases overwhelm the diff
-            guide.pop('count_hit', None)
+            guide.pop("count_hit", None)
             # cache busting parameters bust the diff
             if "thumbnail_url" in guide:
                 guide["thumbnail_url"] = guide["thumbnail_url"].rsplit("&cb=")[0]
@@ -106,13 +110,19 @@ def main(
                 if pagemain.find(class_="s-lc-whw"):
                     pagemain.find(class_="s-lc-whw").clear()
                 if pagemain.select(".s-la-faq-listing-views .metavalue"):
-                    for metavalue in pagemain.select(".s-la-faq-listing-views .metavalue"):
+                    for metavalue in pagemain.select(
+                        ".s-la-faq-listing-views .metavalue"
+                    ):
                         metavalue.clear()
                 if pagemain.select(".s-lg-system-list .s-lg-guide-info-updated"):
-                    for updated in pagemain.select(".s-lg-system-list .s-lg-guide-info-updated"):
+                    for updated in pagemain.select(
+                        ".s-lg-system-list .s-lg-guide-info-updated"
+                    ):
                         updated.clear()
                 if pagemain.select(".s-lg-system-list .s-lg-guide-info-views"):
-                    for views in pagemain.select(".s-lg-system-list .s-lg-guide-info-views"):
+                    for views in pagemain.select(
+                        ".s-lg-system-list .s-lg-guide-info-views"
+                    ):
                         views.clear()
                 if pagemain.select(".ep_view_timestamp strong"):
                     for timestamp in pagemain.select(".ep_view_timestamp strong"):
