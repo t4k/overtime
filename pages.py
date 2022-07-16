@@ -77,7 +77,7 @@ def main(
                 else:
                     filename_friendly_url = ""
                 # construct filename
-                filename = f'{filename_name}--{filename_friendly_url}g{guide["id"]}-p{page["id"]}.html'
+                filename = f'{filename_name}--{filename_friendly_url}g-{guide["id"]}-p-{page["id"]}.html'
                 # catch any timeouts and continue the loop
                 try:
                     # open the page in a browser
@@ -130,6 +130,12 @@ def main(
                 if pagemain.select(".s-lg-rss .s-lg-rss-list"):
                     for rss in pagemain.select(".s-lg-rss .s-lg-rss-list"):
                         rss.clear()
+                if pagemain.select(".hours-today .hours-col-time"):
+                    for time in pagemain.select(".hours-today .hours-col-time"):
+                        time.clear()
+                if pagemain.select(".resize-sensor"):
+                    for expand in pagemain.select(".resize-sensor"):
+                        expand.decompose()
                 # write html to file
                 with open(f"{content_repository_name}/pages/{filename}", "w") as file:
                     file.write(pagemain.prettify())
