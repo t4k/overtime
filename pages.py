@@ -22,28 +22,28 @@ def main(
         "site_id": api_site_id,
         "key": api_key,
         "expand": "pages",
-        # retrieve published and private only
-        "status": "1,2",
+        # retrieve published guides only
+        "status": "1",
     }
 
     with sync_playwright() as playwright:
         api_request_context = playwright.request.new_context(base_url=api_base_url)
-        guides_accessible = json.loads(
+        guides_retrieved = json.loads(
             api_request_context.get(api_endpoint, params=api_params).text()
         )
-        for guide in guides_accessible:
+        for guide in guides_retrieved:
             # count_hit increases overwhelm the diff
             guide.pop("count_hit", None)
             # cache busting parameters bust the diff
             if "thumbnail_url" in guide:
                 guide["thumbnail_url"] = guide["thumbnail_url"].rsplit("&cb=")[0]
         with open(f"{content_repository_name}/pages.json", "w") as f:
-            f.write(json.dumps(guides_accessible, indent=4, sort_keys=True))
+            f.write(json.dumps(guides_retrieved, indent=4, sort_keys=True))
 
         b = playwright.firefox.launch()
         p = b.new_page()
 
-        for guide in guides_accessible:
+        for guide in guides_retrieved:
             if guide["redirect_url"]:
                 continue
             for page in guide["pages"]:

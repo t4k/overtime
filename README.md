@@ -12,3 +12,9 @@ repository secrets requirements for GitHub Actions:
 - `TOKEN` a _personal access token_ for a user with commit permissions on the content repository
 
 these secrets need to be set in _this_ repository
+
+[pages.json](https://github.com/caltechlibrary/overtime/blob/main/pages.json) contains the JSON response from the API call with commits of changes scheduled daily
+
+[pages/](https://github.com/caltechlibrary/overtime/tree/main/pages) contains the content of published pages with commits of changes scheduled daily
+
+[posts/](https://github.com/caltechlibrary/overtime/tree/main/posts) contains the content of published blog posts with commits of changes scheduled daily
