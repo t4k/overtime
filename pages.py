@@ -107,12 +107,12 @@ def main(
                 if pagemain.find(id="s-lg-page-prevnext"):
                     print(f'🐞 s-lg-page-prevnext: ?g={guide["id"]}&p={page["id"]}')
                     pagemain.find(id="s-lg-page-prevnext").decompose()
+                if pagemain.find(class_="libchat_online"):
+                    pagemain.find(class_="libchat_online").decompose()
+                if pagemain.find(class_="libchat_offline"):
+                    pagemain.find(class_="libchat_offline").decompose()
                 if pagemain.find(class_="s-lc-whw"):
                     pagemain.find(class_="s-lc-whw").clear()
-                if pagemain.find(class_="libchat_online"):
-                    pagemain.find(class_="libchat_online").clear()
-                if pagemain.find(class_="libchat_offline"):
-                    pagemain.find(class_="libchat_offline").clear()
                 if pagemain.select(".s-la-faq-listing-views .metavalue"):
                     for metavalue in pagemain.select(
                         ".s-la-faq-listing-views .metavalue"
