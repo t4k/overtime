@@ -1568,7 +1568,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-02-10 19:07:44",
+        "updated": "2023-03-14 17:25:36",
         "url": "https://library.caltech.edu/c.php?g=1245959"
     },
     {
@@ -5168,14 +5168,14 @@
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": null,
+                "friendly_url": "https://library.caltech.edu/bookdisplay/2023-03",
                 "id": "9591294",
                 "name": "March 2023: Celebrating Women's History Month & Einstein's Birthday",
                 "num_cols": "1",
                 "parent_id": "0",
                 "position": "1",
                 "redirect_url": "",
-                "slug_id": "0",
+                "slug_id": "2780442",
                 "source_id": "0",
                 "type_id": "1",
                 "updated": "2023-03-03 22:46:57",
@@ -5212,7 +5212,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-03-14 15:25:09",
+        "updated": "2023-03-14 20:48:17",
         "url": "https://library.caltech.edu/c.php?g=1216793"
     },
     {
@@ -6432,7 +6432,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-03-14 16:28:37",
+        "updated": "2023-03-14 17:08:28",
         "url": "https://library.caltech.edu/c.php?g=1230809"
     },
     {
@@ -12136,7 +12136,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-03-14 16:28:37",
+        "updated": "2023-03-14 17:30:34",
         "url": "https://library.caltech.edu/c.php?g=1231280"
     },
     {
@@ -16216,7 +16216,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-03-13 23:50:41",
+        "updated": "2023-03-14 20:49:06",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
