@@ -29,23 +29,11 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-      - name: Commit new files
-        run: if [ -n "$(git ls-files --others)" ];
+      - name: Commit modified and new files
+        run: if [ -n "$(git ls-files --modified --others)" ];
           then
-            git ls-files --others | xargs git add --all;
-            git commit -m "🟢 new files";
-          fi
-      - name: Commit modified files
-        run: if [ -n "$(git ls-files --modified)" ];
-          then
-            git ls-files --modified | xargs git add --all;
-            git commit -m "🟡 modified files";
-          fi
-      - name: Commit deleted files
-        run: if [ -n "$(git ls-files --deleted)" ];
-          then
-            git ls-files --deleted | xargs git add --all;
-            git commit -m "🔴 deleted files";
+            git ls-files --modified --others | xargs git add --all;
+            git commit -m "🌀 track content changes [actions]";
           fi
       - name: Push changes
         run: git push
