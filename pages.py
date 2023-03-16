@@ -109,8 +109,8 @@ def main(
                     pagemain.find(id="s-lg-page-prevnext").decompose()
                 if pagemain.find(class_="s-lc-whw"):
                     pagemain.find(class_="s-lc-whw").clear()
-                if pagemain.select('div[class^="libchat_"]'):
-                    for libchat in pagemain.select('div[class^="libchat_"]'):
+                if pagemain.find_all(id=re.compile("^libchat_")):
+                    for libchat in pagemain.find_all(id=re.compile("^libchat_")):
                         libchat.decompose()
                 if pagemain.select(".s-la-faq-listing-views .metavalue"):
                     for metavalue in pagemain.select(
