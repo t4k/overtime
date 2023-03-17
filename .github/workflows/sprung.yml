@@ -1,4 +1,4 @@
-name: Sprung
+name: sprung
 
 on:
   workflow_dispatch:
@@ -33,12 +33,19 @@ jobs:
           git config --global user.name "github-actions[bot]"
 
       - run: python sprung.py library.caltech.edu lg-public-no-bs.min.css
-
       - name: commit libguides css
         run: if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
-            git commit -m "👽️ libguides css version ${{ env.LIBGUIDES_CSS_PATH }}";
+            git commit -m "👽️ libguides css version ${{ env.ASSET_PATH }}";
+          fi
+
+      - run: python sprung.py library.caltech.edu lg-public-no-bs.min.js
+      - name: commit libguides js
+        run: if [ -n "$(git ls-files --modified --others)" ];
+          then
+            git ls-files --modified --others | xargs git add --all;
+            git commit -m "👽️ libguides js version ${{ env.ASSET_PATH }}";
           fi
 
       - run: git push

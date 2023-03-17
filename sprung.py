@@ -8,22 +8,40 @@ import requests
 
 from bs4 import BeautifulSoup
 
-libguides_site_url = f"https://{sys.argv[1]}"
+asset_path = ""
+def asset_in_href_or_src(tag):
+    if tag.get("href").endswith(sys.argv[2]):
+        asset_path = tag.get("href")
+        return True
+    elif tag.get("src").endswith(sys.argv[2]):
+        asset_path = asset_tag.get("src")
+        return True
+    else:
+        return False
 
-libguides_html = requests.get(libguides_site_url).text
+site_url = f"https://{sys.argv[1]}"
 
-soup_libguides = BeautifulSoup(libguides_html, "html5lib")
+html = requests.get(site_url).text
 
-libguides_link = soup_libguides.find(href=re.compile(f"{sys.argv[2]}$"))
+soup = BeautifulSoup(html, "html5lib")
 
-libguides_css_path = libguides_link.get("href")
+asset_tag = soup.find(asset_in_href_or_src)
+if not asset_tag:
+    sys.exit(f"⚠️ NOT FOUND IN PAGE: {sys.argv[2]}")
 
+if not asset_path:
+    sys.exit(f"⚠️ UNEXPECTED TAG: {asset_tag}")
+
+# the asset path is needed for the commit message later in the workflow
 with open(os.getenv("GITHUB_ENV"), "a") as env_file:
-    env_file.write(f"LIBGUIDES_CSS_PATH={libguides_css_path}")
+    env_file.write(f"ASSET_PATH={asset_path}")
 
-libguides_min_css = requests.get(f"{libguides_site_url}{libguides_css_path}").text
+asset_min = requests.get(f"{site_url}{asset_path}").text
 
-libguides_beautified_css = cssbeautifier.beautify(libguides_min_css)
+if asset_path.endswith(".css"):
+    asset_beautified = cssbeautifier.beautify(asset_min)
+elif asset_path.endswith(".js"):
+    asset_beautified = jsbeautifier.beautify(asset_min)
 
-with open("upstream/libguides.beautified.css", "w") as css_file:
-    css_file.write(libguides_beautified_css)
+with open(f"upstream/beautified.{sys.argv[2]}", "w") as file:
+    file.write(asset_beautified)
