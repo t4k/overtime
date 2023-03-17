@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 
 asset_path = ""
 def asset_in_href_or_src(tag):
+    global asset_path
     if tag.get("href"):
         if tag.get("href").endswith(sys.argv[2]):
             asset_path = tag.get("href")
