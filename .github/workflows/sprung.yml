@@ -1,0 +1,44 @@
+name: Sprung
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '37 8 * * *'
+
+jobs:
+  sprung:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # in order to determine changes
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4
+          pip install cssbeautifier
+          pip install html5lib
+          pip install jsbeautifier
+          pip install requests
+
+      - name: configure git identity
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - run: python sprung.py library.caltech.edu lg-public-no-bs.min.css
+
+      - name: commit libguides css
+        run: if [ -n "$(git ls-files --modified --others)" ];
+          then
+            git ls-files --modified --others | xargs git add --all;
+            git commit -m "👽️ libguides css version ${{ env.LIBGUIDES_CSS_PATH }}";
+          fi
+
+      - run: git push
