@@ -18,7 +18,7 @@ def asset_in_href_or_src(tag):
         return False
     elif tag.get("src"):
         if tag.get("src").endswith(sys.argv[2]):
-            asset_path = asset_tag.get("src")
+            asset_path = tag.get("src")
             return True
         return False
     return False
