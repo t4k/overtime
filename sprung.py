@@ -40,7 +40,13 @@ if not asset_path:
 with open(os.getenv("GITHUB_ENV"), "a") as env_file:
     env_file.write(f"ASSET_PATH={asset_path}")
 
-asset_min = requests.get(f"{site_url}{asset_path}").text
+# libcal references assets with a full domain
+if asset_path.startswith("http"):
+    asset_min = requests.get(asset_path).text
+elif asset_path.startswith("/"):
+    asset_min = requests.get(f"{site_url}{asset_path}").text
+else:
+    sys.exit(f"⚠️ UNEXPECTED PATH: {asset_path}")
 
 if asset_path.endswith(".css"):
     asset_beautified = cssbeautifier.beautify(asset_min)
