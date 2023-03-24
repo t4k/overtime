@@ -24,7 +24,7 @@ jobs:
       - name: Delete existing content to track deleted pages
         run: rm -f pages/*.html
       - name: Get recently updated content
-        run: python pages.py ${{ secrets.API_SITE_ID }} ${{ secrets.API_KEY }} ${{ secrets.SITE_BASE_URL }} .
+        run: python pages.py ${{ secrets.API_SITE_ID }} ${{ secrets.API_KEY }} ${{ secrets.SITE_BASE_URL }} content
       - name: Configure Git identity
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
