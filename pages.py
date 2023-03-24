@@ -112,11 +112,9 @@ def main(
                 if pagemain.find_all(id=re.compile("^libchat_")):
                     for libchat in pagemain.find_all(id=re.compile("^libchat_")):
                         libchat.decompose()
-                if pagemain.select(".s-la-faq-listing-views .metavalue"):
-                    for metavalue in pagemain.select(
-                        ".s-la-faq-listing-views .metavalue"
-                    ):
-                        metavalue.clear()
+                if pagemain.select(".s-la-faqlist"):
+                    for faqlist in pagemain.select(".s-la-faqlist"):
+                        faqlist.clear()
                 if pagemain.select(".s-lg-system-list .s-lg-guide-info-updated"):
                     for updated in pagemain.select(
                         ".s-lg-system-list .s-lg-guide-info-updated"
