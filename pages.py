@@ -112,8 +112,8 @@ def main(
                 if pagemain.find_all(id=re.compile("^libchat_")):
                     for libchat in pagemain.find_all(id=re.compile("^libchat_")):
                         libchat.decompose()
-                if pagemain.select(".s-la-faqlist"):
-                    for faqlist in pagemain.select(".s-la-faqlist"):
+                if pagemain.select(".s-la-content-faqlist"):
+                    for faqlist in pagemain.select(".s-la-content-faqlist"):
                         faqlist.clear()
                 if pagemain.select(".s-lg-system-list .s-lg-guide-info-updated"):
                     for updated in pagemain.select(
