@@ -1356,7 +1356,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-03-30 14:13:41",
+        "updated": "2023-03-31 21:56:15",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -5225,20 +5225,20 @@
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2023-03-29 22:02:34",
                 "description": "",
-                "enable_display": "0",
+                "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": null,
+                "friendly_url": "https://library.caltech.edu/bookdisplay/2023-04-and-2023-06",
                 "id": "9644109",
-                "name": "April-June 2023: Celebrating Gaypril & Pride",
+                "name": "April & June 2023: Celebrating Gaypril & Pride",
                 "num_cols": "1",
                 "parent_id": "0",
                 "position": "1",
                 "redirect_url": "",
-                "slug_id": "0",
+                "slug_id": "2790244",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2023-03-29 22:02:34",
+                "updated": "2023-03-31 18:55:00",
                 "url": "https://library.caltech.edu/c.php?g=1216793&p=9644109"
             }
         ],
@@ -5252,7 +5252,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-03-29 22:15:21",
+        "updated": "2023-03-31 20:20:11",
         "url": "https://library.caltech.edu/c.php?g=1216793"
     },
     {
@@ -7572,7 +7572,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-03-20 17:17:41",
+        "updated": "2023-03-31 17:30:32",
         "url": "https://library.caltech.edu/c.php?g=512712"
     },
     {
@@ -8876,7 +8876,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-03-20 17:17:42",
+        "updated": "2023-03-31 16:58:13",
         "url": "https://library.caltech.edu/c.php?g=512703"
     },
     {
@@ -10200,7 +10200,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-03-13 18:24:14",
+        "updated": "2023-03-31 19:27:12",
         "url": "https://library.caltech.edu/c.php?g=1237965"
     },
     {
@@ -16276,7 +16276,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-03-23 23:15:56",
+        "updated": "2023-03-31 20:20:11",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
