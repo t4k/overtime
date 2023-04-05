@@ -824,7 +824,7 @@ function(t) {
         trigger: "click",
         content: "",
         template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-    }), (e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype)).constructor = e, e.prototype.getDefaults = function() {
+    }), e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype), e.prototype.constructor = e, e.prototype.getDefaults = function() {
         return e.DEFAULTS
     }, e.prototype.setContent = function() {
         var t = this.tip(),
@@ -1691,12 +1691,6 @@ function closeModal(t) {
     })) : e = jQuery("#" + t), null !== e && e.modal("hide").removeData("bs.modal").find(".modal-content").html("")
 }
 
-function limitQLength(t, e, i) {
-    if (void 0 === i) i = "";
-    var s = e;
-    return !(t.value.length > s) || (t.value = t.value.substring(0, s), errorAlert(i), !1)
-}
-
 function disableButton(t) {
     t && (-1 === ["#", "."].indexOf(t.charAt(0)) && (t = "#" + t), jQuery(t).prop("disabled", !0))
 }
@@ -1725,22 +1719,15 @@ function stopAlert() {
     springSpace.sui.notify.hide()
 }
 springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {}, springSpace.util._construct = function() {
-    function Util() {}
-    Util.prototype.setProp = function(t, e) {
-        return void 0 !== t ? t : e
-    }, Util.prototype.setConfig = function(t) {
-        return void 0 === t ? {} : t
-    }, Util.prototype.replaceAll = function(config) {
-        var regex = "/" + config.searchTerm + "/g";
-        return config.ignoreCase && (regex += "i"), config.str.replace(eval(regex), config.replaceWith)
-    }, Util.prototype.stringFormat = function(t, e) {
+    function t() {}
+    t.prototype.stringFormat = function(t, e) {
         return t.replace(/%(\d+)/g, (function(t, i) {
             return e[--i]
         }))
-    }, Util.prototype.selectText = function(t) {
+    }, t.prototype.selectText = function(t) {
         var e, i, s = t;
         document.body.createTextRange ? ((e = document.body.createTextRange()).moveToElementText(s), e.select()) : window.getSelection && (i = window.getSelection(), (e = document.createRange()).selectNodeContents(s), i.removeAllRanges(), i.addRange(e))
-    }, Util.prototype.rePopForm = function(t, e) {
+    }, t.prototype.rePopForm = function(t, e) {
         t = t.replace(/^\?/, "");
         for (var i = (t = decodeURIComponent(t)).split("&"), s = jQuery("#" + e), n = 0; n < i.length; n++) {
             var a = decodeURIComponent(i[n]).split("="),
@@ -1756,19 +1743,7 @@ springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {
                     void 0 === d.data("multiselect") ? d.val(r) : d.multiselect("select", r)
                 }
         }
-    }, Util.prototype.escapeRegExp = function(t) {
-        return t.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&")
-    }, Util.prototype.getQueryStringValue = function(t, e) {
-        if ("string" != typeof t || "" === t || "string" != typeof e || "" === e) return null;
-        for (var i = t.replace(/^\?/i, "").split("&"), s = "", n = 0; n < i.length; n++) {
-            var a = i[n].split("=");
-            if (a[0] === e) {
-                s = void 0 === a[1] ? "" : decodeURIComponent(a[1]);
-                break
-            }
-        }
-        return s
-    }, this.Util = Util
+    }, this.Util = t
 }, springSpace.util._construct(), springSpace.Util = new springSpace.util.Util;
 var jqGetAjaxError = function(t) {
         var e = "";
@@ -2027,7 +2002,12 @@ const faqHit = function(t, e, i) {
             if ("TEXTAREA" === t.tagName) return void("" === t.value.trim() && this.markError(t, this.errormsg.reqfields));
             if ("INPUT" !== t.tagName) return;
             const e = t.type;
-            "radio" !== e && "checkbox" !== e && ("email" !== e ? "" === t.value.trim() && this.markError(t, this.errormsg.reqfields) : t.checkValidity() || this.markError(t, this.errormsg.emailaddress))
+            if ("radio" !== e && "checkbox" !== e)
+                if ("email" !== e) "" === t.value.trim() && this.markError(t, this.errormsg.reqfields);
+                else if (t.checkValidity() || this.markError(t, this.errormsg.emailaddress), "confirm_pemail" === t.name) {
+                const e = this.$form[0].querySelector('input[name="pemail"]');
+                t.value.trim() !== e.value.trim() && this.markError(t, this.errormsg.emailnotmatch)
+            }
         }, this.validateFieldSet = function(t) {
             const e = t.querySelectorAll("input");
             let i = !0;
