@@ -10994,6 +10994,10 @@ ol.pickupMsgThread li {
     cursor: pointer
 }
 
+a {
+    color: #2f6fa7
+}
+
 a i {
     text-decoration: none;
     color: #000
@@ -11529,7 +11533,7 @@ input[type=checkbox][disabled]+span {
 
 .dropdown-menu>.disabled.active>a:focus,
 .dropdown-menu>.disabled.active>a:hover {
-    background-color: #337ab7
+    background-color: #2f6fa7
 }
 
 .s-la-search-side-collapse {
@@ -12022,6 +12026,11 @@ caption {
 
 .border-bottom-none {
     border-bottom: none
+}
+
+.wrap-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word
 }
 
 .s-srch-top-header {
