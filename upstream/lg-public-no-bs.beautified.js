@@ -175,7 +175,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 if (!t.length) return;
                 let i = [];
                 t.forEach((function(e, t) {
-                    i.push(springSpace.Util.escapeHtml(e.replace(/ \(\d+\)/i, "")))
+                    e = (e = e.replace(/ \(\d+\)/i, "")).replace("↳", "").trim(), i.push(springSpace.Util.escapeHtml(e))
                 })), e.push(i.join(" | "))
             },
             s = jQuery("#s-lg-az-search"),
