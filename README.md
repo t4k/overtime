@@ -7,7 +7,6 @@ repository secrets requirements for GitHub Actions:
 - `API_SITE_ID` the LibGuides site ID
 - `API_KEY` the LibGuides API key
 - `SITE_BASE_URL` the base URL for the LibGuides site
-- `TOKEN` a _personal access token_ for a user with commit permissions on the content repository
 
 these secrets need to be set in _this_ repository
 
