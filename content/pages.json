@@ -3414,7 +3414,7 @@
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/archives/home/home",
                 "id": "9010982",
-                "name": "Archives Home",
+                "name": "Home",
                 "num_cols": "2",
                 "parent_id": "0",
                 "position": "1",
@@ -3422,7 +3422,7 @@
                 "slug_id": "2563628",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2022-05-27 15:55:44",
+                "updated": "2023-04-11 00:00:29",
                 "url": "https://library.caltech.edu/c.php?g=1231306&p=9010982"
             }
         ],
@@ -3436,7 +3436,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2022-11-09 18:02:49",
+        "updated": "2023-04-11 00:00:29",
         "url": "https://library.caltech.edu/c.php?g=1231306"
     },
     {
@@ -11316,7 +11316,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-04-05 01:18:26",
+        "updated": "2023-04-10 19:26:42",
         "url": "https://library.caltech.edu/c.php?g=512661"
     },
     {
