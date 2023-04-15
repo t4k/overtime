@@ -1410,7 +1410,7 @@
         "group_id": 26856,
         "id": 1293660,
         "name": "CaltechPEOPLE",
-        "nav_type": 0,
+        "nav_type": 1,
         "owner_id": 107200,
         "pages": [
             {
@@ -1464,7 +1464,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-01-13 23:59:59",
+        "updated": "2023-04-14 18:48:33",
         "url": "https://library.caltech.edu/c.php?g=1293660"
     },
     {
