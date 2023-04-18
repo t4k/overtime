@@ -208,10 +208,10 @@ function(e, t) {
     "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : e.moment = t()
 }(this, function() {
     "use strict";
-    var j;
+    var N;
 
     function m() {
-        return j.apply(null, arguments)
+        return N.apply(null, arguments)
     }
 
     function g(e) {
@@ -256,7 +256,7 @@ function(e, t) {
     }
 
     function d(e, t, i, n) {
-        return Lt(e, t, i, n, !0).utc()
+        return Ot(e, t, i, n, !0).utc()
     }
 
     function _(e) {
@@ -305,19 +305,19 @@ function(e, t) {
         V = m.momentProperties = [],
         B = !1;
 
-    function G(e, t) {
+    function Q(e, t) {
         var i, n, s, r = V.length;
         if (y(t._isAMomentObject) || (e._isAMomentObject = t._isAMomentObject), y(t._i) || (e._i = t._i), y(t._f) || (e._f = t._f), y(t._l) || (e._l = t._l), y(t._strict) || (e._strict = t._strict), y(t._tzm) || (e._tzm = t._tzm), y(t._isUTC) || (e._isUTC = t._isUTC), y(t._offset) || (e._offset = t._offset), y(t._pf) || (e._pf = _(t)), y(t._locale) || (e._locale = t._locale), 0 < r)
             for (i = 0; i < r; i++) y(s = t[n = V[i]]) || (e[n] = s);
         return e
     }
 
-    function Q(e) {
-        G(this, e), this._d = new Date(null != e._d ? e._d.getTime() : NaN), this.isValid() || (this._d = new Date(NaN)), !1 === B && (B = !0, m.updateOffset(this), B = !1)
+    function G(e) {
+        Q(this, e), this._d = new Date(null != e._d ? e._d.getTime() : NaN), this.isValid() || (this._d = new Date(NaN)), !1 === B && (B = !0, m.updateOffset(this), B = !1)
     }
 
-    function w(e) {
-        return e instanceof Q || null != e && null != e._isAMomentObject
+    function b(e) {
+        return e instanceof G || null != e && null != e._isAMomentObject
     }
 
     function q(e) {
@@ -464,15 +464,15 @@ function(e, t) {
         ye = /\d\d\d\d?/,
         ve = /\d\d\d\d\d\d?/,
         _e = /\d{1,3}/,
-        we = /\d{1,4}/,
-        be = /[+-]?\d{1,6}/,
+        be = /\d{1,4}/,
+        we = /[+-]?\d{1,6}/,
         ke = /\d+/,
         xe = /[+-]?\d+/,
         Se = /Z|[+-]\d\d:?\d\d/gi,
         Me = /Z|[+-]\d\d(?::?\d\d)?/gi,
         p = /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i;
 
-    function b(e, i, n) {
+    function w(e, i, n) {
         Te[e] = a(i) ? i : function(e, t) {
             return e && n ? n : i
         }
@@ -507,9 +507,9 @@ function(e, t) {
         T = 2,
         Y = 3,
         I = 4,
-        O = 5,
-        Oe = 6,
-        Le = 7,
+        L = 5,
+        Le = 6,
+        Oe = 7,
         Ce = 8;
 
     function Ee(e, t) {
@@ -526,9 +526,9 @@ function(e, t) {
         return this.localeData().monthsShort(this, e)
     }), n("MMMM", 0, 0, function(e) {
         return this.localeData().months(this, e)
-    }), t("month", "M"), i("month", 8), b("M", f), b("MM", f, l), b("MMM", function(e, t) {
+    }), t("month", "M"), i("month", 8), w("M", f), w("MM", f, l), w("MMM", function(e, t) {
         return t.monthsShortRegex(e)
-    }), b("MMMM", function(e, t) {
+    }), w("MMMM", function(e, t) {
         return t.monthsRegex(e)
     }), x(["M", "MM"], function(e, t) {
         t[D] = c(e) - 1
@@ -537,8 +537,8 @@ function(e, t) {
         null != n ? t[D] = n : _(i).invalidMonth = e
     });
     var $e = "January_February_March_April_May_June_July_August_September_October_November_December".split("_"),
-        Ne = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
-        je = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
+        je = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
+        Ne = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
         He = p,
         Ae = p;
 
@@ -574,7 +574,7 @@ function(e, t) {
         return e <= 9999 ? r(e, 4) : "+" + e
     }), n(0, ["YY", 2], 0, function() {
         return this.year() % 100
-    }), n(0, ["YYYY", 4], 0, "year"), n(0, ["YYYYY", 5], 0, "year"), n(0, ["YYYYYY", 6, !0], 0, "year"), t("year", "y"), i("year", 1), b("Y", xe), b("YY", f, l), b("YYYY", we, me), b("YYYYY", be, ge), b("YYYYYY", be, ge), x(["YYYYY", "YYYYYY"], M), x("YYYY", function(e, t) {
+    }), n(0, ["YYYY", 4], 0, "year"), n(0, ["YYYYY", 5], 0, "year"), n(0, ["YYYYYY", 6, !0], 0, "year"), t("year", "y"), i("year", 1), w("Y", xe), w("YY", f, l), w("YYYY", be, me), w("YYYYY", we, ge), w("YYYYYY", we, ge), x(["YYYYY", "YYYYYY"], M), x("YYYY", function(e, t) {
         t[M] = 2 === e.length ? m.parseTwoDigitYear(e) : c(e)
     }), x("YY", function(e, t) {
         t[M] = m.parseTwoDigitYear(e)
@@ -600,7 +600,7 @@ function(e, t) {
         return i - (7 + Ve(e, 0, i).getUTCDay() - t) % 7 - 1
     }
 
-    function Ge(e, t, i, n, s) {
+    function Qe(e, t, i, n, s) {
         var r, t = 1 + 7 * (t - 1) + (7 + i - n) % 7 + Be(e, n, s),
             i = t <= 0 ? Re(r = e - 1) + t : t > Re(e) ? (r = e + 1, t - Re(e)) : (r = e, t);
         return {
@@ -609,21 +609,21 @@ function(e, t) {
         }
     }
 
-    function Qe(e, t, i) {
+    function Ge(e, t, i) {
         var n, s, r = Be(e.year(), t, i),
             r = Math.floor((e.dayOfYear() - r - 1) / 7) + 1;
-        return r < 1 ? n = r + L(s = e.year() - 1, t, i) : r > L(e.year(), t, i) ? (n = r - L(e.year(), t, i), s = e.year() + 1) : (s = e.year(), n = r), {
+        return r < 1 ? n = r + O(s = e.year() - 1, t, i) : r > O(e.year(), t, i) ? (n = r - O(e.year(), t, i), s = e.year() + 1) : (s = e.year(), n = r), {
             week: n,
             year: s
         }
     }
 
-    function L(e, t, i) {
+    function O(e, t, i) {
         var n = Be(e, t, i),
             t = Be(e + 1, t, i);
         return (Re(e) - n + t) / 7
     }
-    n("w", ["ww", 2], "wo", "week"), n("W", ["WW", 2], "Wo", "isoWeek"), t("week", "w"), t("isoWeek", "W"), i("week", 5), i("isoWeek", 5), b("w", f), b("ww", f, l), b("W", f), b("WW", f, l), Ie(["w", "ww", "W", "WW"], function(e, t, i, n) {
+    n("w", ["ww", 2], "wo", "week"), n("W", ["WW", 2], "Wo", "isoWeek"), t("week", "w"), t("isoWeek", "W"), i("week", 5), i("isoWeek", 5), w("w", f), w("ww", f, l), w("W", f), w("WW", f, l), Ie(["w", "ww", "W", "WW"], function(e, t, i, n) {
         t[n.substr(0, 1)] = c(e)
     });
 
@@ -636,11 +636,11 @@ function(e, t) {
         return this.localeData().weekdaysShort(this, e)
     }), n("dddd", 0, 0, function(e) {
         return this.localeData().weekdays(this, e)
-    }), n("e", 0, 0, "weekday"), n("E", 0, 0, "isoWeekday"), t("day", "d"), t("weekday", "e"), t("isoWeekday", "E"), i("day", 11), i("weekday", 11), i("isoWeekday", 11), b("d", f), b("e", f), b("E", f), b("dd", function(e, t) {
+    }), n("e", 0, 0, "weekday"), n("E", 0, 0, "isoWeekday"), t("day", "d"), t("weekday", "e"), t("isoWeekday", "E"), i("day", 11), i("weekday", 11), i("isoWeekday", 11), w("d", f), w("e", f), w("E", f), w("dd", function(e, t) {
         return t.weekdaysMinRegex(e)
-    }), b("ddd", function(e, t) {
+    }), w("ddd", function(e, t) {
         return t.weekdaysShortRegex(e)
-    }), b("dddd", function(e, t) {
+    }), w("dddd", function(e, t) {
         return t.weekdaysRegex(e)
     }), Ie(["dd", "ddd", "dddd"], function(e, t, i, n) {
         n = i._locale.weekdaysParse(e, n, i._strict);
@@ -686,7 +686,7 @@ function(e, t) {
         return "" + this.hours() + r(this.minutes(), 2)
     }), n("Hmmss", 0, 0, function() {
         return "" + this.hours() + r(this.minutes(), 2) + r(this.seconds(), 2)
-    }), st("a", !0), st("A", !1), t("hour", "h"), i("hour", 13), b("a", rt), b("A", rt), b("H", f), b("h", f), b("k", f), b("HH", f, l), b("hh", f, l), b("kk", f, l), b("hmm", ye), b("hmmss", ve), b("Hmm", ye), b("Hmmss", ve), x(["H", "HH"], Y), x(["k", "kk"], function(e, t, i) {
+    }), st("a", !0), st("A", !1), t("hour", "h"), i("hour", 13), w("a", rt), w("A", rt), w("H", f), w("h", f), w("k", f), w("HH", f, l), w("hh", f, l), w("kk", f, l), w("hmm", ye), w("hmmss", ve), w("Hmm", ye), w("Hmmss", ve), x(["H", "HH"], Y), x(["k", "kk"], function(e, t, i) {
         e = c(e);
         t[Y] = 24 === e ? 0 : e
     }), x(["a", "A"], function(e, t, i) {
@@ -699,14 +699,14 @@ function(e, t) {
     }), x("hmmss", function(e, t, i) {
         var n = e.length - 4,
             s = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[O] = c(e.substr(s)), _(i).bigHour = !0
+        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[L] = c(e.substr(s)), _(i).bigHour = !0
     }), x("Hmm", function(e, t, i) {
         var n = e.length - 2;
         t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n))
     }), x("Hmmss", function(e, t, i) {
         var n = e.length - 4,
             s = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[O] = c(e.substr(s))
+        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[L] = c(e.substr(s))
     });
     p = ue("Hours", !0);
     var at, ot = {
@@ -748,7 +748,7 @@ function(e, t) {
                 yy: "%d years"
             },
             months: $e,
-            monthsShort: Ne,
+            monthsShort: je,
             week: {
                 dow: 0,
                 doy: 6
@@ -824,7 +824,7 @@ function(e, t) {
 
     function mt(e) {
         var t = e._a;
-        return t && -2 === _(e).overflow && (t = t[D] < 0 || 11 < t[D] ? D : t[T] < 1 || t[T] > Ee(t[M], t[D]) ? T : t[Y] < 0 || 24 < t[Y] || 24 === t[Y] && (0 !== t[I] || 0 !== t[O] || 0 !== t[Oe]) ? Y : t[I] < 0 || 59 < t[I] ? I : t[O] < 0 || 59 < t[O] ? O : t[Oe] < 0 || 999 < t[Oe] ? Oe : -1, _(e)._overflowDayOfYear && (t < M || T < t) && (t = T), _(e)._overflowWeeks && -1 === t && (t = Le), _(e)._overflowWeekday && -1 === t && (t = Ce), _(e).overflow = t), e
+        return t && -2 === _(e).overflow && (t = t[D] < 0 || 11 < t[D] ? D : t[T] < 1 || t[T] > Ee(t[M], t[D]) ? T : t[Y] < 0 || 24 < t[Y] || 24 === t[Y] && (0 !== t[I] || 0 !== t[L] || 0 !== t[Le]) ? Y : t[I] < 0 || 59 < t[I] ? I : t[L] < 0 || 59 < t[L] ? L : t[Le] < 0 || 999 < t[Le] ? Le : -1, _(e)._overflowDayOfYear && (t < M || T < t) && (t = T), _(e)._overflowWeeks && -1 === t && (t = Oe), _(e)._overflowWeekday && -1 === t && (t = Ce), _(e).overflow = t), e
     }
     var gt = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         yt = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
@@ -844,7 +844,7 @@ function(e, t) {
             ["YYYYMM", /\d{6}/, !1],
             ["YYYY", /\d{4}/, !1]
         ],
-        wt = [
+        bt = [
             ["HH:mm:ss.SSSS", /\d\d:\d\d:\d\d\.\d+/],
             ["HH:mm:ss,SSSS", /\d\d:\d\d:\d\d,\d+/],
             ["HH:mm:ss", /\d\d:\d\d:\d\d/],
@@ -855,7 +855,7 @@ function(e, t) {
             ["HHmm", /\d\d\d\d/],
             ["HH", /\d\d/]
         ],
-        bt = /^\/?Date\((-?\d+)/i,
+        wt = /^\/?Date\((-?\d+)/i,
         kt = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/,
         xt = {
             UT: 0,
@@ -874,7 +874,7 @@ function(e, t) {
         var t, i, n, s, r, a, o = e._i,
             l = gt.exec(o) || yt.exec(o),
             o = _t.length,
-            d = wt.length;
+            d = bt.length;
         if (l) {
             for (_(e).iso = !0, t = 0, i = o; t < i; t++)
                 if (_t[t][1].exec(l[1])) {
@@ -884,8 +884,8 @@ function(e, t) {
             else {
                 if (l[3]) {
                     for (t = 0, i = d; t < i; t++)
-                        if (wt[t][1].exec(l[3])) {
-                            r = (l[2] || " ") + wt[t][0];
+                        if (bt[t][1].exec(l[3])) {
+                            r = (l[2] || " ") + bt[t][0];
                             break
                         } if (null == r) return void(e._isValid = !1)
                 }
@@ -907,7 +907,7 @@ function(e, t) {
                 if (e <= 999) return 1900 + e
             }
             return e
-        }(e), Ne.indexOf(t), parseInt(i, 10), parseInt(n, 10), parseInt(s, 10)];
+        }(e), je.indexOf(t), parseInt(i, 10), parseInt(n, 10), parseInt(s, 10)];
         return r && e.push(parseInt(r, 10)), e
     }
 
@@ -926,9 +926,9 @@ function(e, t) {
     function Yt(e) {
         var t, i, n, s, r, a, o, l, d, c, u, h = [];
         if (!e._d) {
-            for (n = e, s = new Date(m.now()), i = n._useUTC ? [s.getUTCFullYear(), s.getUTCMonth(), s.getUTCDate()] : [s.getFullYear(), s.getMonth(), s.getDate()], e._w && null == e._a[T] && null == e._a[D] && (null != (s = (n = e)._w).GG || null != s.W || null != s.E ? (l = 1, d = 4, r = Tt(s.GG, n._a[M], Qe(E(), 1, 4).year), a = Tt(s.W, 1), ((o = Tt(s.E, 1)) < 1 || 7 < o) && (c = !0)) : (l = n._locale._week.dow, d = n._locale._week.doy, u = Qe(E(), l, d), r = Tt(s.gg, n._a[M], u.year), a = Tt(s.w, u.week), null != s.d ? ((o = s.d) < 0 || 6 < o) && (c = !0) : null != s.e ? (o = s.e + l, (s.e < 0 || 6 < s.e) && (c = !0)) : o = l), a < 1 || a > L(r, l, d) ? _(n)._overflowWeeks = !0 : null != c ? _(n)._overflowWeekday = !0 : (u = Ge(r, a, o, l, d), n._a[M] = u.year, n._dayOfYear = u.dayOfYear)), null != e._dayOfYear && (s = Tt(e._a[M], i[M]), (e._dayOfYear > Re(s) || 0 === e._dayOfYear) && (_(e)._overflowDayOfYear = !0), c = Ve(s, 0, e._dayOfYear), e._a[D] = c.getUTCMonth(), e._a[T] = c.getUTCDate()), t = 0; t < 3 && null == e._a[t]; ++t) e._a[t] = h[t] = i[t];
+            for (n = e, s = new Date(m.now()), i = n._useUTC ? [s.getUTCFullYear(), s.getUTCMonth(), s.getUTCDate()] : [s.getFullYear(), s.getMonth(), s.getDate()], e._w && null == e._a[T] && null == e._a[D] && (null != (s = (n = e)._w).GG || null != s.W || null != s.E ? (l = 1, d = 4, r = Tt(s.GG, n._a[M], Ge(E(), 1, 4).year), a = Tt(s.W, 1), ((o = Tt(s.E, 1)) < 1 || 7 < o) && (c = !0)) : (l = n._locale._week.dow, d = n._locale._week.doy, u = Ge(E(), l, d), r = Tt(s.gg, n._a[M], u.year), a = Tt(s.w, u.week), null != s.d ? ((o = s.d) < 0 || 6 < o) && (c = !0) : null != s.e ? (o = s.e + l, (s.e < 0 || 6 < s.e) && (c = !0)) : o = l), a < 1 || a > O(r, l, d) ? _(n)._overflowWeeks = !0 : null != c ? _(n)._overflowWeekday = !0 : (u = Qe(r, a, o, l, d), n._a[M] = u.year, n._dayOfYear = u.dayOfYear)), null != e._dayOfYear && (s = Tt(e._a[M], i[M]), (e._dayOfYear > Re(s) || 0 === e._dayOfYear) && (_(e)._overflowDayOfYear = !0), c = Ve(s, 0, e._dayOfYear), e._a[D] = c.getUTCMonth(), e._a[T] = c.getUTCDate()), t = 0; t < 3 && null == e._a[t]; ++t) e._a[t] = h[t] = i[t];
             for (; t < 7; t++) e._a[t] = h[t] = null == e._a[t] ? 2 === t ? 1 : 0 : e._a[t];
-            24 === e._a[Y] && 0 === e._a[I] && 0 === e._a[O] && 0 === e._a[Oe] && (e._nextDay = !0, e._a[Y] = 0), e._d = (e._useUTC ? Ve : Ue).apply(null, h), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), null != e._tzm && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[Y] = 24), e._w && void 0 !== e._w.d && e._w.d !== r && (_(e).weekdayMismatch = !0)
+            24 === e._a[Y] && 0 === e._a[I] && 0 === e._a[L] && 0 === e._a[Le] && (e._nextDay = !0, e._a[Y] = 0), e._d = (e._useUTC ? Ve : Ue).apply(null, h), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), null != e._tzm && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[Y] = 24), e._w && void 0 !== e._w.d && e._w.d !== r && (_(e).weekdayMismatch = !0)
         }
     }
 
@@ -945,13 +945,13 @@ function(e, t) {
         }
     }
 
-    function Ot(e) {
+    function Lt(e) {
         var t, i, n, s = e._i,
             r = e._f;
         if (e._locale = e._locale || pt(e._l), null === s || void 0 === r && "" === s) return W({
             nullInput: !0
         });
-        if ("string" == typeof s && (e._i = s = e._locale.preparse(s)), w(s)) return new Q(mt(s));
+        if ("string" == typeof s && (e._i = s = e._locale.preparse(s)), b(s)) return new G(mt(s));
         if (P(s)) e._d = s;
         else if (g(r)) {
             var a, o, l, d, c, u, h = e,
@@ -959,12 +959,12 @@ function(e, t) {
                 p = h._f.length;
             if (0 === p) _(h).invalidFormat = !0, h._d = new Date(NaN);
             else {
-                for (d = 0; d < p; d++) c = 0, u = !1, a = G({}, h), null != h._useUTC && (a._useUTC = h._useUTC), a._f = h._f[d], It(a), R(a) && (u = !0), c = (c += _(a).charsLeftOver) + 10 * _(a).unusedTokens.length, _(a).score = c, f ? c < l && (l = c, o = a) : (null == l || c < l || u) && (l = c, o = a, u) && (f = !0);
+                for (d = 0; d < p; d++) c = 0, u = !1, a = Q({}, h), null != h._useUTC && (a._useUTC = h._useUTC), a._f = h._f[d], It(a), R(a) && (u = !0), c = (c += _(a).charsLeftOver) + 10 * _(a).unusedTokens.length, _(a).score = c, f ? c < l && (l = c, o = a) : (null == l || c < l || u) && (l = c, o = a, u) && (f = !0);
                 F(h, o || a)
             }
         } else if (r) It(e);
         else if (y(r = (s = e)._i)) s._d = new Date(m.now());
-        else P(r) ? s._d = new Date(r.valueOf()) : "string" == typeof r ? (i = s, null !== (t = bt.exec(i._i)) ? i._d = new Date(+t[1]) : (St(i), !1 === i._isValid && (delete i._isValid, Dt(i), !1 === i._isValid) && (delete i._isValid, i._strict ? i._isValid = !1 : m.createFromInputFallback(i)))) : g(r) ? (s._a = z(r.slice(0), function(e) {
+        else P(r) ? s._d = new Date(r.valueOf()) : "string" == typeof r ? (i = s, null !== (t = wt.exec(i._i)) ? i._d = new Date(+t[1]) : (St(i), !1 === i._isValid && (delete i._isValid, Dt(i), !1 === i._isValid) && (delete i._isValid, i._strict ? i._isValid = !1 : m.createFromInputFallback(i)))) : g(r) ? (s._a = z(r.slice(0), function(e) {
             return parseInt(e, 10)
         }), Yt(s)) : H(r) ? (t = s)._d || (n = void 0 === (i = le(t._i)).day ? i.date : i.day, t._a = z([i.year, i.month, n, i.hour, i.minute, i.second, i.millisecond], function(e) {
             return e && parseInt(e, 10)
@@ -972,13 +972,13 @@ function(e, t) {
         return R(e) || (e._d = null), e
     }
 
-    function Lt(e, t, i, n, s) {
+    function Ot(e, t, i, n, s) {
         var r = {};
-        return !0 !== t && !1 !== t || (n = t, t = void 0), !0 !== i && !1 !== i || (n = i, i = void 0), (H(e) && A(e) || g(e) && 0 === e.length) && (e = void 0), r._isAMomentObject = !0, r._useUTC = r._isUTC = s, r._l = i, r._i = e, r._f = t, r._strict = n, (s = new Q(mt(Ot(s = r))))._nextDay && (s.add(1, "d"), s._nextDay = void 0), s
+        return !0 !== t && !1 !== t || (n = t, t = void 0), !0 !== i && !1 !== i || (n = i, i = void 0), (H(e) && A(e) || g(e) && 0 === e.length) && (e = void 0), r._isAMomentObject = !0, r._useUTC = r._isUTC = s, r._l = i, r._i = e, r._f = t, r._strict = n, (s = new G(mt(Lt(s = r))))._nextDay && (s.add(1, "d"), s._nextDay = void 0), s
     }
 
     function E(e, t, i, n) {
-        return Lt(e, t, i, n, !1)
+        return Ot(e, t, i, n, !1)
     }
     m.createFromInputFallback = e("value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.", function(e) {
         e._d = new Date(e._i + (e._useUTC ? " UTC" : ""))
@@ -1023,11 +1023,11 @@ function(e, t) {
         }(e), this._milliseconds = +d + 1e3 * l + 6e4 * o + 1e3 * a * 60 * 60, this._days = +r + 7 * s, this._months = +n + 3 * i + 12 * t, this._data = {}, this._locale = pt(), this._bubble()
     }
 
-    function Nt(e) {
+    function jt(e) {
         return e instanceof $t
     }
 
-    function jt(e) {
+    function Nt(e) {
         return e < 0 ? -1 * Math.round(-1 * e) : Math.round(e)
     }
 
@@ -1038,7 +1038,7 @@ function(e, t) {
             return e < 0 && (e = -e, t = "-"), t + r(~~(e / 60), 2) + i + r(~~e % 60, 2)
         })
     }
-    Ht("Z", ":"), Ht("ZZ", ""), b("Z", Me), b("ZZ", Me), x(["Z", "ZZ"], function(e, t, i) {
+    Ht("Z", ":"), Ht("ZZ", ""), w("Z", Me), w("ZZ", Me), x(["Z", "ZZ"], function(e, t, i) {
         i._useUTC = !0, i._tzm = Pt(Me, e)
     });
     var At = /([\+\-]|\d\d)/gi;
@@ -1050,7 +1050,7 @@ function(e, t) {
 
     function zt(e, t) {
         var i;
-        return t._isUTC ? (t = t.clone(), i = (w(e) || P(e) ? e : E(e)).valueOf() - t.valueOf(), t._d.setTime(t._d.valueOf() + i), m.updateOffset(t, !1), t) : E(e).local()
+        return t._isUTC ? (t = t.clone(), i = (b(e) || P(e) ? e : E(e)).valueOf() - t.valueOf(), t._d.setTime(t._d.valueOf() + i), m.updateOffset(t, !1), t) : E(e).local()
     }
 
     function Ft(e) {
@@ -1066,7 +1066,7 @@ function(e, t) {
 
     function $(e, t) {
         var i, n = e;
-        return Nt(e) ? n = {
+        return jt(e) ? n = {
             ms: e._milliseconds,
             d: e._days,
             M: e._months
@@ -1075,8 +1075,8 @@ function(e, t) {
             d: c(t[T]) * i,
             h: c(t[Y]) * i,
             m: c(t[I]) * i,
-            s: c(t[O]) * i,
-            ms: c(jt(1e3 * t[Oe])) * i
+            s: c(t[L]) * i,
+            ms: c(Nt(1e3 * t[Le])) * i
         }) : (t = Ut.exec(e)) ? (i = "-" === t[1] ? -1 : 1, n = {
             y: Vt(t[2], i),
             M: Vt(t[3], i),
@@ -1093,7 +1093,7 @@ function(e, t) {
             };
             t = zt(t, e), e.isBefore(t) ? i = Bt(e, t) : ((i = Bt(t, e)).milliseconds = -i.milliseconds, i.months = -i.months);
             return i
-        }(E(n.from), E(n.to)), (n = {}).ms = t.milliseconds, n.M = t.months), i = new $t(n), Nt(e) && h(e, "_locale") && (i._locale = e._locale), Nt(e) && h(e, "_isValid") && (i._isValid = e._isValid), i
+        }(E(n.from), E(n.to)), (n = {}).ms = t.milliseconds, n.M = t.months), i = new $t(n), jt(e) && h(e, "_locale") && (i._locale = e._locale), jt(e) && h(e, "_isValid") && (i._isValid = e._isValid), i
     }
 
     function Vt(e, t) {
@@ -1106,30 +1106,30 @@ function(e, t) {
         return i.months = t.month() - e.month() + 12 * (t.year() - e.year()), e.clone().add(i.months, "M").isAfter(t) && --i.months, i.milliseconds = +t - +e.clone().add(i.months, "M"), i
     }
 
-    function Gt(n, s) {
+    function Qt(n, s) {
         return function(e, t) {
             var i;
-            return null === t || isNaN(+t) || (J(s, "moment()." + s + "(period, number) is deprecated. Please use moment()." + s + "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."), i = e, e = t, t = i), Qt(this, $(e, t), n), this
+            return null === t || isNaN(+t) || (J(s, "moment()." + s + "(period, number) is deprecated. Please use moment()." + s + "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."), i = e, e = t, t = i), Gt(this, $(e, t), n), this
         }
     }
 
-    function Qt(e, t, i, n) {
+    function Gt(e, t, i, n) {
         var s = t._milliseconds,
-            r = jt(t._days),
-            t = jt(t._months);
+            r = Nt(t._days),
+            t = Nt(t._months);
         e.isValid() && (n = null == n || n, t && Pe(e, he(e, "Month") + t * i), r && fe(e, "Date", he(e, "Date") + r * i), s && e._d.setTime(e._d.valueOf() + s * i), n) && m.updateOffset(e, r || t)
     }
     $.fn = $t.prototype, $.invalid = function() {
         return $(NaN)
     };
-    $e = Gt(1, "add"), Ze = Gt(-1, "subtract");
+    $e = Qt(1, "add"), Ze = Qt(-1, "subtract");
 
     function qt(e) {
         return "string" == typeof e || e instanceof String
     }
 
     function Zt(e) {
-        return w(e) || P(e) || qt(e) || v(e) || function(t) {
+        return b(e) || P(e) || qt(e) || v(e) || function(t) {
             var e = g(t),
                 i = !1;
             e && (i = 0 === t.filter(function(e) {
@@ -1191,19 +1191,19 @@ function(e, t) {
 
     function oi(e, t, i, n, s) {
         var r;
-        return null == e ? Qe(this, n, s).year : (r = L(e, n, s), function(e, t, i, n, s) {
-            e = Ge(e, t, i, n, s), t = Ve(e.year, 0, e.dayOfYear);
+        return null == e ? Ge(this, n, s).year : (r = O(e, n, s), function(e, t, i, n, s) {
+            e = Qe(e, t, i, n, s), t = Ve(e.year, 0, e.dayOfYear);
             return this.year(t.getUTCFullYear()), this.month(t.getUTCMonth()), this.date(t.getUTCDate()), this
         }.call(this, e, t = r < t ? r : t, i, n, s))
     }
-    n("N", 0, 0, "eraAbbr"), n("NN", 0, 0, "eraAbbr"), n("NNN", 0, 0, "eraAbbr"), n("NNNN", 0, 0, "eraName"), n("NNNNN", 0, 0, "eraNarrow"), n("y", ["y", 1], "yo", "eraYear"), n("y", ["yy", 2], 0, "eraYear"), n("y", ["yyy", 3], 0, "eraYear"), n("y", ["yyyy", 4], 0, "eraYear"), b("N", si), b("NN", si), b("NNN", si), b("NNNN", function(e, t) {
+    n("N", 0, 0, "eraAbbr"), n("NN", 0, 0, "eraAbbr"), n("NNN", 0, 0, "eraAbbr"), n("NNNN", 0, 0, "eraName"), n("NNNNN", 0, 0, "eraNarrow"), n("y", ["y", 1], "yo", "eraYear"), n("y", ["yy", 2], 0, "eraYear"), n("y", ["yyy", 3], 0, "eraYear"), n("y", ["yyyy", 4], 0, "eraYear"), w("N", si), w("NN", si), w("NNN", si), w("NNNN", function(e, t) {
         return t.erasNameRegex(e)
-    }), b("NNNNN", function(e, t) {
+    }), w("NNNNN", function(e, t) {
         return t.erasNarrowRegex(e)
     }), x(["N", "NN", "NNN", "NNNN", "NNNNN"], function(e, t, i, n) {
         n = i._locale.erasParse(e, n, i._strict);
         n ? _(i).era = n : _(i).invalidEra = e
-    }), b("y", ke), b("yy", ke), b("yyy", ke), b("yyyy", ke), b("yo", function(e, t) {
+    }), w("y", ke), w("yy", ke), w("yyy", ke), w("yyyy", ke), w("yo", function(e, t) {
         return t._eraYearOrdinalRegex || ke
     }), x(["y", "yy", "yyy", "yyyy"], M), x(["yo"], function(e, t, i, n) {
         var s;
@@ -1212,23 +1212,23 @@ function(e, t) {
         return this.weekYear() % 100
     }), n(0, ["GG", 2], 0, function() {
         return this.isoWeekYear() % 100
-    }), ai("gggg", "weekYear"), ai("ggggg", "weekYear"), ai("GGGG", "isoWeekYear"), ai("GGGGG", "isoWeekYear"), t("weekYear", "gg"), t("isoWeekYear", "GG"), i("weekYear", 1), i("isoWeekYear", 1), b("G", xe), b("g", xe), b("GG", f, l), b("gg", f, l), b("GGGG", we, me), b("gggg", we, me), b("GGGGG", be, ge), b("ggggg", be, ge), Ie(["gggg", "ggggg", "GGGG", "GGGGG"], function(e, t, i, n) {
+    }), ai("gggg", "weekYear"), ai("ggggg", "weekYear"), ai("GGGG", "isoWeekYear"), ai("GGGGG", "isoWeekYear"), t("weekYear", "gg"), t("isoWeekYear", "GG"), i("weekYear", 1), i("isoWeekYear", 1), w("G", xe), w("g", xe), w("GG", f, l), w("gg", f, l), w("GGGG", be, me), w("gggg", be, me), w("GGGGG", we, ge), w("ggggg", we, ge), Ie(["gggg", "ggggg", "GGGG", "GGGGG"], function(e, t, i, n) {
         t[n.substr(0, 2)] = c(e)
     }), Ie(["gg", "GG"], function(e, t, i, n) {
         t[n] = m.parseTwoDigitYear(e)
-    }), n("Q", 0, "Qo", "quarter"), t("quarter", "Q"), i("quarter", 7), b("Q", s), x("Q", function(e, t) {
+    }), n("Q", 0, "Qo", "quarter"), t("quarter", "Q"), i("quarter", 7), w("Q", s), x("Q", function(e, t) {
         t[D] = 3 * (c(e) - 1)
-    }), n("D", ["DD", 2], "Do", "date"), t("date", "D"), i("date", 9), b("D", f), b("DD", f, l), b("Do", function(e, t) {
+    }), n("D", ["DD", 2], "Do", "date"), t("date", "D"), i("date", 9), w("D", f), w("DD", f, l), w("Do", function(e, t) {
         return e ? t._dayOfMonthOrdinalParse || t._ordinalParse : t._dayOfMonthOrdinalParseLenient
     }), x(["D", "DD"], T), x("Do", function(e, t) {
         t[T] = c(e.match(f)[0])
     });
-    we = ue("Date", !0);
-    n("DDD", ["DDDD", 3], "DDDo", "dayOfYear"), t("dayOfYear", "DDD"), i("dayOfYear", 4), b("DDD", _e), b("DDDD", pe), x(["DDD", "DDDD"], function(e, t, i) {
+    be = ue("Date", !0);
+    n("DDD", ["DDDD", 3], "DDDo", "dayOfYear"), t("dayOfYear", "DDD"), i("dayOfYear", 4), w("DDD", _e), w("DDDD", pe), x(["DDD", "DDDD"], function(e, t, i) {
         i._dayOfYear = c(e)
-    }), n("m", ["mm", 2], 0, "minute"), t("minute", "m"), i("minute", 14), b("m", f), b("mm", f, l), x(["m", "mm"], I);
+    }), n("m", ["mm", 2], 0, "minute"), t("minute", "m"), i("minute", 14), w("m", f), w("mm", f, l), x(["m", "mm"], I);
     var li, me = ue("Minutes", !1),
-        be = (n("s", ["ss", 2], 0, "second"), t("second", "s"), i("second", 15), b("s", f), b("ss", f, l), x(["s", "ss"], O), ue("Seconds", !1));
+        we = (n("s", ["ss", 2], 0, "second"), t("second", "s"), i("second", 15), w("s", f), w("ss", f, l), x(["s", "ss"], L), ue("Seconds", !1));
     for (n("S", 0, 0, function() {
             return ~~(this.millisecond() / 100)
         }), n(0, ["SS", 2], 0, function() {
@@ -1245,14 +1245,14 @@ function(e, t) {
             return 1e5 * this.millisecond()
         }), n(0, ["SSSSSSSSS", 9], 0, function() {
             return 1e6 * this.millisecond()
-        }), t("millisecond", "ms"), i("millisecond", 16), b("S", _e, s), b("SS", _e, l), b("SSS", _e, pe), li = "SSSS"; li.length <= 9; li += "S") b(li, ke);
+        }), t("millisecond", "ms"), i("millisecond", 16), w("S", _e, s), w("SS", _e, l), w("SSS", _e, pe), li = "SSSS"; li.length <= 9; li += "S") w(li, ke);
 
     function di(e, t) {
-        t[Oe] = c(1e3 * ("0." + e))
+        t[Le] = c(1e3 * ("0." + e))
     }
     for (li = "S"; li.length <= 9; li += "S") x(li, di);
     ge = ue("Milliseconds", !1), n("z", 0, 0, "zoneAbbr"), n("zz", 0, 0, "zoneName");
-    s = Q.prototype;
+    s = G.prototype;
 
     function ci(e) {
         return e
@@ -1268,7 +1268,7 @@ function(e, t) {
             t = t && (a(t[i]) ? t[i].call(this, e) : t[i]);
         return this.format(t || this.localeData().calendar(i, this, E(e)))
     }, s.clone = function() {
-        return new Q(this)
+        return new G(this)
     }, s.diff = function(e, t, i) {
         var n, s, r;
         if (!this.isValid()) return NaN;
@@ -1340,14 +1340,14 @@ function(e, t) {
     }, s.format = function(e) {
         return e = e || (this.isUtc() ? m.defaultFormatUtc : m.defaultFormat), e = re(this, e), this.localeData().postformat(e)
     }, s.from = function(e, t) {
-        return this.isValid() && (w(e) && e.isValid() || E(e).isValid()) ? $({
+        return this.isValid() && (b(e) && e.isValid() || E(e).isValid()) ? $({
             to: this,
             from: e
         }).locale(this.locale()).humanize(!t) : this.localeData().invalidDate()
     }, s.fromNow = function(e) {
         return this.from(E(), e)
     }, s.to = function(e, t) {
-        return this.isValid() && (w(e) && e.isValid() || E(e).isValid()) ? $({
+        return this.isValid() && (b(e) && e.isValid() || E(e).isValid()) ? $({
             from: this,
             to: e
         }).locale(this.locale()).humanize(!t) : this.localeData().invalidDate()
@@ -1358,13 +1358,13 @@ function(e, t) {
     }, s.invalidAt = function() {
         return _(this).overflow
     }, s.isAfter = function(e, t) {
-        return e = w(e) ? e : E(e), !(!this.isValid() || !e.isValid()) && ("millisecond" === (t = o(t) || "millisecond") ? this.valueOf() > e.valueOf() : e.valueOf() < this.clone().startOf(t).valueOf())
+        return e = b(e) ? e : E(e), !(!this.isValid() || !e.isValid()) && ("millisecond" === (t = o(t) || "millisecond") ? this.valueOf() > e.valueOf() : e.valueOf() < this.clone().startOf(t).valueOf())
     }, s.isBefore = function(e, t) {
-        return e = w(e) ? e : E(e), !(!this.isValid() || !e.isValid()) && ("millisecond" === (t = o(t) || "millisecond") ? this.valueOf() < e.valueOf() : this.clone().endOf(t).valueOf() < e.valueOf())
+        return e = b(e) ? e : E(e), !(!this.isValid() || !e.isValid()) && ("millisecond" === (t = o(t) || "millisecond") ? this.valueOf() < e.valueOf() : this.clone().endOf(t).valueOf() < e.valueOf())
     }, s.isBetween = function(e, t, i, n) {
-        return e = w(e) ? e : E(e), t = w(t) ? t : E(t), !!(this.isValid() && e.isValid() && t.isValid()) && ("(" === (n = n || "()")[0] ? this.isAfter(e, i) : !this.isBefore(e, i)) && (")" === n[1] ? this.isBefore(t, i) : !this.isAfter(t, i))
+        return e = b(e) ? e : E(e), t = b(t) ? t : E(t), !!(this.isValid() && e.isValid() && t.isValid()) && ("(" === (n = n || "()")[0] ? this.isAfter(e, i) : !this.isBefore(e, i)) && (")" === n[1] ? this.isBefore(t, i) : !this.isAfter(t, i))
     }, s.isSame = function(e, t) {
-        var e = w(e) ? e : E(e);
+        var e = b(e) ? e : E(e);
         return !(!this.isValid() || !e.isValid()) && ("millisecond" === (t = o(t) || "millisecond") ? this.valueOf() === e.valueOf() : (e = e.valueOf(), this.clone().startOf(t).valueOf() <= e && e <= this.clone().endOf(t).valueOf()))
     }, s.isSameOrAfter = function(e, t) {
         return this.isSame(e, t) || this.isAfter(e, t)
@@ -1499,19 +1499,19 @@ function(e, t) {
         var t = this.localeData().week(this);
         return null == e ? t : this.add(7 * (e - t), "d")
     }, s.isoWeek = s.isoWeeks = function(e) {
-        var t = Qe(this, 1, 4).week;
+        var t = Ge(this, 1, 4).week;
         return null == e ? t : this.add(7 * (e - t), "d")
     }, s.weeksInYear = function() {
         var e = this.localeData()._week;
-        return L(this.year(), e.dow, e.doy)
+        return O(this.year(), e.dow, e.doy)
     }, s.weeksInWeekYear = function() {
         var e = this.localeData()._week;
-        return L(this.weekYear(), e.dow, e.doy)
+        return O(this.weekYear(), e.dow, e.doy)
     }, s.isoWeeksInYear = function() {
-        return L(this.year(), 1, 4)
+        return O(this.year(), 1, 4)
     }, s.isoWeeksInISOWeekYear = function() {
-        return L(this.isoWeekYear(), 1, 4)
-    }, s.date = we, s.day = s.days = function(e) {
+        return O(this.isoWeekYear(), 1, 4)
+    }, s.date = be, s.day = s.days = function(e) {
         var t, i, n;
         return this.isValid() ? (t = this._isUTC ? this._d.getUTCDay() : this._d.getDay(), null != e ? (i = e, n = this.localeData(), e = "string" != typeof i ? i : isNaN(i) ? "number" == typeof(i = n.weekdaysParse(i)) ? i : null : parseInt(i, 10), this.add(e - t, "d")) : t) : null != e ? this : NaN
     }, s.weekday = function(e) {
@@ -1523,14 +1523,14 @@ function(e, t) {
     }, s.dayOfYear = function(e) {
         var t = Math.round((this.clone().startOf("day") - this.clone().startOf("year")) / 864e5) + 1;
         return null == e ? t : this.add(e - t, "d")
-    }, s.hour = s.hours = p, s.minute = s.minutes = me, s.second = s.seconds = be, s.millisecond = s.milliseconds = ge, s.utcOffset = function(e, t, i) {
+    }, s.hour = s.hours = p, s.minute = s.minutes = me, s.second = s.seconds = we, s.millisecond = s.milliseconds = ge, s.utcOffset = function(e, t, i) {
         var n, s = this._offset || 0;
         if (!this.isValid()) return null != e ? this : NaN;
         if (null == e) return this._isUTC ? s : Ft(this);
         if ("string" == typeof e) {
             if (null === (e = Pt(Me, e))) return this
         } else Math.abs(e) < 16 && !i && (e *= 60);
-        return !this._isUTC && t && (n = Ft(this)), this._offset = e, this._isUTC = !0, null != n && this.add(n, "m"), s !== e && (!t || this._changeInProgress ? Qt(this, $(e - s, "m"), 1, !1) : this._changeInProgress || (this._changeInProgress = !0, m.updateOffset(this, !0), this._changeInProgress = null)), this
+        return !this._isUTC && t && (n = Ft(this)), this._offset = e, this._isUTC = !0, null != n && this.add(n, "m"), s !== e && (!t || this._changeInProgress ? Gt(this, $(e - s, "m"), 1, !1) : this._changeInProgress || (this._changeInProgress = !0, m.updateOffset(this, !0), this._changeInProgress = null)), this
     }, s.utc = function(e) {
         return this.utcOffset(0, e)
     }, s.local = function(e) {
@@ -1550,11 +1550,11 @@ function(e, t) {
         return this._isUTC ? "UTC" : ""
     }, s.zoneName = function() {
         return this._isUTC ? "Coordinated Universal Time" : ""
-    }, s.dates = e("dates accessor is deprecated. Use date instead.", we), s.months = e("months accessor is deprecated. Use month instead", ze), s.years = e("years accessor is deprecated. Use year instead", We), s.zone = e("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/", function(e, t) {
+    }, s.dates = e("dates accessor is deprecated. Use date instead.", be), s.months = e("months accessor is deprecated. Use month instead", ze), s.years = e("years accessor is deprecated. Use year instead", We), s.zone = e("moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/", function(e, t) {
         return null != e ? (this.utcOffset(e = "string" != typeof e ? -e : e, t), this) : -this.utcOffset()
     }), s.isDSTShifted = e("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information", function() {
         var e, t;
-        return y(this._isDSTShifted) && (G(e = {}, this), (e = Ot(e))._a ? (t = (e._isUTC ? d : E)(e._a), this._isDSTShifted = this.isValid() && 0 < function(e, t, i) {
+        return y(this._isDSTShifted) && (Q(e = {}, this), (e = Lt(e))._a ? (t = (e._isUTC ? d : E)(e._a), this._isDSTShifted = this.isValid() && 0 < function(e, t, i) {
             for (var n = Math.min(e.length, t.length), s = Math.abs(e.length - t.length), r = 0, a = 0; a < n; a++)(i && e[a] !== t[a] || !i && c(e[a]) !== c(t[a])) && r++;
             return r + s
         }(e._a, t.toArray())) : this._isDSTShifted = !1), this._isDSTShifted
@@ -1637,9 +1637,9 @@ function(e, t) {
     }, l.erasNarrowRegex = function(e) {
         return h(this, "_erasNarrowRegex") || ri.call(this), e ? this._erasNarrowRegex : this._erasRegex
     }, l.months = function(e, t) {
-        return e ? (g(this._months) ? this._months : this._months[(this._months.isFormat || je).test(t) ? "format" : "standalone"])[e.month()] : g(this._months) ? this._months : this._months.standalone
+        return e ? (g(this._months) ? this._months : this._months[(this._months.isFormat || Ne).test(t) ? "format" : "standalone"])[e.month()] : g(this._months) ? this._months : this._months.standalone
     }, l.monthsShort = function(e, t) {
-        return e ? (g(this._monthsShort) ? this._monthsShort : this._monthsShort[je.test(t) ? "format" : "standalone"])[e.month()] : g(this._monthsShort) ? this._monthsShort : this._monthsShort.standalone
+        return e ? (g(this._monthsShort) ? this._monthsShort : this._monthsShort[Ne.test(t) ? "format" : "standalone"])[e.month()] : g(this._monthsShort) ? this._monthsShort : this._monthsShort.standalone
     }, l.monthsParse = function(e, t, i) {
         var n, s;
         if (this._monthsParseExact) return function(e, t, i) {
@@ -1658,7 +1658,7 @@ function(e, t) {
     }, l.monthsShortRegex = function(e) {
         return this._monthsParseExact ? (h(this, "_monthsRegex") || Fe.call(this), e ? this._monthsShortStrictRegex : this._monthsShortRegex) : (h(this, "_monthsShortRegex") || (this._monthsShortRegex = He), this._monthsShortStrictRegex && e ? this._monthsShortStrictRegex : this._monthsShortRegex)
     }, l.week = function(e) {
-        return Qe(e, this._week.dow, this._week.doy).week
+        return Ge(e, this._week.dow, this._week.doy).week
     }, l.firstDayOfYear = function() {
         return this._week.doy
     }, l.firstDayOfWeek = function() {
@@ -1739,20 +1739,20 @@ function(e, t) {
             return this.as(e)
         }
     }
-    _e = _i("ms"), pe = _i("s"), $e = _i("m"), ve = _i("h"), ye = _i("d"), Ze = _i("w"), p = _i("M"), me = _i("Q"), be = _i("y");
+    _e = _i("ms"), pe = _i("s"), $e = _i("m"), ve = _i("h"), ye = _i("d"), Ze = _i("w"), p = _i("M"), me = _i("Q"), we = _i("y");
 
-    function wi(e) {
+    function bi(e) {
         return function() {
             return this.isValid() ? this._data[e] : NaN
         }
     }
-    var ge = wi("milliseconds"),
-        we = wi("seconds"),
-        We = wi("minutes"),
-        l = wi("hours"),
-        bi = wi("days"),
-        ki = wi("months"),
-        xi = wi("years");
+    var ge = bi("milliseconds"),
+        be = bi("seconds"),
+        We = bi("minutes"),
+        l = bi("hours"),
+        wi = bi("days"),
+        ki = bi("months"),
+        xi = bi("years");
     var Si = Math.round,
         Mi = {
             ss: 44,
@@ -1789,17 +1789,17 @@ function(e, t) {
         var e, t, i, n, s, r, a, o, l, d, c;
         return this.isValid() ? (e = Ti(this._milliseconds) / 1e3, t = Ti(this._days), i = Ti(this._months), (o = this.asSeconds()) ? (n = u(e / 60), s = u(n / 60), e %= 60, n %= 60, r = u(i / 12), i %= 12, a = e ? e.toFixed(3).replace(/\.?0+$/, "") : "", l = Yi(this._months) !== Yi(o) ? "-" : "", d = Yi(this._days) !== Yi(o) ? "-" : "", c = Yi(this._milliseconds) !== Yi(o) ? "-" : "", (o < 0 ? "-" : "") + "P" + (r ? l + r + "Y" : "") + (i ? l + i + "M" : "") + (t ? d + t + "D" : "") + (s || n || e ? "T" : "") + (s ? c + s + "H" : "") + (n ? c + n + "M" : "") + (e ? c + a + "S" : "")) : "P0D") : this.localeData().invalidDate()
     }
-    var N = $t.prototype;
-    return N.isValid = function() {
+    var j = $t.prototype;
+    return j.isValid = function() {
         return this._isValid
-    }, N.abs = function() {
+    }, j.abs = function() {
         var e = this._data;
         return this._milliseconds = pi(this._milliseconds), this._days = pi(this._days), this._months = pi(this._months), e.milliseconds = pi(e.milliseconds), e.seconds = pi(e.seconds), e.minutes = pi(e.minutes), e.hours = pi(e.hours), e.months = pi(e.months), e.years = pi(e.years), this
-    }, N.add = function(e, t) {
+    }, j.add = function(e, t) {
         return mi(this, e, t, 1)
-    }, N.subtract = function(e, t) {
+    }, j.subtract = function(e, t) {
         return mi(this, e, t, -1)
-    }, N.as = function(e) {
+    }, j.as = function(e) {
         if (!this.isValid()) return NaN;
         var t, i, n = this._milliseconds;
         if ("month" === (e = o(e)) || "quarter" === e || "year" === e) switch (t = this._days + n / 864e5, i = this._months + yi(t), e) {
@@ -1825,28 +1825,28 @@ function(e, t) {
             default:
                 throw new Error("Unknown unit " + e)
         }
-    }, N.asMilliseconds = _e, N.asSeconds = pe, N.asMinutes = $e, N.asHours = ve, N.asDays = ye, N.asWeeks = Ze, N.asMonths = p, N.asQuarters = me, N.asYears = be, N.valueOf = function() {
+    }, j.asMilliseconds = _e, j.asSeconds = pe, j.asMinutes = $e, j.asHours = ve, j.asDays = ye, j.asWeeks = Ze, j.asMonths = p, j.asQuarters = me, j.asYears = we, j.valueOf = function() {
         return this.isValid() ? this._milliseconds + 864e5 * this._days + this._months % 12 * 2592e6 + 31536e6 * c(this._months / 12) : NaN
-    }, N._bubble = function() {
+    }, j._bubble = function() {
         var e = this._milliseconds,
             t = this._days,
             i = this._months,
             n = this._data;
         return 0 <= e && 0 <= t && 0 <= i || e <= 0 && t <= 0 && i <= 0 || (e += 864e5 * gi(vi(i) + t), i = t = 0), n.milliseconds = e % 1e3, e = u(e / 1e3), n.seconds = e % 60, e = u(e / 60), n.minutes = e % 60, e = u(e / 60), n.hours = e % 24, t += u(e / 24), i += e = u(yi(t)), t -= gi(vi(e)), e = u(i / 12), i %= 12, n.days = t, n.months = i, n.years = e, this
-    }, N.clone = function() {
+    }, j.clone = function() {
         return $(this)
-    }, N.get = function(e) {
+    }, j.get = function(e) {
         return e = o(e), this.isValid() ? this[e + "s"]() : NaN
-    }, N.milliseconds = ge, N.seconds = we, N.minutes = We, N.hours = l, N.days = bi, N.weeks = function() {
+    }, j.milliseconds = ge, j.seconds = be, j.minutes = We, j.hours = l, j.days = wi, j.weeks = function() {
         return u(this.days() / 7)
-    }, N.months = ki, N.years = xi, N.humanize = function(e, t) {
+    }, j.months = ki, j.years = xi, j.humanize = function(e, t) {
         var i, n;
         return this.isValid() ? (i = !1, n = Mi, "object" == typeof e && (t = e, e = !1), "boolean" == typeof e && (i = e), "object" == typeof t && (n = Object.assign({}, Mi, t), null != t.s) && null == t.ss && (n.ss = t.s - 1), e = this.localeData(), t = Di(this, !i, n, e), i && (t = e.pastFuture(+this, t)), e.postformat(t)) : this.localeData().invalidDate()
-    }, N.toISOString = Ii, N.toString = Ii, N.toJSON = Ii, N.locale = Kt, N.localeData = Xt, N.toIsoString = e("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)", Ii), N.lang = Ke, n("X", 0, 0, "unix"), n("x", 0, 0, "valueOf"), b("x", xe), b("X", /[+-]?\d+(\.\d{1,3})?/), x("X", function(e, t, i) {
+    }, j.toISOString = Ii, j.toString = Ii, j.toJSON = Ii, j.locale = Kt, j.localeData = Xt, j.toIsoString = e("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)", Ii), j.lang = Ke, n("X", 0, 0, "unix"), n("x", 0, 0, "valueOf"), w("x", xe), w("X", /[+-]?\d+(\.\d{1,3})?/), x("X", function(e, t, i) {
         i._d = new Date(1e3 * parseFloat(e))
     }), x("x", function(e, t, i) {
         i._d = new Date(c(e))
-    }), m.version = "2.29.4", j = E, m.fn = s, m.min = function() {
+    }), m.version = "2.29.4", N = E, m.fn = s, m.min = function() {
         return Ct("isBefore", [].slice.call(arguments, 0))
     }, m.max = function() {
         return Ct("isAfter", [].slice.call(arguments, 0))
@@ -1856,11 +1856,11 @@ function(e, t) {
         return E(1e3 * e)
     }, m.months = function(e, t) {
         return hi(e, t, "months")
-    }, m.isDate = P, m.locale = ht, m.invalid = W, m.duration = $, m.isMoment = w, m.weekdays = function(e, t, i) {
+    }, m.isDate = P, m.locale = ht, m.invalid = W, m.duration = $, m.isMoment = b, m.weekdays = function(e, t, i) {
         return fi(e, t, i, "weekdays")
     }, m.parseZone = function() {
         return E.apply(null, arguments).parseZone()
-    }, m.localeData = pt, m.isDuration = Nt, m.monthsShort = function(e, t) {
+    }, m.localeData = pt, m.isDuration = jt, m.monthsShort = function(e, t) {
         return hi(e, t, "monthsShort")
     }, m.weekdaysMin = function(e, t, i) {
         return fi(e, t, i, "weekdaysMin")
@@ -1918,7 +1918,7 @@ function(e, t) {
         },
         relativeTime: {
             future: "mewn %s",
-            past: "%s yn Ă´l",
+            past: "%s yn ôl",
             s: "ychydig eiliadau",
             ss: "%d eiliad",
             m: "munud",
@@ -1963,9 +1963,9 @@ function(e, t) {
         monthsParse: t,
         longMonthsParse: t,
         shortMonthsParse: t,
-        weekdays: "domingo_lunes_martes_miĂŠrcoles_jueves_viernes_sĂĄbado".split("_"),
-        weekdaysShort: "dom._lun._mar._miĂŠ._jue._vie._sĂĄb.".split("_"),
-        weekdaysMin: "do_lu_ma_mi_ju_vi_sĂĄ".split("_"),
+        weekdays: "domingo_lunes_martes_miércoles_jueves_viernes_sábado".split("_"),
+        weekdaysShort: "dom._lun._mar._mié._jue._vie._sáb.".split("_"),
+        weekdaysMin: "do_lu_ma_mi_ju_vi_sá".split("_"),
         weekdaysParseExact: !0,
         longDateFormat: {
             LT: "H:mm",
@@ -1980,7 +1980,7 @@ function(e, t) {
                 return "[hoy a la" + (1 !== this.hours() ? "s" : "") + "] LT"
             },
             nextDay: function() {
-                return "[maĂąana a la" + (1 !== this.hours() ? "s" : "") + "] LT"
+                return "[mañana a la" + (1 !== this.hours() ? "s" : "") + "] LT"
             },
             nextWeek: function() {
                 return "dddd [a la" + (1 !== this.hours() ? "s" : "") + "] LT"
@@ -2002,37 +2002,37 @@ function(e, t) {
             mm: "%d minutos",
             h: "una hora",
             hh: "%d horas",
-            d: "un dĂ­a",
-            dd: "%d dĂ­as",
+            d: "un día",
+            dd: "%d días",
             w: "una semana",
             ww: "%d semanas",
             M: "un mes",
             MM: "%d meses",
-            y: "un aĂąo",
-            yy: "%d aĂąos"
+            y: "un año",
+            yy: "%d años"
         },
-        dayOfMonthOrdinalParse: /\d{1,2}Âş/,
-        ordinal: "%dÂş",
+        dayOfMonthOrdinalParse: /\d{1,2}º/,
+        ordinal: "%dº",
         week: {
             dow: 1,
             doy: 4
         },
-        invalidDate: "Fecha invĂĄlida"
+        invalidDate: "Fecha inválida"
     })
 }),
 function(e, t) {
     "object" == typeof exports && "undefined" != typeof module && "function" == typeof require ? t(require("../moment")) : "function" == typeof define && define.amd ? define(["../moment"], t) : t(e.moment)
 }(this, function(e) {
     "use strict";
-    var t = /(janv\.?|fĂŠvr\.?|mars|avr\.?|mai|juin|juil\.?|aoĂťt|sept\.?|oct\.?|nov\.?|dĂŠc\.?|janvier|fĂŠvrier|mars|avril|mai|juin|juillet|aoĂťt|septembre|octobre|novembre|dĂŠcembre)/i,
-        i = [/^janv/i, /^fĂŠvr/i, /^mars/i, /^avr/i, /^mai/i, /^juin/i, /^juil/i, /^aoĂťt/i, /^sept/i, /^oct/i, /^nov/i, /^dĂŠc/i];
+    var t = /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
+        i = [/^janv/i, /^févr/i, /^mars/i, /^avr/i, /^mai/i, /^juin/i, /^juil/i, /^août/i, /^sept/i, /^oct/i, /^nov/i, /^déc/i];
     return e.defineLocale("fr", {
-        months: "janvier_fĂŠvrier_mars_avril_mai_juin_juillet_aoĂťt_septembre_octobre_novembre_dĂŠcembre".split("_"),
-        monthsShort: "janv._fĂŠvr._mars_avr._mai_juin_juil._aoĂťt_sept._oct._nov._dĂŠc.".split("_"),
+        months: "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
+        monthsShort: "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
         monthsRegex: t,
         monthsShortRegex: t,
-        monthsStrictRegex: /^(janvier|fĂŠvrier|mars|avril|mai|juin|juillet|aoĂťt|septembre|octobre|novembre|dĂŠcembre)/i,
-        monthsShortStrictRegex: /(janv\.?|fĂŠvr\.?|mars|avr\.?|mai|juin|juil\.?|aoĂťt|sept\.?|oct\.?|nov\.?|dĂŠc\.?)/i,
+        monthsStrictRegex: /^(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)/i,
+        monthsShortStrictRegex: /(janv\.?|févr\.?|mars|avr\.?|mai|juin|juil\.?|août|sept\.?|oct\.?|nov\.?|déc\.?)/i,
         monthsParse: i,
         longMonthsParse: i,
         shortMonthsParse: i,
@@ -2049,11 +2049,11 @@ function(e, t) {
             LLLL: "dddd D MMMM YYYY HH:mm"
         },
         calendar: {
-            sameDay: "[Aujourdâhui Ă ] LT",
-            nextDay: "[Demain Ă ] LT",
-            nextWeek: "dddd [Ă ] LT",
-            lastDay: "[Hier Ă ] LT",
-            lastWeek: "dddd [dernier Ă ] LT",
+            sameDay: "[Aujourd’hui à] LT",
+            nextDay: "[Demain à] LT",
+            nextWeek: "dddd [à] LT",
+            lastDay: "[Hier à] LT",
+            lastWeek: "dddd [dernier à] LT",
             sameElse: "L"
         },
         relativeTime: {
@@ -2101,12 +2101,12 @@ function(e, t) {
 }(this, function(e) {
     "use strict";
     return e.defineLocale("ga", {
-        months: ["EanĂĄir", "Feabhra", "MĂĄrta", "AibreĂĄn", "Bealtaine", "Meitheamh", "IĂşil", "LĂşnasa", "MeĂĄn FĂłmhair", "Deireadh FĂłmhair", "Samhain", "Nollaig"],
-        monthsShort: ["Ean", "Feabh", "MĂĄrt", "Aib", "Beal", "Meith", "IĂşil", "LĂşn", "M.F.", "D.F.", "Samh", "Noll"],
+        months: ["Eanáir", "Feabhra", "Márta", "Aibreán", "Bealtaine", "Meitheamh", "Iúil", "Lúnasa", "Meán Fómhair", "Deireadh Fómhair", "Samhain", "Nollaig"],
+        monthsShort: ["Ean", "Feabh", "Márt", "Aib", "Beal", "Meith", "Iúil", "Lún", "M.F.", "D.F.", "Samh", "Noll"],
         monthsParseExact: !0,
-        weekdays: ["DĂŠ Domhnaigh", "DĂŠ Luain", "DĂŠ MĂĄirt", "DĂŠ CĂŠadaoin", "DĂŠardaoin", "DĂŠ hAoine", "DĂŠ Sathairn"],
-        weekdaysShort: ["Domh", "Luan", "MĂĄirt", "CĂŠad", "DĂŠar", "Aoine", "Sath"],
-        weekdaysMin: ["Do", "Lu", "MĂĄ", "CĂŠ", "DĂŠ", "A", "Sa"],
+        weekdays: ["Dé Domhnaigh", "Dé Luain", "Dé Máirt", "Dé Céadaoin", "Déardaoin", "Dé hAoine", "Dé Sathairn"],
+        weekdaysShort: ["Domh", "Luan", "Máirt", "Céad", "Déar", "Aoine", "Sath"],
+        weekdaysMin: ["Do", "Lu", "Má", "Cé", "Dé", "A", "Sa"],
         longDateFormat: {
             LT: "HH:mm",
             LTS: "HH:mm:ss",
@@ -2117,25 +2117,25 @@ function(e, t) {
         },
         calendar: {
             sameDay: "[Inniu ag] LT",
-            nextDay: "[AmĂĄrach ag] LT",
+            nextDay: "[Amárach ag] LT",
             nextWeek: "dddd [ag] LT",
-            lastDay: "[InnĂŠ ag] LT",
+            lastDay: "[Inné ag] LT",
             lastWeek: "dddd [seo caite] [ag] LT",
             sameElse: "L"
         },
         relativeTime: {
             future: "i %s",
-            past: "%s Ăł shin",
-            s: "cĂşpla soicind",
+            past: "%s ó shin",
+            s: "cúpla soicind",
             ss: "%d soicind",
-            m: "nĂłimĂŠad",
-            mm: "%d nĂłimĂŠad",
+            m: "nóiméad",
+            mm: "%d nóiméad",
             h: "uair an chloig",
             hh: "%d uair an chloig",
-            d: "lĂĄ",
-            dd: "%d lĂĄ",
-            M: "mĂ­",
-            MM: "%d mĂ­onna",
+            d: "lá",
+            dd: "%d lá",
+            M: "mí",
+            MM: "%d míonna",
             y: "bliain",
             yy: "%d bliain"
         },
@@ -2157,120 +2157,120 @@ function(e, t) {
         eras: [{
             since: "2019-05-01",
             offset: 1,
-            name: "äť¤ĺ",
-            narrow: "ăż",
+            name: "令和",
+            narrow: "㋿",
             abbr: "R"
         }, {
             since: "1989-01-08",
             until: "2019-04-30",
             offset: 1,
-            name: "ĺšłć",
-            narrow: "ăť",
+            name: "平成",
+            narrow: "㍻",
             abbr: "H"
         }, {
             since: "1926-12-25",
             until: "1989-01-07",
             offset: 1,
-            name: "ć­ĺ",
-            narrow: "ăź",
+            name: "昭和",
+            narrow: "㍼",
             abbr: "S"
         }, {
             since: "1912-07-30",
             until: "1926-12-24",
             offset: 1,
-            name: "ĺ¤§ć­Ł",
-            narrow: "ă˝",
+            name: "大正",
+            narrow: "㍽",
             abbr: "T"
         }, {
             since: "1873-01-01",
             until: "1912-07-29",
             offset: 6,
-            name: "ćć˛ť",
-            narrow: "ăž",
+            name: "明治",
+            narrow: "㍾",
             abbr: "M"
         }, {
             since: "0001-01-01",
             until: "1873-12-31",
             offset: 1,
-            name: "čĽżćŚ",
+            name: "西暦",
             narrow: "AD",
             abbr: "AD"
         }, {
             since: "0000-12-31",
             until: -1 / 0,
             offset: 1,
-            name: "ç´ĺĺ",
+            name: "紀元前",
             narrow: "BC",
             abbr: "BC"
         }],
-        eraYearOrdinalRegex: /(ĺ|\d+)ĺš´/,
+        eraYearOrdinalRegex: /(元|\d+)年/,
         eraYearOrdinalParse: function(e, t) {
-            return "ĺ" === t[1] ? 1 : parseInt(t[1] || e, 10)
+            return "元" === t[1] ? 1 : parseInt(t[1] || e, 10)
         },
-        months: "1ć_2ć_3ć_4ć_5ć_6ć_7ć_8ć_9ć_10ć_11ć_12ć".split("_"),
-        monthsShort: "1ć_2ć_3ć_4ć_5ć_6ć_7ć_8ć_9ć_10ć_11ć_12ć".split("_"),
-        weekdays: "ćĽććĽ_ćććĽ_çŤććĽ_ć°´ććĽ_ć¨ććĽ_éććĽ_ĺććĽ".split("_"),
-        weekdaysShort: "ćĽ_ć_çŤ_ć°´_ć¨_é_ĺ".split("_"),
-        weekdaysMin: "ćĽ_ć_çŤ_ć°´_ć¨_é_ĺ".split("_"),
+        months: "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
+        monthsShort: "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
+        weekdays: "日曜日_月曜日_火曜日_水曜日_木曜日_金曜日_土曜日".split("_"),
+        weekdaysShort: "日_月_火_水_木_金_土".split("_"),
+        weekdaysMin: "日_月_火_水_木_金_土".split("_"),
         longDateFormat: {
             LT: "HH:mm",
             LTS: "HH:mm:ss",
             L: "YYYY/MM/DD",
-            LL: "YYYYĺš´MćDćĽ",
-            LLL: "YYYYĺš´MćDćĽ HH:mm",
-            LLLL: "YYYYĺš´MćDćĽ dddd HH:mm",
+            LL: "YYYY年M月D日",
+            LLL: "YYYY年M月D日 HH:mm",
+            LLLL: "YYYY年M月D日 dddd HH:mm",
             l: "YYYY/MM/DD",
-            ll: "YYYYĺš´MćDćĽ",
-            lll: "YYYYĺš´MćDćĽ HH:mm",
-            llll: "YYYYĺš´MćDćĽ(ddd) HH:mm"
+            ll: "YYYY年M月D日",
+            lll: "YYYY年M月D日 HH:mm",
+            llll: "YYYY年M月D日(ddd) HH:mm"
         },
-        meridiemParse: /ĺĺ|ĺĺž/i,
+        meridiemParse: /午前|午後/i,
         isPM: function(e) {
-            return "ĺĺž" === e
+            return "午後" === e
         },
         meridiem: function(e, t, i) {
-            return e < 12 ? "ĺĺ" : "ĺĺž"
+            return e < 12 ? "午前" : "午後"
         },
         calendar: {
-            sameDay: "[äťćĽ] LT",
-            nextDay: "[ććĽ] LT",
+            sameDay: "[今日] LT",
+            nextDay: "[明日] LT",
             nextWeek: function(e) {
-                return e.week() !== this.week() ? "[ćĽéą]dddd LT" : "dddd LT"
+                return e.week() !== this.week() ? "[来週]dddd LT" : "dddd LT"
             },
-            lastDay: "[ć¨ćĽ] LT",
+            lastDay: "[昨日] LT",
             lastWeek: function(e) {
-                return this.week() !== e.week() ? "[ĺéą]dddd LT" : "dddd LT"
+                return this.week() !== e.week() ? "[先週]dddd LT" : "dddd LT"
             },
             sameElse: "L"
         },
-        dayOfMonthOrdinalParse: /\d{1,2}ćĽ/,
+        dayOfMonthOrdinalParse: /\d{1,2}日/,
         ordinal: function(e, t) {
             switch (t) {
                 case "y":
-                    return 1 === e ? "ĺĺš´" : e + "ĺš´";
+                    return 1 === e ? "元年" : e + "年";
                 case "d":
                 case "D":
                 case "DDD":
-                    return e + "ćĽ";
+                    return e + "日";
                 default:
                     return e
             }
         },
         relativeTime: {
-            future: "%sĺž",
-            past: "%sĺ",
-            s: "ć°ç§",
-            ss: "%dç§",
-            m: "1ĺ",
-            mm: "%dĺ",
-            h: "1ćé",
-            hh: "%dćé",
-            d: "1ćĽ",
-            dd: "%dćĽ",
-            M: "1ăść",
-            MM: "%dăść",
-            y: "1ĺš´",
-            yy: "%dĺš´"
+            future: "%s後",
+            past: "%s前",
+            s: "数秒",
+            ss: "%d秒",
+            m: "1分",
+            mm: "%d分",
+            h: "1時間",
+            hh: "%d時間",
+            d: "1日",
+            dd: "%d日",
+            M: "1ヶ月",
+            MM: "%dヶ月",
+            y: "1年",
+            yy: "%d年"
         }
     })
 }),
@@ -2312,9 +2312,9 @@ function(e, t) {
         months: "januar_februar_marec_april_maj_junij_julij_avgust_september_oktober_november_december".split("_"),
         monthsShort: "jan._feb._mar._apr._maj._jun._jul._avg._sep._okt._nov._dec.".split("_"),
         monthsParseExact: !0,
-        weekdays: "nedelja_ponedeljek_torek_sreda_Äetrtek_petek_sobota".split("_"),
-        weekdaysShort: "ned._pon._tor._sre._Äet._pet._sob.".split("_"),
-        weekdaysMin: "ne_po_to_sr_Äe_pe_so".split("_"),
+        weekdays: "nedelja_ponedeljek_torek_sreda_četrtek_petek_sobota".split("_"),
+        weekdaysShort: "ned._pon._tor._sre._čet._pet._sob.".split("_"),
+        weekdaysMin: "ne_po_to_sr_če_pe_so".split("_"),
         weekdaysParseExact: !0,
         longDateFormat: {
             LT: "H:mm",
@@ -2342,26 +2342,26 @@ function(e, t) {
                         return "[v] dddd [ob] LT"
                 }
             },
-            lastDay: "[vÄeraj ob] LT",
+            lastDay: "[včeraj ob] LT",
             lastWeek: function() {
                 switch (this.day()) {
                     case 0:
-                        return "[prejĹĄnjo] [nedeljo] [ob] LT";
+                        return "[prejšnjo] [nedeljo] [ob] LT";
                     case 3:
-                        return "[prejĹĄnjo] [sredo] [ob] LT";
+                        return "[prejšnjo] [sredo] [ob] LT";
                     case 6:
-                        return "[prejĹĄnjo] [soboto] [ob] LT";
+                        return "[prejšnjo] [soboto] [ob] LT";
                     case 1:
                     case 2:
                     case 4:
                     case 5:
-                        return "[prejĹĄnji] dddd [ob] LT"
+                        return "[prejšnji] dddd [ob] LT"
                 }
             },
             sameElse: "L"
         },
         relativeTime: {
-            future: "Äez %s",
+            future: "čez %s",
             past: "pred %s",
             s: t,
             ss: t,
@@ -2389,10 +2389,10 @@ function(e, t) {
 }(this, function(e) {
     "use strict";
     return e.defineLocale("vi", {
-        months: "thĂĄng 1_thĂĄng 2_thĂĄng 3_thĂĄng 4_thĂĄng 5_thĂĄng 6_thĂĄng 7_thĂĄng 8_thĂĄng 9_thĂĄng 10_thĂĄng 11_thĂĄng 12".split("_"),
+        months: "tháng 1_tháng 2_tháng 3_tháng 4_tháng 5_tháng 6_tháng 7_tháng 8_tháng 9_tháng 10_tháng 11_tháng 12".split("_"),
         monthsShort: "Thg 01_Thg 02_Thg 03_Thg 04_Thg 05_Thg 06_Thg 07_Thg 08_Thg 09_Thg 10_Thg 11_Thg 12".split("_"),
         monthsParseExact: !0,
-        weekdays: "cháť§ nháş­t_tháťŠ hai_tháťŠ ba_tháťŠ tĆ°_tháťŠ nÄm_tháťŠ sĂĄu_tháťŠ báşŁy".split("_"),
+        weekdays: "chủ nhật_thứ hai_thứ ba_thứ tư_thứ năm_thứ sáu_thứ bảy".split("_"),
         weekdaysShort: "CN_T2_T3_T4_T5_T6_T7".split("_"),
         weekdaysMin: "CN_T2_T3_T4_T5_T6_T7".split("_"),
         weekdaysParseExact: !0,
@@ -2407,39 +2407,39 @@ function(e, t) {
             LT: "HH:mm",
             LTS: "HH:mm:ss",
             L: "DD/MM/YYYY",
-            LL: "D MMMM [nÄm] YYYY",
-            LLL: "D MMMM [nÄm] YYYY HH:mm",
-            LLLL: "dddd, D MMMM [nÄm] YYYY HH:mm",
+            LL: "D MMMM [năm] YYYY",
+            LLL: "D MMMM [năm] YYYY HH:mm",
+            LLLL: "dddd, D MMMM [năm] YYYY HH:mm",
             l: "DD/M/YYYY",
             ll: "D MMM YYYY",
             lll: "D MMM YYYY HH:mm",
             llll: "ddd, D MMM YYYY HH:mm"
         },
         calendar: {
-            sameDay: "[HĂ´m nay lĂşc] LT",
-            nextDay: "[NgĂ y mai lĂşc] LT",
-            nextWeek: "dddd [tuáş§n táťi lĂşc] LT",
-            lastDay: "[HĂ´m qua lĂşc] LT",
-            lastWeek: "dddd [tuáş§n trĆ°áťc lĂşc] LT",
+            sameDay: "[Hôm nay lúc] LT",
+            nextDay: "[Ngày mai lúc] LT",
+            nextWeek: "dddd [tuần tới lúc] LT",
+            lastDay: "[Hôm qua lúc] LT",
+            lastWeek: "dddd [tuần trước lúc] LT",
             sameElse: "L"
         },
         relativeTime: {
-            future: "%s táťi",
-            past: "%s trĆ°áťc",
-            s: "vĂ i giĂ˘y",
-            ss: "%d giĂ˘y",
-            m: "máťt phĂşt",
-            mm: "%d phĂşt",
-            h: "máťt giáť",
-            hh: "%d giáť",
-            d: "máťt ngĂ y",
-            dd: "%d ngĂ y",
-            w: "máťt tuáş§n",
-            ww: "%d tuáş§n",
-            M: "máťt thĂĄng",
-            MM: "%d thĂĄng",
-            y: "máťt nÄm",
-            yy: "%d nÄm"
+            future: "%s tới",
+            past: "%s trước",
+            s: "vài giây",
+            ss: "%d giây",
+            m: "một phút",
+            mm: "%d phút",
+            h: "một giờ",
+            hh: "%d giờ",
+            d: "một ngày",
+            dd: "%d ngày",
+            w: "một tuần",
+            ww: "%d tuần",
+            M: "một tháng",
+            MM: "%d tháng",
+            y: "một năm",
+            yy: "%d năm"
         },
         dayOfMonthOrdinalParse: /\d{1,2}/,
         ordinal: function(e) {
@@ -2456,76 +2456,76 @@ function(e, t) {
 }(this, function(e) {
     "use strict";
     return e.defineLocale("zh", {
-        months: "ä¸ć_äşć_ä¸ć_ĺć_äşć_ĺ­ć_ä¸ć_ĺŤć_äšć_ĺć_ĺä¸ć_ĺäşć".split("_"),
-        monthsShort: "1ć_2ć_3ć_4ć_5ć_6ć_7ć_8ć_9ć_10ć_11ć_12ć".split("_"),
-        weekdays: "ćććĽ_ććä¸_ććäş_ććä¸_ććĺ_ććäş_ććĺ­".split("_"),
-        weekdaysShort: "ĺ¨ćĽ_ĺ¨ä¸_ĺ¨äş_ĺ¨ä¸_ĺ¨ĺ_ĺ¨äş_ĺ¨ĺ­".split("_"),
-        weekdaysMin: "ćĽ_ä¸_äş_ä¸_ĺ_äş_ĺ­".split("_"),
+        months: "一月_二月_三月_四月_五月_六月_七月_八月_九月_十月_十一月_十二月".split("_"),
+        monthsShort: "1月_2月_3月_4月_5月_6月_7月_8月_9月_10月_11月_12月".split("_"),
+        weekdays: "星期日_星期一_星期二_星期三_星期四_星期五_星期六".split("_"),
+        weekdaysShort: "周日_周一_周二_周三_周四_周五_周六".split("_"),
+        weekdaysMin: "日_一_二_三_四_五_六".split("_"),
         longDateFormat: {
             LT: "HH:mm",
             LTS: "HH:mm:ss",
             L: "YYYY/MM/DD",
-            LL: "YYYYĺš´MćDćĽ",
-            LLL: "YYYYĺš´MćDćĽAhçšmmĺ",
-            LLLL: "YYYYĺš´MćDćĽddddAhçšmmĺ",
+            LL: "YYYY年M月D日",
+            LLL: "YYYY年M月D日Ah点mm分",
+            LLLL: "YYYY年M月D日ddddAh点mm分",
             l: "YYYY/M/D",
-            ll: "YYYYĺš´MćDćĽ",
-            lll: "YYYYĺš´MćDćĽ HH:mm",
-            llll: "YYYYĺš´MćDćĽdddd HH:mm"
+            ll: "YYYY年M月D日",
+            lll: "YYYY年M月D日 HH:mm",
+            llll: "YYYY年M月D日dddd HH:mm"
         },
-        meridiemParse: /ĺć¨|ćŠä¸|ä¸ĺ|ä¸­ĺ|ä¸ĺ|ćä¸/,
+        meridiemParse: /凌晨|早上|上午|中午|下午|晚上/,
         meridiemHour: function(e, t) {
-            return 12 === e && (e = 0), "ĺć¨" === t || "ćŠä¸" === t || "ä¸ĺ" === t || "ä¸ĺ" !== t && "ćä¸" !== t && 11 <= e ? e : e + 12
+            return 12 === e && (e = 0), "凌晨" === t || "早上" === t || "上午" === t || "下午" !== t && "晚上" !== t && 11 <= e ? e : e + 12
         },
         meridiem: function(e, t, i) {
             e = 100 * e + t;
-            return e < 600 ? "ĺć¨" : e < 900 ? "ćŠä¸" : e < 1130 ? "ä¸ĺ" : e < 1230 ? "ä¸­ĺ" : e < 1800 ? "ä¸ĺ" : "ćä¸"
+            return e < 600 ? "凌晨" : e < 900 ? "早上" : e < 1130 ? "上午" : e < 1230 ? "中午" : e < 1800 ? "下午" : "晚上"
         },
         calendar: {
-            sameDay: "[äťĺ¤Š]LT",
-            nextDay: "[ćĺ¤Š]LT",
+            sameDay: "[今天]LT",
+            nextDay: "[明天]LT",
             nextWeek: function(e) {
-                return e.week() !== this.week() ? "[ä¸]dddLT" : "[ćŹ]dddLT"
+                return e.week() !== this.week() ? "[下]dddLT" : "[本]dddLT"
             },
-            lastDay: "[ć¨ĺ¤Š]LT",
+            lastDay: "[昨天]LT",
             lastWeek: function(e) {
-                return this.week() !== e.week() ? "[ä¸]dddLT" : "[ćŹ]dddLT"
+                return this.week() !== e.week() ? "[上]dddLT" : "[本]dddLT"
             },
             sameElse: "L"
         },
-        dayOfMonthOrdinalParse: /\d{1,2}(ćĽ|ć|ĺ¨)/,
+        dayOfMonthOrdinalParse: /\d{1,2}(日|月|周)/,
         ordinal: function(e, t) {
             switch (t) {
                 case "d":
                 case "D":
                 case "DDD":
-                    return e + "ćĽ";
+                    return e + "日";
                 case "M":
-                    return e + "ć";
+                    return e + "月";
                 case "w":
                 case "W":
-                    return e + "ĺ¨";
+                    return e + "周";
                 default:
                     return e
             }
         },
         relativeTime: {
-            future: "%sĺ",
-            past: "%sĺ",
-            s: "ĺ ç§",
-            ss: "%d ç§",
-            m: "1 ĺé",
-            mm: "%d ĺé",
-            h: "1 ĺ°ćś",
-            hh: "%d ĺ°ćś",
-            d: "1 ĺ¤Š",
-            dd: "%d ĺ¤Š",
-            w: "1 ĺ¨",
-            ww: "%d ĺ¨",
-            M: "1 ä¸Şć",
-            MM: "%d ä¸Şć",
-            y: "1 ĺš´",
-            yy: "%d ĺš´"
+            future: "%s后",
+            past: "%s前",
+            s: "几秒",
+            ss: "%d 秒",
+            m: "1 分钟",
+            mm: "%d 分钟",
+            h: "1 小时",
+            hh: "%d 小时",
+            d: "1 天",
+            dd: "%d 天",
+            w: "1 周",
+            ww: "%d 周",
+            M: "1 个月",
+            MM: "%d 个月",
+            y: "1 年",
+            yy: "%d 年"
         },
         week: {
             dow: 1,
@@ -2536,9 +2536,9 @@ function(e, t) {
 function(e, t) {
     void 0 === e && void 0 !== window && (e = window), "function" == typeof define && define.amd ? define(["jquery"], t) : "object" == typeof module && module.exports ? module.exports = t(require("jquery")) : t(e.jQuery)
 }(this, function(e) {
-    ! function(w) {
+    ! function(b) {
         "use strict";
-        var j = ["sanitize", "whiteList", "sanitizeFn"],
+        var N = ["sanitize", "whiteList", "sanitizeFn"],
             H = ["background", "cite", "href", "itemtype", "longdesc", "poster", "src", "xlink:href"],
             A = {
                 "*": ["class", "dir", "id", "lang", "role", "tabindex", "style", /^aria-[\w-]*$/i],
@@ -2587,8 +2587,8 @@ function(e, t) {
                             var m = u[f];
                             ! function(e, t) {
                                 var i = e.nodeName.toLowerCase();
-                                if (-1 !== w.inArray(i, t)) return -1 === w.inArray(i, H) || Boolean(e.nodeValue.match(P) || e.nodeValue.match(z));
-                                for (var n = w(t).filter(function(e, t) {
+                                if (-1 !== b.inArray(i, t)) return -1 === b.inArray(i, H) || Boolean(e.nodeValue.match(P) || e.nodeValue.match(z));
+                                for (var n = b(t).filter(function(e, t) {
                                         return t instanceof RegExp
                                     }), s = 0, r = n.length; s < r; s++)
                                     if (i.match(n[s])) return 1
@@ -2602,7 +2602,7 @@ function(e, t) {
                 i = i.Element[e],
                 n = Object,
                 s = function() {
-                    var i = w(this);
+                    var i = b(this);
                     return {
                         add: function(e) {
                             return e = Array.prototype.slice.call(arguments).join(" "), i.addClass(e)
@@ -2649,7 +2649,7 @@ function(e, t) {
             return !0
         }
 
-        function b(e, t) {
+        function w(e, t) {
             var i, n = e.selectedOptions,
                 s = [];
             if (t) {
@@ -2690,10 +2690,10 @@ function(e, t) {
         });
         var u = {
                 useDefault: !1,
-                _set: w.valHooks.select.set
+                _set: b.valHooks.select.set
             },
-            x = (w.valHooks.select.set = function(e, t) {
-                return t && !u.useDefault && w(e).data("selected", !0), u._set.apply(this, arguments)
+            x = (b.valHooks.select.set = function(e, t) {
+                return t && !u.useDefault && b(e).data("selected", !0), u._set.apply(this, arguments)
             }, null),
             F = function() {
                 try {
@@ -2715,203 +2715,203 @@ function(e, t) {
         function y(e) {
             return parseInt(e, 10) || 0
         }
-        w.fn.triggerNative = function(e) {
+        b.fn.triggerNative = function(e) {
             var t, i = this[0];
             i.dispatchEvent ? (F ? t = new Event(e, {
                 bubbles: !0
             }) : (t = document.createEvent("Event")).initEvent(e, !0, !1), i.dispatchEvent(t)) : i.fireEvent ? ((t = document.createEventObject()).eventType = e, i.fireEvent("on" + e, t)) : this.trigger(e)
         };
         var R = {
-                "Ă": "A",
-                "Ă": "A",
-                "Ă": "A",
-                "Ă": "A",
-                "Ă": "A",
-                "Ă": "A",
-                "Ă ": "a",
-                "ĂĄ": "a",
-                "Ă˘": "a",
-                "ĂŁ": "a",
-                "Ă¤": "a",
-                "ĂĽ": "a",
-                "Ă": "C",
-                "Ă§": "c",
-                "Ă": "D",
-                "Ă°": "d",
-                "Ă": "E",
-                "Ă": "E",
-                "Ă": "E",
-                "Ă": "E",
-                "Ă¨": "e",
-                "ĂŠ": "e",
-                "ĂŞ": "e",
-                "ĂŤ": "e",
-                "Ă": "I",
-                "Ă": "I",
-                "Ă": "I",
-                "Ă": "I",
-                "ĂŹ": "i",
-                "Ă­": "i",
-                "ĂŽ": "i",
-                "ĂŻ": "i",
-                "Ă": "N",
-                "Ăą": "n",
-                "Ă": "O",
-                "Ă": "O",
-                "Ă": "O",
-                "Ă": "O",
-                "Ă": "O",
-                "Ă": "O",
-                "Ă˛": "o",
-                "Ăł": "o",
-                "Ă´": "o",
-                "Ăľ": "o",
-                "Ăś": "o",
-                "Ă¸": "o",
-                "Ă": "U",
-                "Ă": "U",
-                "Ă": "U",
-                "Ă": "U",
-                "Ăš": "u",
-                "Ăş": "u",
-                "Ăť": "u",
-                "Ăź": "u",
-                "Ă": "Y",
-                "Ă˝": "y",
-                "Ăż": "y",
-                "Ă": "Ae",
-                "ĂŚ": "ae",
-                "Ă": "Th",
-                "Ăž": "th",
-                "Ă": "ss",
-                "Ä": "A",
-                "Ä": "A",
-                "Ä": "A",
-                "Ä": "a",
-                "Ä": "a",
-                "Ä": "a",
-                "Ä": "C",
-                "Ä": "C",
-                "Ä": "C",
-                "Ä": "C",
-                "Ä": "c",
-                "Ä": "c",
-                "Ä": "c",
-                "Ä": "c",
-                "Ä": "D",
-                "Ä": "D",
-                "Ä": "d",
-                "Ä": "d",
-                "Ä": "E",
-                "Ä": "E",
-                "Ä": "E",
-                "Ä": "E",
-                "Ä": "E",
-                "Ä": "e",
-                "Ä": "e",
-                "Ä": "e",
-                "Ä": "e",
-                "Ä": "e",
-                "Ä": "G",
-                "Ä": "G",
-                "Ä ": "G",
-                "Ä˘": "G",
-                "Ä": "g",
-                "Ä": "g",
-                "ÄĄ": "g",
-                "ÄŁ": "g",
-                "Ä¤": "H",
-                "ÄŚ": "H",
-                "ÄĽ": "h",
-                "Ä§": "h",
-                "Ä¨": "I",
-                "ÄŞ": "I",
-                "ÄŹ": "I",
-                "ÄŽ": "I",
-                "Ä°": "I",
-                "ÄŠ": "i",
-                "ÄŤ": "i",
-                "Ä­": "i",
-                "ÄŻ": "i",
-                "Äą": "i",
-                "Ä´": "J",
-                "Äľ": "j",
-                "Äś": "K",
-                "Äˇ": "k",
-                "Ä¸": "k",
-                "Äš": "L",
-                "Äť": "L",
-                "Ä˝": "L",
-                "Äż": "L",
-                "Ĺ": "L",
-                "Äş": "l",
-                "Äź": "l",
-                "Äž": "l",
-                "Ĺ": "l",
-                "Ĺ": "l",
-                "Ĺ": "N",
-                "Ĺ": "N",
-                "Ĺ": "N",
-                "Ĺ": "N",
-                "Ĺ": "n",
-                "Ĺ": "n",
-                "Ĺ": "n",
-                "Ĺ": "n",
-                "Ĺ": "O",
-                "Ĺ": "O",
-                "Ĺ": "O",
-                "Ĺ": "o",
-                "Ĺ": "o",
-                "Ĺ": "o",
-                "Ĺ": "R",
-                "Ĺ": "R",
-                "Ĺ": "R",
-                "Ĺ": "r",
-                "Ĺ": "r",
-                "Ĺ": "r",
-                "Ĺ": "S",
-                "Ĺ": "S",
-                "Ĺ": "S",
-                "Ĺ ": "S",
-                "Ĺ": "s",
-                "Ĺ": "s",
-                "Ĺ": "s",
-                "ĹĄ": "s",
-                "Ĺ˘": "T",
-                "Ĺ¤": "T",
-                "ĹŚ": "T",
-                "ĹŁ": "t",
-                "ĹĽ": "t",
-                "Ĺ§": "t",
-                "Ĺ¨": "U",
-                "ĹŞ": "U",
-                "ĹŹ": "U",
-                "ĹŽ": "U",
-                "Ĺ°": "U",
-                "Ĺ˛": "U",
-                "ĹŠ": "u",
-                "ĹŤ": "u",
-                "Ĺ­": "u",
-                "ĹŻ": "u",
-                "Ĺą": "u",
-                "Ĺł": "u",
-                "Ĺ´": "W",
-                "Ĺľ": "w",
-                "Ĺś": "Y",
-                "Ĺˇ": "y",
-                "Ĺ¸": "Y",
-                "Ĺš": "Z",
-                "Ĺť": "Z",
-                "Ĺ˝": "Z",
-                "Ĺş": "z",
-                "Ĺź": "z",
-                "Ĺž": "z",
-                "Ä˛": "IJ",
-                "Äł": "ij",
-                "Ĺ": "Oe",
-                "Ĺ": "oe",
-                "Ĺ": "'n",
-                "Ĺż": "s"
+                "À": "A",
+                "Á": "A",
+                "Â": "A",
+                "Ã": "A",
+                "Ä": "A",
+                "Å": "A",
+                "à": "a",
+                "á": "a",
+                "â": "a",
+                "ã": "a",
+                "ä": "a",
+                "å": "a",
+                "Ç": "C",
+                "ç": "c",
+                "Ð": "D",
+                "ð": "d",
+                "È": "E",
+                "É": "E",
+                "Ê": "E",
+                "Ë": "E",
+                "è": "e",
+                "é": "e",
+                "ê": "e",
+                "ë": "e",
+                "Ì": "I",
+                "Í": "I",
+                "Î": "I",
+                "Ï": "I",
+                "ì": "i",
+                "í": "i",
+                "î": "i",
+                "ï": "i",
+                "Ñ": "N",
+                "ñ": "n",
+                "Ò": "O",
+                "Ó": "O",
+                "Ô": "O",
+                "Õ": "O",
+                "Ö": "O",
+                "Ø": "O",
+                "ò": "o",
+                "ó": "o",
+                "ô": "o",
+                "õ": "o",
+                "ö": "o",
+                "ø": "o",
+                "Ù": "U",
+                "Ú": "U",
+                "Û": "U",
+                "Ü": "U",
+                "ù": "u",
+                "ú": "u",
+                "û": "u",
+                "ü": "u",
+                "Ý": "Y",
+                "ý": "y",
+                "ÿ": "y",
+                "Æ": "Ae",
+                "æ": "ae",
+                "Þ": "Th",
+                "þ": "th",
+                "ß": "ss",
+                "Ā": "A",
+                "Ă": "A",
+                "Ą": "A",
+                "ā": "a",
+                "ă": "a",
+                "ą": "a",
+                "Ć": "C",
+                "Ĉ": "C",
+                "Ċ": "C",
+                "Č": "C",
+                "ć": "c",
+                "ĉ": "c",
+                "ċ": "c",
+                "č": "c",
+                "Ď": "D",
+                "Đ": "D",
+                "ď": "d",
+                "đ": "d",
+                "Ē": "E",
+                "Ĕ": "E",
+                "Ė": "E",
+                "Ę": "E",
+                "Ě": "E",
+                "ē": "e",
+                "ĕ": "e",
+                "ė": "e",
+                "ę": "e",
+                "ě": "e",
+                "Ĝ": "G",
+                "Ğ": "G",
+                "Ġ": "G",
+                "Ģ": "G",
+                "ĝ": "g",
+                "ğ": "g",
+                "ġ": "g",
+                "ģ": "g",
+                "Ĥ": "H",
+                "Ħ": "H",
+                "ĥ": "h",
+                "ħ": "h",
+                "Ĩ": "I",
+                "Ī": "I",
+                "Ĭ": "I",
+                "Į": "I",
+                "İ": "I",
+                "ĩ": "i",
+                "ī": "i",
+                "ĭ": "i",
+                "į": "i",
+                "ı": "i",
+                "Ĵ": "J",
+                "ĵ": "j",
+                "Ķ": "K",
+                "ķ": "k",
+                "ĸ": "k",
+                "Ĺ": "L",
+                "Ļ": "L",
+                "Ľ": "L",
+                "Ŀ": "L",
+                "Ł": "L",
+                "ĺ": "l",
+                "ļ": "l",
+                "ľ": "l",
+                "ŀ": "l",
+                "ł": "l",
+                "Ń": "N",
+                "Ņ": "N",
+                "Ň": "N",
+                "Ŋ": "N",
+                "ń": "n",
+                "ņ": "n",
+                "ň": "n",
+                "ŋ": "n",
+                "Ō": "O",
+                "Ŏ": "O",
+                "Ő": "O",
+                "ō": "o",
+                "ŏ": "o",
+                "ő": "o",
+                "Ŕ": "R",
+                "Ŗ": "R",
+                "Ř": "R",
+                "ŕ": "r",
+                "ŗ": "r",
+                "ř": "r",
+                "Ś": "S",
+                "Ŝ": "S",
+                "Ş": "S",
+                "Š": "S",
+                "ś": "s",
+                "ŝ": "s",
+                "ş": "s",
+                "š": "s",
+                "Ţ": "T",
+                "Ť": "T",
+                "Ŧ": "T",
+                "ţ": "t",
+                "ť": "t",
+                "ŧ": "t",
+                "Ũ": "U",
+                "Ū": "U",
+                "Ŭ": "U",
+                "Ů": "U",
+                "Ű": "U",
+                "Ų": "U",
+                "ũ": "u",
+                "ū": "u",
+                "ŭ": "u",
+                "ů": "u",
+                "ű": "u",
+                "ų": "u",
+                "Ŵ": "W",
+                "ŵ": "w",
+                "Ŷ": "Y",
+                "ŷ": "y",
+                "Ÿ": "Y",
+                "Ź": "Z",
+                "Ż": "Z",
+                "Ž": "Z",
+                "ź": "z",
+                "ż": "z",
+                "ž": "z",
+                "Ĳ": "IJ",
+                "ĳ": "ij",
+                "Œ": "Oe",
+                "œ": "oe",
+                "ŉ": "'n",
+                "ſ": "s"
             },
             W = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g,
             U = RegExp("[\\u0300-\\u036f\\ufe20-\\ufe2f\\u20d0-\\u20ff\\u1ab0-\\u1aff\\u1dc0-\\u1dff]", "g");
@@ -2938,7 +2938,7 @@ function(e, t) {
         function B(e) {
             return h[e]
         }
-        var G = {
+        var Q = {
                 32: " ",
                 48: "0",
                 49: "1",
@@ -2989,20 +2989,20 @@ function(e, t) {
                 105: "9"
             },
             _ = 27,
-            Q = 13,
+            G = 13,
             M = 32,
             D = 9,
             Y = 38,
             I = 40,
-            O = {
+            L = {
                 success: !1,
                 major: "3"
             };
         try {
-            O.full = (w.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split("."), O.major = O.full[0], O.success = !0
+            L.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split("."), L.major = L.full[0], L.success = !0
         } catch (e) {}
         var g = 0,
-            L = ".bs.select",
+            O = ".bs.select",
             C = {
                 DISABLED: "disabled",
                 DIVIDER: "divider",
@@ -3026,7 +3026,7 @@ function(e, t) {
                 subtext: document.createElement("small"),
                 a: document.createElement("a"),
                 li: document.createElement("li"),
-                whitespace: document.createTextNode("Â "),
+                whitespace: document.createTextNode(" "),
                 fragment: document.createDocumentFragment()
             },
             Z = (E.noResults = E.li.cloneNode(!1), E.noResults.className = "no-results", E.a.setAttribute("role", "option"), E.a.className = "dropdown-item", E.subtext.className = "text-muted", E.text = E.span.cloneNode(!1), E.text.className = "text", E.checkMark = E.span.cloneNode(!1), new RegExp(Y + "|" + I)),
@@ -3053,9 +3053,9 @@ function(e, t) {
                 }
             };
 
-        function N(e, t) {
+        function j(e, t) {
             var i = this;
-            u.useDefault || (w.valHooks.select.set = u._set, u.useDefault = !0), this.$element = w(e), this.$newElement = null, this.$button = null, this.$menu = null, this.options = t, this.selectpicker = {
+            u.useDefault || (b.valHooks.select.set = u._set, u.useDefault = !0), this.$element = b(e), this.$newElement = null, this.$button = null, this.$menu = null, this.options = t, this.selectpicker = {
                 main: {},
                 search: {},
                 current: {},
@@ -3071,39 +3071,39 @@ function(e, t) {
                         }
                     }
                 }
-            }, this.sizeInfo = {}, null === this.options.title && (this.options.title = this.$element.attr("title")), "number" == typeof(e = this.options.windowPadding) && (this.options.windowPadding = [e, e, e, e]), this.val = N.prototype.val, this.render = N.prototype.render, this.refresh = N.prototype.refresh, this.setStyle = N.prototype.setStyle, this.selectAll = N.prototype.selectAll, this.deselectAll = N.prototype.deselectAll, this.destroy = N.prototype.destroy, this.remove = N.prototype.remove, this.show = N.prototype.show, this.hide = N.prototype.hide, this.init()
+            }, this.sizeInfo = {}, null === this.options.title && (this.options.title = this.$element.attr("title")), "number" == typeof(e = this.options.windowPadding) && (this.options.windowPadding = [e, e, e, e]), this.val = j.prototype.val, this.render = j.prototype.render, this.refresh = j.prototype.refresh, this.setStyle = j.prototype.setStyle, this.selectAll = j.prototype.selectAll, this.deselectAll = j.prototype.deselectAll, this.destroy = j.prototype.destroy, this.remove = j.prototype.remove, this.show = j.prototype.show, this.hide = j.prototype.hide, this.init()
         }
 
         function K(e) {
             var o, l = arguments,
                 d = e;
-            if ([].shift.apply(l), !O.success) {
+            if ([].shift.apply(l), !L.success) {
                 try {
-                    O.full = (w.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split(".")
+                    L.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split(".")
                 } catch (e) {
-                    N.BootstrapVersion ? O.full = N.BootstrapVersion.split(" ")[0].split(".") : (O.full = [O.major, "0", "0"], console.warn("There was an issue retrieving Bootstrap's version. Ensure Bootstrap is being loaded before bootstrap-select and there is no namespace collision. If loading Bootstrap asynchronously, the version may need to be manually specified via $.fn.selectpicker.Constructor.BootstrapVersion.", e))
+                    j.BootstrapVersion ? L.full = j.BootstrapVersion.split(" ")[0].split(".") : (L.full = [L.major, "0", "0"], console.warn("There was an issue retrieving Bootstrap's version. Ensure Bootstrap is being loaded before bootstrap-select and there is no namespace collision. If loading Bootstrap asynchronously, the version may need to be manually specified via $.fn.selectpicker.Constructor.BootstrapVersion.", e))
                 }
-                O.major = O.full[0], O.success = !0
+                L.major = L.full[0], L.success = !0
             }
-            if ("4" === O.major) {
+            if ("4" === L.major) {
                 var t = [];
-                N.DEFAULTS.style === C.BUTTONCLASS && t.push({
+                j.DEFAULTS.style === C.BUTTONCLASS && t.push({
                     name: "style",
                     className: "BUTTONCLASS"
-                }), N.DEFAULTS.iconBase === C.ICONBASE && t.push({
+                }), j.DEFAULTS.iconBase === C.ICONBASE && t.push({
                     name: "iconBase",
                     className: "ICONBASE"
-                }), N.DEFAULTS.tickIcon === C.TICKICON && t.push({
+                }), j.DEFAULTS.tickIcon === C.TICKICON && t.push({
                     name: "tickIcon",
                     className: "TICKICON"
                 }), C.DIVIDER = "dropdown-divider", C.SHOW = "show", C.BUTTONCLASS = "btn-light", C.POPOVERHEADER = "popover-header", C.ICONBASE = "", C.TICKICON = "bs-ok-default";
                 for (var i = 0; i < t.length; i++) {
                     e = t[i];
-                    N.DEFAULTS[e.name] = C[e.className]
+                    j.DEFAULTS[e.name] = C[e.className]
                 }
             }
             var n = this.each(function() {
-                var e = w(this);
+                var e = b(this);
                 if (e.is("select")) {
                     var t = e.data("selectpicker"),
                         i = "object" == typeof d && d;
@@ -3112,16 +3112,16 @@ function(e, t) {
                             for (var n in i) Object.prototype.hasOwnProperty.call(i, n) && (t.options[n] = i[n])
                     } else {
                         var s, r = e.data();
-                        for (s in r) Object.prototype.hasOwnProperty.call(r, s) && -1 !== w.inArray(s, j) && delete r[s];
-                        var a = w.extend({}, N.DEFAULTS, w.fn.selectpicker.defaults || {}, r, i);
-                        a.template = w.extend({}, N.DEFAULTS.template, w.fn.selectpicker.defaults ? w.fn.selectpicker.defaults.template : {}, r.template, i.template), e.data("selectpicker", t = new N(this, a))
+                        for (s in r) Object.prototype.hasOwnProperty.call(r, s) && -1 !== b.inArray(s, N) && delete r[s];
+                        var a = b.extend({}, j.DEFAULTS, b.fn.selectpicker.defaults || {}, r, i);
+                        a.template = b.extend({}, j.DEFAULTS.template, b.fn.selectpicker.defaults ? b.fn.selectpicker.defaults.template : {}, r.template, i.template), e.data("selectpicker", t = new j(this, a))
                     }
                     "string" == typeof d && (o = t[d] instanceof Function ? t[d].apply(t, l) : t.options[d])
                 }
             });
             return void 0 !== o ? o : n
         }
-        N.VERSION = "1.13.18", N.DEFAULTS = {
+        j.VERSION = "1.13.18", j.DEFAULTS = {
             noneSelectedText: "Nothing selected",
             noneResultsText: "No results matched {0}",
             countSelectedText: function(e, t) {
@@ -3169,39 +3169,39 @@ function(e, t) {
             sanitize: !0,
             sanitizeFn: null,
             whiteList: A
-        }, N.prototype = {
-            constructor: N,
+        }, j.prototype = {
+            constructor: j,
             init: function() {
                 var i = this,
                     e = this.$element.attr("id"),
                     t = this.$element[0],
                     n = t.form;
-                g++, this.selectId = "bs-select-" + g, t.classList.add("bs-select-hidden"), this.multiple = this.$element.prop("multiple"), this.autofocus = this.$element.prop("autofocus"), t.classList.contains("show-tick") && (this.options.showTick = !0), this.$newElement = this.createDropdown(), this.buildData(), this.$element.after(this.$newElement).prependTo(this.$newElement), n && null === t.form && (n.id || (n.id = "form-" + this.selectId), t.setAttribute("form", n.id)), this.$button = this.$newElement.children("button"), this.$menu = this.$newElement.children(q.MENU), this.$menuInner = this.$menu.children(".inner"), this.$searchbox = this.$menu.find("input"), t.classList.remove("bs-select-hidden"), !0 === this.options.dropdownAlignRight && this.$menu[0].classList.add(C.MENURIGHT), void 0 !== e && this.$button.attr("data-id", e), this.checkDisabled(), this.clickListener(), this.options.liveSearch ? (this.liveSearchListener(), this.focusedParent = this.$searchbox[0]) : this.focusedParent = this.$menuInner[0], this.setStyle(), this.render(), this.setWidth(), this.options.container ? this.selectPosition() : this.$element.on("hide" + L, function() {
+                g++, this.selectId = "bs-select-" + g, t.classList.add("bs-select-hidden"), this.multiple = this.$element.prop("multiple"), this.autofocus = this.$element.prop("autofocus"), t.classList.contains("show-tick") && (this.options.showTick = !0), this.$newElement = this.createDropdown(), this.buildData(), this.$element.after(this.$newElement).prependTo(this.$newElement), n && null === t.form && (n.id || (n.id = "form-" + this.selectId), t.setAttribute("form", n.id)), this.$button = this.$newElement.children("button"), this.$menu = this.$newElement.children(q.MENU), this.$menuInner = this.$menu.children(".inner"), this.$searchbox = this.$menu.find("input"), t.classList.remove("bs-select-hidden"), !0 === this.options.dropdownAlignRight && this.$menu[0].classList.add(C.MENURIGHT), void 0 !== e && this.$button.attr("data-id", e), this.checkDisabled(), this.clickListener(), this.options.liveSearch ? (this.liveSearchListener(), this.focusedParent = this.$searchbox[0]) : this.focusedParent = this.$menuInner[0], this.setStyle(), this.render(), this.setWidth(), this.options.container ? this.selectPosition() : this.$element.on("hide" + O, function() {
                     var e, t;
                     i.isVirtual() && (t = (e = i.$menuInner[0]).firstChild.cloneNode(!1), e.replaceChild(t, e.firstChild), e.scrollTop = 0)
                 }), this.$menu.data("this", this), this.$newElement.data("this", this), this.options.mobile && this.mobile(), this.$newElement.on({
                     "hide.bs.dropdown": function(e) {
-                        i.$element.trigger("hide" + L, e)
+                        i.$element.trigger("hide" + O, e)
                     },
                     "hidden.bs.dropdown": function(e) {
-                        i.$element.trigger("hidden" + L, e)
+                        i.$element.trigger("hidden" + O, e)
                     },
                     "show.bs.dropdown": function(e) {
-                        i.$element.trigger("show" + L, e)
+                        i.$element.trigger("show" + O, e)
                     },
                     "shown.bs.dropdown": function(e) {
-                        i.$element.trigger("shown" + L, e)
+                        i.$element.trigger("shown" + O, e)
                     }
-                }), t.hasAttribute("required") && this.$element.on("invalid" + L, function() {
-                    i.$button[0].classList.add("bs-invalid"), i.$element.on("shown" + L + ".invalid", function() {
-                        i.$element.val(i.$element.val()).off("shown" + L + ".invalid")
-                    }).on("rendered" + L, function() {
-                        this.validity.valid && i.$button[0].classList.remove("bs-invalid"), i.$element.off("rendered" + L)
-                    }), i.$button.on("blur" + L, function() {
-                        i.$element.trigger("focus").trigger("blur"), i.$button.off("blur" + L)
+                }), t.hasAttribute("required") && this.$element.on("invalid" + O, function() {
+                    i.$button[0].classList.add("bs-invalid"), i.$element.on("shown" + O + ".invalid", function() {
+                        i.$element.val(i.$element.val()).off("shown" + O + ".invalid")
+                    }).on("rendered" + O, function() {
+                        this.validity.valid && i.$button[0].classList.remove("bs-invalid"), i.$element.off("rendered" + O)
+                    }), i.$button.on("blur" + O, function() {
+                        i.$element.trigger("focus").trigger("blur"), i.$button.off("blur" + O)
                     })
                 }), setTimeout(function() {
-                    i.buildList(), i.$element.trigger("loaded" + L)
+                    i.buildList(), i.$element.trigger("loaded" + O)
                 })
             },
             createDropdown: function() {
@@ -3209,12 +3209,12 @@ function(e, t) {
                     t = this.multiple ? ' aria-multiselectable="true"' : "",
                     i = "",
                     n = this.autofocus ? " autofocus" : "";
-                O.major < 4 && this.$element.parent().hasClass("input-group") && (i = " input-group-btn");
+                L.major < 4 && this.$element.parent().hasClass("input-group") && (i = " input-group-btn");
                 var s = "",
                     r = "",
                     a = "",
                     o = "";
-                return this.options.header && (s = '<div class="' + C.POPOVERHEADER + '"><button type="button" class="close" aria-hidden="true">&times;</button>' + this.options.header + "</div>"), this.options.liveSearch && (r = '<div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"' + (null === this.options.liveSearchPlaceholder ? "" : ' placeholder="' + S(this.options.liveSearchPlaceholder) + '"') + ' role="combobox" aria-label="Search" aria-controls="' + this.selectId + '" aria-autocomplete="list"></div>'), this.multiple && this.options.actionsBox && (a = '<div class="bs-actionsbox"><div class="btn-group btn-group-sm btn-block"><button type="button" class="actions-btn bs-select-all btn ' + C.BUTTONCLASS + '">' + this.options.selectAllText + '</button><button type="button" class="actions-btn bs-deselect-all btn ' + C.BUTTONCLASS + '">' + this.options.deselectAllText + "</button></div></div>"), this.multiple && this.options.doneButton && (o = '<div class="bs-donebutton"><div class="btn-group btn-block"><button type="button" class="btn btn-sm ' + C.BUTTONCLASS + '">' + this.options.doneButtonText + "</button></div></div>"), e = '<div class="dropdown bootstrap-select' + e + i + '"><button type="button" tabindex="-1" class="' + this.options.styleBase + ' dropdown-toggle" ' + ("static" === this.options.display ? 'data-display="static"' : "") + 'data-toggle="dropdown"' + n + ' role="combobox" aria-owns="' + this.selectId + '" aria-haspopup="listbox" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"></div></div> </div>' + ("4" === O.major ? "" : '<span class="bs-caret">' + this.options.template.caret + "</span>") + '</button><div class="' + C.MENU + " " + ("4" === O.major ? "" : C.SHOW) + '">' + s + r + a + '<div class="inner ' + C.SHOW + '" role="listbox" id="' + this.selectId + '" tabindex="-1" ' + t + '><ul class="' + C.MENU + " inner " + ("4" === O.major ? C.SHOW : "") + '" role="presentation"></ul></div>' + o + "</div></div>", w(e)
+                return this.options.header && (s = '<div class="' + C.POPOVERHEADER + '"><button type="button" class="close" aria-hidden="true">&times;</button>' + this.options.header + "</div>"), this.options.liveSearch && (r = '<div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"' + (null === this.options.liveSearchPlaceholder ? "" : ' placeholder="' + S(this.options.liveSearchPlaceholder) + '"') + ' role="combobox" aria-label="Search" aria-controls="' + this.selectId + '" aria-autocomplete="list"></div>'), this.multiple && this.options.actionsBox && (a = '<div class="bs-actionsbox"><div class="btn-group btn-group-sm btn-block"><button type="button" class="actions-btn bs-select-all btn ' + C.BUTTONCLASS + '">' + this.options.selectAllText + '</button><button type="button" class="actions-btn bs-deselect-all btn ' + C.BUTTONCLASS + '">' + this.options.deselectAllText + "</button></div></div>"), this.multiple && this.options.doneButton && (o = '<div class="bs-donebutton"><div class="btn-group btn-block"><button type="button" class="btn btn-sm ' + C.BUTTONCLASS + '">' + this.options.doneButtonText + "</button></div></div>"), e = '<div class="dropdown bootstrap-select' + e + i + '"><button type="button" tabindex="-1" class="' + this.options.styleBase + ' dropdown-toggle" ' + ("static" === this.options.display ? 'data-display="static"' : "") + 'data-toggle="dropdown"' + n + ' role="combobox" aria-owns="' + this.selectId + '" aria-haspopup="listbox" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"></div></div> </div>' + ("4" === L.major ? "" : '<span class="bs-caret">' + this.options.template.caret + "</span>") + '</button><div class="' + C.MENU + " " + ("4" === L.major ? "" : C.SHOW) + '">' + s + r + a + '<div class="inner ' + C.SHOW + '" role="listbox" id="' + this.selectId + '" tabindex="-1" ' + t + '><ul class="' + C.MENU + " inner " + ("4" === L.major ? C.SHOW : "") + '" role="presentation"></ul></div>' + o + "</div></div>", b(e)
             },
             setPositionData: function() {
                 this.selectpicker.view.canHighlight = [], this.selectpicker.view.size = 0, this.selectpicker.view.firstHighlightIndex = !1;
@@ -3253,8 +3253,8 @@ function(e, t) {
                             g = [];
                         h.replaceChild(p, h.firstChild);
                         for (var y, c = 0, v = m.length; c < v; c++) {
-                            var _, w, b = m[c];
-                            M.options.sanitize && (_ = b.lastChild) && (w = M.selectpicker.current.data[c + M.selectpicker.view.position0]) && w.content && !w.sanitized && (g.push(_), w.sanitized = !0), f.appendChild(b)
+                            var _, b, w = m[c];
+                            M.options.sanitize && (_ = w.lastChild) && (b = M.selectpicker.current.data[c + M.selectpicker.view.position0]) && b.content && !b.sanitized && (g.push(_), b.sanitized = !0), f.appendChild(w)
                         }
                         M.options.sanitize && g.length && T(g, M.options.whiteList, M.options.sanitizeFn), !0 === a ? (y = 0 === M.selectpicker.view.position0 ? 0 : M.selectpicker.current.data[M.selectpicker.view.position0 - 1].position, r = M.selectpicker.view.position1 > n - 1 ? 0 : M.selectpicker.current.data[n - 1].position - M.selectpicker.current.data[M.selectpicker.view.position1 - 1].position, h.firstChild.style.marginTop = y + "px", h.firstChild.style.marginBottom = r + "px") : (h.firstChild.style.marginTop = 0, h.firstChild.style.marginBottom = 0), h.firstChild.appendChild(f), !0 === a && M.sizeInfo.hasScrollBar && (p = h.firstChild.offsetWidth, t && p < M.sizeInfo.menuInnerInnerWidth && M.sizeInfo.totalMenuWidth > M.sizeInfo.selectWidth ? h.firstChild.style.minWidth = M.sizeInfo.menuInnerInnerWidth + "px" : p > M.sizeInfo.menuInnerInnerWidth && (M.$menu[0].style.minWidth = 0, (y = h.firstChild.offsetWidth) > M.sizeInfo.menuInnerInnerWidth && (M.sizeInfo.menuInnerInnerWidth = y, h.firstChild.style.minWidth = M.sizeInfo.menuInnerInnerWidth + "px"), M.$menu[0].style.minWidth = ""))
                     }
@@ -3262,7 +3262,7 @@ function(e, t) {
                 }
                 this.selectpicker.isSearching = k, this.selectpicker.current = k ? this.selectpicker.search : this.selectpicker.main, this.setPositionData(), e && (t ? i = this.$menuInner[0].scrollTop : M.multiple || "number" == typeof(t = ((e = M.$element[0]).options[e.selectedIndex] || {}).liIndex) && !1 !== M.options.size && (t = (e = M.selectpicker.main.data[t]) && e.position) && (i = t - (M.sizeInfo.menuInnerHeight + M.sizeInfo.liHeight) / 2)), n(i, !0), this.$menuInner.off("scroll.createView").on("scroll.createView", function(e, t) {
                     M.noScroll || n(this.scrollTop, t), M.noScroll = !1
-                }), w(window).off("resize" + L + "." + this.selectId + ".createView").on("resize" + L + "." + this.selectId + ".createView", function() {
+                }), b(window).off("resize" + O + "." + this.selectId + ".createView").on("resize" + O + "." + this.selectId + ".createView", function() {
                     M.$newElement.hasClass(C.SHOW) && n(M.$menuInner[0].scrollTop)
                 })
             },
@@ -3368,7 +3368,7 @@ function(e, t) {
                 var e = this,
                     t = this.$element[0],
                     i = this.setPlaceholder() && 0 === t.selectedIndex,
-                    n = b(t, this.options.hideDisabled),
+                    n = w(t, this.options.hideDisabled),
                     s = n.length,
                     r = this.$button[0],
                     a = r.querySelector(".filter-option-inner-inner"),
@@ -3396,13 +3396,13 @@ function(e, t) {
                     }, !0);
                 null == this.options.title && (this.options.title = this.$element.attr("title")), l.childNodes.length || (l = $.text.call(this, {
                     text: void 0 !== this.options.title ? this.options.title : this.options.noneSelectedText
-                }, !0)), r.title = l.textContent.replace(/<[^>]*>?/g, "").trim(), this.options.sanitize && d && T([l], e.options.whiteList, e.options.sanitizeFn), a.innerHTML = "", a.appendChild(l), O.major < 4 && this.$newElement[0].classList.contains("bs3-has-addon") && (t = r.querySelector(".filter-expand"), (i = a.cloneNode(!0)).className = "filter-expand", t ? r.replaceChild(i, t) : r.appendChild(i)), this.$element.trigger("rendered" + L)
+                }, !0)), r.title = l.textContent.replace(/<[^>]*>?/g, "").trim(), this.options.sanitize && d && T([l], e.options.whiteList, e.options.sanitizeFn), a.innerHTML = "", a.appendChild(l), L.major < 4 && this.$newElement[0].classList.contains("bs3-has-addon") && (t = r.querySelector(".filter-expand"), (i = a.cloneNode(!0)).className = "filter-expand", t ? r.replaceChild(i, t) : r.appendChild(i)), this.$element.trigger("rendered" + O)
             },
             setStyle: function(e, t) {
                 var i = this.$button[0],
                     n = this.$newElement[0],
                     s = this.options.style.trim();
-                this.$element.attr("class") && this.$newElement.addClass(this.$element.attr("class").replace(/selectpicker|mobile-device|bs-select-hidden|validate\[.*\]/gi, "")), O.major < 4 && (n.classList.add("bs3"), n.parentNode.classList) && n.parentNode.classList.contains("input-group") && (n.previousElementSibling || n.nextElementSibling) && (n.previousElementSibling || n.nextElementSibling).classList.contains("input-group-addon") && n.classList.add("bs3-has-addon"), n = e ? e.trim() : s, "add" == t ? n && i.classList.add.apply(i.classList, n.split(" ")) : "remove" == t ? n && i.classList.remove.apply(i.classList, n.split(" ")) : (s && i.classList.remove.apply(i.classList, s.split(" ")), n && i.classList.add.apply(i.classList, n.split(" ")))
+                this.$element.attr("class") && this.$newElement.addClass(this.$element.attr("class").replace(/selectpicker|mobile-device|bs-select-hidden|validate\[.*\]/gi, "")), L.major < 4 && (n.classList.add("bs3"), n.parentNode.classList) && n.parentNode.classList.contains("input-group") && (n.previousElementSibling || n.nextElementSibling) && (n.previousElementSibling || n.nextElementSibling).classList.contains("input-group-addon") && n.classList.add("bs3-has-addon"), n = e ? e.trim() : s, "add" == t ? n && i.classList.add.apply(i.classList, n.split(" ")) : "remove" == t ? n && i.classList.remove.apply(i.classList, n.split(" ")) : (s && i.classList.remove.apply(i.classList, s.split(" ")), n && i.classList.add.apply(i.classList, n.split(" ")))
             },
             liHeight: function(e) {
                 if (e || !1 !== this.options.size && !Object.keys(this.sizeInfo).length) {
@@ -3419,7 +3419,7 @@ function(e, t) {
                         u = this.options.actionsBox && this.multiple && 0 < this.$menu.find(".bs-actionsbox").length ? this.$menu.find(".bs-actionsbox")[0].cloneNode(!0) : null,
                         h = this.options.doneButton && this.multiple && 0 < this.$menu.find(".bs-donebutton").length ? this.$menu.find(".bs-donebutton")[0].cloneNode(!0) : null,
                         f = this.$element.find("option")[0];
-                    if (this.sizeInfo.selectWidth = this.$newElement[0].offsetWidth, l.className = "text", o.className = "dropdown-item " + (f ? f.className : ""), e.className = this.$menu[0].parentNode.className + " " + C.SHOW, e.style.width = 0, "auto" === this.options.width && (i.style.minWidth = 0), i.className = C.MENU + " " + C.SHOW, n.className = "inner " + C.SHOW, s.className = C.MENU + " inner " + ("4" === O.major ? C.SHOW : ""), r.className = C.DIVIDER, a.className = "dropdown-header", l.appendChild(document.createTextNode("â")), this.selectpicker.current.data.length)
+                    if (this.sizeInfo.selectWidth = this.$newElement[0].offsetWidth, l.className = "text", o.className = "dropdown-item " + (f ? f.className : ""), e.className = this.$menu[0].parentNode.className + " " + C.SHOW, e.style.width = 0, "auto" === this.options.width && (i.style.minWidth = 0), i.className = C.MENU + " " + C.SHOW, n.className = "inner " + C.SHOW, s.className = C.MENU + " inner " + ("4" === L.major ? C.SHOW : ""), r.className = C.DIVIDER, a.className = "dropdown-header", l.appendChild(document.createTextNode("​")), this.selectpicker.current.data.length)
                         for (var p = 0; p < this.selectpicker.current.data.length; p++) {
                             var m = this.selectpicker.current.data[p];
                             if ("option" === m.type) {
@@ -3434,10 +3434,10 @@ function(e, t) {
                         s = c ? c.offsetHeight : 0,
                         a = u ? u.offsetHeight : 0,
                         d = h ? h.offsetHeight : 0,
-                        c = w(r).outerHeight(!0),
+                        c = b(r).outerHeight(!0),
                         u = !!window.getComputedStyle && window.getComputedStyle(i),
                         h = i.offsetWidth,
-                        r = u ? null : w(i),
+                        r = u ? null : b(i),
                         g = {
                             vert: y(u ? u.paddingTop : r.css("paddingTop")) + y(u ? u.paddingBottom : r.css("paddingBottom")) + y(u ? u.borderTopWidth : r.css("borderTopWidth")) + y(u ? u.borderBottomWidth : r.css("borderBottomWidth")),
                             horiz: y(u ? u.paddingLeft : r.css("paddingLeft")) + y(u ? u.paddingRight : r.css("paddingRight")) + y(u ? u.borderLeftWidth : r.css("borderLeftWidth")) + y(u ? u.borderRightWidth : r.css("borderRightWidth"))
@@ -3450,9 +3450,9 @@ function(e, t) {
                 }
             },
             getSelectPosition: function() {
-                var e, t = w(window),
+                var e, t = b(window),
                     i = this.$newElement.offset(),
-                    n = w(this.options.container),
+                    n = b(this.options.container),
                     n = (this.options.container && n.length && !n.is("body") ? ((e = n.offset()).top += parseInt(n.css("borderTopWidth")), e.left += parseInt(n.css("borderLeftWidth"))) : e = {
                         top: 0,
                         left: 0
@@ -3487,16 +3487,16 @@ function(e, t) {
             },
             setSize: function(e) {
                 var t, i;
-                this.liHeight(e), this.options.header && this.$menu.css("padding-top", 0), !1 !== this.options.size && (t = this, i = w(window), this.setMenuSize(), this.options.liveSearch && this.$searchbox.off("input.setMenuSize propertychange.setMenuSize").on("input.setMenuSize propertychange.setMenuSize", function() {
+                this.liHeight(e), this.options.header && this.$menu.css("padding-top", 0), !1 !== this.options.size && (t = this, i = b(window), this.setMenuSize(), this.options.liveSearch && this.$searchbox.off("input.setMenuSize propertychange.setMenuSize").on("input.setMenuSize propertychange.setMenuSize", function() {
                     return t.setMenuSize()
-                }), "auto" === this.options.size ? i.off("resize" + L + "." + this.selectId + ".setMenuSize scroll" + L + "." + this.selectId + ".setMenuSize").on("resize" + L + "." + this.selectId + ".setMenuSize scroll" + L + "." + this.selectId + ".setMenuSize", function() {
+                }), "auto" === this.options.size ? i.off("resize" + O + "." + this.selectId + ".setMenuSize scroll" + O + "." + this.selectId + ".setMenuSize").on("resize" + O + "." + this.selectId + ".setMenuSize scroll" + O + "." + this.selectId + ".setMenuSize", function() {
                     return t.setMenuSize()
-                }) : this.options.size && "auto" != this.options.size && this.selectpicker.current.elements.length > this.options.size && i.off("resize" + L + "." + this.selectId + ".setMenuSize scroll" + L + "." + this.selectId + ".setMenuSize")), this.createView(!1, !0, e)
+                }) : this.options.size && "auto" != this.options.size && this.selectpicker.current.elements.length > this.options.size && i.off("resize" + O + "." + this.selectId + ".setMenuSize scroll" + O + "." + this.selectId + ".setMenuSize")), this.createView(!1, !0, e)
             },
             setWidth: function() {
                 var i = this;
                 "auto" === this.options.width ? requestAnimationFrame(function() {
-                    i.$menu.css("min-width", "0"), i.$element.on("loaded" + L, function() {
+                    i.$menu.css("min-width", "0"), i.$element.on("loaded" + O, function() {
                         i.liHeight(), i.setMenuSize();
                         var e = i.$newElement.clone().appendTo("body"),
                             t = e.css("width", "auto").children("button").outerWidth();
@@ -3505,23 +3505,23 @@ function(e, t) {
                 }) : "fit" === this.options.width ? (this.$menu.css("min-width", ""), this.$newElement.css("width", "").addClass("fit-width")) : this.options.width ? (this.$menu.css("min-width", ""), this.$newElement.css("width", this.options.width)) : (this.$menu.css("min-width", ""), this.$newElement.css("width", "")), this.$newElement.hasClass("fit-width") && "fit" !== this.options.width && this.$newElement[0].classList.remove("fit-width")
             },
             selectPosition: function() {
-                this.$bsContainer = w('<div class="bs-container" />');
+                this.$bsContainer = b('<div class="bs-container" />');
 
                 function e(e) {
                     var t = {},
-                        i = a.options.display || !!w.fn.dropdown.Constructor.Default && w.fn.dropdown.Constructor.Default.display;
+                        i = a.options.display || !!b.fn.dropdown.Constructor.Default && b.fn.dropdown.Constructor.Default.display;
                     a.$bsContainer.addClass(e.attr("class").replace(/form-control|fit-width/gi, "")).toggleClass(C.DROPUP, e.hasClass(C.DROPUP)), n = e.offset(), o.is("body") ? s = {
                         top: 0,
                         left: 0
-                    } : ((s = o.offset()).top += parseInt(o.css("borderTopWidth")) - o.scrollTop(), s.left += parseInt(o.css("borderLeftWidth")) - o.scrollLeft()), r = e.hasClass(C.DROPUP) ? 0 : e[0].offsetHeight, (O.major < 4 || "static" === i) && (t.top = n.top - s.top + r, t.left = n.left - s.left), t.width = e[0].offsetWidth, a.$bsContainer.css(t)
+                    } : ((s = o.offset()).top += parseInt(o.css("borderTopWidth")) - o.scrollTop(), s.left += parseInt(o.css("borderLeftWidth")) - o.scrollLeft()), r = e.hasClass(C.DROPUP) ? 0 : e[0].offsetHeight, (L.major < 4 || "static" === i) && (t.top = n.top - s.top + r, t.left = n.left - s.left), t.width = e[0].offsetWidth, a.$bsContainer.css(t)
                 }
                 var n, s, r, a = this,
-                    o = w(this.options.container);
+                    o = b(this.options.container);
                 this.$button.on("click.bs.dropdown.data-api", function() {
                     a.isDisabled() || (e(a.$newElement), a.$bsContainer.appendTo(a.options.container).toggleClass(C.SHOW, !a.$button.hasClass(C.SHOW)).append(a.$menu))
-                }), w(window).off("resize" + L + "." + this.selectId + " scroll" + L + "." + this.selectId).on("resize" + L + "." + this.selectId + " scroll" + L + "." + this.selectId, function() {
+                }), b(window).off("resize" + O + "." + this.selectId + " scroll" + O + "." + this.selectId).on("resize" + O + "." + this.selectId + " scroll" + O + "." + this.selectId, function() {
                     a.$newElement.hasClass(C.SHOW) && e(a.$newElement)
-                }), this.$element.on("hide" + L, function() {
+                }), this.$element.on("hide" + O, function() {
                     a.$menu.data("height", a.$menu.height()), a.$bsContainer.detach()
                 })
             },
@@ -3543,7 +3543,7 @@ function(e, t) {
             },
             setDisabled: function(e, t) {
                 var i = this.selectpicker.main.elements[e];
-                this.selectpicker.main.data[e].disabled = t, e = i.firstChild, i.classList.toggle(C.DISABLED, t), e && ("4" === O.major && e.classList.toggle(C.DISABLED, t), t ? (e.setAttribute("aria-disabled", t), e.setAttribute("tabindex", -1)) : (e.removeAttribute("aria-disabled"), e.setAttribute("tabindex", 0)))
+                this.selectpicker.main.data[e].disabled = t, e = i.firstChild, i.classList.toggle(C.DISABLED, t), e && ("4" === L.major && e.classList.toggle(C.DISABLED, t), t ? (e.setAttribute("aria-disabled", t), e.setAttribute("tabindex", -1)) : (e.removeAttribute("aria-disabled"), e.setAttribute("tabindex", 0)))
             },
             isDisabled: function() {
                 return this.$element[0].disabled
@@ -3553,7 +3553,7 @@ function(e, t) {
             },
             clickListener: function() {
                 var _ = this,
-                    t = w(document);
+                    t = b(document);
 
                 function e() {
                     (_.options.liveSearch ? _.$searchbox : _.$menuInner).trigger("focus")
@@ -3565,11 +3565,11 @@ function(e, t) {
                 t.data("spaceSelect", !1), this.$button.on("keyup", function(e) {
                     /(32)/.test(e.keyCode.toString(10)) && t.data("spaceSelect") && (e.preventDefault(), t.data("spaceSelect", !1))
                 }), this.$newElement.on("show.bs.dropdown", function() {
-                    3 < O.major && !_.dropdown && (_.dropdown = _.$button.data("bs.dropdown"), _.dropdown._menu = _.$menu[0])
+                    3 < L.major && !_.dropdown && (_.dropdown = _.$button.data("bs.dropdown"), _.dropdown._menu = _.$menu[0])
                 }), this.$button.on("click.bs.dropdown.data-api", function() {
                     _.$newElement.hasClass(C.SHOW) || _.setSize()
-                }), this.$element.on("shown" + L, function() {
-                    _.$menuInner[0].scrollTop !== _.selectpicker.view.scrollTop && (_.$menuInner[0].scrollTop = _.selectpicker.view.scrollTop), 3 < O.major ? requestAnimationFrame(i) : e()
+                }), this.$element.on("shown" + O, function() {
+                    _.$menuInner[0].scrollTop !== _.selectpicker.view.scrollTop && (_.$menuInner[0].scrollTop = _.selectpicker.view.scrollTop), 3 < L.major ? requestAnimationFrame(i) : e()
                 }), this.$menuInner.on("mouseenter", "li a", function(e) {
                     var t = this.parentElement,
                         i = _.isVirtual() ? _.selectpicker.view.position0 : 0,
@@ -3577,7 +3577,7 @@ function(e, t) {
                         n = _.selectpicker.current.data[n + i];
                     _.focusItem(t, n, !0)
                 }), this.$menuInner.on("click", "li a", function(e, t) {
-                    var i = w(this),
+                    var i = b(this),
                         n = _.$element[0],
                         s = _.isVirtual() ? _.selectpicker.view.position0 : 0,
                         s = _.selectpicker.current.data[i.parent().index() + s],
@@ -3588,7 +3588,7 @@ function(e, t) {
                         d = !0;
                     if (_.multiple && 1 !== _.options.maxOptions && e.stopPropagation(), e.preventDefault(), !_.isDisabled() && !i.parent().hasClass(C.DISABLED)) {
                         var e = s.option,
-                            i = w(e),
+                            i = b(e),
                             s = e.selected,
                             c = i.parent("optgroup"),
                             u = c.find("option"),
@@ -3596,7 +3596,7 @@ function(e, t) {
                             f = c.data("maxOptions") || !1;
                         if ((t = r === _.activeIndex ? !0 : t) || (_.prevActiveIndex = _.activeIndex, _.activeIndex = void 0), _.multiple) {
                             if (e.selected = !s, _.setSelected(r, !s), _.focusedParent.focus(), !1 !== h || !1 !== f) {
-                                t = h < b(n).length, s = f < c.find("option:selected").length;
+                                t = h < w(n).length, s = f < c.find("option:selected").length;
                                 if (h && t || f && s)
                                     if (h && 1 == h) n.selectedIndex = -1, e.selected = !0, _.setOptionStatus(!0);
                                     else if (f && 1 == f) {
@@ -3610,8 +3610,8 @@ function(e, t) {
                                         c = "function" == typeof c ? c(h, f) : c,
                                         g = c[0].replace("{n}", h),
                                         y = c[1].replace("{n}", f),
-                                        v = w('<div class="notify"></div>');
-                                    c[2] && (g = g.replace("{var}", c[2][1 < h ? 0 : 1]), y = y.replace("{var}", c[2][1 < f ? 0 : 1])), e.selected = !1, _.$menu.append(v), h && t && (v.append(w("<div>" + g + "</div>")), d = !1, _.$element.trigger("maxReached" + L)), f && s && (v.append(w("<div>" + y + "</div>")), d = !1, _.$element.trigger("maxReachedGrp" + L)), setTimeout(function() {
+                                        v = b('<div class="notify"></div>');
+                                    c[2] && (g = g.replace("{var}", c[2][1 < h ? 0 : 1]), y = y.replace("{var}", c[2][1 < f ? 0 : 1])), e.selected = !1, _.$menu.append(v), h && t && (v.append(b("<div>" + g + "</div>")), d = !1, _.$element.trigger("maxReached" + O)), f && s && (v.append(b("<div>" + y + "</div>")), d = !1, _.$element.trigger("maxReachedGrp" + O)), setTimeout(function() {
                                         _.setSelected(r, !1)
                                     }, 10), v[0].classList.add("fadeOut"), setTimeout(function() {
                                         v.remove()
@@ -3622,7 +3622,7 @@ function(e, t) {
                         !_.multiple || _.multiple && 1 === _.options.maxOptions ? _.$button.trigger("focus") : _.options.liveSearch && _.$searchbox.trigger("focus"), !d || !_.multiple && o === n.selectedIndex || (x = [e.index, i.prop("selected"), a], _.$element.triggerNative("change"))
                     }
                 }), this.$menu.on("click", "li." + C.DISABLED + " a, ." + C.POPOVERHEADER + ", ." + C.POPOVERHEADER + " :not(.close)", function(e) {
-                    e.currentTarget == this && (e.preventDefault(), e.stopPropagation(), (_.options.liveSearch && !w(e.target).hasClass("close") ? _.$searchbox : _.$button).trigger("focus"))
+                    e.currentTarget == this && (e.preventDefault(), e.stopPropagation(), (_.options.liveSearch && !b(e.target).hasClass("close") ? _.$searchbox : _.$button).trigger("focus"))
                 }), this.$menuInner.on("click", ".divider, .dropdown-header", function(e) {
                     e.preventDefault(), e.stopPropagation(), (_.options.liveSearch ? _.$searchbox : _.$button).trigger("focus")
                 }), this.$menu.on("click", "." + C.POPOVERHEADER + " .close", function() {
@@ -3630,15 +3630,15 @@ function(e, t) {
                 }), this.$searchbox.on("click", function(e) {
                     e.stopPropagation()
                 }), this.$menu.on("click", ".actions-btn", function(e) {
-                    (_.options.liveSearch ? _.$searchbox : _.$button).trigger("focus"), e.preventDefault(), e.stopPropagation(), w(this).hasClass("bs-select-all") ? _.selectAll() : _.deselectAll()
-                }), this.$button.on("focus" + L, function(e) {
+                    (_.options.liveSearch ? _.$searchbox : _.$button).trigger("focus"), e.preventDefault(), e.stopPropagation(), b(this).hasClass("bs-select-all") ? _.selectAll() : _.deselectAll()
+                }), this.$button.on("focus" + O, function(e) {
                     var t = _.$element[0].getAttribute("tabindex");
                     void 0 !== t && e.originalEvent && e.originalEvent.isTrusted && (this.setAttribute("tabindex", t), _.$element[0].setAttribute("tabindex", -1), _.selectpicker.view.tabindex = t)
-                }).on("blur" + L, function(e) {
+                }).on("blur" + O, function(e) {
                     void 0 !== _.selectpicker.view.tabindex && e.originalEvent && e.originalEvent.isTrusted && (_.$element[0].setAttribute("tabindex", _.selectpicker.view.tabindex), this.setAttribute("tabindex", -1), _.selectpicker.view.tabindex = void 0)
-                }), this.$element.on("change" + L, function() {
-                    _.render(), _.$element.trigger("changed" + L, x), x = null
-                }).on("focus" + L, function() {
+                }), this.$element.on("change" + O, function() {
+                    _.render(), _.$element.trigger("changed" + O, x), x = null
+                }).on("focus" + O, function() {
                     _.options.mobile || _.$button[0].focus()
                 })
             },
@@ -3680,7 +3680,7 @@ function(e, t) {
             },
             val: function(e) {
                 var t, i = this.$element[0];
-                return void 0 !== e ? (t = k(i), x = [null, null, t], this.$element.val(e).trigger("changed" + L, x), this.$newElement.hasClass(C.SHOW) && (this.multiple ? this.setOptionStatus(!0) : "number" == typeof(t = (i.options[i.selectedIndex] || {}).liIndex) && (this.setSelected(this.selectedIndex, !1), this.setSelected(t, !0))), this.render(), x = null, this.$element) : this.$element.val()
+                return void 0 !== e ? (t = k(i), x = [null, null, t], this.$element.val(e).trigger("changed" + O, x), this.$newElement.hasClass(C.SHOW) && (this.multiple ? this.setOptionStatus(!0) : "number" == typeof(t = (i.options[i.selectedIndex] || {}).liIndex) && (this.setSelected(this.selectedIndex, !1), this.setSelected(t, !0))), this.render(), x = null, this.$element) : this.$element.val()
             },
             changeAll: function(e) {
                 if (this.multiple) {
@@ -3708,7 +3708,7 @@ function(e, t) {
                 (e = e || window.event) && e.stopPropagation(), this.$button.trigger("click.bs.dropdown.data-api")
             },
             keydown: function(e) {
-                var t, i, n, s, r = w(this),
+                var t, i, n, s, r = b(this),
                     a = r.hasClass("dropdown-toggle"),
                     o = (a ? r.closest(".dropdown") : r.closest(q.MENU)).data("this"),
                     l = o.findLis(),
@@ -3726,22 +3726,22 @@ function(e, t) {
                             e.which === Y ? 0 === h && c === l.length - 1 ? (o.$menuInner[0].scrollTop = o.$menuInner[0].scrollHeight, f = o.selectpicker.current.elements.length - 1) : d = (s = (n = o.selectpicker.current.data[f]).position - n.height) < u : e.which !== I && !a || (c === o.selectpicker.view.firstHighlightIndex ? (o.$menuInner[0].scrollTop = 0, f = o.selectpicker.view.firstHighlightIndex) : d = u < (s = (n = o.selectpicker.current.data[f]).position - o.sizeInfo.menuInnerHeight)), i = o.selectpicker.current.elements[f], o.activeIndex = o.selectpicker.current.data[f].index, o.focusItem(i), o.selectpicker.view.currentActive = i, d && (o.$menuInner[0].scrollTop = s), (o.options.liveSearch ? o.$searchbox : r).trigger("focus")
                         } else if (!r.is("input") && !J.test(e.which) || e.which === M && o.selectpicker.keydown.keyHistory) {
                             var p, m = [];
-                            e.preventDefault(), o.selectpicker.keydown.keyHistory += G[e.which], o.selectpicker.keydown.resetKeyHistory.cancel && clearTimeout(o.selectpicker.keydown.resetKeyHistory.cancel), o.selectpicker.keydown.resetKeyHistory.cancel = o.selectpicker.keydown.resetKeyHistory.start(), p = o.selectpicker.keydown.keyHistory, /^(.)\1+$/.test(p) && (p = p.charAt(0));
+                            e.preventDefault(), o.selectpicker.keydown.keyHistory += Q[e.which], o.selectpicker.keydown.resetKeyHistory.cancel && clearTimeout(o.selectpicker.keydown.resetKeyHistory.cancel), o.selectpicker.keydown.resetKeyHistory.cancel = o.selectpicker.keydown.resetKeyHistory.start(), p = o.selectpicker.keydown.keyHistory, /^(.)\1+$/.test(p) && (p = p.charAt(0));
                             for (var g = 0; g < o.selectpicker.current.data.length; g++) {
                                 var y = o.selectpicker.current.data[g];
                                 v(y, p, "startsWith", !0) && o.selectpicker.view.canHighlight[g] && m.push(y.index)
                             }
                             m.length && (h = 0, l.removeClass("active").find("a").removeClass("active"), 1 === p.length && (-1 === (h = m.indexOf(o.activeIndex)) || h === m.length - 1 ? h = 0 : h++), d = 0 < u - (n = o.selectpicker.main.data[a = m[h]]).position ? (s = n.position - n.height, !0) : (s = n.position - o.sizeInfo.menuInnerHeight, n.position > u + o.sizeInfo.menuInnerHeight), i = o.selectpicker.main.elements[a], o.activeIndex = m[h], o.focusItem(i), i && i.firstChild.focus(), d && (o.$menuInner[0].scrollTop = s), r.trigger("focus"))
                         }
-                        t && (e.which === M && !o.selectpicker.keydown.keyHistory || e.which === Q || e.which === D && o.options.selectOnTab) && (e.which !== M && e.preventDefault(), o.options.liveSearch && e.which === M || (o.$menuInner.find(".active a").trigger("click", !0), r.trigger("focus"), o.options.liveSearch) || (e.preventDefault(), w(document).data("spaceSelect", !0)))
+                        t && (e.which === M && !o.selectpicker.keydown.keyHistory || e.which === G || e.which === D && o.options.selectOnTab) && (e.which !== M && e.preventDefault(), o.options.liveSearch && e.which === M || (o.$menuInner.find(".active a").trigger("click", !0), r.trigger("focus"), o.options.liveSearch) || (e.preventDefault(), b(document).data("spaceSelect", !0)))
                     }
             },
             mobile: function() {
                 this.options.mobile = !0, this.$element[0].classList.add("mobile-device")
             },
             refresh: function() {
-                var e = w.extend({}, this.options, this.$element.data());
-                this.options = e, this.checkDisabled(), this.buildData(), this.setStyle(), this.render(), this.buildList(), this.setWidth(), this.setSize(!0), this.$element.trigger("refreshed" + L)
+                var e = b.extend({}, this.options, this.$element.data());
+                this.options = e, this.checkDisabled(), this.buildData(), this.setStyle(), this.render(), this.buildList(), this.setWidth(), this.setSize(!0), this.$element.trigger("refreshed" + O)
             },
             hide: function() {
                 this.$newElement.hide()
@@ -3753,21 +3753,21 @@ function(e, t) {
                 this.$newElement.remove(), this.$element.remove()
             },
             destroy: function() {
-                this.$newElement.before(this.$element).remove(), (this.$bsContainer || this.$menu).remove(), this.selectpicker.view.titleOption && this.selectpicker.view.titleOption.parentNode && this.selectpicker.view.titleOption.parentNode.removeChild(this.selectpicker.view.titleOption), this.$element.off(L).removeData("selectpicker").removeClass("bs-select-hidden selectpicker"), w(window).off(L + "." + this.selectId)
+                this.$newElement.before(this.$element).remove(), (this.$bsContainer || this.$menu).remove(), this.selectpicker.view.titleOption && this.selectpicker.view.titleOption.parentNode && this.selectpicker.view.titleOption.parentNode.removeChild(this.selectpicker.view.titleOption), this.$element.off(O).removeData("selectpicker").removeClass("bs-select-hidden selectpicker"), b(window).off(O + "." + this.selectId)
             }
         };
-        var X = w.fn.selectpicker;
+        var X = b.fn.selectpicker;
 
         function ee() {
-            if (w.fn.dropdown) return (w.fn.dropdown.Constructor._dataApiKeydownHandler || w.fn.dropdown.Constructor.prototype.keydown).apply(this, arguments)
+            if (b.fn.dropdown) return (b.fn.dropdown.Constructor._dataApiKeydownHandler || b.fn.dropdown.Constructor.prototype.keydown).apply(this, arguments)
         }
-        w.fn.selectpicker = K, w.fn.selectpicker.Constructor = N, w.fn.selectpicker.noConflict = function() {
-            return w.fn.selectpicker = X, this
-        }, w(document).off("keydown.bs.dropdown.data-api").on("keydown.bs.dropdown.data-api", ':not(.bootstrap-select) > [data-toggle="dropdown"]', ee).on("keydown.bs.dropdown.data-api", ":not(.bootstrap-select) > .dropdown-menu", ee).on("keydown" + L, '.bootstrap-select [data-toggle="dropdown"], .bootstrap-select [role="listbox"], .bootstrap-select .bs-searchbox input', N.prototype.keydown).on("focusin.modal", '.bootstrap-select [data-toggle="dropdown"], .bootstrap-select [role="listbox"], .bootstrap-select .bs-searchbox input', function(e) {
+        b.fn.selectpicker = K, b.fn.selectpicker.Constructor = j, b.fn.selectpicker.noConflict = function() {
+            return b.fn.selectpicker = X, this
+        }, b(document).off("keydown.bs.dropdown.data-api").on("keydown.bs.dropdown.data-api", ':not(.bootstrap-select) > [data-toggle="dropdown"]', ee).on("keydown.bs.dropdown.data-api", ":not(.bootstrap-select) > .dropdown-menu", ee).on("keydown" + O, '.bootstrap-select [data-toggle="dropdown"], .bootstrap-select [role="listbox"], .bootstrap-select .bs-searchbox input', j.prototype.keydown).on("focusin.modal", '.bootstrap-select [data-toggle="dropdown"], .bootstrap-select [role="listbox"], .bootstrap-select .bs-searchbox input', function(e) {
             e.stopPropagation()
-        }), w(window).on("load" + L + ".data-api", function() {
-            w(".selectpicker").each(function() {
-                var e = w(this);
+        }), b(window).on("load" + O + ".data-api", function() {
+            b(".selectpicker").each(function() {
+                var e = b(this);
                 K.call(e, e.data())
             })
         })
@@ -3778,7 +3778,7 @@ function(e, t) {
 }(this, function() {
     "use strict";
     var t = Object.prototype.toString,
-        L = Array.isArray || function(e) {
+        O = Array.isArray || function(e) {
             return "[object Array]" === t.call(e)
         };
 
@@ -3810,8 +3810,8 @@ function(e, t) {
         "=": "&#x3D;"
     };
     var $ = /\s*/,
-        N = /\s+/,
-        j = /\s*=/,
+        j = /\s+/,
+        N = /\s*=/,
         H = /\s*\}/,
         A = /#|\^|\/|>|\{|&|=|!/;
 
@@ -3834,26 +3834,26 @@ function(e, t) {
         }
 
         function p(e) {
-            if ("string" == typeof e && (e = e.split(N, 2)), !L(e) || 2 !== e.length) throw new Error("Invalid tags: " + e);
+            if ("string" == typeof e && (e = e.split(j, 2)), !O(e) || 2 !== e.length) throw new Error("Invalid tags: " + e);
             i = new RegExp(C(e[0]) + "\\s*"), n = new RegExp("\\s*" + C(e[1])), s = new RegExp("\\s*" + C("}" + e[1]))
         }
         p(t || z.tags);
-        for (var m, g, y, v, _, w, b = new P(e); !b.eos();) {
-            if (m = b.pos, y = b.scanUntil(i))
+        for (var m, g, y, v, _, b, w = new P(e); !w.eos();) {
+            if (m = w.pos, y = w.scanUntil(i))
                 for (var k = 0, x = y.length; k < x; ++k) E(v = y.charAt(k)) ? (l.push(o.length), u += v) : (r = c = !0, u += " "), o.push(["text", v, m, m + 1]), m += 1, "\n" === v && (f(), u = "", h = 0, r = !1);
-            if (!b.scan(i)) break;
-            if (d = !0, g = b.scan(A) || "name", b.scan($), "=" === g ? (y = b.scanUntil(j), b.scan(j), b.scanUntil(n)) : "{" === g ? (y = b.scanUntil(s), b.scan(H), b.scanUntil(n), g = "&") : y = b.scanUntil(n), !b.scan(n)) throw new Error("Unclosed tag at " + b.pos);
-            if (_ = ">" == g ? [g, y, m, b.pos, u, h, r] : [g, y, m, b.pos], h++, o.push(_), "#" === g || "^" === g) a.push(_);
+            if (!w.scan(i)) break;
+            if (d = !0, g = w.scan(A) || "name", w.scan($), "=" === g ? (y = w.scanUntil(N), w.scan(N), w.scanUntil(n)) : "{" === g ? (y = w.scanUntil(s), w.scan(H), w.scanUntil(n), g = "&") : y = w.scanUntil(n), !w.scan(n)) throw new Error("Unclosed tag at " + w.pos);
+            if (_ = ">" == g ? [g, y, m, w.pos, u, h, r] : [g, y, m, w.pos], h++, o.push(_), "#" === g || "^" === g) a.push(_);
             else if ("/" === g) {
-                if (!(w = a.pop())) throw new Error('Unopened section "' + y + '" at ' + m);
-                if (w[1] !== y) throw new Error('Unclosed section "' + w[1] + '" at ' + m)
+                if (!(b = a.pop())) throw new Error('Unopened section "' + y + '" at ' + m);
+                if (b[1] !== y) throw new Error('Unclosed section "' + b[1] + '" at ' + m)
             } else "name" === g || "{" === g || "&" === g ? c = !0 : "=" === g && p(y)
         }
-        if (f(), w = a.pop()) throw new Error('Unclosed section "' + w[1] + '" at ' + b.pos);
+        if (f(), b = a.pop()) throw new Error('Unclosed section "' + b[1] + '" at ' + w.pos);
         for (var S, M = function(e) {
                 for (var t, i, n = [], s = 0, r = e.length; s < r; ++s)(t = e[s]) && ("text" === t[0] && i && "text" === i[0] ? (i[1] += t[1], i[3] = t[3]) : (n.push(t), i = t));
                 return n
-            }(o), D = [], T = D, Y = [], I = 0, O = M.length; I < O; ++I) switch ((S = M[I])[0]) {
+            }(o), D = [], T = D, Y = [], I = 0, L = M.length; I < L; ++I) switch ((S = M[I])[0]) {
             case "#":
             case "^":
                 T.push(S), Y.push(S), T = S[4] = [];
@@ -3949,7 +3949,7 @@ function(e, t) {
             a = "",
             o = t.lookup(e[1]);
         if (o) {
-            if (L(o))
+            if (O(o))
                 for (var l = 0, d = o.length; l < d; ++l) a += this.renderTokens(e[4], t.push(o[l]), i, n, s);
             else if ("object" == typeof o || "string" == typeof o || "number" == typeof o) a += this.renderTokens(e[4], t.push(o), i, n, s);
             else if (c(o)) {
@@ -3962,7 +3962,7 @@ function(e, t) {
         }
     }, e.prototype.renderInverted = function(e, t, i, n, s) {
         var r = t.lookup(e[1]);
-        if (!r || L(r) && 0 === r.length) return this.renderTokens(e[4], t, i, n, s)
+        if (!r || O(r) && 0 === r.length) return this.renderTokens(e[4], t, i, n, s)
     }, e.prototype.indentPartial = function(e, t, i) {
         for (var n = t.replace(/[^ \t]/g, ""), s = e.split("\n"), r = 0; r < s.length; r++) s[r].length && (0 < r || !i) && (s[r] = n + s[r]);
         return s.join("\n")
@@ -3978,9 +3978,9 @@ function(e, t) {
     }, e.prototype.rawValue = function(e) {
         return e[1]
     }, e.prototype.getConfigTags = function(e) {
-        return L(e) ? e : e && "object" == typeof e ? e.tags : void 0
+        return O(e) ? e : e && "object" == typeof e ? e.tags : void 0
     }, e.prototype.getConfigEscape = function(e) {
-        if (e && "object" == typeof e && !L(e)) return e.escape
+        if (e && "object" == typeof e && !O(e)) return e.escape
     };
     var z = {
             name: "mustache.js",
@@ -4006,7 +4006,7 @@ function(e, t) {
     }, z.parse = function(e, t) {
         return o.parse(e, t)
     }, z.render = function(e, t, i, n) {
-        if ("string" != typeof e) throw new TypeError('Invalid template! Template should be a "string" but "' + (L(s = e) ? "array" : typeof s) + '" was given as the first argument for mustache#render(template, view, partials)');
+        if ("string" != typeof e) throw new TypeError('Invalid template! Template should be a "string" but "' + (O(s = e) ? "array" : typeof s) + '" was given as the first argument for mustache#render(template, view, partials)');
         var s;
         return o.render(e, t, i, n)
     }, z.escape = function(e) {
@@ -4071,6 +4071,7 @@ var $tablist = $(".nav-tabs, .nav-pills"),
         currency: "USD",
         currencySymbol: "$",
         defaultTimeFormat: "h:mm A",
+        nativeTimeFormat: "HH:mm",
         phpDateFormat: "YYYY-MM-DD",
         phpTimeFormat: "HH:mm",
         phpDateTimeFormat: "YYYY-MM-DD HH:mm",
@@ -4141,8 +4142,10 @@ function enableButton(e, t) {
 function ajaxDialog(e, t, i, n, s) {
     s = void 0 !== s ? s : "Save", jQuery("#dialog").remove();
     var r = "s-lc-ajax-modal";
-    return jQuery('<div class="modal fade" id="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"' + (0 == n ? "" : ' style="width:' + n + 'px"') + '><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel">' + i + '</h4></div><div class="modal-body" id="' + r + '"></div><div class="modal-footer"><button type="button" id="modalbtn" class="btn btn-primary pull-left">' + s + '</button> <button type="button" id="modalbtnc" class="btn btn-default pull-left" data-dismiss="modal">Close</button></div></div></div></div>').appendTo("body"), jQuery("#" + r).load(e + "?" + t, function() {
-        jQuery("#dialog").modal()
+    return jQuery('<div class="modal fade" id="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog"' + (0 == n ? "" : ' style="width:' + n + 'px"') + '><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button><h4 class="modal-title" id="myModalLabel">' + i + '</h4></div><div class="modal-body" id="' + r + '"></div><div class="modal-footer"><button type="button" id="modalbtn" class="btn btn-primary pull-left">' + s + '</button> <button type="button" id="modalbtnc" class="btn btn-default pull-left" data-dismiss="modal">Close</button></div></div></div></div>').appendTo("body"), springyPublic.setLastFocusElement(), jQuery("#" + r).load(e + "?" + t, function() {
+        jQuery("#dialog").modal(), jQuery("#dialog").on("hidden.bs.modal", function() {
+            springyPublic.restoreLastFocusElement()
+        })
     }), !1
 }
 
@@ -4154,7 +4157,9 @@ function ajaxModal(e, t) {
         type: "get",
         dataType: "html"
     }).always(stopAlert).done(function(e) {
-        springyPublic.createModal(e, i)
+        springyPublic.setLastFocusElement(), springyPublic.createModal(e, i), jQuery("#dialog").on("hidden.bs.modal", function() {
+            springyPublic.restoreLastFocusElement()
+        })
     }).fail(ajaxErrorHandler), !1
 }
 
@@ -4368,6 +4373,7 @@ function setupLanguageDropdown() {
     tickIcon: "fa-check"
 };
 var springyPublic = {
+    lastFocusElement: null,
     showTimezoneModal: function() {
         return ajaxModal("/timezone/list", 0)
     },
@@ -4387,6 +4393,16 @@ var springyPublic = {
     },
     registerClearBackForwardCache: function() {
         window.addEventListener("unload", function() {})
+    },
+    setLastFocusElement: function() {
+        springyPublic.lastFocusElement = document.activeElement
+    },
+    restoreLastFocusElement: function() {
+        null !== springyPublic.lastFocusElement && springyPublic.lastFocusElement.focus(), springyPublic.lastFocusElement = null
+    },
+    goToSelectedUrl: function() {
+        var e = jQuery(this).val();
+        return window.location = e + "#s-lc-public-pt", !1
     }
 };
 
@@ -4509,7 +4525,14 @@ function accessibleIcons() {
         createAccessibleTooltip(jQuery(t).parent("button"))
     }), jQuery('[data-toggle="tooltip"]').tooltip({
         trigger: "hover"
-    }), jQuery('[data-toggle="popover"]').popover()
+    }), jQuery('[data-toggle="popover"]').popover(), jQuery(".selectpicker").on("loaded.bs.select", function() {
+        var e = jQuery(this),
+            t = e.parent(),
+            e = jQuery('label[for="' + e.attr("id") + '"]'),
+            e = e.contents().not(e.children()).text().trim(),
+            i = t.find(".inner").attr("id");
+        t.append('<label class="sr-only" for="' + i + '">' + e + "</label>")
+    })
 }
 
 function accessibleTables(e) {
@@ -4612,12 +4635,12 @@ jQuery(function() {
                     var e = u(window).width(),
                         t = u(window).height(),
                         i = (new Date).getTime(),
-                        n = "";
-                    0 === s.uid && (n = "&skip=" + s.skip_first);
-                    if (s.redirectMobile && e <= s.redirectViewport) return window.location.href = s.domain + "/widget/appointments?u=" + s.uid + "&lid=" + s.lid + "&gid=" + s.gid + "&iid=" + s.iid + "&t=" + encodeURIComponent(s.title) + n, !1;
+                        n = s.domain + "/widget/appointments?u=" + s.uid + "&lid=" + s.lid + "&gid=" + s.gid + "&iid=" + s.iid + "&t=" + encodeURIComponent(s.title);
+                    0 === s.uid && s.skip_first;
+                    if (s.redirectMobile && e <= s.redirectViewport) return window.location.href = n, !1;
                     s.width > e && (s.width = e - 30, s.width < 0 || s.width < 250) && (s.width = s.redirectViewport);
                     s.height > t && (s.height = t - 30, s.height < 0 || s.height < 250) && (s.height = 250);
-                    u(s.close).after('<iframe id="' + s.triggerid + '-iframe" src="' + s.domain + "/widget/appointments?u=" + s.uid + "&lid=" + s.lid + "&gid=" + s.gid + "&iid=" + s.iid + "&t=" + encodeURIComponent(s.title) + n + "&ncache=" + i + '" height="' + s.height + '" width="' + s.width + '" style="padding:0; margin:0; border:0; overflow-x: hidden; overflow-y: scroll;" title="' + s.title + '"></iframe>'), u(s.close).css({
+                    u(s.close).after('<iframe id="' + s.triggerid + '-iframe" src="' + n + "&ncache=" + i + '" height="' + s.height + '" width="' + s.width + '" style="padding:0; margin:0; border:0; overflow-x: hidden; overflow-y: scroll;" title="' + s.title + '"><a href="' + n + '">Go to scheduling widget.</a></iframe>'), u(s.close).css({
                         background: "url(//lcimages.s3.amazonaws.com/ms-x.png) no-repeat",
                         width: "25px",
                         height: "29px",
