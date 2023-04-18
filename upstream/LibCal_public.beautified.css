@@ -124,10 +124,10 @@ table.dataTable thead>tr>th:active {
     outline: 0
 }
 
-div.dataTables_scrollBody table.dataTable thead>tr>td:after,
-div.dataTables_scrollBody table.dataTable thead>tr>td:before,
-div.dataTables_scrollBody table.dataTable thead>tr>th:after,
-div.dataTables_scrollBody table.dataTable thead>tr>th:before {
+div.dataTables_scrollBody>table.dataTable>thead>tr>td:after,
+div.dataTables_scrollBody>table.dataTable>thead>tr>td:before,
+div.dataTables_scrollBody>table.dataTable>thead>tr>th:after,
+div.dataTables_scrollBody>table.dataTable>thead>tr>th:before {
     display: none
 }
 
@@ -155,7 +155,8 @@ div.dataTables_processing>div:last-child>div {
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: 0 136 204;
+    background: #08c;
+    background: rgb(var(--dt-row-selected));
     animation-timing-function: cubic-bezier(0, 1, 1, 0)
 }
 
@@ -1402,6 +1403,12 @@ select.selectpicker {
     }
 }
 
+body {
+    font-family: Arial, Helvetica, Verdana;
+    font-size: 14px;
+    line-height: 1.5em
+}
+
 .s-lc-header {
     padding: 20px 10px 10px 0
 }
@@ -1424,7 +1431,8 @@ h1#s-lc-public-header-title {
 }
 
 .s-lc-section-header {
-    font-size: 14px
+    font-size: 16px !important;
+    font-weight: 700
 }
 
 .s-lc-color-bars {
@@ -2713,12 +2721,6 @@ a.s-lc-color-links:hover {
     margin-top: 20px
 }
 
-#s-lc-eq-success {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 14px
-}
-
 #equip_item .tab-pane {
     padding: 20px 0
 }
@@ -3036,6 +3038,10 @@ h6 small {
     margin-bottom: 10px
 }
 
+.s-lc-sub-header {
+    font-size: 16px
+}
+
 .s-lc-child-header {
     font-weight: 700;
     font-size: 14px
@@ -3217,17 +3223,6 @@ h6 small {
 
 .other-month-number {
     color: #f2f2f2
-}
-
-.s-lc-green {
-    color: green !important
-}
-
-.s-lc-book-details {
-    padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 17px;
-    border: 2px solid #eee
 }
 
 .s-lc-pass-address a {
@@ -3791,6 +3786,206 @@ h6 small {
     text-decoration: underline
 }
 
+.s-lc-search-filters {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f6f6f6
+}
+
+.s-lc-booking-suggestion {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin: 15px 0 20px 0;
+    padding: 10px
+}
+
+.s-lc-suggestion-heading {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 700
+}
+
+.s-lc-font-size-standard {
+    font-size: 1em
+}
+
+.s-lc-booking-suggestion img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover
+}
+
+.s-lc-suggestion-body {
+    min-height: 106px
+}
+
+.s-lc-booking-group {
+    color: #626262;
+    margin-bottom: 4px
+}
+
+.s-lc-booking-other-time {
+    margin-bottom: 8px;
+    white-space: nowrap
+}
+
+.s-lc-booking-other-time i {
+    color: #0b6b04
+}
+
+.s-lc-booking-times {
+    margin-bottom: 8px
+}
+
+.s-lc-booking-next-prev {
+    color: #757575;
+    white-space: nowrap
+}
+
+.s-lc-booking-next-prev i {
+    color: #2d2d2d
+}
+
+.s-lc-booking-desc {
+    overflow: hidden;
+    word-break: break-word;
+    margin-bottom: 6px
+}
+
+.s-lc-booking-icons span {
+    margin-right: 10px
+}
+
+.s-lc-booking-icons {
+    padding-top: 14px
+}
+
+.s-lc-booking-actions {
+    float: right
+}
+
+.s-lc-booking-actions form {
+    display: inline
+}
+
+.s-lc-eq-booking-form {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 10px
+}
+
+.s-lc-booking-element,
+.s-lc-eq-success-section {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 10px
+}
+
+.s-lc-booking-element img {
+    width: 100%;
+    max-height: 240px
+}
+
+.s-lc-booking-element .s-lc-booking-icons {
+    padding: 0
+}
+
+.s-lc-booking-element-label {
+    font-weight: 700
+}
+
+.s-lc-eq-success-section h2 {
+    font-size: 16px;
+    margin-top: 0
+}
+
+.s-lc-eq-location-name {
+    display: inline
+}
+
+.s-lc-eq-booking-title {
+    display: inline-block
+}
+
+.s-lc-eq-no-results {
+    color: #cc4e00
+}
+
+.s-lc-eq-image {
+    padding-right: 20px
+}
+
+.s-lc-session-info {
+    margin-bottom: 20px
+}
+
+.s-lc-book-now-times {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 16px
+}
+
+.s-lc-resource-info img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px
+}
+
+.s-lc-resource-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr
+}
+
+.s-lc-resource-type {
+    color: #757575
+}
+
+.s-lc-resource-image {
+    grid-row: span 2
+}
+
+.s-lc-resource-property {
+    background-color: #f5f5f5;
+    padding: 8px;
+    border: 1px dashed #cecece
+}
+
+@media (min-width:768px) {
+    .s-lc-eq-location-select {
+        display: inline-block
+    }
+
+    .s-lc-resource-image-container {
+        padding-right: 0
+    }
+
+    .s-lc-resource-info img {
+        border-radius: 12px 0 0 12px
+    }
+
+    .s-lc-resource-list-container {
+        padding-left: 0
+    }
+
+    .s-lc-resource-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width: 100%
+    }
+
+    .s-lc-resource-list-no-image {
+        grid-template-columns: 1fr 1fr 1fr
+    }
+
+    .s-lc-resource-property {
+        padding: 24px
+    }
+}
+
 .s-lc-eventcard-outer-container {
     margin-right: -22px
 }
@@ -3807,7 +4002,8 @@ h6 small {
 }
 
 .s-lc-eventcard {
-    width: 100%
+    width: 100%;
+    line-height: 18px
 }
 
 @media (min-width:768px) {
@@ -3914,7 +4110,8 @@ h4 .s-lc-eventcard-pill {
 }
 
 .s-lc-eventcard-title {
-    font-size: 16px
+    font-size: 16px;
+    margin-top: 10px
 }
 
 .s-lc-eventcard-description {
@@ -3930,7 +4127,6 @@ h4 .s-lc-eventcard-pill {
 
 .s-lc-eventcard-tags ul {
     margin: 0;
-    padding-bottom: 6px;
     padding-left: 16px;
     padding-right: 16px;
     list-style: none
@@ -4081,7 +4277,8 @@ h4 .s-lc-eventcard-pill {
 }
 
 .s-lc-mc-other-month {
-    background-color: #757575
+    background-color: #9a9a9a;
+    color: #080808
 }
 
 .s-lc-mc-evt {
@@ -4181,12 +4378,6 @@ h4 .s-lc-eventcard-pill {
     transform: rotate(45deg)
 }
 
-body {
-    font-family: Arial, Helvetica, Verdana;
-    font-size: 12px;
-    line-height: 1.5em
-}
-
 .label-as-badge {
     border-radius: 1em;
     position: relative;
@@ -4222,6 +4413,7 @@ textarea {
 }
 
 select {
+    cursor: pointer;
     padding: 2px 4px;
     height: 24px
 }
@@ -4388,6 +4580,10 @@ select {
 
 .s-lc-popover {
     cursor: pointer
+}
+
+.s-lc-tabs .nav-tabs a {
+    scroll-margin-top: 250px
 }
 
 #s-lc-tabs .nav-tabs .dropdown-toggle .caret {
@@ -4839,7 +5035,7 @@ select {
 .s-lc-eq-flab,
 .s-lc-passes-flab {
     font-weight: 700;
-    font-size: 12px;
+    font-size: 1em;
     border: none;
     border-bottom: none;
     margin-bottom: 0
@@ -4847,7 +5043,7 @@ select {
 
 .s-lc-event-flabel {
     font-weight: 700;
-    font-size: 12px;
+    font-size: 1em;
     color: #333;
     text-align: right;
     border: none;
@@ -4950,4 +5146,42 @@ table.s-lc-export-table th {
 .s-lc-app-lab,
 .s-lc-passes-lab {
     font-weight: 700
+}
+
+.s-lc-native-date,
+.s-lc-native-time {
+    -webkit-min-logical-width: calc(100% - 16px);
+    text-align: left
+}
+
+.s-lc-green {
+    color: green !important
+}
+
+.s-lc-spacious-lines,
+.s-lc-spacious-lines dd,
+.s-lc-spacious-lines dt {
+    line-height: 2em
+}
+
+.s-lc-dl-left dt {
+    float: left;
+    text-align: left;
+    width: 80px
+}
+
+.s-lc-dl-left dd {
+    margin-left: 90px
+}
+
+.s-lc-hr-dashed {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px dashed #cecece
+}
+
+@media (min-width:769px) {
+    .s-lc-desktop-only-margin-bottom-lg {
+        margin-bottom: 20px
+    }
 }
