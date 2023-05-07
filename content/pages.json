@@ -5169,7 +5169,7 @@
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2023-05-04 05:49:47",
                 "description": "",
-                "enable_display": "0",
+                "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
                 "friendly_url": null,
@@ -5182,11 +5182,11 @@
                 "slug_id": "0",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2023-05-05 07:10:34",
+                "updated": "2023-05-06 23:35:21",
                 "url": "https://library.caltech.edu/c.php?g=1216793&p=9705840"
             }
         ],
-        "published": "2023-05-05 17:36:57",
+        "published": "2023-05-06 23:35:13",
         "redirect_url": "",
         "site_id": 64,
         "slug": "bookdisplay",
@@ -5196,7 +5196,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-05-05 19:58:26",
+        "updated": "2023-05-07 01:43:41",
         "url": "https://library.caltech.edu/c.php?g=1216793"
     },
     {
