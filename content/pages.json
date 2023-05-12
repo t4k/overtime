@@ -4836,6 +4836,26 @@
                 "type_id": "1",
                 "updated": "2023-05-04 17:41:01",
                 "url": "https://library.caltech.edu/c.php?g=1231422&p=9705439"
+            },
+            {
+                "column_layout": "{\"1\":{\"span\":12}}",
+                "created": "2023-05-11 18:55:19",
+                "description": "",
+                "enable_display": "0",
+                "enable_newwin": "0",
+                "er_course_id": "0",
+                "friendly_url": null,
+                "id": "9718387",
+                "name": "Use Library Tech",
+                "num_cols": "1",
+                "parent_id": "0",
+                "position": "9",
+                "redirect_url": "",
+                "slug_id": "0",
+                "source_id": "0",
+                "type_id": "1",
+                "updated": "2023-05-11 18:55:19",
+                "url": "https://library.caltech.edu/c.php?g=1231422&p=9718387"
             }
         ],
         "published": "2022-06-15 17:19:50",
@@ -4848,7 +4868,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-05-04 21:11:26",
+        "updated": "2023-05-11 18:55:20",
         "url": "https://library.caltech.edu/c.php?g=1231422"
     },
     {
