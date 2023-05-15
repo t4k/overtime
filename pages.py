@@ -82,6 +82,7 @@ def main(
                 try:
                     # open the page in a browser
                     p.goto(page["url"])
+                    p.wait_for_load_state("networkidle")
                 except PlaywrightTimeoutError as e:
                     # write error to file
                     with open(
