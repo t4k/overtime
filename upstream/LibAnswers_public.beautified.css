@@ -12033,6 +12033,12 @@ caption {
     overflow-wrap: break-word
 }
 
+.grey-border-outline {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc
+}
+
 .s-srch-top-header {
     font-weight: 700;
     font-size: 16px
