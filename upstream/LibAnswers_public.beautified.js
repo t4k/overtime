@@ -824,7 +824,7 @@ function(t) {
         trigger: "click",
         content: "",
         template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-    }), e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype), e.prototype.constructor = e, e.prototype.getDefaults = function() {
+    }), (e.prototype = t.extend({}, t.fn.tooltip.Constructor.prototype)).constructor = e, e.prototype.getDefaults = function() {
         return e.DEFAULTS
     }, e.prototype.setContent = function() {
         var t = this.tip(),
@@ -1783,8 +1783,12 @@ var jqGetAjaxError = function(t) {
                 i[t] = e[t]
             })), t.multiselect(i)
         }
-    },
-    springSpace = springSpace || {};
+    };
+const resetMultiSelect = function(t, e) {
+    const i = jQuery(t);
+    i.multiselect("deselectAll"), i.multiselect("select", e), i.multiselect("refresh")
+};
+var springSpace = springSpace || {};
 springSpace.regex = {
         email: /^<?(['a-zA-Z0-9_=\.\-\+&!#\$%\*\?\^\|\{\}\~])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,6})+>?$/i,
         url: /^((mailto|https?):)*\/\/.+/i,
