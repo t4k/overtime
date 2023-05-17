@@ -63,11 +63,12 @@ springSpace.public = {}, springSpace.public._construct = function() {
             first: e
         }))))
     }, e.prototype.refreshResultCountNumeric = function(e = 0) {
-        let t = jQuery("#s-lg-az-result-count").text().split(" "),
-            i = (t.shift(), e);
-        0 == i && jQuery("div.s-lg-db-panel:visible").each((function() {
-            i += jQuery(this).find(".s-lg-az-result").length
-        })), jQuery("#s-lg-az-result-count").text(i + " " + t.join(" "))
+        let t = e;
+        0 == t && jQuery("div.s-lg-db-panel:visible").each((function() {
+            t += jQuery(this).find(".s-lg-az-result").length
+        })), jQuery("#s-lg-az-result-count span.list_count").each((function() {
+            jQuery(this).text(t)
+        }))
     }, e.prototype.filterAzBySubject = function(e, t) {
         this.loadAzList(this.getAzFilterValues({
             subject_id: e,
@@ -157,7 +158,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
             }
         })
     }, e.prototype.loadAzList = function(e, t = !1) {
-        springSpace.UI.notify({
+        "undefined" == typeof bootstrap && springSpace.UI.notify({
             mode: "load",
             duration: 3e4
         }), e = void 0 === e ? {
@@ -198,14 +199,14 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 bootstrap5: o
             },
             success: function(l, n) {
-                if (springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(i.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode) {
-                    jQuery("#s-lg-az-content").html(l.data.html), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && (jQuery("#col-subjects").html(l.data.subjects_html), o && jQuery("#s-lg-sel-subjects").select2({
+                if ("undefined" == typeof bootstrap && springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(i.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode) {
+                    jQuery("#s-lg-az-content").html(l.data.html), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && jQuery("#col-subjects").html(l.data.subjects_html), o && jQuery("#s-lg-sel-subjects").select2({
                         placeholder: l.data.label_all_subjects ?? "All Subjects"
-                    })), l.data.az_types_html && (jQuery("#col-types").html(l.data.az_types_html), o && jQuery("#s-lg-sel-az-types").select2({
+                    }), l.data.az_types_html && jQuery("#col-types").html(l.data.az_types_html), o && jQuery("#s-lg-sel-az-types").select2({
                         placeholder: l.data.label_all_types ?? "All Database Types"
-                    })), l.data.az_vendors_html && (jQuery("#col-vendors").html(l.data.az_vendors_html), o && jQuery("#s-lg-sel-az-vendors").select2({
+                    }), l.data.az_vendors_html && jQuery("#col-vendors").html(l.data.az_vendors_html), o && jQuery("#s-lg-sel-az-vendors").select2({
                         placeholder: l.data.label_all_vendors ?? "All Vendors/Providers"
-                    })), jQuery("#s-lg-az-pager").html(l.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!a);
+                    }), jQuery("#s-lg-az-pager").html(l.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!a);
                     var p = [];
                     r(p, i.getAZFilterData("s-lg-sel-subjects")), r(p, i.getAZFilterData("s-lg-sel-az-types")), r(p, i.getAZFilterData("s-lg-sel-az-vendors")), r(p, a ? [s.val().trim()] : []);
                     var u = (p.length > 0 ? ": " : "") + p.join("; "),
@@ -1743,20 +1744,18 @@ springSpace.util = {}, springSpace.common = {}, springSpace.validation = {}, spr
         if (this.allow_empty && "" == this.val) return "";
         let i = "";
         return jQuery.ajax({
-            url: "/libguides/friendly_process.php",
+            url: "/libguides/friendly_urls/process/validate",
             type: "POST",
             async: !1,
             dataType: "json",
             data: {
-                action: 184,
                 friendly_id: e,
                 slug: this.val,
                 prefix: a
             },
             success: function(t, e, a) {
                 i = t.data.err_msg
-            },
-            error: function(t, e, a) {}
+            }
         }), i
     }, t.prototype.max_length = function(t) {
         this.val = jQuery("#" + t.id).val();
