@@ -5172,6 +5172,10 @@ table.s-lc-export-table th {
     color: green !important
 }
 
+.s-lc-tight-lines {
+    line-height: 1em
+}
+
 .s-lc-spacious-lines,
 .s-lc-spacious-lines dd,
 .s-lc-spacious-lines dt {
