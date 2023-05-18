@@ -4244,7 +4244,7 @@ function hit(e, t, i) {
 }
 
 function loadBrowse(e, t) {
-    return jQuery("#" + t + "-cont").html('<br/><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p>'), jQuery.post("/process_public.php?m=" + e + "&id=" + t, function(e) {
+    return jQuery("#" + t + "-cont").html('<br/><p class="text-center"><i class="fa fa-spinner fa-spin fa-lg"></i></p>'), jQuery.get("/ajax/calendar/list/" + e + "?id=" + t, function(e) {
         jQuery("#" + t + "-cont").hide().html(e).fadeIn("fast")
     }), !1
 }
