@@ -10874,26 +10874,6 @@
                 "url": "https://library.caltech.edu/c.php?g=512661&p=3502631"
             },
             {
-                "column_layout": "{\"1\":{\"span\":3},\"2\":{\"span\":3},\"3\":{\"span\":3},\"4\":{\"span\":3}}",
-                "created": "2014-11-06 18:23:18",
-                "description": "",
-                "enable_display": "0",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": null,
-                "id": "3502665",
-                "name": "Popular Journals",
-                "num_cols": "4",
-                "parent_id": "3503088",
-                "position": "3",
-                "redirect_url": "",
-                "slug_id": "0",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2016-08-06 00:37:56",
-                "url": "https://library.caltech.edu/c.php?g=512661&p=3502665"
-            },
-            {
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2015-01-26 19:08:19",
                 "description": "",
@@ -11157,7 +11137,7 @@
                 "column_layout": "{\"1\":{\"span\":\"4\"},\"2\":{\"span\":\"4\"},\"3\":{\"span\":\"4\"}}",
                 "created": "2016-08-06 00:35:44",
                 "description": "",
-                "enable_display": "1",
+                "enable_display": "0",
                 "enable_newwin": "0",
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/chemistry/ChemJournals",
@@ -11170,7 +11150,7 @@
                 "slug_id": "1306646",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2017-02-25 01:03:49",
+                "updated": "2023-05-18 14:37:25",
                 "url": "https://library.caltech.edu/c.php?g=512661&p=3705674"
             },
             {
@@ -11244,7 +11224,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-05-15 23:29:48",
+        "updated": "2023-05-18 14:37:25",
         "url": "https://library.caltech.edu/c.php?g=512661"
     },
     {
@@ -16060,7 +16040,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-05-16 16:08:01",
+        "updated": "2023-05-18 22:35:36",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
