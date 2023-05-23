@@ -497,7 +497,7 @@ function(e, t) {
             }), n = e.length, t = 0; t < n; t++) Ye[e[t]] = s
     }
 
-    function Ie(e, s) {
+    function Le(e, s) {
         x(e, function(e, t, i, n) {
             i._w = i._w || {}, s(e, i._w, i, n)
         })
@@ -506,9 +506,9 @@ function(e, t) {
         D = 1,
         T = 2,
         Y = 3,
-        I = 4,
-        L = 5,
-        Le = 6,
+        L = 4,
+        I = 5,
+        Ie = 6,
         Oe = 7,
         Ce = 8;
 
@@ -623,7 +623,7 @@ function(e, t) {
             t = Be(e + 1, t, i);
         return (Re(e) - n + t) / 7
     }
-    n("w", ["ww", 2], "wo", "week"), n("W", ["WW", 2], "Wo", "isoWeek"), t("week", "w"), t("isoWeek", "W"), i("week", 5), i("isoWeek", 5), w("w", f), w("ww", f, l), w("W", f), w("WW", f, l), Ie(["w", "ww", "W", "WW"], function(e, t, i, n) {
+    n("w", ["ww", 2], "wo", "week"), n("W", ["WW", 2], "Wo", "isoWeek"), t("week", "w"), t("isoWeek", "W"), i("week", 5), i("isoWeek", 5), w("w", f), w("ww", f, l), w("W", f), w("WW", f, l), Le(["w", "ww", "W", "WW"], function(e, t, i, n) {
         t[n.substr(0, 1)] = c(e)
     });
 
@@ -642,10 +642,10 @@ function(e, t) {
         return t.weekdaysShortRegex(e)
     }), w("dddd", function(e, t) {
         return t.weekdaysRegex(e)
-    }), Ie(["dd", "ddd", "dddd"], function(e, t, i, n) {
+    }), Le(["dd", "ddd", "dddd"], function(e, t, i, n) {
         n = i._locale.weekdaysParse(e, n, i._strict);
         null != n ? t.d = n : _(i).invalidWeekday = e
-    }), Ie(["d", "e", "E"], function(e, t, i, n) {
+    }), Le(["d", "e", "E"], function(e, t, i, n) {
         t[n] = c(e)
     });
     var Ze = "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),
@@ -695,18 +695,18 @@ function(e, t) {
         t[Y] = c(e), _(i).bigHour = !0
     }), x("hmm", function(e, t, i) {
         var n = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n)), _(i).bigHour = !0
+        t[Y] = c(e.substr(0, n)), t[L] = c(e.substr(n)), _(i).bigHour = !0
     }), x("hmmss", function(e, t, i) {
         var n = e.length - 4,
             s = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[L] = c(e.substr(s)), _(i).bigHour = !0
+        t[Y] = c(e.substr(0, n)), t[L] = c(e.substr(n, 2)), t[I] = c(e.substr(s)), _(i).bigHour = !0
     }), x("Hmm", function(e, t, i) {
         var n = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n))
+        t[Y] = c(e.substr(0, n)), t[L] = c(e.substr(n))
     }), x("Hmmss", function(e, t, i) {
         var n = e.length - 4,
             s = e.length - 2;
-        t[Y] = c(e.substr(0, n)), t[I] = c(e.substr(n, 2)), t[L] = c(e.substr(s))
+        t[Y] = c(e.substr(0, n)), t[L] = c(e.substr(n, 2)), t[I] = c(e.substr(s))
     });
     p = ue("Hours", !0);
     var at, ot = {
@@ -824,7 +824,7 @@ function(e, t) {
 
     function mt(e) {
         var t = e._a;
-        return t && -2 === _(e).overflow && (t = t[D] < 0 || 11 < t[D] ? D : t[T] < 1 || t[T] > Ee(t[M], t[D]) ? T : t[Y] < 0 || 24 < t[Y] || 24 === t[Y] && (0 !== t[I] || 0 !== t[L] || 0 !== t[Le]) ? Y : t[I] < 0 || 59 < t[I] ? I : t[L] < 0 || 59 < t[L] ? L : t[Le] < 0 || 999 < t[Le] ? Le : -1, _(e)._overflowDayOfYear && (t < M || T < t) && (t = T), _(e)._overflowWeeks && -1 === t && (t = Oe), _(e)._overflowWeekday && -1 === t && (t = Ce), _(e).overflow = t), e
+        return t && -2 === _(e).overflow && (t = t[D] < 0 || 11 < t[D] ? D : t[T] < 1 || t[T] > Ee(t[M], t[D]) ? T : t[Y] < 0 || 24 < t[Y] || 24 === t[Y] && (0 !== t[L] || 0 !== t[I] || 0 !== t[Ie]) ? Y : t[L] < 0 || 59 < t[L] ? L : t[I] < 0 || 59 < t[I] ? I : t[Ie] < 0 || 999 < t[Ie] ? Ie : -1, _(e)._overflowDayOfYear && (t < M || T < t) && (t = T), _(e)._overflowWeeks && -1 === t && (t = Oe), _(e)._overflowWeekday && -1 === t && (t = Ce), _(e).overflow = t), e
     }
     var gt = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         yt = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
@@ -894,7 +894,7 @@ function(e, t) {
                         if (!vt.exec(l[4])) return void(e._isValid = !1);
                         a = "Z"
                     }
-                    e._f = s + (r || "") + (a || ""), It(e)
+                    e._f = s + (r || "") + (a || ""), Lt(e)
                 } else e._isValid = !1
             }
         } else e._isValid = !1
@@ -928,11 +928,11 @@ function(e, t) {
         if (!e._d) {
             for (n = e, s = new Date(m.now()), i = n._useUTC ? [s.getUTCFullYear(), s.getUTCMonth(), s.getUTCDate()] : [s.getFullYear(), s.getMonth(), s.getDate()], e._w && null == e._a[T] && null == e._a[D] && (null != (s = (n = e)._w).GG || null != s.W || null != s.E ? (l = 1, d = 4, r = Tt(s.GG, n._a[M], Ge(E(), 1, 4).year), a = Tt(s.W, 1), ((o = Tt(s.E, 1)) < 1 || 7 < o) && (c = !0)) : (l = n._locale._week.dow, d = n._locale._week.doy, u = Ge(E(), l, d), r = Tt(s.gg, n._a[M], u.year), a = Tt(s.w, u.week), null != s.d ? ((o = s.d) < 0 || 6 < o) && (c = !0) : null != s.e ? (o = s.e + l, (s.e < 0 || 6 < s.e) && (c = !0)) : o = l), a < 1 || a > O(r, l, d) ? _(n)._overflowWeeks = !0 : null != c ? _(n)._overflowWeekday = !0 : (u = Qe(r, a, o, l, d), n._a[M] = u.year, n._dayOfYear = u.dayOfYear)), null != e._dayOfYear && (s = Tt(e._a[M], i[M]), (e._dayOfYear > Re(s) || 0 === e._dayOfYear) && (_(e)._overflowDayOfYear = !0), c = Ve(s, 0, e._dayOfYear), e._a[D] = c.getUTCMonth(), e._a[T] = c.getUTCDate()), t = 0; t < 3 && null == e._a[t]; ++t) e._a[t] = h[t] = i[t];
             for (; t < 7; t++) e._a[t] = h[t] = null == e._a[t] ? 2 === t ? 1 : 0 : e._a[t];
-            24 === e._a[Y] && 0 === e._a[I] && 0 === e._a[L] && 0 === e._a[Le] && (e._nextDay = !0, e._a[Y] = 0), e._d = (e._useUTC ? Ve : Ue).apply(null, h), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), null != e._tzm && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[Y] = 24), e._w && void 0 !== e._w.d && e._w.d !== r && (_(e).weekdayMismatch = !0)
+            24 === e._a[Y] && 0 === e._a[L] && 0 === e._a[I] && 0 === e._a[Ie] && (e._nextDay = !0, e._a[Y] = 0), e._d = (e._useUTC ? Ve : Ue).apply(null, h), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), null != e._tzm && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[Y] = 24), e._w && void 0 !== e._w.d && e._w.d !== r && (_(e).weekdayMismatch = !0)
         }
     }
 
-    function It(e) {
+    function Lt(e) {
         if (e._f === m.ISO_8601) St(e);
         else if (e._f === m.RFC_2822) Dt(e);
         else {
@@ -945,7 +945,7 @@ function(e, t) {
         }
     }
 
-    function Lt(e) {
+    function It(e) {
         var t, i, n, s = e._i,
             r = e._f;
         if (e._locale = e._locale || pt(e._l), null === s || void 0 === r && "" === s) return W({
@@ -959,10 +959,10 @@ function(e, t) {
                 p = h._f.length;
             if (0 === p) _(h).invalidFormat = !0, h._d = new Date(NaN);
             else {
-                for (d = 0; d < p; d++) c = 0, u = !1, a = Q({}, h), null != h._useUTC && (a._useUTC = h._useUTC), a._f = h._f[d], It(a), R(a) && (u = !0), c = (c += _(a).charsLeftOver) + 10 * _(a).unusedTokens.length, _(a).score = c, f ? c < l && (l = c, o = a) : (null == l || c < l || u) && (l = c, o = a, u) && (f = !0);
+                for (d = 0; d < p; d++) c = 0, u = !1, a = Q({}, h), null != h._useUTC && (a._useUTC = h._useUTC), a._f = h._f[d], Lt(a), R(a) && (u = !0), c = (c += _(a).charsLeftOver) + 10 * _(a).unusedTokens.length, _(a).score = c, f ? c < l && (l = c, o = a) : (null == l || c < l || u) && (l = c, o = a, u) && (f = !0);
                 F(h, o || a)
             }
-        } else if (r) It(e);
+        } else if (r) Lt(e);
         else if (y(r = (s = e)._i)) s._d = new Date(m.now());
         else P(r) ? s._d = new Date(r.valueOf()) : "string" == typeof r ? (i = s, null !== (t = wt.exec(i._i)) ? i._d = new Date(+t[1]) : (St(i), !1 === i._isValid && (delete i._isValid, Dt(i), !1 === i._isValid) && (delete i._isValid, i._strict ? i._isValid = !1 : m.createFromInputFallback(i)))) : g(r) ? (s._a = z(r.slice(0), function(e) {
             return parseInt(e, 10)
@@ -974,7 +974,7 @@ function(e, t) {
 
     function Ot(e, t, i, n, s) {
         var r = {};
-        return !0 !== t && !1 !== t || (n = t, t = void 0), !0 !== i && !1 !== i || (n = i, i = void 0), (H(e) && A(e) || g(e) && 0 === e.length) && (e = void 0), r._isAMomentObject = !0, r._useUTC = r._isUTC = s, r._l = i, r._i = e, r._f = t, r._strict = n, (s = new G(mt(Lt(s = r))))._nextDay && (s.add(1, "d"), s._nextDay = void 0), s
+        return !0 !== t && !1 !== t || (n = t, t = void 0), !0 !== i && !1 !== i || (n = i, i = void 0), (H(e) && A(e) || g(e) && 0 === e.length) && (e = void 0), r._isAMomentObject = !0, r._useUTC = r._isUTC = s, r._l = i, r._i = e, r._f = t, r._strict = n, (s = new G(mt(It(s = r))))._nextDay && (s.add(1, "d"), s._nextDay = void 0), s
     }
 
     function E(e, t, i, n) {
@@ -1074,9 +1074,9 @@ function(e, t) {
             y: 0,
             d: c(t[T]) * i,
             h: c(t[Y]) * i,
-            m: c(t[I]) * i,
-            s: c(t[L]) * i,
-            ms: c(Nt(1e3 * t[Le])) * i
+            m: c(t[L]) * i,
+            s: c(t[I]) * i,
+            ms: c(Nt(1e3 * t[Ie])) * i
         }) : (t = Ut.exec(e)) ? (i = "-" === t[1] ? -1 : 1, n = {
             y: Vt(t[2], i),
             M: Vt(t[3], i),
@@ -1212,9 +1212,9 @@ function(e, t) {
         return this.weekYear() % 100
     }), n(0, ["GG", 2], 0, function() {
         return this.isoWeekYear() % 100
-    }), ai("gggg", "weekYear"), ai("ggggg", "weekYear"), ai("GGGG", "isoWeekYear"), ai("GGGGG", "isoWeekYear"), t("weekYear", "gg"), t("isoWeekYear", "GG"), i("weekYear", 1), i("isoWeekYear", 1), w("G", xe), w("g", xe), w("GG", f, l), w("gg", f, l), w("GGGG", be, me), w("gggg", be, me), w("GGGGG", we, ge), w("ggggg", we, ge), Ie(["gggg", "ggggg", "GGGG", "GGGGG"], function(e, t, i, n) {
+    }), ai("gggg", "weekYear"), ai("ggggg", "weekYear"), ai("GGGG", "isoWeekYear"), ai("GGGGG", "isoWeekYear"), t("weekYear", "gg"), t("isoWeekYear", "GG"), i("weekYear", 1), i("isoWeekYear", 1), w("G", xe), w("g", xe), w("GG", f, l), w("gg", f, l), w("GGGG", be, me), w("gggg", be, me), w("GGGGG", we, ge), w("ggggg", we, ge), Le(["gggg", "ggggg", "GGGG", "GGGGG"], function(e, t, i, n) {
         t[n.substr(0, 2)] = c(e)
-    }), Ie(["gg", "GG"], function(e, t, i, n) {
+    }), Le(["gg", "GG"], function(e, t, i, n) {
         t[n] = m.parseTwoDigitYear(e)
     }), n("Q", 0, "Qo", "quarter"), t("quarter", "Q"), i("quarter", 7), w("Q", s), x("Q", function(e, t) {
         t[D] = 3 * (c(e) - 1)
@@ -1226,9 +1226,9 @@ function(e, t) {
     be = ue("Date", !0);
     n("DDD", ["DDDD", 3], "DDDo", "dayOfYear"), t("dayOfYear", "DDD"), i("dayOfYear", 4), w("DDD", _e), w("DDDD", pe), x(["DDD", "DDDD"], function(e, t, i) {
         i._dayOfYear = c(e)
-    }), n("m", ["mm", 2], 0, "minute"), t("minute", "m"), i("minute", 14), w("m", f), w("mm", f, l), x(["m", "mm"], I);
+    }), n("m", ["mm", 2], 0, "minute"), t("minute", "m"), i("minute", 14), w("m", f), w("mm", f, l), x(["m", "mm"], L);
     var li, me = ue("Minutes", !1),
-        we = (n("s", ["ss", 2], 0, "second"), t("second", "s"), i("second", 15), w("s", f), w("ss", f, l), x(["s", "ss"], L), ue("Seconds", !1));
+        we = (n("s", ["ss", 2], 0, "second"), t("second", "s"), i("second", 15), w("s", f), w("ss", f, l), x(["s", "ss"], I), ue("Seconds", !1));
     for (n("S", 0, 0, function() {
             return ~~(this.millisecond() / 100)
         }), n(0, ["SS", 2], 0, function() {
@@ -1248,7 +1248,7 @@ function(e, t) {
         }), t("millisecond", "ms"), i("millisecond", 16), w("S", _e, s), w("SS", _e, l), w("SSS", _e, pe), li = "SSSS"; li.length <= 9; li += "S") w(li, ke);
 
     function di(e, t) {
-        t[Le] = c(1e3 * ("0." + e))
+        t[Ie] = c(1e3 * ("0." + e))
     }
     for (li = "S"; li.length <= 9; li += "S") x(li, di);
     ge = ue("Milliseconds", !1), n("z", 0, 0, "zoneAbbr"), n("zz", 0, 0, "zoneName");
@@ -1554,7 +1554,7 @@ function(e, t) {
         return null != e ? (this.utcOffset(e = "string" != typeof e ? -e : e, t), this) : -this.utcOffset()
     }), s.isDSTShifted = e("isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information", function() {
         var e, t;
-        return y(this._isDSTShifted) && (Q(e = {}, this), (e = Lt(e))._a ? (t = (e._isUTC ? d : E)(e._a), this._isDSTShifted = this.isValid() && 0 < function(e, t, i) {
+        return y(this._isDSTShifted) && (Q(e = {}, this), (e = It(e))._a ? (t = (e._isUTC ? d : E)(e._a), this._isDSTShifted = this.isValid() && 0 < function(e, t, i) {
             for (var n = Math.min(e.length, t.length), s = Math.abs(e.length - t.length), r = 0, a = 0; a < n; a++)(i && e[a] !== t[a] || !i && c(e[a]) !== c(t[a])) && r++;
             return r + s
         }(e._a, t.toArray())) : this._isDSTShifted = !1), this._isDSTShifted
@@ -1785,7 +1785,7 @@ function(e, t) {
         return (0 < e) - (e < 0) || +e
     }
 
-    function Ii() {
+    function Li() {
         var e, t, i, n, s, r, a, o, l, d, c;
         return this.isValid() ? (e = Ti(this._milliseconds) / 1e3, t = Ti(this._days), i = Ti(this._months), (o = this.asSeconds()) ? (n = u(e / 60), s = u(n / 60), e %= 60, n %= 60, r = u(i / 12), i %= 12, a = e ? e.toFixed(3).replace(/\.?0+$/, "") : "", l = Yi(this._months) !== Yi(o) ? "-" : "", d = Yi(this._days) !== Yi(o) ? "-" : "", c = Yi(this._milliseconds) !== Yi(o) ? "-" : "", (o < 0 ? "-" : "") + "P" + (r ? l + r + "Y" : "") + (i ? l + i + "M" : "") + (t ? d + t + "D" : "") + (s || n || e ? "T" : "") + (s ? c + s + "H" : "") + (n ? c + n + "M" : "") + (e ? c + a + "S" : "")) : "P0D") : this.localeData().invalidDate()
     }
@@ -1842,7 +1842,7 @@ function(e, t) {
     }, $.months = ki, $.years = xi, $.humanize = function(e, t) {
         var i, n;
         return this.isValid() ? (i = !1, n = Mi, "object" == typeof e && (t = e, e = !1), "boolean" == typeof e && (i = e), "object" == typeof t && (n = Object.assign({}, Mi, t), null != t.s) && null == t.ss && (n.ss = t.s - 1), e = this.localeData(), t = Di(this, !i, n, e), i && (t = e.pastFuture(+this, t)), e.postformat(t)) : this.localeData().invalidDate()
-    }, $.toISOString = Ii, $.toString = Ii, $.toJSON = Ii, $.locale = Kt, $.localeData = Xt, $.toIsoString = e("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)", Ii), $.lang = Ke, n("X", 0, 0, "unix"), n("x", 0, 0, "valueOf"), w("x", xe), w("X", /[+-]?\d+(\.\d{1,3})?/), x("X", function(e, t, i) {
+    }, $.toISOString = Li, $.toString = Li, $.toJSON = Li, $.locale = Kt, $.localeData = Xt, $.toIsoString = e("toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)", Li), $.lang = Ke, n("X", 0, 0, "unix"), n("x", 0, 0, "valueOf"), w("x", xe), w("X", /[+-]?\d+(\.\d{1,3})?/), x("X", function(e, t, i) {
         i._d = new Date(1e3 * parseFloat(e))
     }), x("x", function(e, t, i) {
         i._d = new Date(c(e))
@@ -3061,13 +3061,13 @@ function(e, t) {
             M = 32,
             D = 9,
             Y = 38,
-            I = 40,
-            L = {
+            L = 40,
+            I = {
                 success: !1,
                 major: "3"
             };
         try {
-            L.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split("."), L.major = L.full[0], L.success = !0
+            I.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split("."), I.major = I.full[0], I.success = !0
         } catch (e) {}
         var g = 0,
             O = ".bs.select",
@@ -3097,7 +3097,7 @@ function(e, t) {
                 whitespace: document.createTextNode(" "),
                 fragment: document.createDocumentFragment()
             },
-            Z = (E.noResults = E.li.cloneNode(!1), E.noResults.className = "no-results", E.a.setAttribute("role", "option"), E.a.className = "dropdown-item", E.subtext.className = "text-muted", E.text = E.span.cloneNode(!1), E.text.className = "text", E.checkMark = E.span.cloneNode(!1), new RegExp(Y + "|" + I)),
+            Z = (E.noResults = E.li.cloneNode(!1), E.noResults.className = "no-results", E.a.setAttribute("role", "option"), E.a.className = "dropdown-item", E.subtext.className = "text-muted", E.text = E.span.cloneNode(!1), E.text.className = "text", E.checkMark = E.span.cloneNode(!1), new RegExp(Y + "|" + L)),
             J = new RegExp("^" + D + "$|" + _),
             j = {
                 li: function(e, t, i) {
@@ -3145,15 +3145,15 @@ function(e, t) {
         function K(e) {
             var o, l = arguments,
                 d = e;
-            if ([].shift.apply(l), !L.success) {
+            if ([].shift.apply(l), !I.success) {
                 try {
-                    L.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split(".")
+                    I.full = (b.fn.dropdown.Constructor.VERSION || "").split(" ")[0].split(".")
                 } catch (e) {
-                    $.BootstrapVersion ? L.full = $.BootstrapVersion.split(" ")[0].split(".") : (L.full = [L.major, "0", "0"], console.warn("There was an issue retrieving Bootstrap's version. Ensure Bootstrap is being loaded before bootstrap-select and there is no namespace collision. If loading Bootstrap asynchronously, the version may need to be manually specified via $.fn.selectpicker.Constructor.BootstrapVersion.", e))
+                    $.BootstrapVersion ? I.full = $.BootstrapVersion.split(" ")[0].split(".") : (I.full = [I.major, "0", "0"], console.warn("There was an issue retrieving Bootstrap's version. Ensure Bootstrap is being loaded before bootstrap-select and there is no namespace collision. If loading Bootstrap asynchronously, the version may need to be manually specified via $.fn.selectpicker.Constructor.BootstrapVersion.", e))
                 }
-                L.major = L.full[0], L.success = !0
+                I.major = I.full[0], I.success = !0
             }
-            if ("4" === L.major) {
+            if ("4" === I.major) {
                 var t = [];
                 $.DEFAULTS.style === C.BUTTONCLASS && t.push({
                     name: "style",
@@ -3277,12 +3277,12 @@ function(e, t) {
                     t = this.multiple ? ' aria-multiselectable="true"' : "",
                     i = "",
                     n = this.autofocus ? " autofocus" : "";
-                L.major < 4 && this.$element.parent().hasClass("input-group") && (i = " input-group-btn");
+                I.major < 4 && this.$element.parent().hasClass("input-group") && (i = " input-group-btn");
                 var s = "",
                     r = "",
                     a = "",
                     o = "";
-                return this.options.header && (s = '<div class="' + C.POPOVERHEADER + '"><button type="button" class="close" aria-hidden="true">&times;</button>' + this.options.header + "</div>"), this.options.liveSearch && (r = '<div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"' + (null === this.options.liveSearchPlaceholder ? "" : ' placeholder="' + S(this.options.liveSearchPlaceholder) + '"') + ' role="combobox" aria-label="Search" aria-controls="' + this.selectId + '" aria-autocomplete="list"></div>'), this.multiple && this.options.actionsBox && (a = '<div class="bs-actionsbox"><div class="btn-group btn-group-sm btn-block"><button type="button" class="actions-btn bs-select-all btn ' + C.BUTTONCLASS + '">' + this.options.selectAllText + '</button><button type="button" class="actions-btn bs-deselect-all btn ' + C.BUTTONCLASS + '">' + this.options.deselectAllText + "</button></div></div>"), this.multiple && this.options.doneButton && (o = '<div class="bs-donebutton"><div class="btn-group btn-block"><button type="button" class="btn btn-sm ' + C.BUTTONCLASS + '">' + this.options.doneButtonText + "</button></div></div>"), e = '<div class="dropdown bootstrap-select' + e + i + '"><button type="button" tabindex="-1" class="' + this.options.styleBase + ' dropdown-toggle" ' + ("static" === this.options.display ? 'data-display="static"' : "") + 'data-toggle="dropdown"' + n + ' role="combobox" aria-owns="' + this.selectId + '" aria-haspopup="listbox" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"></div></div> </div>' + ("4" === L.major ? "" : '<span class="bs-caret">' + this.options.template.caret + "</span>") + '</button><div class="' + C.MENU + " " + ("4" === L.major ? "" : C.SHOW) + '">' + s + r + a + '<div class="inner ' + C.SHOW + '" role="listbox" id="' + this.selectId + '" tabindex="-1" ' + t + '><ul class="' + C.MENU + " inner " + ("4" === L.major ? C.SHOW : "") + '" role="presentation"></ul></div>' + o + "</div></div>", b(e)
+                return this.options.header && (s = '<div class="' + C.POPOVERHEADER + '"><button type="button" class="close" aria-hidden="true">&times;</button>' + this.options.header + "</div>"), this.options.liveSearch && (r = '<div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"' + (null === this.options.liveSearchPlaceholder ? "" : ' placeholder="' + S(this.options.liveSearchPlaceholder) + '"') + ' role="combobox" aria-label="Search" aria-controls="' + this.selectId + '" aria-autocomplete="list"></div>'), this.multiple && this.options.actionsBox && (a = '<div class="bs-actionsbox"><div class="btn-group btn-group-sm btn-block"><button type="button" class="actions-btn bs-select-all btn ' + C.BUTTONCLASS + '">' + this.options.selectAllText + '</button><button type="button" class="actions-btn bs-deselect-all btn ' + C.BUTTONCLASS + '">' + this.options.deselectAllText + "</button></div></div>"), this.multiple && this.options.doneButton && (o = '<div class="bs-donebutton"><div class="btn-group btn-block"><button type="button" class="btn btn-sm ' + C.BUTTONCLASS + '">' + this.options.doneButtonText + "</button></div></div>"), e = '<div class="dropdown bootstrap-select' + e + i + '"><button type="button" tabindex="-1" class="' + this.options.styleBase + ' dropdown-toggle" ' + ("static" === this.options.display ? 'data-display="static"' : "") + 'data-toggle="dropdown"' + n + ' role="combobox" aria-owns="' + this.selectId + '" aria-haspopup="listbox" aria-expanded="false"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner"></div></div> </div>' + ("4" === I.major ? "" : '<span class="bs-caret">' + this.options.template.caret + "</span>") + '</button><div class="' + C.MENU + " " + ("4" === I.major ? "" : C.SHOW) + '">' + s + r + a + '<div class="inner ' + C.SHOW + '" role="listbox" id="' + this.selectId + '" tabindex="-1" ' + t + '><ul class="' + C.MENU + " inner " + ("4" === I.major ? C.SHOW : "") + '" role="presentation"></ul></div>' + o + "</div></div>", b(e)
             },
             setPositionData: function() {
                 this.selectpicker.view.canHighlight = [], this.selectpicker.view.size = 0, this.selectpicker.view.firstHighlightIndex = !1;
@@ -3464,13 +3464,13 @@ function(e, t) {
                     }, !0);
                 null == this.options.title && (this.options.title = this.$element.attr("title")), l.childNodes.length || (l = j.text.call(this, {
                     text: void 0 !== this.options.title ? this.options.title : this.options.noneSelectedText
-                }, !0)), r.title = l.textContent.replace(/<[^>]*>?/g, "").trim(), this.options.sanitize && d && T([l], e.options.whiteList, e.options.sanitizeFn), a.innerHTML = "", a.appendChild(l), L.major < 4 && this.$newElement[0].classList.contains("bs3-has-addon") && (t = r.querySelector(".filter-expand"), (i = a.cloneNode(!0)).className = "filter-expand", t ? r.replaceChild(i, t) : r.appendChild(i)), this.$element.trigger("rendered" + O)
+                }, !0)), r.title = l.textContent.replace(/<[^>]*>?/g, "").trim(), this.options.sanitize && d && T([l], e.options.whiteList, e.options.sanitizeFn), a.innerHTML = "", a.appendChild(l), I.major < 4 && this.$newElement[0].classList.contains("bs3-has-addon") && (t = r.querySelector(".filter-expand"), (i = a.cloneNode(!0)).className = "filter-expand", t ? r.replaceChild(i, t) : r.appendChild(i)), this.$element.trigger("rendered" + O)
             },
             setStyle: function(e, t) {
                 var i = this.$button[0],
                     n = this.$newElement[0],
                     s = this.options.style.trim();
-                this.$element.attr("class") && this.$newElement.addClass(this.$element.attr("class").replace(/selectpicker|mobile-device|bs-select-hidden|validate\[.*\]/gi, "")), L.major < 4 && (n.classList.add("bs3"), n.parentNode.classList) && n.parentNode.classList.contains("input-group") && (n.previousElementSibling || n.nextElementSibling) && (n.previousElementSibling || n.nextElementSibling).classList.contains("input-group-addon") && n.classList.add("bs3-has-addon"), n = e ? e.trim() : s, "add" == t ? n && i.classList.add.apply(i.classList, n.split(" ")) : "remove" == t ? n && i.classList.remove.apply(i.classList, n.split(" ")) : (s && i.classList.remove.apply(i.classList, s.split(" ")), n && i.classList.add.apply(i.classList, n.split(" ")))
+                this.$element.attr("class") && this.$newElement.addClass(this.$element.attr("class").replace(/selectpicker|mobile-device|bs-select-hidden|validate\[.*\]/gi, "")), I.major < 4 && (n.classList.add("bs3"), n.parentNode.classList) && n.parentNode.classList.contains("input-group") && (n.previousElementSibling || n.nextElementSibling) && (n.previousElementSibling || n.nextElementSibling).classList.contains("input-group-addon") && n.classList.add("bs3-has-addon"), n = e ? e.trim() : s, "add" == t ? n && i.classList.add.apply(i.classList, n.split(" ")) : "remove" == t ? n && i.classList.remove.apply(i.classList, n.split(" ")) : (s && i.classList.remove.apply(i.classList, s.split(" ")), n && i.classList.add.apply(i.classList, n.split(" ")))
             },
             liHeight: function(e) {
                 if (e || !1 !== this.options.size && !Object.keys(this.sizeInfo).length) {
@@ -3487,7 +3487,7 @@ function(e, t) {
                         u = this.options.actionsBox && this.multiple && 0 < this.$menu.find(".bs-actionsbox").length ? this.$menu.find(".bs-actionsbox")[0].cloneNode(!0) : null,
                         h = this.options.doneButton && this.multiple && 0 < this.$menu.find(".bs-donebutton").length ? this.$menu.find(".bs-donebutton")[0].cloneNode(!0) : null,
                         f = this.$element.find("option")[0];
-                    if (this.sizeInfo.selectWidth = this.$newElement[0].offsetWidth, l.className = "text", o.className = "dropdown-item " + (f ? f.className : ""), e.className = this.$menu[0].parentNode.className + " " + C.SHOW, e.style.width = 0, "auto" === this.options.width && (i.style.minWidth = 0), i.className = C.MENU + " " + C.SHOW, n.className = "inner " + C.SHOW, s.className = C.MENU + " inner " + ("4" === L.major ? C.SHOW : ""), r.className = C.DIVIDER, a.className = "dropdown-header", l.appendChild(document.createTextNode("​")), this.selectpicker.current.data.length)
+                    if (this.sizeInfo.selectWidth = this.$newElement[0].offsetWidth, l.className = "text", o.className = "dropdown-item " + (f ? f.className : ""), e.className = this.$menu[0].parentNode.className + " " + C.SHOW, e.style.width = 0, "auto" === this.options.width && (i.style.minWidth = 0), i.className = C.MENU + " " + C.SHOW, n.className = "inner " + C.SHOW, s.className = C.MENU + " inner " + ("4" === I.major ? C.SHOW : ""), r.className = C.DIVIDER, a.className = "dropdown-header", l.appendChild(document.createTextNode("​")), this.selectpicker.current.data.length)
                         for (var p = 0; p < this.selectpicker.current.data.length; p++) {
                             var m = this.selectpicker.current.data[p];
                             if ("option" === m.type) {
@@ -3581,7 +3581,7 @@ function(e, t) {
                     a.$bsContainer.addClass(e.attr("class").replace(/form-control|fit-width/gi, "")).toggleClass(C.DROPUP, e.hasClass(C.DROPUP)), n = e.offset(), o.is("body") ? s = {
                         top: 0,
                         left: 0
-                    } : ((s = o.offset()).top += parseInt(o.css("borderTopWidth")) - o.scrollTop(), s.left += parseInt(o.css("borderLeftWidth")) - o.scrollLeft()), r = e.hasClass(C.DROPUP) ? 0 : e[0].offsetHeight, (L.major < 4 || "static" === i) && (t.top = n.top - s.top + r, t.left = n.left - s.left), t.width = e[0].offsetWidth, a.$bsContainer.css(t)
+                    } : ((s = o.offset()).top += parseInt(o.css("borderTopWidth")) - o.scrollTop(), s.left += parseInt(o.css("borderLeftWidth")) - o.scrollLeft()), r = e.hasClass(C.DROPUP) ? 0 : e[0].offsetHeight, (I.major < 4 || "static" === i) && (t.top = n.top - s.top + r, t.left = n.left - s.left), t.width = e[0].offsetWidth, a.$bsContainer.css(t)
                 }
                 var n, s, r, a = this,
                     o = b(this.options.container);
@@ -3611,7 +3611,7 @@ function(e, t) {
             },
             setDisabled: function(e, t) {
                 var i = this.selectpicker.main.elements[e];
-                this.selectpicker.main.data[e].disabled = t, e = i.firstChild, i.classList.toggle(C.DISABLED, t), e && ("4" === L.major && e.classList.toggle(C.DISABLED, t), t ? (e.setAttribute("aria-disabled", t), e.setAttribute("tabindex", -1)) : (e.removeAttribute("aria-disabled"), e.setAttribute("tabindex", 0)))
+                this.selectpicker.main.data[e].disabled = t, e = i.firstChild, i.classList.toggle(C.DISABLED, t), e && ("4" === I.major && e.classList.toggle(C.DISABLED, t), t ? (e.setAttribute("aria-disabled", t), e.setAttribute("tabindex", -1)) : (e.removeAttribute("aria-disabled"), e.setAttribute("tabindex", 0)))
             },
             isDisabled: function() {
                 return this.$element[0].disabled
@@ -3633,11 +3633,11 @@ function(e, t) {
                 t.data("spaceSelect", !1), this.$button.on("keyup", function(e) {
                     /(32)/.test(e.keyCode.toString(10)) && t.data("spaceSelect") && (e.preventDefault(), t.data("spaceSelect", !1))
                 }), this.$newElement.on("show.bs.dropdown", function() {
-                    3 < L.major && !_.dropdown && (_.dropdown = _.$button.data("bs.dropdown"), _.dropdown._menu = _.$menu[0])
+                    3 < I.major && !_.dropdown && (_.dropdown = _.$button.data("bs.dropdown"), _.dropdown._menu = _.$menu[0])
                 }), this.$button.on("click.bs.dropdown.data-api", function() {
                     _.$newElement.hasClass(C.SHOW) || _.setSize()
                 }), this.$element.on("shown" + O, function() {
-                    _.$menuInner[0].scrollTop !== _.selectpicker.view.scrollTop && (_.$menuInner[0].scrollTop = _.selectpicker.view.scrollTop), 3 < L.major ? requestAnimationFrame(i) : e()
+                    _.$menuInner[0].scrollTop !== _.selectpicker.view.scrollTop && (_.$menuInner[0].scrollTop = _.selectpicker.view.scrollTop), 3 < I.major ? requestAnimationFrame(i) : e()
                 }), this.$menuInner.on("mouseenter", "li a", function(e) {
                     var t = this.parentElement,
                         i = _.isVirtual() ? _.selectpicker.view.position0 : 0,
@@ -3789,9 +3789,9 @@ function(e, t) {
                     if (!(t = o.$newElement.hasClass(C.SHOW)) && (c || 48 <= e.which && e.which <= 57 || 96 <= e.which && e.which <= 105 || 65 <= e.which && e.which <= 90) && (o.$button.trigger("click.bs.dropdown.data-api"), o.options.liveSearch)) o.$searchbox.trigger("focus");
                     else {
                         if (e.which === _ && t && (e.preventDefault(), o.$button.trigger("click.bs.dropdown.data-api").trigger("focus")), c) {
-                            if (!l.length) return; - 1 !== (c = (i = o.selectpicker.main.elements[o.activeIndex]) ? Array.prototype.indexOf.call(i.parentElement.children, i) : -1) && o.defocusItem(i), e.which === Y ? (-1 !== c && c--, c + h < 0 && (c += l.length), o.selectpicker.view.canHighlight[c + h] || -1 === (c = o.selectpicker.view.canHighlight.slice(0, c + h).lastIndexOf(!0) - h) && (c = l.length - 1)) : e.which !== I && !a || (++c + h >= o.selectpicker.view.canHighlight.length && (c = o.selectpicker.view.firstHighlightIndex), o.selectpicker.view.canHighlight[c + h]) || (c = c + 1 + o.selectpicker.view.canHighlight.slice(c + h + 1).indexOf(!0)), e.preventDefault();
+                            if (!l.length) return; - 1 !== (c = (i = o.selectpicker.main.elements[o.activeIndex]) ? Array.prototype.indexOf.call(i.parentElement.children, i) : -1) && o.defocusItem(i), e.which === Y ? (-1 !== c && c--, c + h < 0 && (c += l.length), o.selectpicker.view.canHighlight[c + h] || -1 === (c = o.selectpicker.view.canHighlight.slice(0, c + h).lastIndexOf(!0) - h) && (c = l.length - 1)) : e.which !== L && !a || (++c + h >= o.selectpicker.view.canHighlight.length && (c = o.selectpicker.view.firstHighlightIndex), o.selectpicker.view.canHighlight[c + h]) || (c = c + 1 + o.selectpicker.view.canHighlight.slice(c + h + 1).indexOf(!0)), e.preventDefault();
                             var f = h + c;
-                            e.which === Y ? 0 === h && c === l.length - 1 ? (o.$menuInner[0].scrollTop = o.$menuInner[0].scrollHeight, f = o.selectpicker.current.elements.length - 1) : d = (s = (n = o.selectpicker.current.data[f]).position - n.height) < u : e.which !== I && !a || (c === o.selectpicker.view.firstHighlightIndex ? (o.$menuInner[0].scrollTop = 0, f = o.selectpicker.view.firstHighlightIndex) : d = u < (s = (n = o.selectpicker.current.data[f]).position - o.sizeInfo.menuInnerHeight)), i = o.selectpicker.current.elements[f], o.activeIndex = o.selectpicker.current.data[f].index, o.focusItem(i), o.selectpicker.view.currentActive = i, d && (o.$menuInner[0].scrollTop = s), (o.options.liveSearch ? o.$searchbox : r).trigger("focus")
+                            e.which === Y ? 0 === h && c === l.length - 1 ? (o.$menuInner[0].scrollTop = o.$menuInner[0].scrollHeight, f = o.selectpicker.current.elements.length - 1) : d = (s = (n = o.selectpicker.current.data[f]).position - n.height) < u : e.which !== L && !a || (c === o.selectpicker.view.firstHighlightIndex ? (o.$menuInner[0].scrollTop = 0, f = o.selectpicker.view.firstHighlightIndex) : d = u < (s = (n = o.selectpicker.current.data[f]).position - o.sizeInfo.menuInnerHeight)), i = o.selectpicker.current.elements[f], o.activeIndex = o.selectpicker.current.data[f].index, o.focusItem(i), o.selectpicker.view.currentActive = i, d && (o.$menuInner[0].scrollTop = s), (o.options.liveSearch ? o.$searchbox : r).trigger("focus")
                         } else if (!r.is("input") && !J.test(e.which) || e.which === M && o.selectpicker.keydown.keyHistory) {
                             var p, m = [];
                             e.preventDefault(), o.selectpicker.keydown.keyHistory += Q[e.which], o.selectpicker.keydown.resetKeyHistory.cancel && clearTimeout(o.selectpicker.keydown.resetKeyHistory.cancel), o.selectpicker.keydown.resetKeyHistory.cancel = o.selectpicker.keydown.resetKeyHistory.start(), p = o.selectpicker.keydown.keyHistory, /^(.)\1+$/.test(p) && (p = p.charAt(0));
@@ -3921,7 +3921,7 @@ function(e, t) {
         for (var S, M = function(e) {
                 for (var t, i, n = [], s = 0, r = e.length; s < r; ++s)(t = e[s]) && ("text" === t[0] && i && "text" === i[0] ? (i[1] += t[1], i[3] = t[3]) : (n.push(t), i = t));
                 return n
-            }(o), D = [], T = D, Y = [], I = 0, L = M.length; I < L; ++I) switch ((S = M[I])[0]) {
+            }(o), D = [], T = D, Y = [], L = 0, I = M.length; L < I; ++L) switch ((S = M[L])[0]) {
             case "#":
             case "^":
                 T.push(S), Y.push(S), T = S[4] = [];
@@ -4621,13 +4621,66 @@ function validateEmailAddress(e) {
     return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(e)
 }
 
-function addValueToKeyInDict(e, t, i, n) {
-    t in e || (e[t] = {}), i in e[t] ? e[t][i] += n : e[t][i] = n
+function escapeHtml(e) {
+    var t = document.createElement("textarea");
+    return t.textContent = e, t.innerHTML
 }
 
-function isNormalInteger(e) {
-    var t = Math.floor(Number(e));
-    return String(t) === e && 0 <= t
+function unEscapeHtml(e) {
+    var t = document.createElement("textarea");
+    return t.innerHTML = e, t.textContent
+}
+
+function pageBusyBegin(e) {
+    workingAlert(), jQuery(e).prop("disabled", !0)
+}
+
+function pageBusyEnd(e) {
+    stopAlert(), jQuery(e).prop("disabled", !1)
+}
+
+function ajaxErrorGetText(e) {
+    return null !== e.responseText && 0 < e.responseText.length ? e.responseText : 403 === e.status ? "undefined" == typeof springyText ? "Permission denied." : springyText.messages.permissionDenied : "undefined" == typeof springyText ? "Error: Please try again." : springyText.messages.errorDefault
+}
+
+function ajaxErrorHandler(e) {
+    errorAlert(ajaxErrorGetText(e))
+}
+
+function setupBrowserDefaults() {
+    !window.MSInputMethodContext || !document.documentMode || jQuery.ajaxSetup({
+        cache: !1
+    })
+}
+
+function setupDatePickerLanguage() {
+    void 0 !== $.fn.datepicker && void 0 !== $.fn.datepicker.defaults && ($.fn.datepicker.defaults.language = springSpace.language), void 0 !== jQuery.datepicker && (springSpace.language in jQuery.datepicker.regional ? jQuery.datepicker.setDefaults(jQuery.datepicker.regional[springSpace.language]) : jQuery.datepicker.setDefaults(jQuery.datepicker.regional[springSpace.locale]))
+}
+
+function createHiddenInput(e, t) {
+    var i = document.createElement("input");
+    return i.setAttribute("type", "hidden"), i.setAttribute("name", e), i.setAttribute("value", t), i
+}
+
+function decodeEscapedJavascriptString(e) {
+    return e.replace(/&#(\d+);/g, function(e, t) {
+        return String.fromCharCode(t)
+    })
+}
+
+function convertStringToFloat(e) {
+    e = parseFloat(e);
+    return isNaN(e) ? 0 : e
+}
+
+function compareStringIgnoreCase(e, t) {
+    e = e.toUpperCase(), t = t.toUpperCase();
+    return e < t ? -1 : t < e ? 1 : 0
+}
+
+function scrollAndFocusOnElement(e) {
+    e = document.querySelector(e);
+    return e.scrollIntoView(), e.focus(), e
 }
 jQuery(function() {
         springSpace.setupLanguage(), setupBrowserDefaults(), setupLanguageDropdown()
@@ -4756,77 +4809,6 @@ jQuery(function() {
             }), u(s.close).bind("click", c), s.docClose && n.bind("click", c), !!s.resizeWindow && (u(window).bind("resize", d), !!s.moveOnScroll) && void u(window).bind("scroll", d)
         }
     }(jQuery), $.fn.tooltip.Constructor.DEFAULTS.whiteList.dl = [], $.fn.tooltip.Constructor.DEFAULTS.whiteList.dt = [], $.fn.tooltip.Constructor.DEFAULTS.whiteList.dd = [], $.fn.tooltip.Constructor.DEFAULTS.whiteList.span = ["style"];
-var htmlEscapes = {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-    },
-    htmlEscaper = /[&<>"']/g;
-
-function escapeHtml(e) {
-    return ("" + e).replace(htmlEscaper, function(e) {
-        return htmlEscapes[e]
-    })
-}
-
-function pageBusyBegin(e) {
-    workingAlert(), jQuery(e).prop("disabled", !0)
-}
-
-function pageBusyEnd(e) {
-    stopAlert(), jQuery(e).prop("disabled", !1)
-}
-
-function ajaxErrorGetText(e) {
-    return null !== e.responseText && 0 < e.responseText.length ? e.responseText : 403 === e.status ? "undefined" == typeof springyText ? "Permission denied." : springyText.messages.permissionDenied : "undefined" == typeof springyText ? "Error: Please try again." : springyText.messages.errorDefault
-}
-
-function ajaxErrorHandler(e) {
-    errorAlert(ajaxErrorGetText(e))
-}
-
-function setupBrowserDefaults() {
-    !window.MSInputMethodContext || !document.documentMode || jQuery.ajaxSetup({
-        cache: !1
-    })
-}
-
-function setupDatePickerLanguage() {
-    void 0 !== $.fn.datepicker && void 0 !== $.fn.datepicker.defaults && ($.fn.datepicker.defaults.language = springSpace.language), void 0 !== jQuery.datepicker && (springSpace.language in jQuery.datepicker.regional ? jQuery.datepicker.setDefaults(jQuery.datepicker.regional[springSpace.language]) : jQuery.datepicker.setDefaults(jQuery.datepicker.regional[springSpace.locale]))
-}
-
-function createHiddenInput(e, t) {
-    var i = document.createElement("input");
-    return i.setAttribute("type", "hidden"), i.setAttribute("name", e), i.setAttribute("value", t), i
-}
-
-function decodeEscapedJavascriptString(e) {
-    return e.replace(/&#(\d+);/g, function(e, t) {
-        return String.fromCharCode(t)
-    })
-}
-
-function convertStringToFloat(e) {
-    e = parseFloat(e);
-    return isNaN(e) ? 0 : e
-}
-
-function compareDates(e, t) {
-    e = springSpace.createDateTimeMoment(e), t = springSpace.createDateTimeMoment(t);
-    return e.unix() - t.unix()
-}
-
-function compareStringIgnoreCase(e, t) {
-    e = e.toUpperCase(), t = t.toUpperCase();
-    return e < t ? -1 : t < e ? 1 : 0
-}
-
-function scrollAndFocusOnElement(e) {
-    e = document.querySelector(e);
-    return e.scrollIntoView(), e.focus(), e
-}
 var springyCommon = {
     wrapText: function(e, i) {
         var n = 0,
