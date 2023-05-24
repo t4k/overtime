@@ -1356,7 +1356,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-05-20 00:16:47",
+        "updated": "2023-05-23 16:03:56",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -1588,7 +1588,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-04-03 16:51:38",
+        "updated": "2023-05-24 00:19:06",
         "url": "https://library.caltech.edu/c.php?g=1245959"
     },
     {
@@ -2820,7 +2820,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-04-03 21:04:03",
+        "updated": "2023-05-23 22:54:46",
         "url": "https://library.caltech.edu/c.php?g=1231408"
     },
     {
@@ -9889,7 +9889,7 @@
                 "name": "Submission Information",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "5",
+                "position": "3",
                 "redirect_url": "",
                 "slug_id": "0",
                 "source_id": "0",
@@ -9909,7 +9909,7 @@
                 "name": "Templates and Formatting Information",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "4",
+                "position": "5",
                 "redirect_url": "",
                 "slug_id": "0",
                 "source_id": "0",
@@ -10089,7 +10089,7 @@
                 "name": "Grad Office Regulations and Required Forms",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "3",
+                "position": "4",
                 "redirect_url": "",
                 "slug_id": "0",
                 "source_id": "0",
@@ -10136,26 +10136,6 @@
                 "type_id": "1",
                 "updated": "2022-07-11 20:39:03",
                 "url": "https://library.caltech.edu/c.php?g=1237965&p=9073691"
-            },
-            {
-                "column_layout": "{\"1\":{\"span\":12}}",
-                "created": "2022-05-18 23:17:33",
-                "description": "",
-                "enable_display": "0",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": null,
-                "id": "9083695",
-                "name": "Temporary holding area for unused content",
-                "num_cols": "1",
-                "parent_id": "0",
-                "position": "15",
-                "redirect_url": "",
-                "slug_id": "0",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2022-05-18 23:17:43",
-                "url": "https://library.caltech.edu/c.php?g=1237965&p=9083695"
             }
         ],
         "published": "2022-07-05 23:06:47",
@@ -10168,7 +10148,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-05-19 17:05:18",
+        "updated": "2023-05-23 18:54:01",
         "url": "https://library.caltech.edu/c.php?g=1237965"
     },
     {
