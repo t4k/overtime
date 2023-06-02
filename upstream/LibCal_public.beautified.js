@@ -902,7 +902,8 @@ function(e, t) {
 
     function Mt(e, t, i, n, s, r) {
         e = [function(e) {
-            e = parseInt(e, 10); {
+            e = parseInt(e, 10);
+            {
                 if (e <= 49) return 2e3 + e;
                 if (e <= 999) return 1900 + e
             }
