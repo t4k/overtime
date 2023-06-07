@@ -4308,6 +4308,26 @@
                 "type_id": "1",
                 "updated": "2022-06-09 04:06:05",
                 "url": "https://library.caltech.edu/c.php?g=1242603&p=9117093"
+            },
+            {
+                "column_layout": "{\"1\":{\"span\":12}}",
+                "created": "2023-06-06 16:41:13",
+                "description": "",
+                "enable_display": "1",
+                "enable_newwin": "0",
+                "er_course_id": "0",
+                "friendly_url": null,
+                "id": "9761307",
+                "name": "400 Years: Observing Galileo's Telescope",
+                "num_cols": "1",
+                "parent_id": "0",
+                "position": "44",
+                "redirect_url": "",
+                "slug_id": "0",
+                "source_id": "0",
+                "type_id": "1",
+                "updated": "2023-06-06 16:41:13",
+                "url": "https://library.caltech.edu/c.php?g=1242603&p=9761307"
             }
         ],
         "published": "2022-06-09 23:39:09",
@@ -4320,7 +4340,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-04-25 00:07:10",
+        "updated": "2023-06-06 16:41:13",
         "url": "https://library.caltech.edu/c.php?g=1242603"
     },
     {
@@ -4848,7 +4868,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-05-12 20:05:38",
+        "updated": "2023-06-06 20:27:18",
         "url": "https://library.caltech.edu/c.php?g=1231422"
     },
     {
@@ -5189,24 +5209,24 @@
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2023-06-02 01:54:24",
                 "description": "",
-                "enable_display": "0",
+                "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": null,
+                "friendly_url": "https://library.caltech.edu/bookdisplay/pride2023-celebration",
                 "id": "9754843",
                 "name": "June 2023: Celebrating Pride",
                 "num_cols": "1",
                 "parent_id": "0",
                 "position": "1",
                 "redirect_url": "",
-                "slug_id": "0",
+                "slug_id": "2830368",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2023-06-02 01:54:24",
+                "updated": "2023-06-07 07:09:59",
                 "url": "https://library.caltech.edu/c.php?g=1216793&p=9754843"
             }
         ],
-        "published": "2023-05-06 23:35:13",
+        "published": "2023-06-07 07:01:31",
         "redirect_url": "",
         "site_id": 64,
         "slug": "bookdisplay",
@@ -5216,7 +5236,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-06-02 07:17:52",
+        "updated": "2023-06-07 07:09:59",
         "url": "https://library.caltech.edu/c.php?g=1216793"
     },
     {
@@ -13996,6 +14016,26 @@
                 "type_id": "1",
                 "updated": "2022-06-14 19:57:23",
                 "url": "https://library.caltech.edu/c.php?g=1245803&p=9125493"
+            },
+            {
+                "column_layout": "",
+                "created": "2023-06-06 16:44:24",
+                "description": "",
+                "enable_display": "0",
+                "enable_newwin": "0",
+                "er_course_id": "0",
+                "friendly_url": null,
+                "id": "9761321",
+                "name": "400 Years: Observing Galileo's Telescope",
+                "num_cols": "0",
+                "parent_id": "0",
+                "position": "21",
+                "redirect_url": "",
+                "slug_id": "0",
+                "source_id": "9761307",
+                "type_id": "1",
+                "updated": "2023-06-06 16:44:24",
+                "url": "https://library.caltech.edu/c.php?g=1245803&p=9761321"
             }
         ],
         "published": "2022-06-08 17:41:24",
@@ -14008,7 +14048,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2022-06-23 14:14:43",
+        "updated": "2023-06-06 16:44:24",
         "url": "https://library.caltech.edu/c.php?g=1245803"
     },
     {
