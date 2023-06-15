@@ -1289,6 +1289,120 @@
         </div>
        </div>
       </div>
+      <div class="s-lg-box-wrapper-35832468" id="s-lg-box-wrapper-35832468">
+       <div class="s-lib-box-container" id="s-lg-box-30461201-container">
+        <div class="s-lib-box s-lib-box-std s-lib-floating-box" id="s-lg-box-30461201">
+         <div id="s-lg-box-collapse-30461201">
+          <div class="s-lib-box-content s-lib-floating-box-content">
+           <div class="" id="s-lg-content-71118539">
+            <style>
+             .s-lib-admin-tab-h {
+                        margin-top: 0;
+                    }
+                    #course_filter_chosen {
+                        width: 325px !important;
+                    }
+                    #frm-date-picker .form-control {
+                        font-size: 14px;
+                        height: 34px;
+                    }
+                    #s-lg-stats-chart {
+                        height: 200px;
+                        margin-bottom: 21px;
+                    }
+                    #frm-date-picker .select2-container .select2-choice {
+                        position: relative;
+                        top: 0px;
+                        height: 34px;
+                        line-height: 32px;
+                    }
+                    #s-lg-stats-counts {
+                        font-size: 16px;
+                    }
+                    .date-picker .add-on {
+                        cursor: pointer;
+                    }
+            </style>
+            <script>
+             (function () {
+                            var script = document.createElement("script");
+                            if (script.readyState){  //IE; todo remove this if its IE specific code?
+                                script.onreadystatechange = function(){
+                                    if (script.readyState === "loaded" || script.readyState === "complete") {
+                                        script.onreadystatechange = null;
+                                    }
+                                };
+                            }
+                            script.src = "//library.caltech.edu/rss_process.php?key=071152106d92a32126f05a62b2dbcad8&site_id=64&content_id=71118539&display_mode=view&output_format=0&map_id=73669883&box_type=1";
+                            script.onload = function() { try { springSpace.UI.initPopOvers(); } catch(e) {}}; // Re-init popovers since they can load after page load.
+                            document.body.appendChild(script);
+                        }());
+            </script>
+            <div class="s-lg-rss s-lg-rss-71118539" id="s-lg-rss-71118539">
+             <ul class="s-lg-rss-list">
+             </ul>
+             <div class="s-lg-rss-links">
+              <span id="s-lg-rvw-71118539">
+               <a href="https://us2.campaign-archive.com/feed?u=7a983a9cab7f54506afc6903f&amp;id=0afbdb920f" id="rssWebsiteLink_71118539" target="_blank">
+                Website
+                <span class="sr-only">
+                 This link opens in a new window
+                </span>
+               </a>
+              </span>
+              |
+              <span id="s-lg-rvf-71118539">
+               <a href="https://us2.campaign-archive.com/feed?u=7a983a9cab7f54506afc6903f&amp;id=0afbdb920f" target="_blank">
+                Feed
+                <span class="sr-only">
+                 This link opens in a new window
+                </span>
+               </a>
+              </span>
+             </div>
+            </div>
+           </div>
+           <div class="s-lg-widget" id="s-lg-content-71395932">
+            <!-- see https://github.com/caltechlibrary/libguine/commit/6e22af0 -->
+            <style>
+             #s-lg-rss-71118539 .s-lg-rss-list {
+    margin-block-end: 30px;
+    padding: 0
+  }
+  #s-lg-rss-71118539 .s-lg-rss-list-item { list-style-type: none }
+  #s-lg-rss-71118539 .s-lg-title {
+    background-color: #1e988a;
+    color: #fff;
+    padding: 0.3em 0.6em;
+    border-radius: 0.25em;
+  }
+  #s-lg-rss-71118539 .s-lg-title::before {
+    content: "\f1ea";
+    font-family: "FontAwesome";
+    padding: 0 10px 0 0;
+  }
+  #s-lg-rss-71118539 .s-lg-title a { color: #fff }
+  #s-lg-rss-71118539 .s-lg-rss-date { display: none }
+  #s-lg-rss-71118539 .s-lg-rss-links { display: none }
+            </style>
+            <script>
+             const targetNode = document.getElementById("s-lg-rss-71118539");
+  const observerOptions = { childList: true };
+  const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        observer.disconnect();
+        targetNode.querySelector(".s-lg-title a").removeAttribute("target");
+        targetNode.querySelector(".s-lg-title a").innerText = "Read the Latest Library Newsletter";
+      });
+    });
+  observer.observe(targetNode, observerOptions);
+            </script>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
      </div>
     </div>
    </div>
