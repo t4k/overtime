@@ -1804,12 +1804,13 @@ springSpace.regex = {
                 type: t = 0,
                 start: e = null,
                 end: i = null,
-                offhours: s = null
+                offhours: s = null,
+                captchaAlwaysOn: n = !1
             }) {
-                this.type = t, this.start = e, this.end = i, this.offhours = s
+                this.type = t, this.start = e, this.end = i, this.offhours = s, this.captchaAlwaysOn = n
             }
             enableCaptcha() {
-                return 0 !== this.type && (1 === this.type || (3 === this.type ? this._isBetweenDates() : 2 === this.type && this._isNowOffHours()))
+                return !!this.captchaAlwaysOn || 0 !== this.type && (1 === this.type || (3 === this.type ? this._isBetweenDates() : 2 === this.type && this._isNowOffHours()))
             }
             _isBetweenDates() {
                 if (!this.end || !this.start) return !1;
