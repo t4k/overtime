@@ -88,7 +88,8 @@ table.dataTable thead>tr>th.sorting_asc_disabled:before,
 table.dataTable thead>tr>th.sorting_desc:before,
 table.dataTable thead>tr>th.sorting_desc_disabled:before {
     bottom: 50%;
-    content: "â²"
+    content: "â²";
+    content: "â²" /""
 }
 
 table.dataTable thead>tr>td.sorting:after,
@@ -102,7 +103,8 @@ table.dataTable thead>tr>th.sorting_asc_disabled:after,
 table.dataTable thead>tr>th.sorting_desc:after,
 table.dataTable thead>tr>th.sorting_desc_disabled:after {
     top: 50%;
-    content: "â¼"
+    content: "â¼";
+    content: "â¼" /""
 }
 
 table.dataTable thead>tr>td.sorting_asc:before,
@@ -1407,6 +1409,12 @@ body {
     font-family: Arial, Helvetica, Verdana;
     font-size: 14px;
     line-height: 1.5em
+}
+
+select {
+    cursor: pointer;
+    padding: 2px 4px;
+    height: 24px
 }
 
 .s-lc-header {
@@ -3793,6 +3801,10 @@ h6 small {
     background-color: #f6f6f6
 }
 
+.s-lc-search-pills.nav-tabs>li.active>a {
+    background-color: #f6f6f6
+}
+
 .s-lc-booking-suggestion {
     border: 1px solid #e5e5e5;
     border-radius: 4px;
@@ -4224,8 +4236,8 @@ h4 .s-lc-eventcard-pill {
     border: 1px solid #ddd;
     padding: 1px;
     text-align: center;
-    width: 36px;
-    height: 38px;
+    min-width: 36px;
+    min-height: 38px;
     float: left;
     margin-right: 10px;
     border-bottom-left-radius: 4px;
@@ -4420,12 +4432,6 @@ form {
 
 textarea {
     padding: 2px 4px
-}
-
-select {
-    cursor: pointer;
-    padding: 2px 4px;
-    height: 24px
 }
 
 .show {
