@@ -8950,7 +8950,7 @@ li.s-la-faq-listing {
 
 .s-la-faq-listing-meta .divider {
     padding: 0 5px;
-    color: #666
+    color: #424242
 }
 
 .s-la-faq-listing-meta .label-topic,
@@ -9000,8 +9000,8 @@ li.s-la-faq-listing {
 
 .s-la-searchform-button {
     color: #fff;
-    background-color: #646464;
-    border-color: #646464
+    background-color: #494949;
+    border-color: #494949
 }
 
 .s-la-searchform-button:active,
@@ -9502,6 +9502,11 @@ button#s-la-vote-yes:hover span.fa-thumbs-up {
 
 .s-la-reply.note {
     border-color: #424242;
+    background-color: #eee
+}
+
+.s-la-reply.transfer {
+    border-color: #4b2b8b;
     background-color: #eee
 }
 
@@ -11464,12 +11469,20 @@ input[type=checkbox][disabled]+span {
     color: #2d4821
 }
 
+.alert-danger a:not(.btn),
+.alert-info a:not(.btn),
+.alert-success a:not(.btn),
+.alert-warning a:not(.btn) {
+    color: #1b507f
+}
+
 .label-success {
     background-color: #2e7d32
 }
 
 .alert-info {
-    color: #214c62
+    background-color: #e9f8ff;
+    color: #185878
 }
 
 .alert-info .btn-link {
@@ -11491,11 +11504,12 @@ input[type=checkbox][disabled]+span {
 }
 
 .alert-danger {
-    color: #af2723
+    color: #8a1915;
+    background-color: #f6e7e7
 }
 
 .alert-danger:hover {
-    color: #a82824
+    color: #851b17
 }
 
 .label-danger {
@@ -12037,6 +12051,19 @@ caption {
     padding: 20px;
     margin: 10px 0;
     border: 1px solid #ccc
+}
+
+.navbar-default .navbar-text {
+    color: #454545
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #454545
+}
+
+.s-srch-result-meta span.divider {
+    padding: 0 5px;
+    color: #424242
 }
 
 .s-srch-top-header {
