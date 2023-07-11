@@ -900,46 +900,6 @@
                 "type_id": "1",
                 "updated": "2021-03-10 22:31:41",
                 "url": "https://library.caltech.edu/c.php?g=512637&p=5898680"
-            },
-            {
-                "column_layout": "{\"1\":{\"span\":12}}",
-                "created": "2020-09-21 16:38:55",
-                "description": "",
-                "enable_display": "0",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": null,
-                "id": "7888765",
-                "name": "PMA Grads",
-                "num_cols": "1",
-                "parent_id": "0",
-                "position": "6",
-                "redirect_url": "",
-                "slug_id": "0",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2021-03-10 22:31:28",
-                "url": "https://library.caltech.edu/c.php?g=512637&p=7888765"
-            },
-            {
-                "column_layout": "{\"1\":{\"span\":12}}",
-                "created": "2023-03-23 15:30:07",
-                "description": "",
-                "enable_display": "1",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": "https://library.caltech.edu/pma/printmathjournals",
-                "id": "9632157",
-                "name": "Print Math Journals",
-                "num_cols": "1",
-                "parent_id": "0",
-                "position": "8",
-                "redirect_url": "",
-                "slug_id": "2785276",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2023-03-23 15:30:07",
-                "url": "https://library.caltech.edu/c.php?g=512637&p=9632157"
             }
         ],
         "published": "2019-01-29 22:20:11",
@@ -952,7 +912,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-05-22 13:07:42",
+        "updated": "2023-07-10 16:31:26",
         "url": "https://library.caltech.edu/c.php?g=512637"
     },
     {
@@ -1356,7 +1316,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-07-05 15:13:20",
+        "updated": "2023-07-10 13:46:22",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -10188,7 +10148,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-06-29 17:55:52",
+        "updated": "2023-07-10 23:29:05",
         "url": "https://library.caltech.edu/c.php?g=1237965"
     },
     {
