@@ -1360,7 +1360,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-07-05 17:54:38",
+        "updated": "2023-07-12 17:33:05",
         "url": "https://library.caltech.edu/c.php?g=1212590"
     },
     {
@@ -2780,7 +2780,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-07-06 22:02:00",
+        "updated": "2023-07-12 16:54:45",
         "url": "https://library.caltech.edu/c.php?g=1231408"
     },
     {
@@ -15981,7 +15981,7 @@
                 "name": "Campus resources",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "6",
+                "position": "7",
                 "redirect_url": "",
                 "slug_id": "2732924",
                 "source_id": "0",
@@ -16021,13 +16021,33 @@
                 "name": "Writing diversity statements",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "7",
+                "position": "8",
                 "redirect_url": "",
                 "slug_id": "2778586",
                 "source_id": "0",
                 "type_id": "1",
                 "updated": "2023-03-10 16:51:39",
                 "url": "https://library.caltech.edu/c.php?g=1228721&p=9610879"
+            },
+            {
+                "column_layout": "{\"1\":{\"span\":12}}",
+                "created": "2023-07-12 22:21:23",
+                "description": "",
+                "enable_display": "0",
+                "enable_newwin": "0",
+                "er_course_id": "0",
+                "friendly_url": null,
+                "id": "9816580",
+                "name": "Library resources",
+                "num_cols": "1",
+                "parent_id": "0",
+                "position": "6",
+                "redirect_url": "",
+                "slug_id": "0",
+                "source_id": "0",
+                "type_id": "1",
+                "updated": "2023-07-12 22:21:23",
+                "url": "https://library.caltech.edu/c.php?g=1228721&p=9816580"
             }
         ],
         "published": "2023-03-10 22:21:32",
@@ -16040,7 +16060,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-06-28 16:40:35",
+        "updated": "2023-07-12 22:48:18",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
