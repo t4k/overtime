@@ -22,7 +22,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
             },
             type: "GET",
             dataType: "json",
-            success: function(t, i, r) {
+            success: function(t, s, r) {
                 if (200 == t.errCode)
                     if (1 == t.data.reload_ui) top.window.document.location.reload();
                     else {
@@ -30,8 +30,8 @@ springSpace.public = {}, springSpace.public._construct = function() {
                                 placement: "right"
                             }), e.action == springSpace.publicObj.constant.PROCESSING.ACTION_LOAD_GUIDE_LIST) guide_text = springSpace.publicObj.homeNavButtons[e.action] + " " + jQuery("#s-lg-guide-order option:selected").text();
                         else {
-                            var s = springSpace.publicObj.constant.CONTENT.HOME_GUIDES_TITLE || "Guides";
-                            guide_text = s + " " + springSpace.publicObj.homeNavButtons[e.action]
+                            var i = springSpace.publicObj.constant.CONTENT.HOME_GUIDES_TITLE || "Guides";
+                            guide_text = i + " " + springSpace.publicObj.homeNavButtons[e.action]
                         }
                         document.title = guide_text + " - " + springSpace.publicObj.system_name + " at " + springSpace.publicObj.customer.name, springSpace.homepage.default_list_order = springSpace.homepage.mapGuideSortIdToQSId(e.order), jQuery("#s-lg-guide-order > option[value='" + e.order + "']").prop("selected", !0), springSpace.homepage.processPushState({
                             nav: e.nav
@@ -39,23 +39,37 @@ springSpace.public = {}, springSpace.public._construct = function() {
                     }
                 else jQuery("#" + e.elt_id).html('<div class="alert alert-danger"><div>Sorry, there was a problem loading the list. ' + errorThrown + "</div><div>Please try again. If the problem persists contact support@springshare.com.</div></div>")
             },
-            error: function(t, i, r) {
+            error: function(t, s, r) {
                 jQuery("#" + e.elt_id).html('<div class="alert alert-danger"><div>Sorry, there was a problem loading the list. ' + r + "</div><div>Please try again. If the problem persists contact support@springshare.com.</div></div>")
             }
         })
     }, e.prototype.getAzFilterValues = function(e) {
         return {
-            search: e.search ?? jQuery("#s-lg-az-search").val(),
-            subject_id: e.subject_id ?? jQuery("#s-lg-sel-subjects").val()?.toString() ?? "",
-            type_id: e.type_id ?? jQuery("#s-lg-sel-az-types").val()?.toString() ?? "",
-            vendor_id: e.vendor_id ?? jQuery("#s-lg-sel-az-vendors").val()?.toString() ?? "",
+            search: e.search ?? this.getSearchTerm(),
+            subject_id: e.subject_id ?? this.getSelectValues(".s-lg-sel-subjects"),
+            type_id: e.type_id ?? this.getSelectValues(".s-lg-sel-az-types"),
+            vendor_id: e.vendor_id ?? this.getSelectValues(".s-lg-sel-az-vendors"),
             first: e.first ?? "",
             page: e.page ?? 1,
             site_id: e.site_id
         }
-    }, e.prototype.filterAzByFirst = function(e, t, i) {
-        this.quickFilterAzByFirst(e, t, i)
-    }, e.prototype.quickFilterAzByFirst = function(e, t, i = "") {
+    }, e.prototype.addMultiselectChangeListener = function(e) {
+        jQuery(e).on("change", (function() {
+            jQuery(e).val(jQuery(this).val())
+        }))
+    }, e.prototype.getSelectValues = function(e) {
+        let t = jQuery(e).find(":selected").map((function() {
+            return jQuery(this).val()
+        })).get();
+        return [...new Set(t)].toString()
+    }, e.prototype.filterAzByFirst = function(e, t, s) {
+        this.quickFilterAzByFirst(e, t, s)
+    }, e.prototype.quickFilterAzByFirstBS5 = function(e, t) {
+        this.loadAzList(this.getAzFilterValues({
+            first: e,
+            site_id: t
+        }))
+    }, e.prototype.quickFilterAzByFirst = function(e, t, s = "") {
         if (springSpace.azList.letter_selected = e, jQuery(".s-lg-az-first").removeClass("bold"), "" === e || "all" === e) return jQuery("#s-lg-az-first-all").addClass("bold"), jQuery("#s-lg-az-results .s-lg-db-panel").toggle(!0), jQuery(".s-lg-az-result-featured").toggle(!0), jQuery("#s-lg-db-name-featured").toggle(jQuery(".s-lg-az-result-featured").length > 0), jQuery("#s-lg-az-pager").toggle(!0), history.pushState({}, null, location.pathname + encodeURI(this.buildAzQs(this.getAzFilterValues({
             first: ""
         })))), void this.refreshResultCountNumeric(total_db_count);
@@ -70,48 +84,67 @@ springSpace.public = {}, springSpace.public._construct = function() {
             jQuery(this).text(t)
         }))
     }, e.prototype.filterAzBySubject = function(e, t) {
-        this.loadAzList(this.getAzFilterValues({
+        jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             subject_id: e,
             site_id: t
         }))
+    }, e.prototype.filterAzBySubjectEdit = function(e, t) {
+        let s = jQuery(".s-lg-sel-subjects").val().filter((function(t) {
+            return t != e
+        }));
+        this.filterAzBySubject(s, t)
     }, e.prototype.filterAzByType = function(e, t) {
-        this.loadAzList(this.getAzFilterValues({
+        jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             type_id: e,
             site_id: t
         }))
+    }, e.prototype.filterAzByTypeEdit = function(e, t) {
+        let s = jQuery(".s-lg-sel-az-types").val().filter((function(t) {
+            return t != e
+        }));
+        this.filterAzByType(s, t)
     }, e.prototype.filterAzByVendor = function(e, t) {
-        this.loadAzList(this.getAzFilterValues({
+        jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             vendor_id: e,
             site_id: t
         }))
+    }, e.prototype.filterAzByVendorEdit = function(e, t) {
+        let s = jQuery(".s-lg-sel-az-vendors").val().filter((function(t) {
+            return t != e
+        }));
+        this.filterAzByVendor(s, t)
     }, e.prototype.changeAzPage = function(e, t) {
         this.loadAzList(this.getAzFilterValues({
             page: e,
             site_id: t
         }))
     }, e.prototype.filterAzBySearch = function(e) {
-        if (this.loadAzList(this.getAzFilterValues({
-                search: jQuery("#s-lg-az-search").val(),
+        if (jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
                 site_id: e
             })), void 0 !== springSpace.springTrack) try {
-            if ("" == jQuery("#s-lg-az-search").val() || "*:*" == jQuery("#s-lg-az-search").val()) return;
+            let e = this.getSearchTerm();
+            if ("" === e || "*:*" === e) return;
             springSpace.springTrack.trackSearch({
                 _st_type_id: "27",
                 _st_group_id: 0,
                 _st_guide_id: 0,
-                _st_search_terms: jQuery("#s-lg-az-search").val()
+                _st_search_terms: e
             })
         } catch (e) {
             searchcontroller.debug(e)
         }
+    }, e.prototype.filterAzBySearchEdit = function(e) {
+        jQuery(".s-lg-az-search").val(""), this.filterAzBySearch(e)
     }, e.prototype.clearAzSelection = function(e) {
-        jQuery("#" + e).val("")
+        jQuery("#" + e + ", ." + e).val("")
     }, e.prototype.toggleAzClearButton = function(e) {
         jQuery("#s-lg-az-reset").toggle("" !== e.subject_id || "" !== e.type_id || "" !== e.search || "" !== e.vendor_id)
+    }, e.prototype.toggleAzClearButtonBS5 = function(e) {
+        jQuery("#s-lg-az-reset").hide(), jQuery(".s-lg-az-reset").toggle("" !== e.subject_id || "" !== e.type_id || "" !== e.search || "" !== e.vendor_id)
     }, e.prototype.toggleAzSubjectBoxes = function(e) {
         var t = "" != e.subject_id;
         jQuery("#s-lg-az-experts-div").html(""), jQuery("#s-lg-az-guides-div").html("");
-        var i = this;
+        var s = this;
         t && (xhr = jQuery.ajax({
             url: "/az_process.php",
             type: "GET",
@@ -123,12 +156,25 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 is_widget: springSpace.azList.is_widget
             },
             success: function(e, t) {
-                200 == e.errCode && (jQuery("#s-lg-az-experts-div").html(e.data.experts), jQuery("#s-lg-az-guides-div").html(e.data.guides)), 1 == springSpace.azList.is_widget && i.transformAzLinks()
+                200 == e.errCode && (jQuery("#s-lg-az-experts-div").html(e.data.experts), jQuery("#s-lg-az-guides-div").html(e.data.guides)), 1 == springSpace.azList.is_widget && s.transformAzLinks()
             },
-            error: function(e, t, i) {
-                springSpace.UI.error(i)
+            error: function(e, t, s) {
+                springSpace.UI.error(s)
             }
         })), jQuery("#s-lg-az-trials-div").toggle(!t), jQuery("#s-lg-az-popular-div").toggle(!t), jQuery("#s-lg-az-experts-div").toggle(t), jQuery("#s-lg-az-guides-div").toggle(t)
+    }, e.prototype.toggleAzSubjectBoxesBS5 = function(e) {
+        var t = "" != e;
+        t && jQuery.ajax({
+            url: "/process/az/subject_experts/" + e,
+            type: "GET",
+            dataType: "html",
+            success: function(e, t) {
+                jQuery("#s-lg-az-subject-resources").replaceWith(e)
+            },
+            error: function(e, t, s) {
+                springSpace.UI.error(s)
+            }
+        }), jQuery("#s-lg-az-trials-div").toggle(!t), jQuery("#s-lg-az-popular-div").toggle(!t), jQuery("#s-lg-az-subject-resources").toggle(t)
     }, e.prototype.displayAzShareAlert = function(e) {
         btn_text = e.btn_text, xhr = jQuery.ajax({
             url: "/az_process.php",
@@ -140,7 +186,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 name: e.name,
                 site_id: e.site_id
             },
-            success: function(t, i) {
+            success: function(t, s) {
                 200 == t.errCode ? (springSpace.UI.alert({
                     title: e.name,
                     width: "360",
@@ -153,36 +199,38 @@ springSpace.public = {}, springSpace.public._construct = function() {
                     }
                 }), jQuery("#s-lib-alert-btn-first").html(e.btn_text)) : springSpace.UI.error(t.errText)
             },
-            error: function(e, t, i) {
-                springSpace.UI.error(i)
+            error: function(e, t, s) {
+                springSpace.UI.error(s)
             }
         })
     }, e.prototype.loadAzList = function(e, t = !1) {
-        "undefined" == typeof bootstrap && springSpace.UI.notify({
+        let s = "undefined" != typeof bootstrap;
+        s || springSpace.UI.notify({
             mode: "load",
             duration: 3e4
         }), e = void 0 === e ? {
             subject_id: "",
             search: ""
-        } : e, jQuery.each(["search", "subject_id", "type_id", "first", "vendor_id", "page"], (function(t, i) {
-            e[i] || (e[i] = "")
-        })), this.toggleAzClearButton(e), this.toggleAzSubjectBoxes({
+        } : e, jQuery.each(["search", "subject_id", "type_id", "first", "vendor_id", "page"], (function(t, s) {
+            e[s] || (e[s] = "")
+        })), s ? (this.toggleAzClearButtonBS5(e), jQuery(".s-lg-az-search").change((function() {
+            jQuery(".s-lg-az-search").val(jQuery(this).val())
+        }))) : this.toggleAzClearButton(e), s ? this.toggleAzSubjectBoxesBS5(e.subject_id) : this.toggleAzSubjectBoxes({
             subject_id: e.subject_id ? e.subject_id : "",
             action: 521,
             site_id: e.site_id
         });
-        var i = this,
-            r = function(e, t) {
+        var r = this,
+            i = function(e, t) {
                 if (!t.length) return;
-                let i = [];
+                let s = [];
                 t.forEach((function(e, t) {
-                    e = (e = e.replace(/ \(\d+\)/i, "")).replace("↳", "").trim(), i.push(springSpace.Util.escapeHtml(e))
-                })), e.push(i.join(" | "))
+                    e = (e = e.replace(/ \(\d+\)/i, "")).replace("↳", "").trim(), s.push(springSpace.Util.escapeHtml(e))
+                })), e.push(s.join(", "))
             },
-            s = jQuery("#s-lg-az-search"),
-            a = !(void 0 === s.val() || "" == s.val()),
-            l = a ? "/process/az/dbsearch" : "/process/az/dblist",
-            o = "/az/databases" === window.location.pathname || "/az/databases/" === window.location.pathname;
+            a = "" !== this.getSearchTerm(),
+            l = a ? "/process/az/dbsearch" : "/process/az/dblist";
+        let o = window.innerWidth <= 575.98 ? 10 : 0;
         xhr = jQuery.ajax({
             url: l,
             type: "GET",
@@ -196,31 +244,60 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 site_id: e.site_id,
                 content_id: e.content_id ? e.content_id : 0,
                 is_widget: springSpace.azList.is_widget,
-                bootstrap5: o
+                bootstrap5: s,
+                page_size: o,
+                preview: springSpace.azList.az_preview,
+                alpha: e.first
             },
-            success: function(l, n) {
-                if ("undefined" == typeof bootstrap && springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(i.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode) {
-                    jQuery("#s-lg-az-content").html(l.data.html), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && jQuery("#col-subjects").html(l.data.subjects_html), o && jQuery("#s-lg-sel-subjects").select2({
-                        placeholder: l.data.label_all_subjects ?? "All Subjects"
-                    }), l.data.az_types_html && jQuery("#col-types").html(l.data.az_types_html), o && jQuery("#s-lg-sel-az-types").select2({
-                        placeholder: l.data.label_all_types ?? "All Database Types"
-                    }), l.data.az_vendors_html && jQuery("#col-vendors").html(l.data.az_vendors_html), o && jQuery("#s-lg-sel-az-vendors").select2({
-                        placeholder: l.data.label_all_vendors ?? "All Vendors/Providers"
+            success: function(l, o) {
+                if (s || springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(r.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode) {
+                    jQuery("#s-lg-az-content").html(l.data.html), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && jQuery(".col-subjects").html(l.data.subjects_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-subjects").select2({
+                        placeholder: l.data.label_all_subjects ?? "Subjects",
+                        allowClear: !0
+                    }), l.data.az_types_html && jQuery(".col-types").html(l.data.az_types_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-types").select2({
+                        placeholder: l.data.label_all_types ?? "Types",
+                        allowClear: !0
+                    }), l.data.az_vendors_html && jQuery(".col-vendors").html(l.data.az_vendors_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-vendors").select2({
+                        placeholder: l.data.label_all_vendors ?? "Vendors",
+                        allowClear: !0
                     }), jQuery("#s-lg-az-pager").html(l.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!a);
-                    var p = [];
-                    r(p, i.getAZFilterData("s-lg-sel-subjects")), r(p, i.getAZFilterData("s-lg-sel-az-types")), r(p, i.getAZFilterData("s-lg-sel-az-vendors")), r(p, a ? [s.val().trim()] : []);
-                    var u = (p.length > 0 ? ": " : "") + p.join("; "),
-                        d = p.join("; ");
-                    total_db_count = l.data.count ?? 0, jQuery("#s-lg-az-result-count").html(l.data.list_count + (d.length > 0 ? " " + l.data.list_count_for + " " + d : "")), t && "" !== springSpace.azList.init_filters.alpha && i.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), jQuery("#s-lib-public-header-title").html(title_base + u), jQuery("title").html(title_base + u)
+                    var n = [];
+                    i(n, r.getAZFilterData("s-lg-sel-subjects")), i(n, r.getAZFilterData("s-lg-sel-az-types")), i(n, r.getAZFilterData("s-lg-sel-az-vendors")), i(n, a ? [r.getSearchTerm()] : []);
+                    var u = (n.length > 0 ? ": " : "") + n.join("; "),
+                        p = n.join("; ");
+                    total_db_count = l.data.count ?? 0, s ? (r.writeMobileAzFilters(l.data), r.setMobileAzFormValues(l.data), 0 === (l.data.subjects ?? []).length && 0 === (l.data.types ?? []).length && 0 === (l.data.vendors ?? []).length && "" === (l.data.q ?? "") && (jQuery(".s-lg-az-search").val(""), jQuery(".s-lg-sel-subjects").val([]), jQuery(".s-lg-sel-az-types").val([]), jQuery(".s-lg-sel-az-vendors").val([]), jQuery("#az-public-mobile-filters").show())) : jQuery("#s-lg-az-result-count").html(l.data.list_count + (p.length > 0 ? " " + l.data.list_count_for + " " + p : "")), t && "" !== springSpace.azList.init_filters.alpha && r.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), s || jQuery("#s-lib-public-header-title").html(title_base + u), jQuery("title").html(title_base + u)
                 } else jQuery("#s-lg-az-content").html('Something unexpected happened - please try again and if you continue to receive the error please let us know.<div class="s-ghost" style="margin-top:20px;">' + l.errText + "</div>");
                 jQuery(".az-bs-tooltip").tooltip(), jQuery((function() {
                     jQuery('[data-toggle="popover"]').popover()
-                })), "undefined" != typeof bootstrap && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && i.transformAzLinks(), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
+                })), s && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && r.transformAzLinks(), s && (r.shortenAZBoxItems("s-lg-az-popular"), r.shortenAZBoxItems("s-lg-az-trials")), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
             },
-            error: function(e, t, i) {
-                springSpace.UI.error(i)
+            error: function(e, t, s) {
+                springSpace.UI.error(s)
             }
         })
+    }, e.prototype.shortenAZBoxItems = function(e) {
+        window.innerWidth <= 575.98 && jQuery("#" + e + " div.mb-4").each((function(t) {
+            t > 2 && jQuery(this).detach().appendTo("#" + e + "-view-all")
+        }))
+    }, e.prototype.setMobileAzFormValues = function(e) {
+        jQuery(".s-lg-az-search").val(e.q ?? ""), jQuery(".s-lg-sel-subjects").val(Object.keys(e.subjects ?? [])), jQuery(".s-lg-sel-az-types").val(Object.keys(e.types ?? [])), jQuery(".s-lg-sel-az-vendors").val(Object.keys(e.vendors ?? []))
+    }, e.prototype.writeMobileAzFilters = function(e) {
+        jQuery(".az-mobile-filter, #az-mobile-filter-edit").remove(), jQuery("#az-mobile-filter-edit-modal").modal("hide");
+        const t = jQuery("#site_id").val();
+        let s = Object.keys(e.subjects ?? []).length || Object.keys(e.types ?? []).length || Object.keys(e.vendors ?? []).length || e.q?.trim().length,
+            r = mobileLabel = e.count + " Database" + (1 == e.count ? "" : "s");
+        s && (r += " Found", mobileLabel = e.count + " Matching Result" + (1 == e.count ? "" : "s") + " for:"), jQuery("#s-lg-az-result-count").html('<span class="d-sm-none">' + mobileLabel + '</span><span class="d-none d-md-block">' + r + "</span>"), Object.keys(e.subjects ?? []).forEach((function(s) {
+            jQuery("#s-lg-az-result-count").after("<span class='az-mobile-filter d-sm-none'>" + e.subjects[s] + "<a onclick='springSpace.publicObj.filterAzBySubjectEdit(" + s + ", " + t + "); return false;'><img src='/web/assets/media/icons/duotune/arrows/arr097.svg'/></a></span>")
+        })), Object.keys(e.types ?? []).forEach((function(s) {
+            jQuery("#s-lg-az-result-count").after("<span class='az-mobile-filter d-sm-none'>" + e.types[s] + "<a onclick='springSpace.publicObj.filterAzByTypeEdit(" + s + ", " + t + "); return false;'><img src='/web/assets/media/icons/duotune/arrows/arr097.svg'/></a></span>")
+        })), Object.keys(e.vendors ?? []).forEach((function(s) {
+            jQuery("#s-lg-az-result-count").after("<span class='az-mobile-filter d-sm-none'>" + e.vendors[s] + "<a onclick='springSpace.publicObj.filterAzByVendorEdit(" + s + ", " + t + "); return false;'><img src='/web/assets/media/icons/duotune/arrows/arr097.svg'/></a></span>")
+        })), e.q && jQuery("#s-lg-az-result-count").after("<span class='az-mobile-filter d-sm-none'>" + e.q + "<a onclick='springSpace.publicObj.filterAzBySearchEdit(" + t + "); return false;'><img src='/web/assets/media/icons/duotune/arrows/arr097.svg'/></a></span>"), s && jQuery(".az-mobile-filter:last-of-type").after("<a id='az-mobile-filter-edit' class='d-sm-none' data-bs-toggle='modal' data-bs-target='#az-mobile-filter-edit-modal'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Edit Filters</a>")
+    }, e.prototype.getSearchTerm = function() {
+        var e = [];
+        return jQuery(".s-lg-az-search").each((function() {
+            "" !== jQuery(this).val() && (e[jQuery(this).val()] = "")
+        })), Object.keys(e).join(" ")
     }, e.prototype.getAZFilterData = function(e) {
         let t = [];
         return jQuery("#" + e + " > option:selected").each((function() {
@@ -235,10 +312,10 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 v: springSpace.Util.setProp(e.vendor_id, ""),
                 p: springSpace.Util.setProp(e.page, 1)
             },
-            i = [];
+            s = [];
         return jQuery.each(t, (function(e, t) {
-            "" !== t && "0" !== t && i.push(e + "=" + t)
-        })), 0 == i.length ? "" : "?" + i.join("&")
+            "" !== t && "0" !== t && s.push(e + "=" + t)
+        })), "" !== springSpace.azList.az_preview && s.push("preview=" + springSpace.azList.az_preview), 0 == s.length ? "" : "?" + s.join("&")
     }, e.prototype.transformAzLinks = function(e) {
         jQuery(".s-lg-az-result-title a, .s-lib-featured-profile-image a, #s-lg-az-guides-div a").each((function() {
             jQuery(this).attr("target", "_blank")
