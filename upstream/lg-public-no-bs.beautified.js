@@ -204,8 +204,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
             }
         })
     }, e.prototype.loadAzList = function(e, t = !1) {
-        let s = "undefined" != typeof bootstrap;
-        s || springSpace.UI.notify({
+        is_bootstrap || springSpace.UI.notify({
             mode: "load",
             duration: 3e4
         }), e = void 0 === e ? {
@@ -213,26 +212,26 @@ springSpace.public = {}, springSpace.public._construct = function() {
             search: ""
         } : e, jQuery.each(["search", "subject_id", "type_id", "first", "vendor_id", "page"], (function(t, s) {
             e[s] || (e[s] = "")
-        })), s ? (this.toggleAzClearButtonBS5(e), jQuery(".s-lg-az-search").change((function() {
+        })), is_bootstrap ? (this.toggleAzClearButtonBS5(e), jQuery(".s-lg-az-search").change((function() {
             jQuery(".s-lg-az-search").val(jQuery(this).val())
-        }))) : this.toggleAzClearButton(e), s ? this.toggleAzSubjectBoxesBS5(e.subject_id) : this.toggleAzSubjectBoxes({
+        }))) : this.toggleAzClearButton(e), is_bootstrap ? this.toggleAzSubjectBoxesBS5(e.subject_id) : this.toggleAzSubjectBoxes({
             subject_id: e.subject_id ? e.subject_id : "",
             action: 521,
             site_id: e.site_id
         });
-        var r = this,
-            i = function(e, t) {
+        var s = this,
+            r = function(e, t) {
                 if (!t.length) return;
                 let s = [];
                 t.forEach((function(e, t) {
                     e = (e = e.replace(/ \(\d+\)/i, "")).replace("↳", "").trim(), s.push(springSpace.Util.escapeHtml(e))
                 })), e.push(s.join(", "))
             },
-            a = "" !== this.getSearchTerm(),
-            l = a ? "/process/az/dbsearch" : "/process/az/dblist";
-        let o = window.innerWidth <= 575.98 ? 10 : 0;
+            i = "" !== this.getSearchTerm(),
+            a = i ? "/process/az/dbsearch" : "/process/az/dblist";
+        let l = window.innerWidth <= 575.98 ? 10 : 0;
         xhr = jQuery.ajax({
-            url: l,
+            url: a,
             type: "GET",
             dataType: "json",
             data: {
@@ -244,32 +243,32 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 site_id: e.site_id,
                 content_id: e.content_id ? e.content_id : 0,
                 is_widget: springSpace.azList.is_widget,
-                bootstrap5: s,
-                page_size: o,
+                bootstrap5: is_bootstrap,
+                page_size: l,
                 preview: springSpace.azList.az_preview,
                 alpha: e.first
             },
-            success: function(l, o) {
-                if (s || springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(r.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode) {
-                    jQuery("#s-lg-az-content").html(l.data.html), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && jQuery(".col-subjects").html(l.data.subjects_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-subjects").select2({
-                        placeholder: l.data.label_all_subjects ?? "Subjects",
+            success: function(a, l) {
+                if (is_bootstrap || springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(s.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == a.errCode) {
+                    jQuery("#s-lg-az-content").html(a.data.html), a.data.az_index_html && jQuery("#s-lg-az-index").html(a.data.az_index_html), a.data.subjects_html && jQuery(".col-subjects").html(a.data.subjects_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-subjects").select2({
+                        placeholder: a.data.label_all_subjects ?? "Subjects",
                         allowClear: !0
-                    }), l.data.az_types_html && jQuery(".col-types").html(l.data.az_types_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-types").select2({
-                        placeholder: l.data.label_all_types ?? "Types",
+                    }), a.data.az_types_html && jQuery(".col-types").html(a.data.az_types_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-types").select2({
+                        placeholder: a.data.label_all_types ?? "Types",
                         allowClear: !0
-                    }), l.data.az_vendors_html && jQuery(".col-vendors").html(l.data.az_vendors_html), s && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-vendors").select2({
-                        placeholder: l.data.label_all_vendors ?? "Vendors",
+                    }), a.data.az_vendors_html && jQuery(".col-vendors").html(a.data.az_vendors_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-vendors").select2({
+                        placeholder: a.data.label_all_vendors ?? "Vendors",
                         allowClear: !0
-                    }), jQuery("#s-lg-az-pager").html(l.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!a);
-                    var n = [];
-                    i(n, r.getAZFilterData("s-lg-sel-subjects")), i(n, r.getAZFilterData("s-lg-sel-az-types")), i(n, r.getAZFilterData("s-lg-sel-az-vendors")), i(n, a ? [r.getSearchTerm()] : []);
-                    var u = (n.length > 0 ? ": " : "") + n.join("; "),
-                        p = n.join("; ");
-                    total_db_count = l.data.count ?? 0, s ? (r.writeMobileAzFilters(l.data), r.setMobileAzFormValues(l.data), 0 === (l.data.subjects ?? []).length && 0 === (l.data.types ?? []).length && 0 === (l.data.vendors ?? []).length && "" === (l.data.q ?? "") && (jQuery(".s-lg-az-search").val(""), jQuery(".s-lg-sel-subjects").val([]), jQuery(".s-lg-sel-az-types").val([]), jQuery(".s-lg-sel-az-vendors").val([]), jQuery("#az-public-mobile-filters").show())) : jQuery("#s-lg-az-result-count").html(l.data.list_count + (p.length > 0 ? " " + l.data.list_count_for + " " + p : "")), t && "" !== springSpace.azList.init_filters.alpha && r.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), s || jQuery("#s-lib-public-header-title").html(title_base + u), jQuery("title").html(title_base + u)
-                } else jQuery("#s-lg-az-content").html('Something unexpected happened - please try again and if you continue to receive the error please let us know.<div class="s-ghost" style="margin-top:20px;">' + l.errText + "</div>");
+                    }), jQuery("#s-lg-az-pager").html(a.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!i);
+                    var o = [];
+                    r(o, s.getAZFilterData("s-lg-sel-subjects")), r(o, s.getAZFilterData("s-lg-sel-az-types")), r(o, s.getAZFilterData("s-lg-sel-az-vendors")), r(o, i ? [s.getSearchTerm()] : []);
+                    var n = (o.length > 0 ? ": " : "") + o.join("; "),
+                        u = o.join("; ");
+                    total_db_count = a.data.count ?? 0, is_bootstrap ? (s.writeMobileAzFilters(a.data), s.setMobileAzFormValues(a.data), 0 === (a.data.subjects ?? []).length && 0 === (a.data.types ?? []).length && 0 === (a.data.vendors ?? []).length && "" === (a.data.q ?? "") && (jQuery(".s-lg-az-search").val(""), jQuery(".s-lg-sel-subjects").val([]), jQuery(".s-lg-sel-az-types").val([]), jQuery(".s-lg-sel-az-vendors").val([]), jQuery("#az-public-mobile-filters").show())) : jQuery("#s-lg-az-result-count").html(a.data.list_count + (u.length > 0 ? " " + a.data.list_count_for + " " + u : "")), t && "" !== springSpace.azList.init_filters.alpha && s.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), is_bootstrap || jQuery("#s-lib-public-header-title").html(title_base + n), jQuery("title").html(title_base + n)
+                } else jQuery("#s-lg-az-content").html('Something unexpected happened - please try again and if you continue to receive the error please let us know.<div class="s-ghost" style="margin-top:20px;">' + a.errText + "</div>");
                 jQuery(".az-bs-tooltip").tooltip(), jQuery((function() {
                     jQuery('[data-toggle="popover"]').popover()
-                })), s && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && r.transformAzLinks(), s && (r.shortenAZBoxItems("s-lg-az-popular"), r.shortenAZBoxItems("s-lg-az-trials")), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
+                })), is_bootstrap && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && s.transformAzLinks(), is_bootstrap && (s.shortenAZBoxItems("s-lg-az-popular"), s.shortenAZBoxItems("s-lg-az-trials")), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
             },
             error: function(e, t, s) {
                 springSpace.UI.error(s)
