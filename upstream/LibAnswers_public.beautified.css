@@ -9086,6 +9086,28 @@ li.s-la-faq-listing {
     margin-right: 0
 }
 
+.qform-rulerow {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem
+}
+
+.qform-rulerow>* {
+    flex: 0 1 auto
+}
+
+.qform-ruledisplay {
+    line-height: 2em;
+    margin-top: 1em
+}
+
+.qform-rulebox {
+    border: 1px grey solid;
+    padding: 2px;
+    margin: 0 .25em
+}
+
 .s-la-content-iconitem {
     margin-left: -10px
 }
@@ -11061,7 +11083,8 @@ dd>ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #d3d3d3
+    border-bottom: 1px solid #d3d3d3;
+    gap: 1em
 }
 
 dl.deflist-horizontal>div {
@@ -11550,6 +11573,10 @@ input[type=checkbox][disabled]+span {
     background-color: #2f6fa7
 }
 
+.nav-tabs li.disabled a[aria-disabled] {
+    pointer-events: none
+}
+
 .s-la-search-side-collapse {
     display: none
 }
@@ -11991,6 +12018,18 @@ legend.radio-label {
     font-weight: 700;
     font-size: 14px;
     border-bottom: 0
+}
+
+h3.form-header {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5
 }
 
 .s-la-thread-turnaround-table td,
