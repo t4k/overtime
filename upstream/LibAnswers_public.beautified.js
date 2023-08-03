@@ -51,21 +51,21 @@ function(t) {
         };
     i.VERSION = "3.4.1", i.TRANSITION_DURATION = 150, i.prototype.close = function(e) {
         var s = t(this),
-            n = s.attr("data-target");
-        n || (n = (n = s.attr("href")) && n.replace(/.*(?=#[^\s]*$)/, "")), n = "#" === n ? [] : n;
-        var a = t(document).find(n);
+            a = s.attr("data-target");
+        a || (a = (a = s.attr("href")) && a.replace(/.*(?=#[^\s]*$)/, "")), a = "#" === a ? [] : a;
+        var n = t(document).find(a);
 
-        function o() {
-            a.detach().trigger("closed.bs.alert").remove()
+        function r() {
+            n.detach().trigger("closed.bs.alert").remove()
         }
-        e && e.preventDefault(), a.length || (a = s.closest(".alert")), a.trigger(e = t.Event("close.bs.alert")), e.isDefaultPrevented() || (a.removeClass("in"), t.support.transition && a.hasClass("fade") ? a.one("bsTransitionEnd", o).emulateTransitionEnd(i.TRANSITION_DURATION) : o())
+        e && e.preventDefault(), n.length || (n = s.closest(".alert")), n.trigger(e = t.Event("close.bs.alert")), e.isDefaultPrevented() || (n.removeClass("in"), t.support.transition && n.hasClass("fade") ? n.one("bsTransitionEnd", r).emulateTransitionEnd(i.TRANSITION_DURATION) : r())
     };
     var s = t.fn.alert;
     t.fn.alert = function(e) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.alert");
-            n || s.data("bs.alert", n = new i(this)), "string" == typeof e && n[e].call(s)
+                a = s.data("bs.alert");
+            a || s.data("bs.alert", a = new i(this)), "string" == typeof e && a[e].call(s)
         }))
     }, t.fn.alert.Constructor = i, t.fn.alert.noConflict = function() {
         return t.fn.alert = s, this
@@ -80,9 +80,9 @@ function(t) {
     function i(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.button"),
-                a = "object" == typeof i && i;
-            n || s.data("bs.button", n = new e(this, a)), "toggle" == i ? n.toggle() : i && n.setState(i)
+                a = s.data("bs.button"),
+                n = "object" == typeof i && i;
+            a || s.data("bs.button", a = new e(this, n)), "toggle" == i ? a.toggle() : i && a.setState(i)
         }))
     }
     e.VERSION = "3.4.1", e.DEFAULTS = {
@@ -90,10 +90,10 @@ function(t) {
     }, e.prototype.setState = function(e) {
         var i = "disabled",
             s = this.$element,
-            n = s.is("input") ? "val" : "html",
-            a = s.data();
-        e += "Text", null == a.resetText && s.data("resetText", s[n]()), setTimeout(t.proxy((function() {
-            s[n](null == a[e] ? this.options[e] : a[e]), "loadingText" == e ? (this.isLoading = !0, s.addClass(i).attr(i, i).prop(i, !0)) : this.isLoading && (this.isLoading = !1, s.removeClass(i).removeAttr(i).prop(i, !1))
+            a = s.is("input") ? "val" : "html",
+            n = s.data();
+        e += "Text", null == n.resetText && s.data("resetText", s[a]()), setTimeout(t.proxy((function() {
+            s[a](null == n[e] ? this.options[e] : n[e]), "loadingText" == e ? (this.isLoading = !0, s.addClass(i).attr(i, i).prop(i, !0)) : this.isLoading && (this.isLoading = !1, s.removeClass(i).removeAttr(i).prop(i, !1))
         }), this), 0)
     }, e.prototype.toggle = function() {
         var t = !0,
@@ -122,10 +122,10 @@ function(t) {
     function i(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.carousel"),
-                a = t.extend({}, e.DEFAULTS, s.data(), "object" == typeof i && i),
-                o = "string" == typeof i ? i : a.slide;
-            n || s.data("bs.carousel", n = new e(this, a)), "number" == typeof i ? n.to(i) : o ? n[o]() : a.interval && n.pause().cycle()
+                a = s.data("bs.carousel"),
+                n = t.extend({}, e.DEFAULTS, s.data(), "object" == typeof i && i),
+                r = "string" == typeof i ? i : n.slide;
+            a || s.data("bs.carousel", a = new e(this, n)), "number" == typeof i ? a.to(i) : r ? a[r]() : n.interval && a.pause().cycle()
         }))
     }
     e.VERSION = "3.4.1", e.TRANSITION_DURATION = 600, e.DEFAULTS = {
@@ -169,51 +169,51 @@ function(t) {
     }, e.prototype.prev = function() {
         if (!this.sliding) return this.slide("prev")
     }, e.prototype.slide = function(i, s) {
-        var n = this.$element.find(".item.active"),
-            a = s || this.getItemForDirection(i, n),
-            o = this.interval,
-            r = "next" == i ? "left" : "right",
+        var a = this.$element.find(".item.active"),
+            n = s || this.getItemForDirection(i, a),
+            r = this.interval,
+            o = "next" == i ? "left" : "right",
             l = this;
-        if (a.hasClass("active")) return this.sliding = !1;
-        var c = a[0],
+        if (n.hasClass("active")) return this.sliding = !1;
+        var c = n[0],
             d = t.Event("slide.bs.carousel", {
                 relatedTarget: c,
-                direction: r
+                direction: o
             });
         if (this.$element.trigger(d), !d.isDefaultPrevented()) {
-            if (this.sliding = !0, o && this.pause(), this.$indicators.length) {
+            if (this.sliding = !0, r && this.pause(), this.$indicators.length) {
                 this.$indicators.find(".active").removeClass("active");
-                var u = t(this.$indicators.children()[this.getItemIndex(a)]);
+                var u = t(this.$indicators.children()[this.getItemIndex(n)]);
                 u && u.addClass("active")
             }
             var h = t.Event("slid.bs.carousel", {
                 relatedTarget: c,
-                direction: r
+                direction: o
             });
-            return t.support.transition && this.$element.hasClass("slide") ? (a.addClass(i), "object" == typeof a && a.length && a[0].offsetWidth, n.addClass(r), a.addClass(r), n.one("bsTransitionEnd", (function() {
-                a.removeClass([i, r].join(" ")).addClass("active"), n.removeClass(["active", r].join(" ")), l.sliding = !1, setTimeout((function() {
+            return t.support.transition && this.$element.hasClass("slide") ? (n.addClass(i), "object" == typeof n && n.length && n[0].offsetWidth, a.addClass(o), n.addClass(o), a.one("bsTransitionEnd", (function() {
+                n.removeClass([i, o].join(" ")).addClass("active"), a.removeClass(["active", o].join(" ")), l.sliding = !1, setTimeout((function() {
                     l.$element.trigger(h)
                 }), 0)
-            })).emulateTransitionEnd(e.TRANSITION_DURATION)) : (n.removeClass("active"), a.addClass("active"), this.sliding = !1, this.$element.trigger(h)), o && this.cycle(), this
+            })).emulateTransitionEnd(e.TRANSITION_DURATION)) : (a.removeClass("active"), n.addClass("active"), this.sliding = !1, this.$element.trigger(h)), r && this.cycle(), this
         }
     };
     var s = t.fn.carousel;
     t.fn.carousel = i, t.fn.carousel.Constructor = e, t.fn.carousel.noConflict = function() {
         return t.fn.carousel = s, this
     };
-    var n = function(e) {
+    var a = function(e) {
         var s = t(this),
-            n = s.attr("href");
-        n && (n = n.replace(/.*(?=#[^\s]+$)/, ""));
-        var a = s.attr("data-target") || n,
-            o = t(document).find(a);
-        if (o.hasClass("carousel")) {
-            var r = t.extend({}, o.data(), s.data()),
+            a = s.attr("href");
+        a && (a = a.replace(/.*(?=#[^\s]+$)/, ""));
+        var n = s.attr("data-target") || a,
+            r = t(document).find(n);
+        if (r.hasClass("carousel")) {
+            var o = t.extend({}, r.data(), s.data()),
                 l = s.attr("data-slide-to");
-            l && (r.interval = !1), i.call(o, r), l && o.data("bs.carousel").to(l), e.preventDefault()
+            l && (o.interval = !1), i.call(r, o), l && r.data("bs.carousel").to(l), e.preventDefault()
         }
     };
-    t(document).on("click.bs.carousel.data-api", "[data-slide]", n).on("click.bs.carousel.data-api", "[data-slide-to]", n), t(window).on("load", (function() {
+    t(document).on("click.bs.carousel.data-api", "[data-slide]", a).on("click.bs.carousel.data-api", "[data-slide-to]", a), t(window).on("load", (function() {
         t('[data-ride="carousel"]').each((function() {
             var e = t(this);
             i.call(e, e.data())
@@ -234,9 +234,9 @@ function(t) {
     function s(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.collapse"),
-                a = t.extend({}, e.DEFAULTS, s.data(), "object" == typeof i && i);
-            !n && a.toggle && /show|hide/.test(i) && (a.toggle = !1), n || s.data("bs.collapse", n = new e(this, a)), "string" == typeof i && n[i]()
+                a = s.data("bs.collapse"),
+                n = t.extend({}, e.DEFAULTS, s.data(), "object" == typeof i && i);
+            !a && n.toggle && /show|hide/.test(i) && (n.toggle = !1), a || s.data("bs.collapse", a = new e(this, n)), "string" == typeof i && a[i]()
         }))
     }
     e.VERSION = "3.4.1", e.TRANSITION_DURATION = 350, e.DEFAULTS = {
@@ -245,19 +245,19 @@ function(t) {
         return this.$element.hasClass("width") ? "width" : "height"
     }, e.prototype.show = function() {
         if (!this.transitioning && !this.$element.hasClass("in")) {
-            var i, n = this.$parent && this.$parent.children(".panel").children(".in, .collapsing");
-            if (!(n && n.length && (i = n.data("bs.collapse")) && i.transitioning)) {
-                var a = t.Event("show.bs.collapse");
-                if (this.$element.trigger(a), !a.isDefaultPrevented()) {
-                    n && n.length && (s.call(n, "hide"), i || n.data("bs.collapse", null));
-                    var o = this.dimension();
-                    this.$element.removeClass("collapse").addClass("collapsing")[o](0).attr("aria-expanded", !0), this.$trigger.removeClass("collapsed").attr("aria-expanded", !0), this.transitioning = 1;
-                    var r = function() {
-                        this.$element.removeClass("collapsing").addClass("collapse in")[o](""), this.transitioning = 0, this.$element.trigger("shown.bs.collapse")
+            var i, a = this.$parent && this.$parent.children(".panel").children(".in, .collapsing");
+            if (!(a && a.length && (i = a.data("bs.collapse")) && i.transitioning)) {
+                var n = t.Event("show.bs.collapse");
+                if (this.$element.trigger(n), !n.isDefaultPrevented()) {
+                    a && a.length && (s.call(a, "hide"), i || a.data("bs.collapse", null));
+                    var r = this.dimension();
+                    this.$element.removeClass("collapse").addClass("collapsing")[r](0).attr("aria-expanded", !0), this.$trigger.removeClass("collapsed").attr("aria-expanded", !0), this.transitioning = 1;
+                    var o = function() {
+                        this.$element.removeClass("collapsing").addClass("collapse in")[r](""), this.transitioning = 0, this.$element.trigger("shown.bs.collapse")
                     };
-                    if (!t.support.transition) return r.call(this);
-                    var l = t.camelCase(["scroll", o].join("-"));
-                    this.$element.one("bsTransitionEnd", t.proxy(r, this)).emulateTransitionEnd(e.TRANSITION_DURATION)[o](this.$element[0][l])
+                    if (!t.support.transition) return o.call(this);
+                    var l = t.camelCase(["scroll", r].join("-"));
+                    this.$element.one("bsTransitionEnd", t.proxy(o, this)).emulateTransitionEnd(e.TRANSITION_DURATION)[r](this.$element[0][l])
                 }
             }
         }
@@ -267,33 +267,33 @@ function(t) {
             if (this.$element.trigger(i), !i.isDefaultPrevented()) {
                 var s = this.dimension();
                 this.$element[s](this.$element[s]())[0].offsetHeight, this.$element.addClass("collapsing").removeClass("collapse in").attr("aria-expanded", !1), this.$trigger.addClass("collapsed").attr("aria-expanded", !1), this.transitioning = 1;
-                var n = function() {
+                var a = function() {
                     this.transitioning = 0, this.$element.removeClass("collapsing").addClass("collapse").trigger("hidden.bs.collapse")
                 };
-                if (!t.support.transition) return n.call(this);
-                this.$element[s](0).one("bsTransitionEnd", t.proxy(n, this)).emulateTransitionEnd(e.TRANSITION_DURATION)
+                if (!t.support.transition) return a.call(this);
+                this.$element[s](0).one("bsTransitionEnd", t.proxy(a, this)).emulateTransitionEnd(e.TRANSITION_DURATION)
             }
         }
     }, e.prototype.toggle = function() {
         this[this.$element.hasClass("in") ? "hide" : "show"]()
     }, e.prototype.getParent = function() {
         return t(document).find(this.options.parent).find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]').each(t.proxy((function(e, s) {
-            var n = t(s);
-            this.addAriaAndCollapsedClass(i(n), n)
+            var a = t(s);
+            this.addAriaAndCollapsedClass(i(a), a)
         }), this)).end()
     }, e.prototype.addAriaAndCollapsedClass = function(t, e) {
         var i = t.hasClass("in");
         t.attr("aria-expanded", i), e.toggleClass("collapsed", !i).attr("aria-expanded", i)
     };
-    var n = t.fn.collapse;
+    var a = t.fn.collapse;
     t.fn.collapse = s, t.fn.collapse.Constructor = e, t.fn.collapse.noConflict = function() {
-        return t.fn.collapse = n, this
+        return t.fn.collapse = a, this
     }, t(document).on("click.bs.collapse.data-api", '[data-toggle="collapse"]', (function(e) {
-        var n = t(this);
-        n.attr("data-target") || e.preventDefault();
-        var a = i(n),
-            o = a.data("bs.collapse") ? "toggle" : n.data();
-        s.call(a, o)
+        var a = t(this);
+        a.attr("data-target") || e.preventDefault();
+        var n = i(a),
+            r = n.data("bs.collapse") ? "toggle" : a.data();
+        s.call(n, r)
     }))
 }(jQuery),
 function(t) {
@@ -310,56 +310,56 @@ function(t) {
         return s && s.length ? s : e.parent()
     }
 
-    function n(i) {
+    function a(i) {
         i && 3 === i.which || (t(".dropdown-backdrop").remove(), t(e).each((function() {
             var e = t(this),
-                n = s(e),
-                a = {
+                a = s(e),
+                n = {
                     relatedTarget: this
                 };
-            n.hasClass("open") && (i && "click" == i.type && /input|textarea/i.test(i.target.tagName) && t.contains(n[0], i.target) || (n.trigger(i = t.Event("hide.bs.dropdown", a)), i.isDefaultPrevented() || (e.attr("aria-expanded", "false"), n.removeClass("open").trigger(t.Event("hidden.bs.dropdown", a)))))
+            a.hasClass("open") && (i && "click" == i.type && /input|textarea/i.test(i.target.tagName) && t.contains(a[0], i.target) || (a.trigger(i = t.Event("hide.bs.dropdown", n)), i.isDefaultPrevented() || (e.attr("aria-expanded", "false"), a.removeClass("open").trigger(t.Event("hidden.bs.dropdown", n)))))
         })))
     }
     i.VERSION = "3.4.1", i.prototype.toggle = function(e) {
         var i = t(this);
         if (!i.is(".disabled, :disabled")) {
-            var a = s(i),
-                o = a.hasClass("open");
-            if (n(), !o) {
-                "ontouchstart" in document.documentElement && !a.closest(".navbar-nav").length && t(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(t(this)).on("click", n);
-                var r = {
+            var n = s(i),
+                r = n.hasClass("open");
+            if (a(), !r) {
+                "ontouchstart" in document.documentElement && !n.closest(".navbar-nav").length && t(document.createElement("div")).addClass("dropdown-backdrop").insertAfter(t(this)).on("click", a);
+                var o = {
                     relatedTarget: this
                 };
-                if (a.trigger(e = t.Event("show.bs.dropdown", r)), e.isDefaultPrevented()) return;
-                i.trigger("focus").attr("aria-expanded", "true"), a.toggleClass("open").trigger(t.Event("shown.bs.dropdown", r))
+                if (n.trigger(e = t.Event("show.bs.dropdown", o)), e.isDefaultPrevented()) return;
+                i.trigger("focus").attr("aria-expanded", "true"), n.toggleClass("open").trigger(t.Event("shown.bs.dropdown", o))
             }
             return !1
         }
     }, i.prototype.keydown = function(i) {
         if (/(38|40|27|32)/.test(i.which) && !/input|textarea/i.test(i.target.tagName)) {
-            var n = t(this);
-            if (i.preventDefault(), i.stopPropagation(), !n.is(".disabled, :disabled")) {
-                var a = s(n),
-                    o = a.hasClass("open");
-                if (!o && 27 != i.which || o && 27 == i.which) return 27 == i.which && a.find(e).trigger("focus"), n.trigger("click");
-                var r = a.find(".dropdown-menu li:not(.disabled):visible a");
-                if (r.length) {
-                    var l = r.index(i.target);
-                    38 == i.which && l > 0 && l--, 40 == i.which && l < r.length - 1 && l++, ~l || (l = 0), r.eq(l).trigger("focus")
+            var a = t(this);
+            if (i.preventDefault(), i.stopPropagation(), !a.is(".disabled, :disabled")) {
+                var n = s(a),
+                    r = n.hasClass("open");
+                if (!r && 27 != i.which || r && 27 == i.which) return 27 == i.which && n.find(e).trigger("focus"), a.trigger("click");
+                var o = n.find(".dropdown-menu li:not(.disabled):visible a");
+                if (o.length) {
+                    var l = o.index(i.target);
+                    38 == i.which && l > 0 && l--, 40 == i.which && l < o.length - 1 && l++, ~l || (l = 0), o.eq(l).trigger("focus")
                 }
             }
         }
     };
-    var a = t.fn.dropdown;
+    var n = t.fn.dropdown;
     t.fn.dropdown = function(e) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.dropdown");
-            n || s.data("bs.dropdown", n = new i(this)), "string" == typeof e && n[e].call(s)
+                a = s.data("bs.dropdown");
+            a || s.data("bs.dropdown", a = new i(this)), "string" == typeof e && a[e].call(s)
         }))
     }, t.fn.dropdown.Constructor = i, t.fn.dropdown.noConflict = function() {
-        return t.fn.dropdown = a, this
-    }, t(document).on("click.bs.dropdown.data-api", n).on("click.bs.dropdown.data-api", ".dropdown form", (function(t) {
+        return t.fn.dropdown = n, this
+    }, t(document).on("click.bs.dropdown.data-api", a).on("click.bs.dropdown.data-api", ".dropdown form", (function(t) {
         t.stopPropagation()
     })).on("click.bs.dropdown.data-api", e, i.prototype.toggle).on("keydown.bs.dropdown.data-api", e, i.prototype.keydown).on("keydown.bs.dropdown.data-api", ".dropdown-menu", i.prototype.keydown)
 }(jQuery),
@@ -373,10 +373,10 @@ function(t) {
 
     function i(i, s) {
         return this.each((function() {
-            var n = t(this),
-                a = n.data("bs.modal"),
-                o = t.extend({}, e.DEFAULTS, n.data(), "object" == typeof i && i);
-            a || n.data("bs.modal", a = new e(this, o)), "string" == typeof i ? a[i](s) : o.show && a.show(s)
+            var a = t(this),
+                n = a.data("bs.modal"),
+                r = t.extend({}, e.DEFAULTS, a.data(), "object" == typeof i && i);
+            n || a.data("bs.modal", n = new e(this, r)), "string" == typeof i ? n[i](s) : r.show && n.show(s)
         }))
     }
     e.VERSION = "3.4.1", e.TRANSITION_DURATION = 300, e.BACKDROP_TRANSITION_DURATION = 150, e.DEFAULTS = {
@@ -387,22 +387,22 @@ function(t) {
         return this.isShown ? this.hide() : this.show(t)
     }, e.prototype.show = function(i) {
         var s = this,
-            n = t.Event("show.bs.modal", {
+            a = t.Event("show.bs.modal", {
                 relatedTarget: i
             });
-        this.$element.trigger(n), this.isShown || n.isDefaultPrevented() || (this.isShown = !0, this.checkScrollbar(), this.setScrollbar(), this.$body.addClass("modal-open"), this.escape(), this.resize(), this.$element.on("click.dismiss.bs.modal", '[data-dismiss="modal"]', t.proxy(this.hide, this)), this.$dialog.on("mousedown.dismiss.bs.modal", (function() {
+        this.$element.trigger(a), this.isShown || a.isDefaultPrevented() || (this.isShown = !0, this.checkScrollbar(), this.setScrollbar(), this.$body.addClass("modal-open"), this.escape(), this.resize(), this.$element.on("click.dismiss.bs.modal", '[data-dismiss="modal"]', t.proxy(this.hide, this)), this.$dialog.on("mousedown.dismiss.bs.modal", (function() {
             s.$element.one("mouseup.dismiss.bs.modal", (function(e) {
                 t(e.target).is(s.$element) && (s.ignoreBackdropClick = !0)
             }))
         })), this.backdrop((function() {
-            var n = t.support.transition && s.$element.hasClass("fade");
-            s.$element.parent().length || s.$element.appendTo(s.$body), s.$element.show().scrollTop(0), s.adjustDialog(), n && s.$element[0].offsetWidth, s.$element.addClass("in"), s.enforceFocus();
-            var a = t.Event("shown.bs.modal", {
+            var a = t.support.transition && s.$element.hasClass("fade");
+            s.$element.parent().length || s.$element.appendTo(s.$body), s.$element.show().scrollTop(0), s.adjustDialog(), a && s.$element[0].offsetWidth, s.$element.addClass("in"), s.enforceFocus();
+            var n = t.Event("shown.bs.modal", {
                 relatedTarget: i
             });
-            n ? s.$dialog.one("bsTransitionEnd", (function() {
-                s.$element.trigger("focus").trigger(a)
-            })).emulateTransitionEnd(e.TRANSITION_DURATION) : s.$element.trigger("focus").trigger(a)
+            a ? s.$dialog.one("bsTransitionEnd", (function() {
+                s.$element.trigger("focus").trigger(n)
+            })).emulateTransitionEnd(e.TRANSITION_DURATION) : s.$element.trigger("focus").trigger(n)
         })))
     }, e.prototype.hide = function(i) {
         i && i.preventDefault(), i = t.Event("hide.bs.modal"), this.$element.trigger(i), this.isShown && !i.isDefaultPrevented() && (this.isShown = !1, this.escape(), this.resize(), t(document).off("focusin.bs.modal"), this.$element.removeClass("in").off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"), this.$dialog.off("mousedown.dismiss.bs.modal"), t.support.transition && this.$element.hasClass("fade") ? this.$element.one("bsTransitionEnd", t.proxy(this.hideModal, this)).emulateTransitionEnd(e.TRANSITION_DURATION) : this.hideModal())
@@ -425,19 +425,19 @@ function(t) {
         this.$backdrop && this.$backdrop.remove(), this.$backdrop = null
     }, e.prototype.backdrop = function(i) {
         var s = this,
-            n = this.$element.hasClass("fade") ? "fade" : "";
+            a = this.$element.hasClass("fade") ? "fade" : "";
         if (this.isShown && this.options.backdrop) {
-            var a = t.support.transition && n;
-            if (this.$backdrop = t(document.createElement("div")).addClass("modal-backdrop " + n).appendTo(this.$body), this.$element.on("click.dismiss.bs.modal", t.proxy((function(t) {
+            var n = t.support.transition && a;
+            if (this.$backdrop = t(document.createElement("div")).addClass("modal-backdrop " + a).appendTo(this.$body), this.$element.on("click.dismiss.bs.modal", t.proxy((function(t) {
                     this.ignoreBackdropClick ? this.ignoreBackdropClick = !1 : t.target === t.currentTarget && ("static" == this.options.backdrop ? this.$element[0].focus() : this.hide())
-                }), this)), a && this.$backdrop[0].offsetWidth, this.$backdrop.addClass("in"), !i) return;
-            a ? this.$backdrop.one("bsTransitionEnd", i).emulateTransitionEnd(e.BACKDROP_TRANSITION_DURATION) : i()
+                }), this)), n && this.$backdrop[0].offsetWidth, this.$backdrop.addClass("in"), !i) return;
+            n ? this.$backdrop.one("bsTransitionEnd", i).emulateTransitionEnd(e.BACKDROP_TRANSITION_DURATION) : i()
         } else if (!this.isShown && this.$backdrop) {
             this.$backdrop.removeClass("in");
-            var o = function() {
+            var r = function() {
                 s.removeBackdrop(), i && i()
             };
-            t.support.transition && this.$element.hasClass("fade") ? this.$backdrop.one("bsTransitionEnd", o).emulateTransitionEnd(e.BACKDROP_TRANSITION_DURATION) : o()
+            t.support.transition && this.$element.hasClass("fade") ? this.$backdrop.one("bsTransitionEnd", r).emulateTransitionEnd(e.BACKDROP_TRANSITION_DURATION) : r()
         } else i && i()
     }, e.prototype.handleUpdate = function() {
         this.adjustDialog()
@@ -464,9 +464,9 @@ function(t) {
         this.originalBodyPad = document.body.style.paddingRight || "";
         var i = this.scrollbarWidth;
         this.bodyIsOverflowing && (this.$body.css("padding-right", e + i), t(this.fixedContent).each((function(e, s) {
-            var n = s.style.paddingRight,
-                a = t(s).css("padding-right");
-            t(s).data("padding-right", n).css("padding-right", parseFloat(a) + i + "px")
+            var a = s.style.paddingRight,
+                n = t(s).css("padding-right");
+            t(s).data("padding-right", a).css("padding-right", parseFloat(n) + i + "px")
         })))
     }, e.prototype.resetScrollbar = function() {
         this.$body.css("padding-right", this.originalBodyPad), t(this.fixedContent).each((function(e, i) {
@@ -484,17 +484,17 @@ function(t) {
         return t.fn.modal = s, this
     }, t(document).on("click.bs.modal.data-api", '[data-toggle="modal"]', (function(e) {
         var s = t(this),
-            n = s.attr("href"),
-            a = s.attr("data-target") || n && n.replace(/.*(?=#[^\s]+$)/, ""),
-            o = t(document).find(a),
-            r = o.data("bs.modal") ? "toggle" : t.extend({
-                remote: !/#/.test(n) && n
-            }, o.data(), s.data());
-        s.is("a") && e.preventDefault(), o.one("show.bs.modal", (function(t) {
-            t.isDefaultPrevented() || o.one("hidden.bs.modal", (function() {
+            a = s.attr("href"),
+            n = s.attr("data-target") || a && a.replace(/.*(?=#[^\s]+$)/, ""),
+            r = t(document).find(n),
+            o = r.data("bs.modal") ? "toggle" : t.extend({
+                remote: !/#/.test(a) && a
+            }, r.data(), s.data());
+        s.is("a") && e.preventDefault(), r.one("show.bs.modal", (function(t) {
+            t.isDefaultPrevented() || r.one("hidden.bs.modal", (function() {
                 s.is(":visible") && s.trigger("focus")
             }))
-        })), i.call(o, r, this)
+        })), i.call(r, o, this)
     }))
 }(jQuery),
 function(t) {
@@ -533,37 +533,37 @@ function(t) {
             u: [],
             ul: []
         },
-        n = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi,
-        a = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i;
+        a = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi,
+        n = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i;
 
-    function o(e, s) {
-        var o = e.nodeName.toLowerCase();
-        if (-1 !== t.inArray(o, s)) return -1 === t.inArray(o, i) || Boolean(e.nodeValue.match(n) || e.nodeValue.match(a));
-        for (var r = t(s).filter((function(t, e) {
+    function r(e, s) {
+        var r = e.nodeName.toLowerCase();
+        if (-1 !== t.inArray(r, s)) return -1 === t.inArray(r, i) || Boolean(e.nodeValue.match(a) || e.nodeValue.match(n));
+        for (var o = t(s).filter((function(t, e) {
                 return e instanceof RegExp
-            })), l = 0, c = r.length; l < c; l++)
-            if (o.match(r[l])) return !0;
+            })), l = 0, c = o.length; l < c; l++)
+            if (r.match(o[l])) return !0;
         return !1
     }
 
-    function r(e, i, s) {
+    function o(e, i, s) {
         if (0 === e.length) return e;
         if (s && "function" == typeof s) return s(e);
         if (!document.implementation || !document.implementation.createHTMLDocument) return e;
-        var n = document.implementation.createHTMLDocument("sanitization");
-        n.body.innerHTML = e;
-        for (var a = t.map(i, (function(t, e) {
+        var a = document.implementation.createHTMLDocument("sanitization");
+        a.body.innerHTML = e;
+        for (var n = t.map(i, (function(t, e) {
                 return e
-            })), r = t(n.body).find("*"), l = 0, c = r.length; l < c; l++) {
-            var d = r[l],
+            })), o = t(a.body).find("*"), l = 0, c = o.length; l < c; l++) {
+            var d = o[l],
                 u = d.nodeName.toLowerCase();
-            if (-1 !== t.inArray(u, a))
+            if (-1 !== t.inArray(u, n))
                 for (var h = t.map(d.attributes, (function(t) {
                         return t
-                    })), p = [].concat(i["*"] || [], i[u] || []), f = 0, g = h.length; f < g; f++) o(h[f], p) || d.removeAttribute(h[f].nodeName);
+                    })), p = [].concat(i["*"] || [], i[u] || []), f = 0, g = h.length; f < g; f++) r(h[f], p) || d.removeAttribute(h[f].nodeName);
             else d.parentNode.removeChild(d)
         }
-        return n.body.innerHTML
+        return a.body.innerHTML
     }
     var l = function(t, e) {
         this.type = null, this.options = null, this.enabled = null, this.timeout = null, this.hoverState = null, this.$element = null, this.inState = null, this.init("tooltip", t, e)
@@ -591,13 +591,13 @@ function(t) {
                 hover: !1,
                 focus: !1
             }, this.$element[0] instanceof document.constructor && !this.options.selector) throw new Error("`selector` option must be specified when initializing " + this.type + " on the window.document object!");
-        for (var n = this.options.trigger.split(" "), a = n.length; a--;) {
-            var o = n[a];
-            if ("click" == o) this.$element.on("click." + this.type, this.options.selector, t.proxy(this.toggle, this));
-            else if ("manual" != o) {
-                var r = "hover" == o ? "mouseenter" : "focusin",
-                    l = "hover" == o ? "mouseleave" : "focusout";
-                this.$element.on(r + "." + this.type, this.options.selector, t.proxy(this.enter, this)), this.$element.on(l + "." + this.type, this.options.selector, t.proxy(this.leave, this))
+        for (var a = this.options.trigger.split(" "), n = a.length; n--;) {
+            var r = a[n];
+            if ("click" == r) this.$element.on("click." + this.type, this.options.selector, t.proxy(this.toggle, this));
+            else if ("manual" != r) {
+                var o = "hover" == r ? "mouseenter" : "focusin",
+                    l = "hover" == r ? "mouseleave" : "focusout";
+                this.$element.on(o + "." + this.type, this.options.selector, t.proxy(this.enter, this)), this.$element.on(l + "." + this.type, this.options.selector, t.proxy(this.leave, this))
             }
         }
         this.options.selector ? this._options = t.extend({}, this.options, {
@@ -608,11 +608,11 @@ function(t) {
         return l.DEFAULTS
     }, l.prototype.getOptions = function(i) {
         var s = this.$element.data();
-        for (var n in s) s.hasOwnProperty(n) && -1 !== t.inArray(n, e) && delete s[n];
+        for (var a in s) s.hasOwnProperty(a) && -1 !== t.inArray(a, e) && delete s[a];
         return (i = t.extend({}, this.getDefaults(), s, i)).delay && "number" == typeof i.delay && (i.delay = {
             show: i.delay,
             hide: i.delay
-        }), i.sanitize && (i.template = r(i.template, i.whiteList, i.sanitizeFn)), i
+        }), i.sanitize && (i.template = o(i.template, i.whiteList, i.sanitizeFn)), i
     }, l.prototype.getDelegateOptions = function() {
         var e = {},
             i = this.getDefaults();
@@ -647,40 +647,40 @@ function(t) {
             var i = t.contains(this.$element[0].ownerDocument.documentElement, this.$element[0]);
             if (e.isDefaultPrevented() || !i) return;
             var s = this,
-                n = this.tip(),
-                a = this.getUID(this.type);
-            this.setContent(), n.attr("id", a), this.$element.attr("aria-describedby", a), this.options.animation && n.addClass("fade");
-            var o = "function" == typeof this.options.placement ? this.options.placement.call(this, n[0], this.$element[0]) : this.options.placement,
-                r = /\s?auto?\s?/i,
-                c = r.test(o);
-            c && (o = o.replace(r, "") || "top"), n.detach().css({
+                a = this.tip(),
+                n = this.getUID(this.type);
+            this.setContent(), a.attr("id", n), this.$element.attr("aria-describedby", n), this.options.animation && a.addClass("fade");
+            var r = "function" == typeof this.options.placement ? this.options.placement.call(this, a[0], this.$element[0]) : this.options.placement,
+                o = /\s?auto?\s?/i,
+                c = o.test(r);
+            c && (r = r.replace(o, "") || "top"), a.detach().css({
                 top: 0,
                 left: 0,
                 display: "block"
-            }).addClass(o).data("bs." + this.type, this), this.options.container ? n.appendTo(t(document).find(this.options.container)) : n.insertAfter(this.$element), this.$element.trigger("inserted.bs." + this.type);
+            }).addClass(r).data("bs." + this.type, this), this.options.container ? a.appendTo(t(document).find(this.options.container)) : a.insertAfter(this.$element), this.$element.trigger("inserted.bs." + this.type);
             var d = this.getPosition(),
-                u = n[0].offsetWidth,
-                h = n[0].offsetHeight;
+                u = a[0].offsetWidth,
+                h = a[0].offsetHeight;
             if (c) {
-                var p = o,
+                var p = r,
                     f = this.getPosition(this.$viewport);
-                o = "bottom" == o && d.bottom + h > f.bottom ? "top" : "top" == o && d.top - h < f.top ? "bottom" : "right" == o && d.right + u > f.width ? "left" : "left" == o && d.left - u < f.left ? "right" : o, n.removeClass(p).addClass(o)
+                r = "bottom" == r && d.bottom + h > f.bottom ? "top" : "top" == r && d.top - h < f.top ? "bottom" : "right" == r && d.right + u > f.width ? "left" : "left" == r && d.left - u < f.left ? "right" : r, a.removeClass(p).addClass(r)
             }
-            var g = this.getCalculatedOffset(o, d, u, h);
-            this.applyPlacement(g, o);
+            var g = this.getCalculatedOffset(r, d, u, h);
+            this.applyPlacement(g, r);
             var m = function() {
                 var t = s.hoverState;
                 s.$element.trigger("shown.bs." + s.type), s.hoverState = null, "out" == t && s.leave(s)
             };
-            t.support.transition && this.$tip.hasClass("fade") ? n.one("bsTransitionEnd", m).emulateTransitionEnd(l.TRANSITION_DURATION) : m()
+            t.support.transition && this.$tip.hasClass("fade") ? a.one("bsTransitionEnd", m).emulateTransitionEnd(l.TRANSITION_DURATION) : m()
         }
     }, l.prototype.applyPlacement = function(e, i) {
         var s = this.tip(),
-            n = s[0].offsetWidth,
-            a = s[0].offsetHeight,
-            o = parseInt(s.css("margin-top"), 10),
-            r = parseInt(s.css("margin-left"), 10);
-        isNaN(o) && (o = 0), isNaN(r) && (r = 0), e.top += o, e.left += r, t.offset.setOffset(s[0], t.extend({
+            a = s[0].offsetWidth,
+            n = s[0].offsetHeight,
+            r = parseInt(s.css("margin-top"), 10),
+            o = parseInt(s.css("margin-left"), 10);
+        isNaN(r) && (r = 0), isNaN(o) && (o = 0), e.top += r, e.left += o, t.offset.setOffset(s[0], t.extend({
             using: function(t) {
                 s.css({
                     top: Math.round(t.top),
@@ -690,11 +690,11 @@ function(t) {
         }, e), 0), s.addClass("in");
         var l = s[0].offsetWidth,
             c = s[0].offsetHeight;
-        "top" == i && c != a && (e.top = e.top + a - c);
+        "top" == i && c != n && (e.top = e.top + n - c);
         var d = this.getViewportAdjustedDelta(i, e, l, c);
         d.left ? e.left += d.left : e.top += d.top;
         var u = /top|bottom/.test(i),
-            h = u ? 2 * d.left - n + l : 2 * d.top - a + c,
+            h = u ? 2 * d.left - a + l : 2 * d.top - n + c,
             p = u ? "offsetWidth" : "offsetHeight";
         s.offset(e), this.replaceArrow(h, s[0][p], u)
     }, l.prototype.replaceArrow = function(t, e, i) {
@@ -702,16 +702,16 @@ function(t) {
     }, l.prototype.setContent = function() {
         var t = this.tip(),
             e = this.getTitle();
-        this.options.html ? (this.options.sanitize && (e = r(e, this.options.whiteList, this.options.sanitizeFn)), t.find(".tooltip-inner").html(e)) : t.find(".tooltip-inner").text(e), t.removeClass("fade in top bottom left right")
+        this.options.html ? (this.options.sanitize && (e = o(e, this.options.whiteList, this.options.sanitizeFn)), t.find(".tooltip-inner").html(e)) : t.find(".tooltip-inner").text(e), t.removeClass("fade in top bottom left right")
     }, l.prototype.hide = function(e) {
         var i = this,
             s = t(this.$tip),
-            n = t.Event("hide.bs." + this.type);
+            a = t.Event("hide.bs." + this.type);
 
-        function a() {
+        function n() {
             "in" != i.hoverState && s.detach(), i.$element && i.$element.removeAttr("aria-describedby").trigger("hidden.bs." + i.type), e && e()
         }
-        if (this.$element.trigger(n), !n.isDefaultPrevented()) return s.removeClass("in"), t.support.transition && s.hasClass("fade") ? s.one("bsTransitionEnd", a).emulateTransitionEnd(l.TRANSITION_DURATION) : a(), this.hoverState = null, this
+        if (this.$element.trigger(a), !a.isDefaultPrevented()) return s.removeClass("in"), t.support.transition && s.hasClass("fade") ? s.one("bsTransitionEnd", n).emulateTransitionEnd(l.TRANSITION_DURATION) : n(), this.hoverState = null, this
     }, l.prototype.fixTitle = function() {
         var t = this.$element;
         (t.attr("title") || "string" != typeof t.attr("data-original-title")) && t.attr("data-original-title", t.attr("title") || "").attr("title", "")
@@ -720,24 +720,24 @@ function(t) {
     }, l.prototype.getPosition = function(e) {
         var i = (e = e || this.$element)[0],
             s = "BODY" == i.tagName,
-            n = i.getBoundingClientRect();
-        null == n.width && (n = t.extend({}, n, {
-            width: n.right - n.left,
-            height: n.bottom - n.top
+            a = i.getBoundingClientRect();
+        null == a.width && (a = t.extend({}, a, {
+            width: a.right - a.left,
+            height: a.bottom - a.top
         }));
-        var a = window.SVGElement && i instanceof window.SVGElement,
-            o = s ? {
+        var n = window.SVGElement && i instanceof window.SVGElement,
+            r = s ? {
                 top: 0,
                 left: 0
-            } : a ? null : e.offset(),
-            r = {
+            } : n ? null : e.offset(),
+            o = {
                 scroll: s ? document.documentElement.scrollTop || document.body.scrollTop : e.scrollTop()
             },
             l = s ? {
                 width: t(window).width(),
                 height: t(window).height()
             } : null;
-        return t.extend({}, n, r, l, o)
+        return t.extend({}, a, o, l, r)
     }, l.prototype.getCalculatedOffset = function(t, e, i, s) {
         return "bottom" == t ? {
             top: e.top + e.height,
@@ -753,23 +753,23 @@ function(t) {
             left: e.left + e.width
         }
     }, l.prototype.getViewportAdjustedDelta = function(t, e, i, s) {
-        var n = {
+        var a = {
             top: 0,
             left: 0
         };
-        if (!this.$viewport) return n;
-        var a = this.options.viewport && this.options.viewport.padding || 0,
-            o = this.getPosition(this.$viewport);
+        if (!this.$viewport) return a;
+        var n = this.options.viewport && this.options.viewport.padding || 0,
+            r = this.getPosition(this.$viewport);
         if (/right|left/.test(t)) {
-            var r = e.top - a - o.scroll,
-                l = e.top + a - o.scroll + s;
-            r < o.top ? n.top = o.top - r : l > o.top + o.height && (n.top = o.top + o.height - l)
+            var o = e.top - n - r.scroll,
+                l = e.top + n - r.scroll + s;
+            o < r.top ? a.top = r.top - o : l > r.top + r.height && (a.top = r.top + r.height - l)
         } else {
-            var c = e.left - a,
-                d = e.left + a + i;
-            c < o.left ? n.left = o.left - c : d > o.right && (n.left = o.left + o.width - d)
+            var c = e.left - n,
+                d = e.left + n + i;
+            c < r.left ? a.left = r.left - c : d > r.right && (a.left = r.left + r.width - d)
         }
-        return n
+        return a
     }, l.prototype.getTitle = function() {
         var t = this.$element,
             e = this.options;
@@ -799,15 +799,15 @@ function(t) {
             t.$element.off("." + t.type).removeData("bs." + t.type), t.$tip && t.$tip.detach(), t.$tip = null, t.$arrow = null, t.$viewport = null, t.$element = null
         }))
     }, l.prototype.sanitizeHtml = function(t) {
-        return r(t, this.options.whiteList, this.options.sanitizeFn)
+        return o(t, this.options.whiteList, this.options.sanitizeFn)
     };
     var c = t.fn.tooltip;
     t.fn.tooltip = function(e) {
         return this.each((function() {
             var i = t(this),
                 s = i.data("bs.tooltip"),
-                n = "object" == typeof e && e;
-            !s && /destroy|hide/.test(e) || (s || i.data("bs.tooltip", s = new l(this, n)), "string" == typeof e && s[e]())
+                a = "object" == typeof e && e;
+            !s && /destroy|hide/.test(e) || (s || i.data("bs.tooltip", s = new l(this, a)), "string" == typeof e && s[e]())
         }))
     }, t.fn.tooltip.Constructor = l, t.fn.tooltip.noConflict = function() {
         return t.fn.tooltip = c, this
@@ -848,9 +848,9 @@ function(t) {
     t.fn.popover = function(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.popover"),
-                a = "object" == typeof i && i;
-            !n && /destroy|hide/.test(i) || (n || s.data("bs.popover", n = new e(this, a)), "string" == typeof i && n[i]())
+                a = s.data("bs.popover"),
+                n = "object" == typeof i && i;
+            !a && /destroy|hide/.test(i) || (a || s.data("bs.popover", a = new e(this, n)), "string" == typeof i && a[i]())
         }))
     }, t.fn.popover.Constructor = e, t.fn.popover.noConflict = function() {
         return t.fn.popover = i, this
@@ -866,9 +866,9 @@ function(t) {
     function i(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.scrollspy"),
-                a = "object" == typeof i && i;
-            n || s.data("bs.scrollspy", n = new e(this, a)), "string" == typeof i && n[i]()
+                a = s.data("bs.scrollspy"),
+                n = "object" == typeof i && i;
+            a || s.data("bs.scrollspy", a = new e(this, n)), "string" == typeof i && a[i]()
         }))
     }
     e.VERSION = "3.4.1", e.DEFAULTS = {
@@ -881,10 +881,10 @@ function(t) {
             s = 0;
         this.offsets = [], this.targets = [], this.scrollHeight = this.getScrollHeight(), t.isWindow(this.$scrollElement[0]) || (i = "position", s = this.$scrollElement.scrollTop()), this.$body.find(this.selector).map((function() {
             var e = t(this),
-                n = e.data("target") || e.attr("href"),
-                a = /^#./.test(n) && t(n);
-            return a && a.length && a.is(":visible") && [
-                [a[i]().top + s, n]
+                a = e.data("target") || e.attr("href"),
+                n = /^#./.test(a) && t(a);
+            return n && n.length && n.is(":visible") && [
+                [n[i]().top + s, a]
             ] || null
         })).sort((function(t, e) {
             return t[0] - e[0]
@@ -895,12 +895,12 @@ function(t) {
         var t, e = this.$scrollElement.scrollTop() + this.options.offset,
             i = this.getScrollHeight(),
             s = this.options.offset + i - this.$scrollElement.height(),
-            n = this.offsets,
-            a = this.targets,
-            o = this.activeTarget;
-        if (this.scrollHeight != i && this.refresh(), e >= s) return o != (t = a[a.length - 1]) && this.activate(t);
-        if (o && e < n[0]) return this.activeTarget = null, this.clear();
-        for (t = n.length; t--;) o != a[t] && e >= n[t] && (void 0 === n[t + 1] || e < n[t + 1]) && this.activate(a[t])
+            a = this.offsets,
+            n = this.targets,
+            r = this.activeTarget;
+        if (this.scrollHeight != i && this.refresh(), e >= s) return r != (t = n[n.length - 1]) && this.activate(t);
+        if (r && e < a[0]) return this.activeTarget = null, this.clear();
+        for (t = a.length; t--;) r != n[t] && e >= a[t] && (void 0 === a[t + 1] || e < a[t + 1]) && this.activate(n[t])
     }, e.prototype.activate = function(e) {
         this.activeTarget = e, this.clear();
         var i = this.selector + '[data-target="' + e + '"],' + this.selector + '[href="' + e + '"]',
@@ -928,8 +928,8 @@ function(t) {
     function i(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.tab");
-            n || s.data("bs.tab", n = new e(this)), "string" == typeof i && n[i]()
+                a = s.data("bs.tab");
+            a || s.data("bs.tab", a = new e(this)), "string" == typeof i && a[i]()
         }))
     }
     e.VERSION = "3.4.1", e.TRANSITION_DURATION = 150, e.prototype.show = function() {
@@ -937,72 +937,72 @@ function(t) {
             i = e.closest("ul:not(.dropdown-menu)"),
             s = e.data("target");
         if (s || (s = (s = e.attr("href")) && s.replace(/.*(?=#[^\s]*$)/, "")), !e.parent("li").hasClass("active")) {
-            var n = i.find(".active:last a"),
-                a = t.Event("hide.bs.tab", {
+            var a = i.find(".active:last a"),
+                n = t.Event("hide.bs.tab", {
                     relatedTarget: e[0]
                 }),
-                o = t.Event("show.bs.tab", {
-                    relatedTarget: n[0]
+                r = t.Event("show.bs.tab", {
+                    relatedTarget: a[0]
                 });
-            if (n.trigger(a), e.trigger(o), !o.isDefaultPrevented() && !a.isDefaultPrevented()) {
-                var r = t(document).find(s);
-                this.activate(e.closest("li"), i), this.activate(r, r.parent(), (function() {
-                    n.trigger({
+            if (a.trigger(n), e.trigger(r), !r.isDefaultPrevented() && !n.isDefaultPrevented()) {
+                var o = t(document).find(s);
+                this.activate(e.closest("li"), i), this.activate(o, o.parent(), (function() {
+                    a.trigger({
                         type: "hidden.bs.tab",
                         relatedTarget: e[0]
                     }), e.trigger({
                         type: "shown.bs.tab",
-                        relatedTarget: n[0]
+                        relatedTarget: a[0]
                     })
                 }))
             }
         }
-    }, e.prototype.activate = function(i, s, n) {
-        var a = s.find("> .active"),
-            o = n && t.support.transition && (a.length && a.hasClass("fade") || !!s.find("> .fade").length);
+    }, e.prototype.activate = function(i, s, a) {
+        var n = s.find("> .active"),
+            r = a && t.support.transition && (n.length && n.hasClass("fade") || !!s.find("> .fade").length);
 
-        function r() {
-            a.removeClass("active").find("> .dropdown-menu > .active").removeClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !1), i.addClass("active").find('[data-toggle="tab"]').attr("aria-expanded", !0), o ? (i[0].offsetWidth, i.addClass("in")) : i.removeClass("fade"), i.parent(".dropdown-menu").length && i.closest("li.dropdown").addClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !0), n && n()
+        function o() {
+            n.removeClass("active").find("> .dropdown-menu > .active").removeClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !1), i.addClass("active").find('[data-toggle="tab"]').attr("aria-expanded", !0), r ? (i[0].offsetWidth, i.addClass("in")) : i.removeClass("fade"), i.parent(".dropdown-menu").length && i.closest("li.dropdown").addClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !0), a && a()
         }
-        a.length && o ? a.one("bsTransitionEnd", r).emulateTransitionEnd(e.TRANSITION_DURATION) : r(), a.removeClass("in")
+        n.length && r ? n.one("bsTransitionEnd", o).emulateTransitionEnd(e.TRANSITION_DURATION) : o(), n.removeClass("in")
     };
     var s = t.fn.tab;
     t.fn.tab = i, t.fn.tab.Constructor = e, t.fn.tab.noConflict = function() {
         return t.fn.tab = s, this
     };
-    var n = function(e) {
+    var a = function(e) {
         e.preventDefault(), i.call(t(this), "show")
     };
-    t(document).on("click.bs.tab.data-api", '[data-toggle="tab"]', n).on("click.bs.tab.data-api", '[data-toggle="pill"]', n)
+    t(document).on("click.bs.tab.data-api", '[data-toggle="tab"]', a).on("click.bs.tab.data-api", '[data-toggle="pill"]', a)
 }(jQuery),
 function(t) {
     "use strict";
     var e = function(i, s) {
         this.options = t.extend({}, e.DEFAULTS, s);
-        var n = this.options.target === e.DEFAULTS.target ? t(this.options.target) : t(document).find(this.options.target);
-        this.$target = n.on("scroll.bs.affix.data-api", t.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", t.proxy(this.checkPositionWithEventLoop, this)), this.$element = t(i), this.affixed = null, this.unpin = null, this.pinnedOffset = null, this.checkPosition()
+        var a = this.options.target === e.DEFAULTS.target ? t(this.options.target) : t(document).find(this.options.target);
+        this.$target = a.on("scroll.bs.affix.data-api", t.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", t.proxy(this.checkPositionWithEventLoop, this)), this.$element = t(i), this.affixed = null, this.unpin = null, this.pinnedOffset = null, this.checkPosition()
     };
 
     function i(i) {
         return this.each((function() {
             var s = t(this),
-                n = s.data("bs.affix"),
-                a = "object" == typeof i && i;
-            n || s.data("bs.affix", n = new e(this, a)), "string" == typeof i && n[i]()
+                a = s.data("bs.affix"),
+                n = "object" == typeof i && i;
+            a || s.data("bs.affix", a = new e(this, n)), "string" == typeof i && a[i]()
         }))
     }
     e.VERSION = "3.4.1", e.RESET = "affix affix-top affix-bottom", e.DEFAULTS = {
         offset: 0,
         target: window
     }, e.prototype.getState = function(t, e, i, s) {
-        var n = this.$target.scrollTop(),
-            a = this.$element.offset(),
-            o = this.$target.height();
-        if (null != i && "top" == this.affixed) return n < i && "top";
-        if ("bottom" == this.affixed) return null != i ? !(n + this.unpin <= a.top) && "bottom" : !(n + o <= t - s) && "bottom";
-        var r = null == this.affixed,
-            l = r ? n : a.top;
-        return null != i && n <= i ? "top" : null != s && l + (r ? o : e) >= t - s && "bottom"
+        var a = this.$target.scrollTop(),
+            n = this.$element.offset(),
+            r = this.$target.height();
+        if (null != i && "top" == this.affixed) return a < i && "top";
+        if ("bottom" == this.affixed) return null != i ? !(a + this.unpin <= n.top) && "bottom" : !(a + r <= t - s) && "bottom";
+        var o = null == this.affixed,
+            l = o ? a : n.top;
+        return null != i && a <= i ? "top" : null != s && l + (o ? r : e) >= t - s && "bottom"
     }, e.prototype.getPinnedOffset = function() {
         if (this.pinnedOffset) return this.pinnedOffset;
         this.$element.removeClass(e.RESET).addClass("affix");
@@ -1015,20 +1015,20 @@ function(t) {
         if (this.$element.is(":visible")) {
             var i = this.$element.height(),
                 s = this.options.offset,
-                n = s.top,
-                a = s.bottom,
-                o = Math.max(t(document).height(), t(document.body).height());
-            "object" != typeof s && (a = n = s), "function" == typeof n && (n = s.top(this.$element)), "function" == typeof a && (a = s.bottom(this.$element));
-            var r = this.getState(o, i, n, a);
-            if (this.affixed != r) {
+                a = s.top,
+                n = s.bottom,
+                r = Math.max(t(document).height(), t(document.body).height());
+            "object" != typeof s && (n = a = s), "function" == typeof a && (a = s.top(this.$element)), "function" == typeof n && (n = s.bottom(this.$element));
+            var o = this.getState(r, i, a, n);
+            if (this.affixed != o) {
                 null != this.unpin && this.$element.css("top", "");
-                var l = "affix" + (r ? "-" + r : ""),
+                var l = "affix" + (o ? "-" + o : ""),
                     c = t.Event(l + ".bs.affix");
                 if (this.$element.trigger(c), c.isDefaultPrevented()) return;
-                this.affixed = r, this.unpin = "bottom" == r ? this.getPinnedOffset() : null, this.$element.removeClass(e.RESET).addClass(l).trigger(l.replace("affix", "affixed") + ".bs.affix")
+                this.affixed = o, this.unpin = "bottom" == o ? this.getPinnedOffset() : null, this.$element.removeClass(e.RESET).addClass(l).trigger(l.replace("affix", "affixed") + ".bs.affix")
             }
-            "bottom" == r && this.$element.offset({
-                top: o - i - a
+            "bottom" == o && this.$element.offset({
+                top: r - i - n
             })
         }
     };
@@ -1234,7 +1234,7 @@ function(t) {
                 }))
             },
             addInstructions: function() {
-                this.instructions = document.createElement("div"), this.instructions.id = this.getInstructionsId(), this.instructions.setAttribute("aria-live", "assertive"), this.instructions.classList.add("sr-only"), this.instructions.innerHTML = this.instructionsText.replace("{{count}}", 0), this.list.parentNode.insertBefore(this.instructions, this.list.nextSibling)
+                this.instructions = document.createElement("div"), this.instructions.id = this.getInstructionsId(), this.instructions.setAttribute("aria-live", "polite"), this.instructions.classList.add("sr-only"), this.instructions.innerHTML = this.instructionsText.replace("{{count}}", 0), this.list.parentNode.insertBefore(this.instructions, this.list.nextSibling)
             },
             validateConfig: function(t) {
                 if (!t.inputSelector) throw new Error("Must set inputSelector.");
@@ -1318,8 +1318,8 @@ function(t) {
                 for (var s in this.btn_callbacks)
                     if (this.btn_callbacks.hasOwnProperty(s)) {
                         if ("string" == typeof this.btn_callbacks[s]) {
-                            var n = new Function("e", this.btn_callbacks[s]);
-                            this.btn_callbacks[s] = n
+                            var a = new Function("e", this.btn_callbacks[s]);
+                            this.btn_callbacks[s] = a
                         }
                         "function" == typeof this.btn_callbacks[s] && this.$el.find("." + s).on("click", {
                             modal: this
@@ -1371,17 +1371,17 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.notify_ = function() {
                 role: "alert"
             }).appendTo(jQuery("body"));
             i.appendTo(s);
-            var n = {};
-            t.bgcolor && (n.backgroundColor = t.bgcolor), t.fgcolor && (n.color = t.fgcolor), i.addClass(t.className ? t.className : this.className).html(t.msg).css(n).on("mouseover", (function() {
+            var a = {};
+            t.bgcolor && (a.backgroundColor = t.bgcolor), t.fgcolor && (a.color = t.fgcolor), i.addClass(t.className ? t.className : this.className).html(t.msg).css(a).on("mouseover", (function() {
                 clearTimeout(e.timeout)
             })).on("mouseout", (function() {
                 t.duration > 0 && (e.timeout = setTimeout(e.hide.bind(e), t.duration))
             })).on("click", e.hide.bind(e)).wrapInner('<div class="s-ui-notification-message" />');
-            var a = jQuery(window).width(),
-                o = jQuery(window).height(),
-                r = i.outerWidth(),
-                l = o / 2 - i.outerHeight() / 2,
-                c = a / 2 - r / 2;
+            var n = jQuery(window).width(),
+                r = jQuery(window).height(),
+                o = i.outerWidth(),
+                l = r / 2 - i.outerHeight() / 2,
+                c = n / 2 - o / 2;
             i.css({
                 top: l,
                 left: c
@@ -1463,18 +1463,18 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.filedrop = function(t) 
                     e = t.querySelector("ul");
                 if (this.isAdvancedUpload) {
                     var s = [],
-                        n = 0;
+                        a = 0;
                     this.droppedFiles.forEach((function(t) {
                         var e = document.createElement("li");
-                        e.innerText = t.name, s.push(e), n += t.size
+                        e.innerText = t.name, s.push(e), a += t.size
                     })), e.innerHTML = "", 0 === s.length ? t.classList.add("hidden") : (t.classList.remove("hidden"), s.forEach((function(t) {
                         e.appendChild(t)
-                    }))), this.max_files > 0 && s.length > this.max_files && this.showError(i.max_files + " file uploads maximum."), !1 === this.batch_files && this.max_upload_size > 0 && n > this.max_upload_size && this.showError("Files total " + i.bytesToMB(n) + " MB which exceeds the maximum of " + i.bytesToMB(this.max_upload_size) + " MB at a time.")
+                    }))), this.max_files > 0 && s.length > this.max_files && this.showError(i.max_files + " file uploads maximum."), !1 === this.batch_files && this.max_upload_size > 0 && a > this.max_upload_size && this.showError("Files total " + i.bytesToMB(a) + " MB which exceeds the maximum of " + i.bytesToMB(this.max_upload_size) + " MB at a time.")
                 } else {
                     if ("" === this.$input.val()) return t.classList.add("hidden"), void(e.innerHTML = "");
                     t.classList.remove("hidden");
-                    var a = document.createElement("li");
-                    a.innerText = this.$input.val().split("\\").slice(-1).pop(), e.appendChild(a), this.$label.find(".filetext").addClass("hidden")
+                    var n = document.createElement("li");
+                    n.innerText = this.$input.val().split("\\").slice(-1).pop(), e.appendChild(n), this.$label.find(".filetext").addClass("hidden")
                 }
             }
         }, this.reset = function() {
@@ -1529,35 +1529,35 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.filedrop = function(t) 
             i.droppedFiles.forEach((function(t) {
                 e += t.size
             }));
-            for (var s = [], n = 0; n < t.length; n++) {
-                var a = t[n];
+            for (var s = [], a = 0; a < t.length; a++) {
+                var n = t[a];
                 if (i.droppedFiles.length > 0) {
-                    var o = !1;
+                    var r = !1;
                     if (i.droppedFiles.forEach((function(t) {
-                            t.name === a.name && (o = !0)
-                        })), o) {
-                        s.push(n);
+                            t.name === n.name && (r = !0)
+                        })), r) {
+                        s.push(a);
                         continue
                     }
                 }
-                this.allowedMimeTypes.length > 0 && -1 === this.allowedMimeTypes.indexOf(a.type) ? (i.showError("File: " + a.name + " is not an allowed file type."), s.push(n)) : i.max_file_size > 0 && a.size > i.max_file_size ? (i.showError("File: " + a.name + " is greater than allowed file size of " + i.bytesToMB(i.max_file_size) + " MB."), s.push(n)) : !1 === i.batch_files && e + a.size > i.max_upload_size ? (i.showError("File: " + a.name + " causes files to go over maximum upload size of " + i.bytesToMB(i.max_upload_size) + " MB at a time."), s.push(n)) : e += a.size
+                this.allowedMimeTypes.length > 0 && -1 === this.allowedMimeTypes.indexOf(n.type) ? (i.showError("File: " + n.name + " is not an allowed file type."), s.push(a)) : i.max_file_size > 0 && n.size > i.max_file_size ? (i.showError("File: " + n.name + " is greater than allowed file size of " + i.bytesToMB(i.max_file_size) + " MB."), s.push(a)) : !1 === i.batch_files && e + n.size > i.max_upload_size ? (i.showError("File: " + n.name + " causes files to go over maximum upload size of " + i.bytesToMB(i.max_upload_size) + " MB at a time."), s.push(a)) : e += n.size
             }
             if (!1 === i.batch_files && i.max_upload_size > 0 && e > i.max_upload_size) return i.showError("Files total " + e + " bytes which exceeds the maximum of " + i.bytesToMB(i.max_upload_size) + " MB at a time."), !1;
-            for (var r = 0; r < t.length; r++) - 1 === s.indexOf(r) && i.droppedFiles.push(t[r]);
+            for (var o = 0; o < t.length; o++) - 1 === s.indexOf(o) && i.droppedFiles.push(t[o]);
             return 0 !== i.droppedFiles.length
         }, this.batchFiles = function() {
             var t = [],
                 e = [];
             if (!this.batch_files) return t.push(this.droppedFiles), t;
             var s = 1;
-            return t.push([]), e.push(0), this.droppedFiles.forEach((function(n) {
-                var a = !1;
-                if (e.forEach((function(s, o) {
-                        !a && s + n.size < i.max_upload_size && (e[o] = s + n.size, t[o].push(n), a = !0)
-                    })), !a) {
+            return t.push([]), e.push(0), this.droppedFiles.forEach((function(a) {
+                var n = !1;
+                if (e.forEach((function(s, r) {
+                        !n && s + a.size < i.max_upload_size && (e[r] = s + a.size, t[r].push(a), n = !0)
+                    })), !n) {
                     e.push(0), s++, t.push([]);
-                    var o = s - 1;
-                    e[o] = n.size, t[o].push(n)
+                    var r = s - 1;
+                    e[r] = a.size, t[r].push(a)
                 }
             })), t
         }, this.isLastBatch = function() {
@@ -1600,11 +1600,11 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.filedrop = function(t) 
                     type: "hidden",
                     name: "batch_current"
                 }).val("0"),
-                n = jQuery("<input />").attr({
+                a = jQuery("<input />").attr({
                     type: "hidden",
                     name: "batch_total"
                 }).val("0");
-            this.$form.prepend([s, n])
+            this.$form.prepend([s, a])
         }
         this.$droparea.on("drag dragstart dragend dragover dragenter dragleave drop", (function(t) {
             t.preventDefault(), t.stopPropagation()
@@ -1632,8 +1632,8 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.filedrop = function(t) 
         })).on("blur", (function(t) {
             t.target.classList.remove("has-focus")
         })), this.translations.max_file_size)) {
-        var a = document.createElement("p");
-        a.innerHTML = this.translations.max_file_size + ": " + this.bytesToMB(this.max_file_size) + " MB", this.$label.append(a)
+        var n = document.createElement("p");
+        n.innerHTML = this.translations.max_file_size + ": " + this.bytesToMB(this.max_file_size) + " MB", this.$label.append(n)
     }
     this.$form.on("submit", (function(t) {
         if (i.$form.hasClass("is-uploading")) t.preventDefault();
@@ -1668,13 +1668,13 @@ springSpace.cookieConsent = springSpace.cookieConsent || {}, springSpace.cookieC
     }, this.setCookie = function(t, e, i) {
         var s = new Date;
         s.setDate(s.getDate() + i);
-        var n = encodeURI(e) + (null === i ? "" : "; expires=" + s.toUTCString()),
-            a = "https:" === location.protocol ? "; secure" : "";
-        document.cookie = t + "=" + n + "; path=/; samesite=lax;" + a, jQuery("#" + this.container_id).hide("slow")
+        var a = encodeURI(e) + (null === i ? "" : "; expires=" + s.toUTCString()),
+            n = "https:" === location.protocol ? "; secure" : "";
+        document.cookie = t + "=" + a + "; path=/; samesite=lax;" + n, jQuery("#" + this.container_id).hide("slow")
     }, this.getCookie = function(t) {
-        var e, i, s, n = document.cookie.split(";");
-        for (e = 0; e < n.length; e++)
-            if (i = n[e].indexOf("="), n[e].substr(0, i).replace(/^\s+|\s+$/g, "") === t) return s = n[e].substr(i + 1), decodeURI(s);
+        var e, i, s, a = document.cookie.split(";");
+        for (e = 0; e < a.length; e++)
+            if (i = a[e].indexOf("="), a[e].substr(0, i).replace(/^\s+|\s+$/g, "") === t) return s = a[e].substr(i + 1), decodeURI(s);
         return null
     }, this.handleClose = function() {
         this.setCookie(this.cookie_name, this.cookie_notice_accepted, this.cookie_exp_days), jQuery("#" + this.container_id).fadeOut(this.fade_out)
@@ -1729,18 +1729,18 @@ springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {
         document.body.createTextRange ? ((e = document.body.createTextRange()).moveToElementText(s), e.select()) : window.getSelection && (i = window.getSelection(), (e = document.createRange()).selectNodeContents(s), i.removeAllRanges(), i.addRange(e))
     }, t.prototype.rePopForm = function(t, e) {
         t = t.replace(/^\?/, "");
-        for (var i = (t = decodeURIComponent(t)).split("&"), s = jQuery("#" + e), n = 0; n < i.length; n++) {
-            var a = decodeURIComponent(i[n]).split("="),
-                o = a[0],
-                r = a[1];
-            if (void 0 !== r)
-                if (r = r.replace(/\+/g, " "), o.match(/\[.*?\]/)) {
-                    var l = o.replace(/\[.*?\]/, "[]"),
+        for (var i = (t = decodeURIComponent(t)).split("&"), s = jQuery("#" + e), a = 0; a < i.length; a++) {
+            var n = decodeURIComponent(i[a]).split("="),
+                r = n[0],
+                o = n[1];
+            if (void 0 !== o)
+                if (o = o.replace(/\+/g, " "), r.match(/\[.*?\]/)) {
+                    var l = r.replace(/\[.*?\]/, "[]"),
                         c = s.find('select[name="' + l + '"]');
-                    void 0 === c.data("multiselect") ? c.find("option[value=" + r + "]").prop("selected", !0) : c.multiselect("select", r)
+                    void 0 === c.data("multiselect") ? c.find("option[value=" + o + "]").prop("selected", !0) : c.multiselect("select", o)
                 } else {
-                    var d = s.find('*[name="' + o + '"]');
-                    void 0 === d.data("multiselect") ? d.val(r) : d.multiselect("select", r)
+                    var d = s.find('*[name="' + r + '"]');
+                    void 0 === d.data("multiselect") ? d.val(o) : d.multiselect("select", o)
                 }
         }
     }, this.Util = t
@@ -1771,8 +1771,8 @@ var jqGetAjaxError = function(t) {
     createDismissableAlert = function(t, e, i = "") {
         var s = document.createElement("div");
         "" !== i && (s.id = i), s.classList.add("alert", "alert-" + e, "alert-dismissable", "mg-top"), s.setAttribute("role", "alert");
-        var n = document.createElement("button");
-        return n.classList.add("close"), n.setAttribute("data-dismiss", "alert"), n.setAttribute("aria-label", "close"), n.innerHTML = '<span aria-hidden="true">&times;</span>', s.appendChild(n), s.insertAdjacentHTML("beforeend", t), s
+        var a = document.createElement("button");
+        return a.classList.add("close"), a.setAttribute("data-dismiss", "alert"), a.setAttribute("aria-label", "close"), a.innerHTML = '<span aria-hidden="true">&times;</span>', s.appendChild(a), s.insertAdjacentHTML("beforeend", t), s
     },
     enableMultiSelect = function(t, e) {
         if (0 !== t.length) {
@@ -1805,9 +1805,9 @@ springSpace.regex = {
                 start: e = null,
                 end: i = null,
                 offhours: s = null,
-                captchaAlwaysOn: n = !1
+                captchaAlwaysOn: a = !1
             }) {
-                this.type = t, this.start = e, this.end = i, this.offhours = s, this.captchaAlwaysOn = n
+                this.type = t, this.start = e, this.end = i, this.offhours = s, this.captchaAlwaysOn = a
             }
             enableCaptcha() {
                 return !!this.captchaAlwaysOn || 0 !== this.type && (1 === this.type || (3 === this.type ? this._isBetweenDates() : 2 === this.type && this._isNowOffHours()))
@@ -1822,6 +1822,46 @@ springSpace.regex = {
             }
         }
     }(window),
+    function(t) {
+        t.springSpace = t.springSpace || {}, t.springSpace.la = t.springSpace.la || {};
+        const e = Object.freeze({
+            RULE_OPERATOR_EQUALS: 0,
+            RULE_OPERATOR_NOTEQUALS: 1,
+            RULE_OPERATOR_INCLUDES: 2,
+            RULE_OPERATOR_INCLUDES_ALL: 3,
+            RULE_ACTION_SHOW: 0,
+            RULE_ACTION_HIDE: 1,
+            RULE_ACTION_NONE: -1
+        });
+        t.springSpace.la.FormFieldRule = class {
+            constructor({
+                field1: t = 0,
+                operator: i = e.RULE_OPERATOR_EQUALS,
+                value: s = [],
+                field2: a = 0,
+                action: n = e.RULE_ACTION_SHOW
+            }) {
+                this.field1 = t, this.operator = i, this.value = Array.isArray(s) ? s : [], this.field2 = a, this.action = n
+            }
+            get oppositeAction() {
+                return this.action === e.RULE_ACTION_SHOW ? e.RULE_ACTION_HIDE : e.RULE_ACTION_SHOW
+            }
+            getFieldAction(t) {
+                if (0 === t || 0 === t.length) return e.RULE_ACTION_HIDE;
+                switch (this.operator) {
+                    case e.RULE_OPERATOR_EQUALS:
+                        return this.value.includes(t) ? this.action : this.oppositeAction;
+                    case e.RULE_OPERATOR_NOTEQUALS:
+                        return this.value.includes(t) ? this.oppositeAction : this.action;
+                    case e.RULE_OPERATOR_INCLUDES:
+                        return Array.isArray(t) ? t.filter((t => this.value.includes(t))).length > 0 ? this.action : this.oppositeAction : e.RULE_ACTION_NONE;
+                    case e.RULE_OPERATOR_INCLUDES_ALL:
+                        return Array.isArray(t) ? t.filter((t => this.value.includes(t))).length === this.value.length ? this.action : this.oppositeAction : e.RULE_ACTION_NONE
+                }
+                return e.RULE_ACTION_NONE
+            }
+        }
+    }(window),
     //!Idea Form
     springSpace.la.ideaform = function(t) {
         this.$form = jQuery("#ideaform"), this.errormsg = t.errormsg;
@@ -1832,8 +1872,8 @@ springSpace.regex = {
             "" == i.val() && e.markError(i, e.errormsg.reqfields);
             var s = e.$form.find("textarea[name=body]");
             "" == s.val() && e.markError(s, e.errormsg.reqfields);
-            var n = e.$form.find("input[name=email]");
-            if (n.val().trim().match(springSpace.regex.email) || e.markError(n, e.errormsg.emailaddress), e.$form.find(".has-error").length > 0) return errorAlert(), e.$form.find("*[aria-invalid=true]:first").focus(), !1;
+            var a = e.$form.find("input[name=email]");
+            if (a.val().trim().match(springSpace.regex.email) || e.markError(a, e.errormsg.emailaddress), e.$form.find(".has-error").length > 0) return errorAlert(), e.$form.find("*[aria-invalid=true]:first").focus(), !1;
             jQuery.ajax({
                 url: e.$form.attr("action"),
                 method: e.$form.attr("method"),
@@ -1925,8 +1965,8 @@ const faqHit = function(t, e, i) {
                 const i = e.currentTarget,
                     s = i.dataset.warn;
                 if ("" !== s) return void alert(s);
-                const n = parseInt(i.dataset.vote, 10);
-                faqVote(t, n)
+                const a = parseInt(i.dataset.vote, 10);
+                faqVote(t, a)
             }))
         }))
     },
@@ -1955,7 +1995,7 @@ const faqHit = function(t, e, i) {
 ! function(t) {
     t.springSpace = t.springSpace || {}, t.springSpace.la = t.springSpace.la || {};
     t.springSpace.la.askform = function(e) {
-        this.id = e.content_id, this.queue_id = e.queue_id, this.errormsg = e.errormsg, this.divselector = `#s-la-askform-${this.id}`, this.$form = jQuery(`${this.divselector} form`), this.translations = e.translations, this.form_action = e.form_action, this.libauth_enabled = e.libauth_enabled || !1, this.libauth_authed = e.libauth_authed || !1, this.autoReplySettings = new t.springSpace.la.FormAutoReply(e.autoReplySettings || {}), this.captcha_enabled = this.autoReplySettings.enableCaptcha(), this.captchaDiv = this.$form[0].querySelector(".formlibcpt"), this.captcha_enabled && this.captchaDiv.classList.remove("hidden"), this.handleRequiredCheckBoxes = function(t) {
+        this.id = e.content_id, this.queue_id = e.queue_id, this.errormsg = e.errormsg, this.divselector = `#s-la-askform-${this.id}`, this.$form = jQuery(`${this.divselector} form`), this.translations = e.translations, this.form_action = e.form_action, this.libauth_enabled = e.libauth_enabled || !1, this.libauth_authed = e.libauth_authed || !1, this.autoReplySettings = new t.springSpace.la.FormAutoReply(e.autoReplySettings || {}), this.captcha_enabled = this.autoReplySettings.enableCaptcha(), this.captchaDiv = this.$form[0].querySelector(".formlibcpt"), this.captcha_enabled && this.captchaDiv.classList.remove("hidden"), Array.isArray(e.rules) ? this.rules = e.rules.map((e => new t.springSpace.la.FormFieldRule(e))) : this.rules = [], this.handleRequiredCheckBoxes = function(t) {
             const e = t.target.name;
             if (!0 === t.target.checked) {
                 const t = this.$form[0].querySelectorAll(`input[type=checkbox][name="${e}"]`);
@@ -1975,8 +2015,8 @@ const faqHit = function(t, e, i) {
             const s = t.closest("div.form-group");
             if (null === s) return;
             t.setAttribute("aria-invalid", "true"), s.classList.add("has-error");
-            const n = s.querySelector("label");
-            n && n.appendChild(i)
+            const a = s.querySelector("label");
+            a && a.appendChild(i)
         }, this.loadCaptcha = function() {
             const t = new URL(this.form_action);
             jQuery.ajax({
@@ -1997,7 +2037,7 @@ const faqHit = function(t, e, i) {
                 this.captchaDiv.classList.add("hidden")
             }))
         }, this.validateField = function(t) {
-            if (!t) return;
+            if (!t || t.disabled) return;
             if ("SELECT" === t.tagName) {
                 const e = t.options[t.selectedIndex] || null;
                 if (!e) return;
@@ -2021,8 +2061,8 @@ const faqHit = function(t, e, i) {
                 })), i) return;
             const s = document.createElement("div");
             s.classList.add("error-message"), s.innerHTML = this.errormsg.reqfields, t.classList.add("has-error");
-            const n = t.querySelector("legend");
-            n && n.appendChild(s)
+            const a = t.querySelector("legend");
+            a && a.appendChild(s)
         }, this.validate = function() {
             if (this.libauth_enabled && !this.libauth_authed) return !1;
             if (this.$form.attr("action", this.form_action), this.$form.find("label .error-message, legend .error-message").remove(), this.$form.find(".form-group").removeClass("has-error"), this.$form.find(".form-control, input[type=radio], input[type=checkbox]").attr("aria-invalid", !1), Array.from(this.$form[0].querySelectorAll("[required]")).forEach((t => {
@@ -2037,6 +2077,12 @@ const faqHit = function(t, e, i) {
             i.classList.add("alert", `alert-${e}`, "alert-dismissable"), i.setAttribute("role", "alert");
             const s = document.createElement("button");
             return s.classList.add("close"), s.setAttribute("data-dismiss", "alert"), s.setAttribute("aria-label", "close"), s.innerHTML = '<span aria-hidden="true">&times;</span>', i.appendChild(s), i.insertAdjacentHTML("beforeend", t), i
+        }, this.resetRules = function() {
+            this.rules.forEach((t => {
+                this.$form[0].querySelectorAll(`*[name^="${t.field1}"]`).forEach((t => {
+                    t.dispatchEvent(new Event("change"))
+                }))
+            }))
         }, this.questionform = new t.springSpace.sui.filedrop({
             selector: `${this.divselector} form`,
             max_files: 5,
@@ -2049,7 +2095,7 @@ const faqHit = function(t, e, i) {
             callback: e => {
                 t.springSpace.sui.notify.hide();
                 const i = this.createDismissableAlert(e.message, "success");
-                this.$form[0].querySelector("#s-la-askform-buttons").insertAdjacentElement("beforebegin", i), this.questionform.reset(), this.captcha_enabled && this.loadCaptcha()
+                this.$form[0].querySelector("#s-la-askform-buttons").insertAdjacentElement("beforebegin", i), this.questionform.reset(), this.resetRules(), this.captcha_enabled && this.loadCaptcha()
             },
             error_callback: e => {
                 let i = "Error";
@@ -2061,13 +2107,39 @@ const faqHit = function(t, e, i) {
                     i = "Invalid response received"
                 }
                 t.springSpace.sui.notify.hide();
-                const n = this.createDismissableAlert(i, "danger");
-                let a = null,
-                    o = "beforebegin";
-                s && (a = this.$form[0].querySelector(".formlibcpt"), a && (o = "afterbegin")), a || (a = this.$form[0].querySelector("#s-la-askform-buttons")), a.insertAdjacentElement(o, n)
+                const a = this.createDismissableAlert(i, "danger");
+                let n = null,
+                    r = "beforebegin";
+                s && (n = this.$form[0].querySelector(".formlibcpt"), n && (r = "afterbegin")), n || (n = this.$form[0].querySelector("#s-la-askform-buttons")), n.insertAdjacentElement(r, a)
             },
             validate: this.validate.bind(this)
-        }), this.setUp = function() {
+        }), this.showField = function(t) {
+            t.classList.remove("hidden"), t.querySelectorAll("select, input, textarea").forEach((t => {
+                t.disabled = !1
+            }))
+        }, this.hideField = function(t) {
+            t.classList.add("hidden"), t.querySelectorAll("select, input, textarea").forEach((t => {
+                ["checkbox", "radio"].includes(t.type) ? t.checked = !1 : t.value = "", t.dispatchEvent(new Event("change")), t.disabled = !0
+            }))
+        }, this.getMultiCheckValue = function(t) {
+            const e = new FormData(this.$form[0]);
+            return Array.from(e.getAll(t)).map((t => Number(t)))
+        }, this.getRadioValue = function(t) {
+            const e = new FormData(this.$form[0]);
+            return Number(e.get(t))
+        }, this.setUpRules = function() {
+            this.rules.forEach((t => {
+                this.$form[0].querySelectorAll(`*[name^="${t.field1}"]`).forEach((e => {
+                    const i = this.$form[0].querySelector(`.${t.field2}_wrap`);
+                    i && e.addEventListener("change", (e => {
+                        let s = Number(e.target.value);
+                        "checkbox" === e.target.type ? s = this.getMultiCheckValue(e.target.name) : "radio" === e.target.type && (s = this.getRadioValue(e.target.name));
+                        const a = t.getFieldAction(s);
+                        0 === a ? this.showField(i) : 1 === a && this.hideField(i)
+                    }))
+                }))
+            }))
+        }, this.setUp = function() {
             if (this.libauth_enabled && !this.libauth_authed) {
                 if (this.questionform.$form[0].querySelectorAll("input,select,button,textarea").forEach((t => {
                         t.disabled = !0
@@ -2079,6 +2151,7 @@ const faqHit = function(t, e, i) {
                 }
                 return
             }
+            this.setUpRules();
             const t = this.questionform.$form[0].querySelectorAll("input[type=checkbox][required]");
             t.length > 0 && Array.prototype.forEach.call(t, (function(t) {
                 t.addEventListener("change", this.handleRequiredCheckBoxes.bind(this))
@@ -2186,7 +2259,7 @@ class QueryLog {
         }
 
         function str(t, e) {
-            var i, s, n, a, o, r = gap,
+            var i, s, a, n, r, o = gap,
                 l = e[t];
             switch (l && "object" == typeof l && "function" == typeof l.toJSON && (l = l.toJSON(t)), "function" == typeof rep && (l = rep.call(e, t, l)), typeof l) {
                 case "string":
@@ -2198,15 +2271,15 @@ class QueryLog {
                     return String(l);
                 case "object":
                     if (!l) return "null";
-                    if (gap += indent, o = [], "[object Array]" === Object.prototype.toString.apply(l)) {
-                        for (a = l.length, i = 0; i < a; i += 1) o[i] = str(i, l) || "null";
-                        return n = 0 === o.length ? "[]" : gap ? "[\n" + gap + o.join(",\n" + gap) + "\n" + r + "]" : "[" + o.join(",") + "]", gap = r, n
+                    if (gap += indent, r = [], "[object Array]" === Object.prototype.toString.apply(l)) {
+                        for (n = l.length, i = 0; i < n; i += 1) r[i] = str(i, l) || "null";
+                        return a = 0 === r.length ? "[]" : gap ? "[\n" + gap + r.join(",\n" + gap) + "\n" + o + "]" : "[" + r.join(",") + "]", gap = o, a
                     }
                     if (rep && "object" == typeof rep)
-                        for (a = rep.length, i = 0; i < a; i += 1) "string" == typeof rep[i] && ((n = str(s = rep[i], l)) && o.push(quote(s) + (gap ? ": " : ":") + n));
+                        for (n = rep.length, i = 0; i < n; i += 1) "string" == typeof rep[i] && ((a = str(s = rep[i], l)) && r.push(quote(s) + (gap ? ": " : ":") + a));
                     else
-                        for (s in l) Object.prototype.hasOwnProperty.call(l, s) && ((n = str(s, l)) && o.push(quote(s) + (gap ? ": " : ":") + n));
-                    return n = 0 === o.length ? "{}" : gap ? "{\n" + gap + o.join(",\n" + gap) + "\n" + r + "}" : "{" + o.join(",") + "}", gap = r, n
+                        for (s in l) Object.prototype.hasOwnProperty.call(l, s) && ((a = str(s, l)) && r.push(quote(s) + (gap ? ": " : ":") + a));
+                    return a = 0 === r.length ? "{}" : gap ? "{\n" + gap + r.join(",\n" + gap) + "\n" + o + "}" : "{" + r.join(",") + "}", gap = o, a
             }
         }
         "function" != typeof Date.prototype.toJSON && (Date.prototype.toJSON = function(t) {
@@ -2237,10 +2310,10 @@ class QueryLog {
             throw new Error("JSON.stringify")
         }), "function" != typeof JSON.parse && (JSON.parse = function(text, reviver) {
             function walk(t, e) {
-                var i, s, n = t[e];
-                if (n && "object" == typeof n)
-                    for (i in n) Object.prototype.hasOwnProperty.call(n, i) && (void 0 !== (s = walk(n, i)) ? n[i] = s : delete n[i]);
-                return reviver.call(t, e, n)
+                var i, s, a = t[e];
+                if (a && "object" == typeof a)
+                    for (i in a) Object.prototype.hasOwnProperty.call(a, i) && (void 0 !== (s = walk(a, i)) ? a[i] = s : delete a[i]);
+                return reviver.call(t, e, a)
             }
             var j;
             if (text = String(text), cx.lastIndex = 0, cx.test(text) && (text = text.replace(cx, (function(t) {
@@ -2275,105 +2348,105 @@ class QueryLog {
         "use strict";
         var i = t.document,
             s = t.setTimeout || s,
-            n = t.clearTimeout || n,
-            a = t.setInterval || a,
-            o = t.History = t.History || {};
-        if (void 0 !== o.initHtml4) throw new Error("History.js HTML4 Support has already been loaded...");
-        o.initHtml4 = function() {
-            if (void 0 !== o.initHtml4.initialized) return !1;
-            o.initHtml4.initialized = !0, o.enabled = !0, o.savedHashes = [], o.isLastHash = function(t) {
-                return t === o.getHashByIndex()
-            }, o.isHashEqual = function(t, e) {
+            a = t.clearTimeout || a,
+            n = t.setInterval || n,
+            r = t.History = t.History || {};
+        if (void 0 !== r.initHtml4) throw new Error("History.js HTML4 Support has already been loaded...");
+        r.initHtml4 = function() {
+            if (void 0 !== r.initHtml4.initialized) return !1;
+            r.initHtml4.initialized = !0, r.enabled = !0, r.savedHashes = [], r.isLastHash = function(t) {
+                return t === r.getHashByIndex()
+            }, r.isHashEqual = function(t, e) {
                 return (t = encodeURIComponent(t).replace(/%25/g, "%")) === (e = encodeURIComponent(e).replace(/%25/g, "%"))
-            }, o.saveHash = function(t) {
-                return !o.isLastHash(t) && (o.savedHashes.push(t), !0)
-            }, o.getHashByIndex = function(t) {
-                return void 0 === t ? o.savedHashes[o.savedHashes.length - 1] : t < 0 ? o.savedHashes[o.savedHashes.length + t] : o.savedHashes[t]
-            }, o.discardedHashes = {}, o.discardedStates = {}, o.discardState = function(t, e, i) {
-                var s, n = o.getHashByState(t);
+            }, r.saveHash = function(t) {
+                return !r.isLastHash(t) && (r.savedHashes.push(t), !0)
+            }, r.getHashByIndex = function(t) {
+                return void 0 === t ? r.savedHashes[r.savedHashes.length - 1] : t < 0 ? r.savedHashes[r.savedHashes.length + t] : r.savedHashes[t]
+            }, r.discardedHashes = {}, r.discardedStates = {}, r.discardState = function(t, e, i) {
+                var s, a = r.getHashByState(t);
                 return s = {
                     discardedState: t,
                     backState: i,
                     forwardState: e
-                }, o.discardedStates[n] = s, !0
-            }, o.discardHash = function(t, e, i) {
+                }, r.discardedStates[a] = s, !0
+            }, r.discardHash = function(t, e, i) {
                 var s = {
                     discardedHash: t,
                     backState: i,
                     forwardState: e
                 };
-                return o.discardedHashes[t] = s, !0
-            }, o.discardedState = function(t) {
-                var e = o.getHashByState(t);
-                return o.discardedStates[e] || !1
-            }, o.discardedHash = function(t) {
-                return o.discardedHashes[t] || !1
-            }, o.recycleState = function(t) {
-                var e = o.getHashByState(t);
-                return o.discardedState(t) && delete o.discardedStates[e], !0
-            }, o.emulated.hashChange && (o.hashChangeInit = function() {
-                o.checkerFunction = null;
-                var e, s, n, r = "",
-                    l = Boolean(o.getHash());
-                return o.isInternetExplorer() ? ("historyjs-iframe", (e = i.createElement("iframe")).setAttribute("id", "historyjs-iframe"), e.setAttribute("src", "#"), e.style.display = "none", i.body.appendChild(e), e.contentWindow.document.open(), e.contentWindow.document.close(), s = "", n = !1, o.checkerFunction = function() {
-                    if (n) return !1;
-                    n = !0;
-                    var i = o.getHash(),
-                        a = o.getHash(e.contentWindow.document);
-                    return i !== r ? (r = i, a !== i && (s = a = i, e.contentWindow.document.open(), e.contentWindow.document.close(), e.contentWindow.document.location.hash = o.escapeHash(i)), o.Adapter.trigger(t, "hashchange")) : a !== s && (s = a, l && "" === a ? o.back() : o.setHash(a, !1)), n = !1, !0
-                }) : o.checkerFunction = function() {
-                    var e = o.getHash() || "";
-                    return e !== r && (r = e, o.Adapter.trigger(t, "hashchange")), !0
-                }, o.intervalList.push(a(o.checkerFunction, o.options.hashChangeInterval)), !0
-            }, o.Adapter.onDomLoad(o.hashChangeInit)), o.emulated.pushState && (o.onHashChange = function(e) {
-                var i, s = e && e.newURL || o.getLocationHref(),
-                    n = o.getHashByUrl(s),
-                    a = null;
-                return o.isLastHash(n) ? (o.busy(!1), !1) : (o.doubleCheckComplete(), o.saveHash(n), n && o.isTraditionalAnchor(n) ? (o.Adapter.trigger(t, "anchorchange"), o.busy(!1), !1) : (a = o.extractState(o.getFullUrl(n || o.getLocationHref()), !0), o.isLastSavedState(a) ? (o.busy(!1), !1) : (o.getHashByState(a), (i = o.discardedState(a)) ? (o.getHashByIndex(-2) === o.getHashByState(i.forwardState) ? o.back(!1) : o.forward(!1), !1) : (o.pushState(a.data, a.title, encodeURI(a.url), !1), !0))))
-            }, o.Adapter.bind(t, "hashchange", o.onHashChange), o.pushState = function(e, i, s, n) {
-                if (s = encodeURI(s).replace(/%25/g, "%"), o.getHashByUrl(s)) throw new Error("History.js does not support states with fragment-identifiers (hashes/anchors).");
-                if (!1 !== n && o.busy()) return o.pushQueue({
-                    scope: o,
-                    callback: o.pushState,
+                return r.discardedHashes[t] = s, !0
+            }, r.discardedState = function(t) {
+                var e = r.getHashByState(t);
+                return r.discardedStates[e] || !1
+            }, r.discardedHash = function(t) {
+                return r.discardedHashes[t] || !1
+            }, r.recycleState = function(t) {
+                var e = r.getHashByState(t);
+                return r.discardedState(t) && delete r.discardedStates[e], !0
+            }, r.emulated.hashChange && (r.hashChangeInit = function() {
+                r.checkerFunction = null;
+                var e, s, a, o = "",
+                    l = Boolean(r.getHash());
+                return r.isInternetExplorer() ? ("historyjs-iframe", (e = i.createElement("iframe")).setAttribute("id", "historyjs-iframe"), e.setAttribute("src", "#"), e.style.display = "none", i.body.appendChild(e), e.contentWindow.document.open(), e.contentWindow.document.close(), s = "", a = !1, r.checkerFunction = function() {
+                    if (a) return !1;
+                    a = !0;
+                    var i = r.getHash(),
+                        n = r.getHash(e.contentWindow.document);
+                    return i !== o ? (o = i, n !== i && (s = n = i, e.contentWindow.document.open(), e.contentWindow.document.close(), e.contentWindow.document.location.hash = r.escapeHash(i)), r.Adapter.trigger(t, "hashchange")) : n !== s && (s = n, l && "" === n ? r.back() : r.setHash(n, !1)), a = !1, !0
+                }) : r.checkerFunction = function() {
+                    var e = r.getHash() || "";
+                    return e !== o && (o = e, r.Adapter.trigger(t, "hashchange")), !0
+                }, r.intervalList.push(n(r.checkerFunction, r.options.hashChangeInterval)), !0
+            }, r.Adapter.onDomLoad(r.hashChangeInit)), r.emulated.pushState && (r.onHashChange = function(e) {
+                var i, s = e && e.newURL || r.getLocationHref(),
+                    a = r.getHashByUrl(s),
+                    n = null;
+                return r.isLastHash(a) ? (r.busy(!1), !1) : (r.doubleCheckComplete(), r.saveHash(a), a && r.isTraditionalAnchor(a) ? (r.Adapter.trigger(t, "anchorchange"), r.busy(!1), !1) : (n = r.extractState(r.getFullUrl(a || r.getLocationHref()), !0), r.isLastSavedState(n) ? (r.busy(!1), !1) : (r.getHashByState(n), (i = r.discardedState(n)) ? (r.getHashByIndex(-2) === r.getHashByState(i.forwardState) ? r.back(!1) : r.forward(!1), !1) : (r.pushState(n.data, n.title, encodeURI(n.url), !1), !0))))
+            }, r.Adapter.bind(t, "hashchange", r.onHashChange), r.pushState = function(e, i, s, a) {
+                if (s = encodeURI(s).replace(/%25/g, "%"), r.getHashByUrl(s)) throw new Error("History.js does not support states with fragment-identifiers (hashes/anchors).");
+                if (!1 !== a && r.busy()) return r.pushQueue({
+                    scope: r,
+                    callback: r.pushState,
                     args: arguments,
-                    queue: n
+                    queue: a
                 }), !1;
-                o.busy(!0);
-                var a = o.createStateObject(e, i, s),
-                    r = o.getHashByState(a),
-                    l = o.getState(!1),
-                    c = o.getHashByState(l),
-                    d = o.getHash(),
-                    u = o.expectedStateId == a.id;
-                return o.storeState(a), o.expectedStateId = a.id, o.recycleState(a), o.setTitle(a), r === c ? (o.busy(!1), !1) : (o.saveState(a), u || o.Adapter.trigger(t, "statechange"), !o.isHashEqual(r, d) && !o.isHashEqual(r, o.getShortUrl(o.getLocationHref())) && o.setHash(r, !1), o.busy(!1), !0)
-            }, o.replaceState = function(e, i, s, n) {
-                if (s = encodeURI(s).replace(/%25/g, "%"), o.getHashByUrl(s)) throw new Error("History.js does not support states with fragment-identifiers (hashes/anchors).");
-                if (!1 !== n && o.busy()) return o.pushQueue({
-                    scope: o,
-                    callback: o.replaceState,
+                r.busy(!0);
+                var n = r.createStateObject(e, i, s),
+                    o = r.getHashByState(n),
+                    l = r.getState(!1),
+                    c = r.getHashByState(l),
+                    d = r.getHash(),
+                    u = r.expectedStateId == n.id;
+                return r.storeState(n), r.expectedStateId = n.id, r.recycleState(n), r.setTitle(n), o === c ? (r.busy(!1), !1) : (r.saveState(n), u || r.Adapter.trigger(t, "statechange"), !r.isHashEqual(o, d) && !r.isHashEqual(o, r.getShortUrl(r.getLocationHref())) && r.setHash(o, !1), r.busy(!1), !0)
+            }, r.replaceState = function(e, i, s, a) {
+                if (s = encodeURI(s).replace(/%25/g, "%"), r.getHashByUrl(s)) throw new Error("History.js does not support states with fragment-identifiers (hashes/anchors).");
+                if (!1 !== a && r.busy()) return r.pushQueue({
+                    scope: r,
+                    callback: r.replaceState,
                     args: arguments,
-                    queue: n
+                    queue: a
                 }), !1;
-                o.busy(!0);
-                var a = o.createStateObject(e, i, s),
-                    r = o.getHashByState(a),
-                    l = o.getState(!1),
-                    c = o.getHashByState(l),
-                    d = o.getStateByIndex(-2);
-                return o.discardState(l, a, d), r === c ? (o.storeState(a), o.expectedStateId = a.id, o.recycleState(a), o.setTitle(a), o.saveState(a), o.Adapter.trigger(t, "statechange"), o.busy(!1)) : o.pushState(a.data, a.title, a.url, !1), !0
-            }), o.emulated.pushState && o.getHash() && !o.emulated.hashChange && o.Adapter.onDomLoad((function() {
-                o.Adapter.trigger(t, "hashchange")
+                r.busy(!0);
+                var n = r.createStateObject(e, i, s),
+                    o = r.getHashByState(n),
+                    l = r.getState(!1),
+                    c = r.getHashByState(l),
+                    d = r.getStateByIndex(-2);
+                return r.discardState(l, n, d), o === c ? (r.storeState(n), r.expectedStateId = n.id, r.recycleState(n), r.setTitle(n), r.saveState(n), r.Adapter.trigger(t, "statechange"), r.busy(!1)) : r.pushState(n.data, n.title, n.url, !1), !0
+            }), r.emulated.pushState && r.getHash() && !r.emulated.hashChange && r.Adapter.onDomLoad((function() {
+                r.Adapter.trigger(t, "hashchange")
             }))
-        }, void 0 !== o.init && o.init()
+        }, void 0 !== r.init && r.init()
     }(window),
     function(t, e) {
         "use strict";
         var i = t.console || e,
             s = t.document,
-            n = t.navigator,
-            a = t.sessionStorage || !1,
-            o = t.setTimeout,
-            r = t.clearTimeout,
+            a = t.navigator,
+            n = t.sessionStorage || !1,
+            r = t.setTimeout,
+            o = t.clearTimeout,
             l = t.setInterval,
             c = t.clearInterval,
             d = t.JSON,
@@ -2381,9 +2454,9 @@ class QueryLog {
             h = t.History = t.History || {},
             p = t.history;
         try {
-            a.setItem("TEST", "1"), a.removeItem("TEST")
+            n.setItem("TEST", "1"), n.removeItem("TEST")
         } catch (t) {
-            a = !1
+            n = !1
         }
         if (d.stringify = d.stringify || d.encode, d.parse = d.parse || d.decode, void 0 !== h.init) throw new Error("History.js Core has already been loaded...");
         h.init = function(t) {
@@ -2399,15 +2472,15 @@ class QueryLog {
                 }, h.debug = function() {
                     h.options.debug && h.log.apply(h, arguments)
                 }, h.log = function() {
-                    var t, e, n, a, o, r = void 0 !== i && void 0 !== i.log && void 0 !== i.log.apply,
+                    var t, e, a, n, r, o = void 0 !== i && void 0 !== i.log && void 0 !== i.log.apply,
                         l = s.getElementById("log");
-                    for (r ? (t = (a = Array.prototype.slice.call(arguments)).shift(), void 0 !== i.debug ? i.debug.apply(i, [t, a]) : i.log.apply(i, [t, a])) : t = "\n" + arguments[0] + "\n", e = 1, n = arguments.length; e < n; ++e) {
-                        if ("object" == typeof(o = arguments[e]) && void 0 !== d) try {
-                            o = d.stringify(o)
+                    for (o ? (t = (n = Array.prototype.slice.call(arguments)).shift(), void 0 !== i.debug ? i.debug.apply(i, [t, n]) : i.log.apply(i, [t, n])) : t = "\n" + arguments[0] + "\n", e = 1, a = arguments.length; e < a; ++e) {
+                        if ("object" == typeof(r = arguments[e]) && void 0 !== d) try {
+                            r = d.stringify(r)
                         } catch (t) {}
-                        t += "\n" + o + "\n"
+                        t += "\n" + r + "\n"
                     }
-                    return l ? (l.value += t + "\n-----\n", l.scrollTop = l.scrollHeight - l.clientHeight) : r || u(t), !0
+                    return l ? (l.value += t + "\n-----\n", l.scrollTop = l.scrollHeight - l.clientHeight) : o || u(t), !0
                 }, h.getInternetExplorerMajorVersion = function() {
                     var t = h.getInternetExplorerMajorVersion.cached = void 0 !== h.getInternetExplorerMajorVersion.cached ? h.getInternetExplorerMajorVersion.cached : function() {
                         for (var t = 3, e = s.createElement("div"), i = e.getElementsByTagName("i");
@@ -2421,11 +2494,11 @@ class QueryLog {
                     pushState: !0,
                     hashChange: !0
                 } : h.emulated = {
-                    pushState: !Boolean(t.history && t.history.pushState && t.history.replaceState && !/ Mobile\/([1-7][a-z]|(8([abcde]|f(1[0-8]))))/i.test(n.userAgent) && !/AppleWebKit\/5([0-2]|3[0-2])/i.test(n.userAgent)),
+                    pushState: !Boolean(t.history && t.history.pushState && t.history.replaceState && !/ Mobile\/([1-7][a-z]|(8([abcde]|f(1[0-8]))))/i.test(a.userAgent) && !/AppleWebKit\/5([0-2]|3[0-2])/i.test(a.userAgent)),
                     hashChange: Boolean(!("onhashchange" in t || "onhashchange" in s) || h.isInternetExplorer() && h.getInternetExplorerMajorVersion() < 8)
                 }, h.enabled = !h.emulated.pushState, h.bugs = {
-                    setHash: Boolean(!h.emulated.pushState && "Apple Computer, Inc." === n.vendor && /AppleWebKit\/5([0-2]|3[0-3])/.test(n.userAgent)),
-                    safariPoll: Boolean(!h.emulated.pushState && "Apple Computer, Inc." === n.vendor && /AppleWebKit\/5([0-2]|3[0-3])/.test(n.userAgent)),
+                    setHash: Boolean(!h.emulated.pushState && "Apple Computer, Inc." === a.vendor && /AppleWebKit\/5([0-2]|3[0-3])/.test(a.userAgent)),
+                    safariPoll: Boolean(!h.emulated.pushState && "Apple Computer, Inc." === a.vendor && /AppleWebKit\/5([0-2]|3[0-3])/.test(a.userAgent)),
                     ieDoubleCheck: Boolean(h.isInternetExplorer() && h.getInternetExplorerMajorVersion() < 8),
                     hashEscape: Boolean(h.isInternetExplorer() && h.getInternetExplorerMajorVersion() < 7)
                 }, h.isEmptyObject = function(t) {
@@ -2509,8 +2582,8 @@ class QueryLog {
                 }, h.isTraditionalAnchor = function(t) {
                     return !/[\/\?\.]/.test(t)
                 }, h.extractState = function(t, e) {
-                    var i, s, n = null;
-                    return e = e || !1, (i = h.extractId(t)) && (n = h.getStateById(i)), n || (s = h.getFullUrl(t), (i = h.getIdByUrl(s) || !1) && (n = h.getStateById(i)), !n && e && !h.isTraditionalAnchor(t) && (n = h.createStateObject(null, null, s))), n
+                    var i, s, a = null;
+                    return e = e || !1, (i = h.extractId(t)) && (a = h.getStateById(i)), a || (s = h.getFullUrl(t), (i = h.getIdByUrl(s) || !1) && (a = h.getStateById(i)), !a && e && !h.isTraditionalAnchor(t) && (a = h.createStateObject(null, null, s))), a
                 }, h.getIdByUrl = function(t) {
                     return h.urlToId[t] || h.store.urlToId[t] || e
                 }, h.getLastSavedState = function() {
@@ -2540,13 +2613,13 @@ class QueryLog {
                 }, h.normalizeHash = function(t) {
                     return t.replace(/[^#]*#/, "").replace(/#.*/, "")
                 }, h.setHash = function(t, e) {
-                    var i, n;
+                    var i, a;
                     return !1 !== e && h.busy() ? (h.pushQueue({
                         scope: h,
                         callback: h.setHash,
                         args: arguments,
                         queue: e
-                    }), !1) : (h.busy(!0), (i = h.extractState(t, !0)) && !h.emulated.pushState ? h.pushState(i.data, i.title, i.url, !1) : h.getHash() !== t && (h.bugs.setHash ? (n = h.getPageUrl(), h.pushState(null, null, n + "#" + t, !1)) : s.location.hash = t), h)
+                    }), !1) : (h.busy(!0), (i = h.extractState(t, !0)) && !h.emulated.pushState ? h.pushState(i.data, i.title, i.url, !1) : h.getHash() !== t && (h.bugs.setHash ? (a = h.getPageUrl(), h.pushState(null, null, a + "#" + t, !1)) : s.location.hash = t), h)
                 }, h.escapeHash = function(e) {
                     var i = h.normalizeHash(e);
                     return i = t.encodeURIComponent(i), h.bugs.hashEscape || (i = i.replace(/\%21/g, "!").replace(/\%26/g, "&").replace(/\%3D/g, "=").replace(/\%3F/g, "?")), i
@@ -2562,13 +2635,13 @@ class QueryLog {
                     return s.title = i, h
                 }, h.queues = [], h.busy = function(t) {
                     if (void 0 !== t ? h.busy.flag = t : void 0 === h.busy.flag && (h.busy.flag = !1), !h.busy.flag) {
-                        r(h.busy.timeout);
+                        o(h.busy.timeout);
                         var e = function() {
                             var t, i, s;
                             if (!h.busy.flag)
-                                for (t = h.queues.length - 1; t >= 0; --t) 0 !== (i = h.queues[t]).length && (s = i.shift(), h.fireQueueItem(s), h.busy.timeout = o(e, h.options.busyDelay))
+                                for (t = h.queues.length - 1; t >= 0; --t) 0 !== (i = h.queues[t]).length && (s = i.shift(), h.fireQueueItem(s), h.busy.timeout = r(e, h.options.busyDelay))
                         };
-                        h.busy.timeout = o(e, h.options.busyDelay)
+                        h.busy.timeout = r(e, h.options.busyDelay)
                     }
                     return h.busy.flag
                 }, h.busy.flag = !1, h.fireQueueItem = function(t) {
@@ -2584,9 +2657,9 @@ class QueryLog {
                 }, h.stateChanged = !1, h.doubleChecker = !1, h.doubleCheckComplete = function() {
                     return h.stateChanged = !0, h.doubleCheckClear(), h
                 }, h.doubleCheckClear = function() {
-                    return h.doubleChecker && (r(h.doubleChecker), h.doubleChecker = !1), h
+                    return h.doubleChecker && (o(h.doubleChecker), h.doubleChecker = !1), h
                 }, h.doubleCheck = function(t) {
-                    return h.stateChanged = !1, h.doubleCheckClear(), h.bugs.ieDoubleCheck && (h.doubleChecker = o((function() {
+                    return h.stateChanged = !1, h.doubleCheckClear(), h.bugs.ieDoubleCheck && (h.doubleChecker = r((function() {
                         return h.doubleCheckClear(), h.stateChanged || t(), !0
                     }), h.options.doubleCheckInterval)), h
                 }, h.safariStatePoll = function() {
@@ -2623,44 +2696,44 @@ class QueryLog {
                 var g = function() {};
                 h.pushState = h.pushState || g, h.replaceState = h.replaceState || g
             } else h.onPopState = function(e, i) {
-                var s, n, a = !1,
-                    o = !1;
-                return h.doubleCheckComplete(), (s = h.getHash()) ? ((n = h.extractState(s || h.getLocationHref(), !0)) ? h.replaceState(n.data, n.title, n.url, !1) : (h.Adapter.trigger(t, "anchorchange"), h.busy(!1)), h.expectedStateId = !1, !1) : ((o = (a = h.Adapter.extractEventData("state", e, i) || !1) ? h.getStateById(a) : h.expectedStateId ? h.getStateById(h.expectedStateId) : h.extractState(h.getLocationHref())) || (o = h.createStateObject(null, null, h.getLocationHref())), h.expectedStateId = !1, h.isLastSavedState(o) ? (h.busy(!1), !1) : (h.storeState(o), h.saveState(o), h.setTitle(o), h.Adapter.trigger(t, "statechange"), h.busy(!1), !0))
-            }, h.Adapter.bind(t, "popstate", h.onPopState), h.pushState = function(e, i, s, n) {
+                var s, a, n = !1,
+                    r = !1;
+                return h.doubleCheckComplete(), (s = h.getHash()) ? ((a = h.extractState(s || h.getLocationHref(), !0)) ? h.replaceState(a.data, a.title, a.url, !1) : (h.Adapter.trigger(t, "anchorchange"), h.busy(!1)), h.expectedStateId = !1, !1) : ((r = (n = h.Adapter.extractEventData("state", e, i) || !1) ? h.getStateById(n) : h.expectedStateId ? h.getStateById(h.expectedStateId) : h.extractState(h.getLocationHref())) || (r = h.createStateObject(null, null, h.getLocationHref())), h.expectedStateId = !1, h.isLastSavedState(r) ? (h.busy(!1), !1) : (h.storeState(r), h.saveState(r), h.setTitle(r), h.Adapter.trigger(t, "statechange"), h.busy(!1), !0))
+            }, h.Adapter.bind(t, "popstate", h.onPopState), h.pushState = function(e, i, s, a) {
                 if (h.getHashByUrl(s) && h.emulated.pushState) throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");
-                if (!1 !== n && h.busy()) return h.pushQueue({
+                if (!1 !== a && h.busy()) return h.pushQueue({
                     scope: h,
                     callback: h.pushState,
                     args: arguments,
-                    queue: n
+                    queue: a
                 }), !1;
                 h.busy(!0);
-                var a = h.createStateObject(e, i, s);
-                return h.isLastSavedState(a) ? h.busy(!1) : (h.storeState(a), h.expectedStateId = a.id, p.pushState(a.id, a.title, a.url), h.Adapter.trigger(t, "popstate")), !0
-            }, h.replaceState = function(e, i, s, n) {
+                var n = h.createStateObject(e, i, s);
+                return h.isLastSavedState(n) ? h.busy(!1) : (h.storeState(n), h.expectedStateId = n.id, p.pushState(n.id, n.title, n.url), h.Adapter.trigger(t, "popstate")), !0
+            }, h.replaceState = function(e, i, s, a) {
                 if (h.getHashByUrl(s) && h.emulated.pushState) throw new Error("History.js does not support states with fragement-identifiers (hashes/anchors).");
-                if (!1 !== n && h.busy()) return h.pushQueue({
+                if (!1 !== a && h.busy()) return h.pushQueue({
                     scope: h,
                     callback: h.replaceState,
                     args: arguments,
-                    queue: n
+                    queue: a
                 }), !1;
                 h.busy(!0);
-                var a = h.createStateObject(e, i, s);
-                return h.isLastSavedState(a) ? h.busy(!1) : (h.storeState(a), h.expectedStateId = a.id, p.replaceState(a.id, a.title, a.url), h.Adapter.trigger(t, "popstate")), !0
+                var n = h.createStateObject(e, i, s);
+                return h.isLastSavedState(n) ? h.busy(!1) : (h.storeState(n), h.expectedStateId = n.id, p.replaceState(n.id, n.title, n.url), h.Adapter.trigger(t, "popstate")), !0
             };
-            if (a) {
+            if (n) {
                 try {
-                    h.store = d.parse(a.getItem("History.store")) || {}
+                    h.store = d.parse(n.getItem("History.store")) || {}
                 } catch (t) {
                     h.store = {}
                 }
                 h.normalizeStore()
             } else h.store = {}, h.normalizeStore();
-            h.Adapter.bind(t, "unload", h.clearAllIntervals), h.saveState(h.storeState(h.extractState(h.getLocationHref(), !0))), a && (h.onUnload = function() {
+            h.Adapter.bind(t, "unload", h.clearAllIntervals), h.saveState(h.storeState(h.extractState(h.getLocationHref(), !0))), n && (h.onUnload = function() {
                 var t, e, i;
                 try {
-                    t = d.parse(a.getItem("History.store")) || {}
+                    t = d.parse(n.getItem("History.store")) || {}
                 } catch (e) {
                     t = {}
                 }
@@ -2669,12 +2742,12 @@ class QueryLog {
                 for (e in h.stateToId) h.stateToId.hasOwnProperty(e) && (t.stateToId[e] = h.stateToId[e]);
                 h.store = t, h.normalizeStore(), i = d.stringify(t);
                 try {
-                    a.setItem("History.store", i)
+                    n.setItem("History.store", i)
                 } catch (t) {
                     if (t.code !== DOMException.QUOTA_EXCEEDED_ERR) throw t;
-                    a.length && (a.removeItem("History.store"), a.setItem("History.store", i))
+                    n.length && (n.removeItem("History.store"), n.setItem("History.store", i))
                 }
-            }, h.intervalList.push(l(h.onUnload, h.options.storeInterval)), h.Adapter.bind(t, "beforeunload", h.onUnload), h.Adapter.bind(t, "unload", h.onUnload)), h.emulated.pushState || (h.bugs.safariPoll && h.intervalList.push(l(h.safariStatePoll, h.options.safariPollInterval)), "Apple Computer, Inc." !== n.vendor && "Mozilla" !== (n.appCodeName || "") || (h.Adapter.bind(t, "hashchange", (function() {
+            }, h.intervalList.push(l(h.onUnload, h.options.storeInterval)), h.Adapter.bind(t, "beforeunload", h.onUnload), h.Adapter.bind(t, "unload", h.onUnload)), h.emulated.pushState || (h.bugs.safariPoll && h.intervalList.push(l(h.safariStatePoll, h.options.safariPollInterval)), "Apple Computer, Inc." !== a.vendor && "Mozilla" !== (a.appCodeName || "") || (h.Adapter.bind(t, "hashchange", (function() {
                 h.Adapter.trigger(t, "popstate")
             })), h.getHash() && h.Adapter.onDomLoad((function() {
                 h.Adapter.trigger(t, "hashchange")
@@ -2691,13 +2764,13 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
     else var e = $("body");
     t.placement = t.placement ? t.placement : "top", e.find(".fa + .icon-label").each((function(e, i) {
         var s = $(i),
-            n = s.html();
-        if ("" !== n) {
-            if (0 == (a = s.parent("button, a")).length) var a = s.prev(".fa");
-            if (1 == a.length) {
-                if (a.data && a.data("bs.tooltip")) return;
-                a.tooltip({
-                    title: n,
+            a = s.html();
+        if ("" !== a) {
+            if (0 == (n = s.parent("button, a")).length) var n = s.prev(".fa");
+            if (1 == n.length) {
+                if (n.data && n.data("bs.tooltip")) return;
+                n.tooltip({
+                    title: a,
                     html: !0,
                     placement: t.placement
                 })
@@ -2727,13 +2800,13 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
     })).on("keydown.bs.dropdown.data-api", e + ", [role=menu]", $.fn.dropdown.Constructor.prototype.keydown);
     var i = $(".nav-tabs"),
         s = i.children("li"),
-        n = i.find('[data-toggle="tab"], [data-toggle="pill"]');
-    n.length > 0 && (i.attr("role", "tablist"), s.attr("role", "presentation"), n.attr("role", "tab")), n.each((function(t) {
+        a = i.find('[data-toggle="tab"], [data-toggle="pill"]');
+    a.length > 0 && (i.attr("role", "tablist"), s.attr("role", "presentation"), a.attr("role", "tab")), a.each((function(t) {
         var e = $(this).attr("href"),
             i = "#" === e ? null : $(e),
             s = $(this),
-            n = s.attr("id") || ("ui-tab" || "ui-id") + "-" + Math.floor(1e3 * Math.random() + 1);
-        s.attr("id", n), s.parent().hasClass("active") ? (s.attr({
+            a = s.attr("id") || ("ui-tab" || "ui-id") + "-" + Math.floor(1e3 * Math.random() + 1);
+        s.attr("id", a), s.parent().hasClass("active") ? (s.attr({
             tabIndex: "0",
             "aria-selected": "true",
             "aria-controls": s.attr("href").substr(1)
@@ -2741,7 +2814,7 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
             role: "tabpanel",
             tabIndex: "0",
             "aria-hidden": "false",
-            "aria-labelledby": n
+            "aria-labelledby": a
         })) : (s.attr({
             tabIndex: "-1",
             "aria-selected": "false",
@@ -2750,19 +2823,19 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
             role: "tabpanel",
             tabIndex: "-1",
             "aria-hidden": "true",
-            "aria-labelledby": n
+            "aria-labelledby": a
         }))
     })), $.fn.tab.Constructor.prototype.keydown = function(t) {
         var e, i, s = $(this),
-            n = s.closest("ul[role=tablist] "),
-            a = t.which || t.keyCode;
-        if (s = $(this), /(37|38|39|40)/.test(a)) {
-            i = (e = n.find("[role=tab]:visible")).index(e.filter(":focus")), 38 != a && 37 != a || i--, 39 != a && 40 != a || i++, i < 0 && (i = e.length - 1), i == e.length && (i = 0);
-            var o = e.eq(i);
-            "tab" === o.attr("role") && o.tab("show").focus(), t.preventDefault(), t.stopPropagation()
+            a = s.closest("ul[role=tablist] "),
+            n = t.which || t.keyCode;
+        if (s = $(this), /(37|38|39|40)/.test(n)) {
+            i = (e = a.find("[role=tab]:visible")).index(e.filter(":focus")), 38 != n && 37 != n || i--, 39 != n && 40 != n || i++, i < 0 && (i = e.length - 1), i == e.length && (i = 0);
+            var r = e.eq(i);
+            "tab" === r.attr("role") && r.tab("show").focus(), t.preventDefault(), t.stopPropagation()
         }
     }, $(document).on("keydown.tab.data-api", '[data-toggle="tab"], [data-toggle="pill"]', $.fn.tab.Constructor.prototype.keydown);
-    var a = $.fn.tab.Constructor.prototype.activate;
+    var n = $.fn.tab.Constructor.prototype.activate;
     if ($.fn.tab.Constructor.prototype.activate = function(t, e, i) {
             var s = e.find("> .active");
             s.find("[data-toggle=tab]").attr({
@@ -2771,7 +2844,7 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
             }), s.filter(".tab-pane").attr({
                 "aria-hidden": !0,
                 tabIndex: "-1"
-            }), a.apply(this, arguments), t.addClass("active"), t.find("[data-toggle=tab]").attr({
+            }), n.apply(this, arguments), t.addClass("active"), t.find("[data-toggle=tab]").attr({
                 tabIndex: "0",
                 "aria-selected": !0
             }), t.filter(".tab-pane").attr({
@@ -2779,9 +2852,9 @@ springSpace.sui = springSpace.sui || {}, springSpace.sui.icontip = function(t) {
                 tabIndex: "0"
             })
         }, springSpace.sui.icontip(), document.location.hash) {
-        var o = document.location.hash;
+        var r = document.location.hash;
         try {
-            $(o).attr("tabindex", -1).on("blur focusout", (function() {
+            $(r).attr("tabindex", -1).on("blur focusout", (function() {
                 $(this).removeAttr("tabindex")
             })).focus()
         } catch (t) {}
