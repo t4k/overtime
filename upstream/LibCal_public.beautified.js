@@ -4876,5 +4876,8 @@ var springyCommon = {
     },
     appendHiddenInput: function(e, t, i) {
         jQuery("<input />").attr("type", "hidden").attr("name", e).attr("value", t).appendTo(i)
+    },
+    isArraysEqual: function(e, i) {
+        return e.length === i.length && e.every((e, t) => e === i[t])
     }
 };
