@@ -4400,6 +4400,15 @@ h4 .s-lc-eventcard-pill {
     transform: rotate(45deg)
 }
 
+.s-lc-ribbon-warning span {
+    background-color: #00838f
+}
+
+.s-lc-ribbon-warning::after,
+.s-lc-ribbon-warning::before {
+    border: 5px solid #00838f
+}
+
 .label-as-badge {
     border-radius: 1em;
     position: relative;
