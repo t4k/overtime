@@ -2118,7 +2118,7 @@
                 "slug_id": "1295376",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2017-09-08 23:21:17",
+                "updated": "2023-08-04 23:37:54",
                 "url": "https://library.caltech.edu/c.php?g=512715&p=5160778"
             },
             {
@@ -2152,7 +2152,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-05-04 14:32:25",
+        "updated": "2023-08-04 23:37:54",
         "url": "https://library.caltech.edu/c.php?g=512715"
     },
     {
@@ -5552,7 +5552,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-08-03 18:25:10",
+        "updated": "2023-08-04 14:36:14",
         "url": "https://library.caltech.edu/c.php?g=512709"
     },
     {
@@ -8908,7 +8908,7 @@
         "thumbnail_url": "",
         "type_id": 2,
         "type_label": "Course Guide",
-        "updated": "2023-08-03 22:57:25",
+        "updated": "2023-08-04 22:10:47",
         "url": "https://library.caltech.edu/c.php?g=776077"
     },
     {
@@ -13004,24 +13004,24 @@
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": null,
+                "friendly_url": "https://library.caltech.edu/bookmarklet/update",
                 "id": "3502646",
-                "name": "Home",
+                "name": "Update",
                 "num_cols": "1",
                 "parent_id": "0",
                 "position": "1",
                 "redirect_url": "",
-                "slug_id": "0",
+                "slug_id": "2868251",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2017-09-11 20:37:01",
+                "updated": "2023-08-04 17:04:20",
                 "url": "https://library.caltech.edu/c.php?g=512691&p=3502646"
             },
             {
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2014-03-17 17:32:40",
                 "description": "",
-                "enable_display": "1",
+                "enable_display": "0",
                 "enable_newwin": "0",
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/bookmarklet/bookmarklet-ipad",
@@ -13034,7 +13034,7 @@
                 "slug_id": "855306",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2017-09-11 22:29:16",
+                "updated": "2023-08-04 16:56:33",
                 "url": "https://library.caltech.edu/c.php?g=512691&p=3502659"
             }
         ],
@@ -13048,7 +13048,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-05-04 14:56:39",
+        "updated": "2023-08-04 17:17:17",
         "url": "https://library.caltech.edu/c.php?g=512691"
     },
     {
@@ -13192,7 +13192,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-05-20 00:16:47",
+        "updated": "2023-08-04 23:11:21",
         "url": "https://library.caltech.edu/c.php?g=512684"
     },
     {
@@ -14704,7 +14704,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-05-04 14:56:52",
+        "updated": "2023-08-04 23:44:39",
         "url": "https://library.caltech.edu/c.php?g=512746"
     },
     {
@@ -16080,7 +16080,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-07-20 22:33:09",
+        "updated": "2023-08-04 23:07:14",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
