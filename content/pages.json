@@ -870,7 +870,7 @@
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/pma/news",
                 "id": "3780093",
-                "name": "Weekly Library News",
+                "name": "PMA Library News",
                 "num_cols": "1",
                 "parent_id": "0",
                 "position": "2",
@@ -878,7 +878,7 @@
                 "slug_id": "1631819",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2021-03-10 22:30:25",
+                "updated": "2023-08-08 20:51:24",
                 "url": "https://library.caltech.edu/c.php?g=512637&p=3780093"
             },
             {
@@ -912,7 +912,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-08-07 02:54:28",
+        "updated": "2023-08-08 20:52:01",
         "url": "https://library.caltech.edu/c.php?g=512637"
     },
     {
