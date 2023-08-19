@@ -2079,7 +2079,7 @@ const faqHit = function(t, e, i) {
             return s.classList.add("close"), s.setAttribute("data-dismiss", "alert"), s.setAttribute("aria-label", "close"), s.innerHTML = '<span aria-hidden="true">&times;</span>', i.appendChild(s), i.insertAdjacentHTML("beforeend", t), i
         }, this.resetRules = function() {
             this.rules.forEach((t => {
-                this.$form[0].querySelectorAll(`*[name^="${t.field1}"]`).forEach((t => {
+                this.$form[0].querySelectorAll(`*[name="${t.field1}"], *[name="${t.field1}[]"]`).forEach((t => {
                     t.dispatchEvent(new Event("change"))
                 }))
             }))
@@ -2129,7 +2129,7 @@ const faqHit = function(t, e, i) {
             return Number(e.get(t))
         }, this.setUpRules = function() {
             this.rules.forEach((t => {
-                this.$form[0].querySelectorAll(`*[name^="${t.field1}"]`).forEach((e => {
+                this.$form[0].querySelectorAll(`*[name="${t.field1}"], *[name="${t.field1}[]"]`).forEach((e => {
                     const i = this.$form[0].querySelector(`.${t.field2}_wrap`);
                     i && e.addEventListener("change", (e => {
                         let s = Number(e.target.value);
