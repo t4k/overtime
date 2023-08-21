@@ -1007,6 +1007,31 @@
               </a>
               or contact library@caltech.edu for assistance.
              </div>
+             <div class="alert alert-dismissible alert-warning" role="alert">
+              <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+               <span aria-hidden="true">
+                ×
+               </span>
+              </button>
+              All Library locations will be closed on Monday, August 21, 2023 due to Tropical Storm Hilary. Online services will be functioning as usual. Contact library@caltech.edu with questions and concerns.
+             </div>
+            </div>
+            <!-- learned from https://stackoverflow.com/a/66625405 -->
+            <script>
+             async function fetchNotices() {
+    try {
+      let response = await fetch('https://caltechlibrary.github.io/libguine/notices/library.html');
+      document.getElementById('notices-library-4hoj8pnB').innerHTML = await response.text();
+    } catch (e) {
+      console.log('fetchNotices error:' + e);
+    }
+  }
+  fetchNotices();
+            </script>
+           </div>
+           <div class="s-lg-widget" id="s-lg-content-68982994">
+            <!-- see https://github.com/caltechlibrary/libguine/commit/3568bc0 -->
+            <div id="notices-library-4hoj8pnB">
             </div>
             <!-- learned from https://stackoverflow.com/a/66625405 -->
             <script>
@@ -1353,15 +1378,6 @@
              <ul class="s-lg-rss-list">
              </ul>
              <div class="s-lg-rss-links">
-              <span id="s-lg-rvw-71118539">
-               <a href="https://us2.campaign-archive.com/feed?u=7a983a9cab7f54506afc6903f&amp;id=0afbdb920f" id="rssWebsiteLink_71118539" target="_blank">
-                Website
-                <span class="sr-only">
-                 This link opens in a new window
-                </span>
-               </a>
-              </span>
-              |
               <span id="s-lg-rvf-71118539">
                <a href="https://us2.campaign-archive.com/feed?u=7a983a9cab7f54506afc6903f&amp;id=0afbdb920f" target="_blank">
                 Feed
