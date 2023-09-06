@@ -1316,7 +1316,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-01 16:25:02",
+        "updated": "2023-09-05 14:58:26",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -1360,7 +1360,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-08-29 21:40:12",
+        "updated": "2023-09-05 20:12:12",
         "url": "https://library.caltech.edu/c.php?g=1212590"
     },
     {
@@ -2396,7 +2396,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-08-10 00:53:18",
+        "updated": "2023-09-05 23:24:49",
         "url": "https://library.caltech.edu/c.php?g=512724"
     },
     {
@@ -2977,7 +2977,7 @@
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2023-04-04 23:39:02",
                 "description": "",
-                "enable_display": "0",
+                "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
                 "friendly_url": null,
@@ -2990,7 +2990,7 @@
                 "slug_id": "0",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2023-04-04 23:39:17",
+                "updated": "2023-09-05 18:23:39",
                 "url": "https://library.caltech.edu/c.php?g=1231526&p=9654314"
             }
         ],
@@ -3004,7 +3004,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-08-07 21:22:05",
+        "updated": "2023-09-05 22:39:27",
         "url": "https://library.caltech.edu/c.php?g=1231526"
     },
     {
@@ -7132,7 +7132,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-08-07 21:44:42",
+        "updated": "2023-09-05 21:51:43",
         "url": "https://library.caltech.edu/c.php?g=512638"
     },
     {
@@ -7276,7 +7276,7 @@
         "thumbnail_url": "",
         "type_id": 2,
         "type_label": "Course Guide",
-        "updated": "2023-08-07 14:52:59",
+        "updated": "2023-09-05 21:26:10",
         "url": "https://library.caltech.edu/c.php?g=512705"
     },
     {
@@ -11224,7 +11224,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-08-03 14:56:05",
+        "updated": "2023-09-05 22:01:06",
         "url": "https://library.caltech.edu/c.php?g=512661"
     },
     {
@@ -13496,7 +13496,7 @@
         "thumbnail_url": "",
         "type_id": 4,
         "type_label": "Topic Guide",
-        "updated": "2023-09-01 21:41:20",
+        "updated": "2023-09-05 20:52:28",
         "url": "https://library.caltech.edu/c.php?g=1227195"
     },
     {
