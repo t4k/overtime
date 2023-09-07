@@ -1316,7 +1316,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-05 14:58:26",
+        "updated": "2023-09-06 18:41:53",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -2825,7 +2825,7 @@
                 "name": "Contact a Subject Specialist",
                 "num_cols": "3",
                 "parent_id": "0",
-                "position": "5",
+                "position": "6",
                 "redirect_url": "",
                 "slug_id": "2569112",
                 "source_id": "0",
@@ -2865,7 +2865,7 @@
                 "name": "Library Study: Campus Research Ownership",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "6",
+                "position": "7",
                 "redirect_url": "",
                 "slug_id": "2569114",
                 "source_id": "0",
@@ -2885,7 +2885,7 @@
                 "name": "Software & Data Workshops",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "3",
+                "position": "5",
                 "redirect_url": "",
                 "slug_id": "2574854",
                 "source_id": "0",
@@ -2945,7 +2945,7 @@
                 "name": "Purchase Books from Our Partners",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "7",
+                "position": "8",
                 "redirect_url": "",
                 "slug_id": "2681895",
                 "source_id": "0",
@@ -2976,21 +2976,21 @@
             {
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2023-04-04 23:39:02",
-                "description": "",
+                "description": "This catalog represents previously offered classes and workshops. To learn which classes will be offered this term, visit our upcoming classes calendar: https://libcal.caltech.edu/calendar/classes",
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": null,
+                "friendly_url": "https://library.caltech.edu/learn/class-catalog",
                 "id": "9654314",
                 "name": "Library Class Catalog",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "8",
+                "position": "3",
                 "redirect_url": "",
-                "slug_id": "0",
+                "slug_id": "2895449",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2023-09-05 18:23:39",
+                "updated": "2023-09-06 20:06:46",
                 "url": "https://library.caltech.edu/c.php?g=1231526&p=9654314"
             }
         ],
@@ -3004,7 +3004,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-09-05 22:39:27",
+        "updated": "2023-09-06 22:33:47",
         "url": "https://library.caltech.edu/c.php?g=1231526"
     },
     {
@@ -7132,7 +7132,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-05 21:51:43",
+        "updated": "2023-09-06 21:43:32",
         "url": "https://library.caltech.edu/c.php?g=512638"
     },
     {
@@ -10516,7 +10516,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-05-01 20:21:13",
+        "updated": "2023-09-06 18:23:33",
         "url": "https://library.caltech.edu/c.php?g=1229395"
     },
     {
