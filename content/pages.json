@@ -2676,7 +2676,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-07-12 16:54:45",
+        "updated": "2023-09-26 16:43:58",
         "url": "https://library.caltech.edu/c.php?g=1231408"
     },
     {
@@ -7063,26 +7063,6 @@
             },
             {
                 "column_layout": "{\"1\":{\"span\":9},\"2\":{\"span\":3}}",
-                "created": "2014-01-07 20:51:32",
-                "description": "",
-                "enable_display": "0",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": null,
-                "id": "3502774",
-                "name": "Recommended References - W2014",
-                "num_cols": "2",
-                "parent_id": "0",
-                "position": "6",
-                "redirect_url": "",
-                "slug_id": "0",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2014-09-26 22:36:34",
-                "url": "https://library.caltech.edu/c.php?g=512705&p=3502774"
-            },
-            {
-                "column_layout": "{\"1\":{\"span\":9},\"2\":{\"span\":3}}",
                 "created": "2014-09-26 22:11:58",
                 "description": "",
                 "enable_display": "1",
@@ -7172,7 +7152,7 @@
         "thumbnail_url": "",
         "type_id": 2,
         "type_label": "Course Guide",
-        "updated": "2023-09-18 18:29:57",
+        "updated": "2023-09-26 20:56:14",
         "url": "https://library.caltech.edu/c.php?g=512705"
     },
     {
@@ -11120,7 +11100,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-18 18:37:29",
+        "updated": "2023-09-26 19:45:07",
         "url": "https://library.caltech.edu/c.php?g=512661"
     },
     {
