@@ -1212,7 +1212,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-02 21:22:56",
+        "updated": "2023-10-03 15:41:14",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -1256,7 +1256,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-09-08 18:59:49",
+        "updated": "2023-10-03 19:02:03",
         "url": "https://library.caltech.edu/c.php?g=1212590"
     },
     {
@@ -2372,7 +2372,7 @@
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
-                "friendly_url": "https://library.caltech.edu/publish/grant-compliance",
+                "friendly_url": "https://library.caltech.edu/publish/grant-support",
                 "id": "9028032",
                 "name": "Grant Compliance Support",
                 "num_cols": "3",
@@ -2676,7 +2676,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-09-28 16:47:12",
+        "updated": "2023-10-03 21:58:06",
         "url": "https://library.caltech.edu/c.php?g=1231408"
     },
     {
@@ -3044,7 +3044,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-20 22:34:57",
+        "updated": "2023-10-03 20:05:24",
         "url": "https://library.caltech.edu/c.php?g=512664"
     },
     {
@@ -9676,7 +9676,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-28 16:04:22",
+        "updated": "2023-10-03 23:15:25",
         "url": "https://library.caltech.edu/c.php?g=512642"
     },
     {
@@ -15956,7 +15956,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-08-10 01:02:55",
+        "updated": "2023-10-03 19:07:52",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
