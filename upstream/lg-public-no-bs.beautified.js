@@ -342,16 +342,11 @@ springSpace.public = {}, springSpace.public._construct = function() {
             var e = jQuery(this).attr("href");
             0 == /^https?:\/\/|^\/\//i.test(e) && jQuery(this).attr("href", "http://" + springSpace.azList.site_domain + e)
         }))
-    }, e.prototype.isOverflown = function(e) {
-        return e.scrollHeight > e.clientHeight || e.scrollWidth > e.clientWidth
     }, e.prototype.setReadMoreLink = function() {
-        var e = this;
         jQuery(".az-description-short").each((function() {
-            e.isOverflown(this) && jQuery(this).next(".az-description-view-more").removeClass("d-none")
+            jQuery(this).hasClass("ddd-truncated") && jQuery(this).next(".az-description-view-more").removeClass("d-none")
         })), jQuery(".az-description-view-more-link").off("click").on("click", (function(e) {
-            e.preventDefault();
-            var t = jQuery(this).parent().prev();
-            t.removeClass("az-description"), t.removeAttr("style"), jQuery(this).addClass("d-none")
+            e.preventDefault(), jQuery(this).parent().prev().data("dotdotdot").restore(), jQuery(this).addClass("d-none")
         }))
     }, this.Public = e
 }, springSpace.public._construct(), jQuery(document).ready((function() {
