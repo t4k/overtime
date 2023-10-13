@@ -1212,7 +1212,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-11 18:39:19",
+        "updated": "2023-10-12 18:26:02",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -2574,7 +2574,7 @@
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/publish/data/data-management-sharing",
                 "id": "9043815",
-                "name": "Data Management and Sharing",
+                "name": "How to Manage and Share Data",
                 "num_cols": "1",
                 "parent_id": "9028034",
                 "position": "3",
@@ -2582,7 +2582,7 @@
                 "slug_id": "2574923",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2022-04-27 18:26:27",
+                "updated": "2023-10-12 17:10:36",
                 "url": "https://library.caltech.edu/c.php?g=1231408&p=9043815"
             },
             {
@@ -2676,7 +2676,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-05 21:46:26",
+        "updated": "2023-10-12 17:10:36",
         "url": "https://library.caltech.edu/c.php?g=1231408"
     },
     {
@@ -9368,7 +9368,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-08-09 18:36:43",
+        "updated": "2023-10-12 22:04:53",
         "url": "https://library.caltech.edu/c.php?g=512644"
     },
     {
@@ -9612,7 +9612,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-04 15:39:51",
+        "updated": "2023-10-12 18:30:03",
         "url": "https://library.caltech.edu/c.php?g=512627"
     },
     {
@@ -9696,7 +9696,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-04 15:14:29",
+        "updated": "2023-10-12 18:30:03",
         "url": "https://library.caltech.edu/c.php?g=512642"
     },
     {
@@ -12572,7 +12572,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-09-18 18:29:56",
+        "updated": "2023-10-12 18:33:30",
         "url": "https://library.caltech.edu/c.php?g=512625"
     },
     {
@@ -12816,7 +12816,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-04 15:39:51",
+        "updated": "2023-10-12 18:30:03",
         "url": "https://library.caltech.edu/c.php?g=512624"
     },
     {
@@ -15976,7 +15976,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-03 19:07:52",
+        "updated": "2023-10-12 18:31:20",
         "url": "https://library.caltech.edu/c.php?g=1228721"
     },
     {
