@@ -2096,7 +2096,164 @@ const faqHit = function(t, e, i) {
             this[n] !== s && (this[n] = s)
         }
     }
-    customElements.define("aeon-select", class extends t {
+    class e extends t {
+        static get props() {
+            return {
+                date: {
+                    type: String
+                },
+                time: {
+                    type: String
+                },
+                value: {
+                    type: Object
+                },
+                showTime: {
+                    type: Boolean
+                },
+                confirmOnDate: {
+                    type: Boolean
+                },
+                locale: {
+                    type: String
+                },
+                dateStyle: {
+                    type: Object
+                },
+                startYear: {
+                    type: Number
+                },
+                endYear: {
+                    type: Number
+                },
+                startDay: {
+                    type: Number
+                },
+                defaultDate: {
+                    type: String
+                },
+                defaultTime: {
+                    type: String
+                },
+                hasNative: {
+                    type: Boolean
+                },
+                useNative: {
+                    type: Boolean
+                },
+                alignTop: {
+                    type: Boolean
+                },
+                alignRight: {
+                    type: Boolean
+                }
+            }
+        }
+        constructor() {
+            super();
+            const t = new Date;
+            this.showTime = !1, this.confirmOnDate = !1, this.alignTop = !1, this.alignRight = !1, this.dateStyle = {}, this.startYear = t.getFullYear() - 100, this.endYear = t.getFullYear() + 5, this.startDay = 1;
+            try {
+                const t = document.createElement("input");
+                t.type = "date", this.hasNative = "date" === t.type
+            } catch (t) {
+                this.hasNative = !1
+            }
+            this.onLabelClick = this.onLabelClick.bind(this), this.onClickOutside = this.onClickOutside.bind(this)
+        }
+        connectedCallback() {
+            super.connectedCallback(), document.addEventListener("click", this.onClickOutside)
+        }
+        disconnectedCallback() {
+            super.disconnectedCallback(), this._dateInput && [...this._dateInput.labels || []].forEach((t => {
+                t.removeEventListener("click", this.onLabelClick)
+            })), document.removeEventListener("click", this.onClickOutside)
+        }
+        firstRender(t) {
+            const e = document.createElement("template");
+            e.innerHTML = '\n      <style>\n        :host {\n          position: relative;\n\n          --rgb: var(--aeon-rgb, 0, 0, 0);\n          --bgRgb: var(--aeon-bgRgb, 255, 255, 255);\n          --color: rgb(var(--rgb));\n          --hintColor: rgba(var(--rgb), 0.2);\n          --bgColor: rgb(var(--bgRgb));\n\n          color: var(--color);\n        }\n\n        ::slotted(input[type=date]),\n        ::slotted(input[type=time]) {\n          display: none;\n        }\n\n        :host([has-native][use-native]) ::slotted(input[type=date]),\n        :host([has-native][use-native]) ::slotted(input[type=time]) {\n          display: inline-flex;\n        }\n\n        :host([has-native][use-native]) slot[name=output] {\n          display: none;\n        }\n\n        aeon-calendar {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);\n            border: 1px solid rgba(0, 0, 0, 0.15);\n            border-radius: 4px;\n            background-clip: padding-box;\n            padding: 12px;\n        }\n\n        :host([align-top]) aeon-calendar {\n          top: auto;\n          bottom: 100%;\n        }\n\n        :host([align-right]) aeon-calendar {\n          left: auto;\n          right: 0;\n        }\n\n        @media (max-width: 640px) {\n          aeon-calendar,\n          :host([align-top]) aeon-calendar,\n          :host([align-right]) aeon-calendar {\n            position: fixed;\n            top: 0;\n            left: 0;\n            bottom: 0;\n            right: 0;\n          }\n        }\n      </style>\n\n      <slot></slot>\n      <slot name="output"></slot>\n\n      <aeon-calendar id="calendar"></aeon-calendar>\n    ', t.appendChild(e.content.cloneNode(!0))
+        }
+        firstRendered(t) {
+            const e = t.querySelector("slot");
+            e.addEventListener("slotchange", (() => {
+                const t = e.assignedNodes().filter((t => t.nodeType !== Node.TEXT_NODE));
+                this._dateInput = t.find((t => "date" === t.getAttribute("type"))), this._dateInput && (this._output.placeholder = this._dateInput.placeholder, (this._dateInput.labels || []).forEach((t => {
+                    t.addEventListener("click", this.onLabelClick)
+                })), this.date = this._dateInput.value), this._timeInput = t.find((t => "time" === t.getAttribute("type"))), this._timeInput && (this.showTime = !0, this.time = this._timeInput.value)
+            })), this._output = document.createElement("input"), this._output.slot = "output", this._output.readOnly = !0, this._output.addEventListener("click", (() => {
+                this.openCalendar()
+            })), this.appendChild(this._output), this.addEventListener("keyup", (t => {
+                if (" " === t.key) this.$.calendar.open || this.openCalendar()
+            })), this.$.calendar.addEventListener("change", (t => {
+                this.date = t.target.value.date, this.time = t.target.value.time, this.closeCalendar()
+            })), this.$.calendar.addEventListener("clear", (() => {
+                this.date = ""
+            })), this.$.calendar.addEventListener("close", (() => {
+                this._dontFocus || this._output.focus(), this._dontFocus = !1
+            }))
+        }
+        render(t, e) {
+            ("date" in e || "time" in e) && (this.value = {
+                date: this.date,
+                time: this.time
+            }, this.updateFromString(this.date, this.time), this.dispatchEvent(new Event("change", {
+                bubbles: !0
+            }))), ("locale" in e || "startYear" in e || "endYear" in e || "startDay" in e || "showTime" in e || "confirmOnDate" in e) && this.updateFromString(this.date, this.time)
+        }
+        update(t = null) {
+            const e = t && !isNaN(t);
+            let i = t;
+            if (!e) {
+                t = this.defaultDate;
+                const e = this.defaultTime;
+                i = this.parseDate(t, e)
+            }
+            const n = this.$.calendar;
+            if (n.year = i.getFullYear(), n.month = i.getMonth(), n.day = i.getDate(), n.hours = i.getHours(), n.minutes = i.getMinutes(), n.locale = this.locale, n.startYear = this.startYear, n.endYear = this.endYear, n.startDay = this.startDay, n.showTime = this.showTime, n.confirmOnDate = this.confirmOnDate, e) {
+                const e = new Intl.DateTimeFormat(this.locale || void 0, {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                    ...this.showTime ? {
+                        hour: "numeric",
+                        minute: "numeric"
+                    } : {},
+                    ...this.dateStyle
+                }).format(t);
+                this._output.value = e, this._dateInput && (this._dateInput.value = this.date), this._timeInput && (this._timeInput.value = this.time)
+            } else this._output.value = "", this._dateInput && (this._dateInput.value = ""), this._timeInput && (this._timeInput.value = "")
+        }
+        openCalendar() {
+            const t = this.getBoundingClientRect(),
+                e = t.top,
+                i = window.innerHeight - t.bottom;
+            this.alignTop = i < e, this.$.calendar.open = !0
+        }
+        closeCalendar(t = !1) {
+            this.$.calendar.open = !1, this._dontFocus = t
+        }
+        parseDate(t, e) {
+            try {
+                const i = t.split("-"),
+                    n = (e || this.defaultTime || "00:00").split(":");
+                return new Date(i[0], parseInt(i[1], 10) - 1, i[2], n[0], n[1])
+            } catch (t) {
+                return new Date
+            }
+        }
+        updateFromString(t, e) {
+            this.update(this.parseDate(t, e))
+        }
+        onLabelClick(t) {
+            this.useNative && this.hasNative || (t.preventDefault(), this._output.focus())
+        }
+        onClickOutside(t) {
+            if (this.$.calendar.open) {
+                !t.composedPath().some((t => t === this)) && this.closeCalendar(!0)
+            }
+        }
+    }
+    class i extends t {
         static get props() {
             return {
                 value: {
@@ -2127,7 +2284,8 @@ const faqHit = function(t, e, i) {
                 bubbles: !0
             })), this.$.select.innerHTML = this.items.map((t => `<option value="${t.value}">${t.name}</option>`)).join(""), this.$.select.value = this.value
         }
-    }), customElements.define("aeon-calendar", class extends t {
+    }
+    class n extends t {
         static get props() {
             return {
                 date: {
@@ -2311,163 +2469,8 @@ const faqHit = function(t, e, i) {
         formatAsTime(t, e) {
             return `${`${t}`.padStart(2,"0")}:${`${e}`.padStart(2,"0")}`
         }
-    }), customElements.define("aeon-datepicker", class extends t {
-        static get props() {
-            return {
-                date: {
-                    type: String
-                },
-                time: {
-                    type: String
-                },
-                value: {
-                    type: Object
-                },
-                showTime: {
-                    type: Boolean
-                },
-                confirmOnDate: {
-                    type: Boolean
-                },
-                locale: {
-                    type: String
-                },
-                dateStyle: {
-                    type: Object
-                },
-                startYear: {
-                    type: Number
-                },
-                endYear: {
-                    type: Number
-                },
-                startDay: {
-                    type: Number
-                },
-                defaultDate: {
-                    type: String
-                },
-                defaultTime: {
-                    type: String
-                },
-                hasNative: {
-                    type: Boolean
-                },
-                useNative: {
-                    type: Boolean
-                },
-                alignTop: {
-                    type: Boolean
-                },
-                alignRight: {
-                    type: Boolean
-                }
-            }
-        }
-        constructor() {
-            super();
-            const t = new Date;
-            this.showTime = !1, this.confirmOnDate = !1, this.alignTop = !1, this.alignRight = !1, this.dateStyle = {}, this.startYear = t.getFullYear() - 100, this.endYear = t.getFullYear() + 5, this.startDay = 1;
-            try {
-                const t = document.createElement("input");
-                t.type = "date", this.hasNative = "date" === t.type
-            } catch (t) {
-                this.hasNative = !1
-            }
-            this.onLabelClick = this.onLabelClick.bind(this), this.onClickOutside = this.onClickOutside.bind(this)
-        }
-        connectedCallback() {
-            super.connectedCallback(), document.addEventListener("click", this.onClickOutside)
-        }
-        disconnectedCallback() {
-            super.disconnectedCallback(), this._dateInput && [...this._dateInput.labels || []].forEach((t => {
-                t.removeEventListener("click", this.onLabelClick)
-            })), document.removeEventListener("click", this.onClickOutside)
-        }
-        firstRender(t) {
-            const e = document.createElement("template");
-            e.innerHTML = '\n      <style>\n        :host {\n          position: relative;\n\n          --rgb: var(--aeon-rgb, 0, 0, 0);\n          --bgRgb: var(--aeon-bgRgb, 255, 255, 255);\n          --color: rgb(var(--rgb));\n          --hintColor: rgba(var(--rgb), 0.2);\n          --bgColor: rgb(var(--bgRgb));\n\n          color: var(--color);\n        }\n\n        ::slotted(input[type=date]),\n        ::slotted(input[type=time]) {\n          display: none;\n        }\n\n        :host([has-native][use-native]) ::slotted(input[type=date]),\n        :host([has-native][use-native]) ::slotted(input[type=time]) {\n          display: inline-flex;\n        }\n\n        :host([has-native][use-native]) slot[name=output] {\n          display: none;\n        }\n\n        aeon-calendar {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);\n            border: 1px solid rgba(0, 0, 0, 0.15);\n            border-radius: 4px;\n            background-clip: padding-box;\n            padding: 12px;\n        }\n\n        :host([align-top]) aeon-calendar {\n          top: auto;\n          bottom: 100%;\n        }\n\n        :host([align-right]) aeon-calendar {\n          left: auto;\n          right: 0;\n        }\n\n        @media (max-width: 640px) {\n          aeon-calendar,\n          :host([align-top]) aeon-calendar,\n          :host([align-right]) aeon-calendar {\n            position: fixed;\n            top: 0;\n            left: 0;\n            bottom: 0;\n            right: 0;\n          }\n        }\n      </style>\n\n      <slot></slot>\n      <slot name="output"></slot>\n\n      <aeon-calendar id="calendar"></aeon-calendar>\n    ', t.appendChild(e.content.cloneNode(!0))
-        }
-        firstRendered(t) {
-            const e = t.querySelector("slot");
-            e.addEventListener("slotchange", (() => {
-                const t = e.assignedNodes().filter((t => t.nodeType !== Node.TEXT_NODE));
-                this._dateInput = t.find((t => "date" === t.getAttribute("type"))), this._dateInput && (this._output.placeholder = this._dateInput.placeholder, (this._dateInput.labels || []).forEach((t => {
-                    t.addEventListener("click", this.onLabelClick)
-                })), this.date = this._dateInput.value), this._timeInput = t.find((t => "time" === t.getAttribute("type"))), this._timeInput && (this.showTime = !0, this.time = this._timeInput.value)
-            })), this._output = document.createElement("input"), this._output.slot = "output", this._output.readOnly = !0, this._output.addEventListener("click", (() => {
-                this.openCalendar()
-            })), this.appendChild(this._output), this.addEventListener("keyup", (t => {
-                if (" " === t.key) this.$.calendar.open || this.openCalendar()
-            })), this.$.calendar.addEventListener("change", (t => {
-                this.date = t.target.value.date, this.time = t.target.value.time, this.closeCalendar()
-            })), this.$.calendar.addEventListener("clear", (() => {
-                this.date = ""
-            })), this.$.calendar.addEventListener("close", (() => {
-                this._dontFocus || this._output.focus(), this._dontFocus = !1
-            }))
-        }
-        render(t, e) {
-            ("date" in e || "time" in e) && (this.value = {
-                date: this.date,
-                time: this.time
-            }, this.updateFromString(this.date, this.time), this.dispatchEvent(new Event("change", {
-                bubbles: !0
-            }))), ("locale" in e || "startYear" in e || "endYear" in e || "startDay" in e || "showTime" in e || "confirmOnDate" in e) && this.updateFromString(this.date, this.time)
-        }
-        update(t = null) {
-            const e = t && !isNaN(t);
-            let i = t;
-            if (!e) {
-                t = this.defaultDate;
-                const e = this.defaultTime;
-                i = this.parseDate(t, e)
-            }
-            const n = this.$.calendar;
-            if (n.year = i.getFullYear(), n.month = i.getMonth(), n.day = i.getDate(), n.hours = i.getHours(), n.minutes = i.getMinutes(), n.locale = this.locale, n.startYear = this.startYear, n.endYear = this.endYear, n.startDay = this.startDay, n.showTime = this.showTime, n.confirmOnDate = this.confirmOnDate, e) {
-                const e = new Intl.DateTimeFormat(this.locale || void 0, {
-                    year: "numeric",
-                    month: "numeric",
-                    day: "numeric",
-                    ...this.showTime ? {
-                        hour: "numeric",
-                        minute: "numeric"
-                    } : {},
-                    ...this.dateStyle
-                }).format(t);
-                this._output.value = e, this._dateInput && (this._dateInput.value = this.date), this._timeInput && (this._timeInput.value = this.time)
-            } else this._output.value = "", this._dateInput && (this._dateInput.value = ""), this._timeInput && (this._timeInput.value = "")
-        }
-        openCalendar() {
-            const t = this.getBoundingClientRect(),
-                e = t.top,
-                i = window.innerHeight - t.bottom;
-            this.alignTop = i < e, this.$.calendar.open = !0
-        }
-        closeCalendar(t = !1) {
-            this.$.calendar.open = !1, this._dontFocus = t
-        }
-        parseDate(t, e) {
-            try {
-                const i = t.split("-"),
-                    n = (e || this.defaultTime || "00:00").split(":");
-                return new Date(i[0], parseInt(i[1], 10) - 1, i[2], n[0], n[1])
-            } catch (t) {
-                return new Date
-            }
-        }
-        updateFromString(t, e) {
-            this.update(this.parseDate(t, e))
-        }
-        onLabelClick(t) {
-            this.useNative && this.hasNative || (t.preventDefault(), this._output.focus())
-        }
-        onClickOutside(t) {
-            if (this.$.calendar.open) {
-                !t.composedPath().some((t => t === this)) && this.closeCalendar(!0)
-            }
-        }
-    })
+    }
+    customElements.get("aeon-select") || customElements.define("aeon-select", i), customElements.get("aeon-calendar") || customElements.define("aeon-calendar", n), customElements.get("aeon-datepicker") || customElements.define("aeon-datepicker", e)
 })),
 function(t) {
     t.springSpace = t.springSpace || {}, t.springSpace.la = t.springSpace.la || {};
