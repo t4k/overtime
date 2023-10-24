@@ -884,13 +884,13 @@
             {
                 "column_layout": "{\"1\":{\"span\":\"4\"},\"2\":{\"span\":\"4\"},\"3\":{\"span\":\"4\"}}",
                 "created": "2009-07-31 20:56:58",
-                "description": "Various maps and mapping resources available. GIS resources including information on QGIS, an open-source GIS software system.\r\n",
+                "description": "Various online maps and mapping resources available.",
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
                 "friendly_url": "https://library.caltech.edu/geology/maps",
                 "id": "3502756",
-                "name": "Maps & GIS",
+                "name": "Maps & Mapping",
                 "num_cols": "3",
                 "parent_id": "0",
                 "position": "9",
@@ -898,7 +898,7 @@
                 "slug_id": "2151192",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2022-09-20 23:13:16",
+                "updated": "2023-10-23 20:48:29",
                 "url": "https://library.caltech.edu/c.php?g=512630&p=3502756"
             },
             {
@@ -964,7 +964,7 @@
             {
                 "column_layout": "{\"1\":{\"span\":\"6\"},\"2\":{\"span\":\"6\"}}",
                 "created": "2015-12-16 17:10:38",
-                "description": "",
+                "description": "New ebooks, new papers, and other new arrivals.",
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
@@ -978,7 +978,7 @@
                 "slug_id": "855328",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2022-08-30 14:21:05",
+                "updated": "2023-10-23 20:49:51",
                 "url": "https://library.caltech.edu/c.php?g=512630&p=3502856"
             },
             {
@@ -1023,26 +1023,6 @@
             },
             {
                 "column_layout": "{\"1\":{\"span\":\"6\"},\"2\":{\"span\":\"6\"}}",
-                "created": "2022-08-31 18:14:34",
-                "description": "",
-                "enable_display": "1",
-                "enable_newwin": "0",
-                "er_course_id": "0",
-                "friendly_url": "https://library.caltech.edu/geology/gis",
-                "id": "9268871",
-                "name": "GIS Resources",
-                "num_cols": "2",
-                "parent_id": "3502756",
-                "position": "1",
-                "redirect_url": "",
-                "slug_id": "2662077",
-                "source_id": "0",
-                "type_id": "1",
-                "updated": "2022-09-13 21:30:52",
-                "url": "https://library.caltech.edu/c.php?g=512630&p=9268871"
-            },
-            {
-                "column_layout": "{\"1\":{\"span\":\"6\"},\"2\":{\"span\":\"6\"}}",
                 "created": "2022-09-02 15:22:48",
                 "description": "Expanding our breadth of understanding of the earth and its place in the cosmos through the comparative study of other planets\u2014their atmospheres, surfaces, and internal structures.",
                 "enable_display": "1",
@@ -1053,7 +1033,7 @@
                 "name": "Planetary Sciences",
                 "num_cols": "2",
                 "parent_id": "0",
-                "position": "10",
+                "position": "11",
                 "redirect_url": "",
                 "slug_id": "2662078",
                 "source_id": "0",
@@ -1104,7 +1084,7 @@
             {
                 "column_layout": "{\"1\":{\"span\":12}}",
                 "created": "2022-09-19 14:23:18",
-                "description": "More helpful resources to help you with your research.",
+                "description": "More helpful resources to help you with your research including open access, preprints, publishers and societies, research data, and using Zotero.",
                 "enable_display": "1",
                 "enable_newwin": "0",
                 "er_course_id": "0",
@@ -1113,12 +1093,12 @@
                 "name": "Additional Resources",
                 "num_cols": "1",
                 "parent_id": "0",
-                "position": "11",
+                "position": "12",
                 "redirect_url": "",
                 "slug_id": "2674075",
                 "source_id": "0",
                 "type_id": "1",
-                "updated": "2022-09-20 23:13:40",
+                "updated": "2023-10-23 20:51:47",
                 "url": "https://library.caltech.edu/c.php?g=512630&p=9309775"
             },
             {
@@ -1200,6 +1180,26 @@
                 "type_id": "1",
                 "updated": "2022-09-19 17:32:45",
                 "url": "https://library.caltech.edu/c.php?g=512630&p=9310819"
+            },
+            {
+                "column_layout": "{\"1\":{\"span\":\"6\"},\"2\":{\"span\":\"6\"}}",
+                "created": "2023-10-23 20:46:51",
+                "description": "GIS resources and tutorials on using ArcGIS and QGIS.",
+                "enable_display": "1",
+                "enable_newwin": "0",
+                "er_course_id": "0",
+                "friendly_url": "https://library.caltech.edu/geology/gis",
+                "id": "10026724",
+                "name": "GIS Resources",
+                "num_cols": "2",
+                "parent_id": "0",
+                "position": "10",
+                "redirect_url": "",
+                "slug_id": "2927617",
+                "source_id": "0",
+                "type_id": "1",
+                "updated": "2023-10-23 20:49:16",
+                "url": "https://library.caltech.edu/c.php?g=512630&p=10026724"
             }
         ],
         "published": "2009-08-05 18:50:01",
@@ -1212,7 +1212,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-22 00:42:56",
+        "updated": "2023-10-23 20:51:47",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -6060,7 +6060,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-01-11 20:15:20",
+        "updated": "2023-10-24 04:27:00",
         "url": "https://library.caltech.edu/c.php?g=1231481"
     },
     {
@@ -10412,7 +10412,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-06 18:00:23",
+        "updated": "2023-10-24 03:50:04",
         "url": "https://library.caltech.edu/c.php?g=1229395"
     },
     {
@@ -11996,7 +11996,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-19 18:36:22",
+        "updated": "2023-10-24 03:58:02",
         "url": "https://library.caltech.edu/c.php?g=1231280"
     },
     {
@@ -15420,7 +15420,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-09-18 15:27:07",
+        "updated": "2023-10-24 04:22:17",
         "url": "https://library.caltech.edu/c.php?g=1229405"
     },
     {
