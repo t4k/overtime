@@ -893,7 +893,7 @@
                 "name": "Maps & Mapping",
                 "num_cols": "3",
                 "parent_id": "0",
-                "position": "9",
+                "position": "10",
                 "redirect_url": "",
                 "slug_id": "2151192",
                 "source_id": "0",
@@ -1193,7 +1193,7 @@
                 "name": "GIS Resources",
                 "num_cols": "2",
                 "parent_id": "0",
-                "position": "10",
+                "position": "9",
                 "redirect_url": "",
                 "slug_id": "2927617",
                 "source_id": "0",
@@ -1212,7 +1212,7 @@
         "thumbnail_url": "",
         "type_id": 3,
         "type_label": "Subject Guide",
-        "updated": "2023-10-23 20:51:47",
+        "updated": "2023-10-25 16:50:34",
         "url": "https://library.caltech.edu/c.php?g=512630"
     },
     {
@@ -1256,7 +1256,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-03 19:02:03",
+        "updated": "2023-10-25 20:22:41",
         "url": "https://library.caltech.edu/c.php?g=1212590"
     },
     {
@@ -1444,7 +1444,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2023-10-13 18:09:07",
+        "updated": "2023-10-25 19:32:33",
         "url": "https://library.caltech.edu/c.php?g=1245959"
     },
     {
@@ -16204,7 +16204,7 @@
         "thumbnail_url": "",
         "type_id": 1,
         "type_label": "General Purpose Guide",
-        "updated": "2022-08-23 21:10:38",
+        "updated": "2023-10-25 19:04:10",
         "url": "https://library.caltech.edu/c.php?g=1230813"
     },
     {
