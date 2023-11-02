@@ -1257,144 +1257,164 @@ function(t) {
             return i.init(t), i
         };
     "undefined" != typeof module ? module.exports = e : (t.springSpace = t.springSpace || {}, t.springSpace.sui = t.springSpace.sui || {}, t.springSpace.sui.initAutocomplete = t.springSpace.sui.initAutocomplete || i)
-}(this),
-function(t) {
-    var e = function(t) {
-        if (void 0 === t && (t = {}), this.setConfig = function(t) {
-                this.id = t.id ? t.id : "s-sui-modal", this.title = t.title ? t.title : "", this.content = t.content ? t.content : "", this.url = t.url ? t.url : null, this.fade = !!t.fade, this.callback = t.callback ? t.callback : null, this.closeCallback = t.closeCallback ? t.closeCallback : null, this.footer = !0 === t.footer && t.footer, this.size = t.size ? t.size : "", this.modal_buttons = t.buttons ? t.buttons : [], this.returnfocus = !1 !== t.returnfocus, this.opener = document.activeElement, this.btn_callbacks = {}, this.backdrop = void 0 === t.backdrop || ("static" === t.backdrop ? "static" : !!t.backdrop), this.keyboard = !1 !== t.keyboard;
-                var e = void 0 !== t.transText;
-                this.transText = {
-                    close: e && t.transText.close ? t.transText.close : "Close",
-                    error: e && t.transText.error ? t.transText.error : "Error",
-                    unknown: e && t.transText.unknown ? t.transText.unknown : "Unknown",
-                    invalidResponse: e && t.transText.invalidResponse ? t.transText.invalidResponse : "Invalid response received",
-                    toggle: e && t.transText.toggle ? t.transText.toggle : "Toggle Dropdown"
-                }
-            }, this.setConfig(t), this.$el = jQuery("#" + this.id), 0 === jQuery("#" + this.id).length)
-            if (this.$el = jQuery('<div class="modal ' + (this.fade ? "fade" : "") + '" tabindex="-1" role="dialog" aria-labelledby="s-sui-modal-header"></div>').attr("id", this.id).html('<div class="modal-dialog"><div class="modal-content"></div></div>'), "s-sui-modal" === this.id) jQuery("body").prepend(this.$el);
-            else {
-                var e = jQuery("div.modal");
-                e.length > 0 ? e.filter(":last").after(this.$el) : jQuery("body").prepend(this.$el)
-            }
-        "large" === this.size && this.$el.find(".modal-dialog").addClass("modal-lg"), this.retrieveSuccess = function(t) {
-            t.title && (this.title = t.title), t.content && (this.content = t.content), t.buttons && (this.modal_buttons = t.buttons), this.footer = !(!t.footer || !0 !== t.footer), this.draw()
-        }, this.retrieveFail = function(t) {
-            var e = this.transText.unknown;
-            if (t.responseText) try {
-                var i = JSON.parse(t.responseText);
-                i.error && (e = i.error)
-            } catch (t) {
-                e = this.transText.invalidResponse
-            }
-            this.content = this.transText.error + ": " + e, this.modal_buttons = [{
-                label: this.transText.close,
-                callback: "e.data.modal.close();"
-            }], this.draw()
-        }, this.retrieve = function() {
-            jQuery.ajax({
-                url: this.url,
-                cache: !1,
-                method: "GET",
-                dataType: "json"
-            }).done(this.retrieveSuccess.bind(this)).fail(this.retrieveFail.bind(this))
-        }, this.handleShowEvent = function() {
-            null !== this.callback && this.callback(this)
-        }, this.handleHideEvent = function() {
-            this.returnfocus && void 0 !== this.opener && null !== this.opener && this.opener.focus(), null !== this.closeCallback && this.closeCallback(this), this.$el.off().removeData("bs.modal").find(".modal-content").html(""), jQuery("#" + this.id + " .modal-dialog").removeClass("modal-lg"), this.callback = null, this.closeCallback = null
-        }, this.draw = function() {
-            var t = '<div class="modal-content">';
-            "" !== this.title && (t += '<div class="modal-header"><button id="s-sui-modal-close" type="button" class="close" data-dismiss="modal" aria-label="&times; ' + this.transText.close + '">&times;</button><h4 class="modal-title" id="s-sui-modal-header">' + this.title + "</h4></div>");
-            var e = "";
-            "string" == typeof this.content && (e = this.content), t += '<div class="modal-body">' + e + "</div>", (this.footer || this.modal_buttons.length > 0) && (this.btn_callbacks = {}, t += '<div class="modal-footer">', 0 === this.modal_buttons.length ? t += '<button type="button" class="btn btn-default" data-dismiss="modal">' + this.transText.close + "</button>" : this.modal_buttons.forEach((function(e, i) {
-                e.links && e.links.length > 0 ? (e.gclass = e.gclass ? e.gclass : "", t += '<div class="btn-group ' + e.gclass + '">', e.bclass = e.bclass ? e.bclass : "btn-default", e.label = e.label ? e.label : "", "" !== e.label && (t += '<button type="button" class="btn ' + e.bclass + " btn-modal-" + i + '" >' + e.label + "</button>", e.callback && (this.btn_callbacks["btn-modal-" + i] = e.callback)), t += '<button type="button" class="btn ' + e.bclass + ' dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">' + this.transText.toggle + "</span></button>", t += '<ul class="dropdown-menu">', e.links.forEach((function(e, i) {
-                    if (e.label = e.label ? e.label : "", "" !== e.label) {
-                        var n = e.url ? e.url : "#";
-                        t += '<li><a href="' + n + '" class="link-modal-' + i + '">' + e.label + "</a></li>", e.callback && (this.btn_callbacks["link-modal-" + i] = e.callback)
-                    }
-                }), this), t += "</ul>", t += "</div>") : (e.bclass = e.bclass ? e.bclass : "btn-default", e.label = e.label ? e.label : "", "" !== e.label && (t += '<button type="button" class="btn ' + e.bclass + " btn-modal-" + i + '" >' + e.label + "</button>", e.callback && (this.btn_callbacks["btn-modal-" + i] = e.callback)))
-            }), this), t += "</div>"), t += "</div>";
-            var i = jQuery(t);
-            if ("string" != typeof this.content && i.find(".modal-body").html(this.content), this.$el.find(".modal-content").replaceWith(i), this.modal_buttons.length > 0)
-                for (var n in this.btn_callbacks)
-                    if (this.btn_callbacks.hasOwnProperty(n)) {
-                        if ("string" == typeof this.btn_callbacks[n]) {
-                            var s = new Function("e", this.btn_callbacks[n]);
-                            this.btn_callbacks[n] = s
-                        }
-                        "function" == typeof this.btn_callbacks[n] && this.$el.find("." + n).on("click", {
-                            modal: this
-                        }, this.btn_callbacks[n])
-                    } this.$el.on("show.bs.modal", this.handleShowEvent.bind(this)), this.$el.modal({
-                backdrop: this.backdrop,
-                keyboard: this.keyboard
-            }, "show"), this.$el.on("hidden.bs.modal", this.handleHideEvent.bind(this))
-        }, this.close = function() {
-            jQuery("#" + this.id).modal("hide")
-        }, this.redraw = function(t) {
-            this.$el.unbind("show.bs.modal").unbind("hidden.bs.modal"), this.setConfig(t), null !== this.url ? this.retrieve() : this.draw()
-        }, null !== this.url ? this.retrieve() : this.draw()
-    };
-    "undefined" != typeof module ? module.exports = e : (t.springSpace = t.springSpace || {}, t.springSpace.sui = t.springSpace.sui || {}, t.springSpace.sui.modal = t.springSpace.sui.modal || e)
 }(this);
-var springSpace = springSpace || {};
-springSpace.sui = springSpace.sui || {}, springSpace.sui.notify_ = function() {
-    this.parent_id = "s-ui-alertarea", this.html_id = "s-ui-notification", this.className = "s-ui-notification", this.timeout = null, this.error = function(t) {
-        void 0 !== t && "" !== t || (t = "Error: Please try again.");
-        var e = {
-            className: "s-ui-notification-error",
-            duration: 5e3,
-            msg: t
-        };
-        this.show(e)
-    }, this.success = function(t) {
-        void 0 !== t && "" !== t || (t = "Success.");
-        var e = {
-            className: "s-ui-notification-success",
-            duration: 5e3,
-            msg: t
-        };
-        this.show(e)
-    }, this.working = function(t) {
-        void 0 !== t && "" !== t || (t = ' <i class="fa fa-spinner fa-3x fa-pulse"></i><span class="sr-only">Working...</span> '), settings = {
-            msg: t,
-            duration: 3e4
-        }, this.show(settings)
-    }, this.show = function(t) {
-        var e = this;
-        if (void 0 !== t && t.msg && "" !== t.msg && null !== t.msg) {
-            t.duration || 0 === t.duration || (t.duration = 5e3);
-            var i = jQuery("#" + this.html_id);
-            if (i.length > 0 && i.remove(), i = jQuery("<div></div>").attr({
-                    id: this.html_id
-                }), 0 == (n = jQuery("#" + this.parent_id)).length) var n = jQuery("<div></div>").attr({
-                id: this.parent_id,
-                role: "alert"
-            }).appendTo(jQuery("body"));
-            i.appendTo(n);
-            var s = {};
-            t.bgcolor && (s.backgroundColor = t.bgcolor), t.fgcolor && (s.color = t.fgcolor), i.addClass(t.className ? t.className : this.className).html(t.msg).css(s).on("mouseover", (function() {
-                clearTimeout(e.timeout)
-            })).on("mouseout", (function() {
-                t.duration > 0 && (e.timeout = setTimeout(e.hide.bind(e), t.duration))
-            })).on("click", e.hide.bind(e)).wrapInner('<div class="s-ui-notification-message" />');
-            var a = jQuery(window).width(),
-                r = jQuery(window).height(),
-                o = i.outerWidth(),
-                l = r / 2 - i.outerHeight() / 2,
-                c = a / 2 - o / 2;
-            i.css({
-                top: l,
-                left: c
-            }).fadeIn(200, (function() {
-                t.duration > 0 && (e.timeout = setTimeout(e.hide.bind(e), t.duration))
-            }))
-        }
-    }, this.hide = function() {
-        jQuery("#" + this.html_id).off("mouseover mouseout").fadeOut(200, (function() {
-            jQuery(this).empty()
-        })), clearTimeout(this.timeout)
+class Notify {
+    #t = null;
+    #e = "s-ui-notifyarea";
+    #i = "s-ui-notify";
+    #n = "s-ui-notify";
+    #s = {
+        msg: '<i class="fa fa-spinner fa-pulse mg-right" aria-hidden="true"></i> <span>Working...</span>',
+        className: "s-ui-notify-working"
+    };
+    #a = {
+        msg: "Success.",
+        className: "s-ui-notify-success"
+    };
+    #r = {
+        msg: "Error: Please try again.",
+        className: "s-ui-notify-error"
+    };
+    #o = 0;
+    #l = null;
+    constructor({
+        parent_id: t = null
+    }) {
+        t && (this.#e = t)
     }
-}, springSpace.sui.notify = new springSpace.sui.notify_;
+    #c() {
+        let t = document.getElementById(this.#e);
+        return t || (t = document.createElement("DIV"), t.id = this.#e, t.setAttribute("role", "alert"), document.body.appendChild(t)), t
+    }
+    #d() {
+        return this.#t || (this.#t = this.#c()), this.#t
+    }
+    error(t = "", e = null) {
+        const i = {
+            ...this.#r
+        };
+        t && (i.msg = t), i.msg = `<i class="fa fa-exclamation-triangle mg-right" aria-hidden="true"></i> ${i.msg}`, i.id = e, this.show(i)
+    }
+    success(t = "", e = null) {
+        const i = {
+            ...this.#a
+        };
+        t && (i.msg = t), i.msg = `<i class="fa fa-check-circle mg-right" aria-hidden="true"></i> ${i.msg}`, i.id = e, this.show(i)
+    }
+    working(t = "", e = null) {
+        const i = {
+            ...this.#s
+        };
+        t && (i.msg = t), i.id = e, this.show(i)
+    }
+    show({
+        msg: t = "",
+        className: e = null,
+        id: i = null
+    }) {
+        if (!t) return null;
+        let n = null;
+        i ? (n = document.getElementById(i), n && n.remove()) : (this.#o++, i = `${this.#i}-${this.#o}`), n = document.createElement("DIV"), n.id = i, n.classList.add(this.#n), e && n.classList.add(e), n.innerHTML = `<div class="s-ui-notification-message">${t}</div><button class="btn" aria-label="${window?.springyText?.modal?.close||"Close"}">&times;</button>`;
+        return this.#d().appendChild(n), n.addEventListener("click", (t => {
+            t.preventDefault(), this.hide(t.currentTarget)
+        })), null === this.#l && (this.#l = this.keyboardEvents.bind(this), document.addEventListener("keydown", this.#l, !0)), i
+    }
+    hide(t = null) {
+        t ? t.remove() : this.#t && (this.#t.innerHTML = ""), this.#h()
+    }
+    hideWorking() {
+        this.#t && (this.#t.querySelectorAll(`.${this.#s.className}`).forEach((t => {
+            t.remove()
+        })), this.#h())
+    }
+    #h() {
+        null === this.#l || !this.#t || this.#t.children.length > 0 || (document.removeEventListener("keydown", this.#l, !0), this.#l = null)
+    }
+    keyboardEvents(t) {
+        if ("Escape" !== t.key) return;
+        const e = this.#t.querySelector(`.${this.#n}`);
+        e && e.remove(), this.#h()
+    }
+}
+"undefined" != typeof module ? module.exports = new Notify({}) : window.suiNotify = new Notify({}),
+    function(t) {
+        var e = function(t) {
+            if (void 0 === t && (t = {}), this.setConfig = function(t) {
+                    this.id = t.id ? t.id : "s-sui-modal", this.title = t.title ? t.title : "", this.content = t.content ? t.content : "", this.url = t.url ? t.url : null, this.fade = !!t.fade, this.callback = t.callback ? t.callback : null, this.closeCallback = t.closeCallback ? t.closeCallback : null, this.footer = !0 === t.footer && t.footer, this.size = t.size ? t.size : "", this.modal_buttons = t.buttons ? t.buttons : [], this.returnfocus = !1 !== t.returnfocus, this.opener = document.activeElement, this.btn_callbacks = {}, this.backdrop = void 0 === t.backdrop || ("static" === t.backdrop ? "static" : !!t.backdrop), this.keyboard = !1 !== t.keyboard;
+                    var e = void 0 !== t.transText;
+                    this.transText = {
+                        close: e && t.transText.close ? t.transText.close : "Close",
+                        error: e && t.transText.error ? t.transText.error : "Error",
+                        unknown: e && t.transText.unknown ? t.transText.unknown : "Unknown",
+                        invalidResponse: e && t.transText.invalidResponse ? t.transText.invalidResponse : "Invalid response received",
+                        toggle: e && t.transText.toggle ? t.transText.toggle : "Toggle Dropdown"
+                    }
+                }, this.setConfig(t), this.$el = jQuery("#" + this.id), 0 === jQuery("#" + this.id).length)
+                if (this.$el = jQuery('<div class="modal ' + (this.fade ? "fade" : "") + '" tabindex="-1" role="dialog" aria-labelledby="s-sui-modal-header"></div>').attr("id", this.id).html('<div class="modal-dialog"><div class="modal-content"></div></div>'), "s-sui-modal" === this.id) jQuery("body").prepend(this.$el);
+                else {
+                    var e = jQuery("div.modal");
+                    e.length > 0 ? e.filter(":last").after(this.$el) : jQuery("body").prepend(this.$el)
+                }
+            "large" === this.size && this.$el.find(".modal-dialog").addClass("modal-lg"), this.retrieveSuccess = function(t) {
+                t.title && (this.title = t.title), t.content && (this.content = t.content), t.buttons && (this.modal_buttons = t.buttons), this.footer = !(!t.footer || !0 !== t.footer), this.draw()
+            }, this.retrieveFail = function(t) {
+                var e = this.transText.unknown;
+                if (t.responseText) try {
+                    var i = JSON.parse(t.responseText);
+                    i.error && (e = i.error)
+                } catch (t) {
+                    e = this.transText.invalidResponse
+                }
+                this.content = this.transText.error + ": " + e, this.modal_buttons = [{
+                    label: this.transText.close,
+                    callback: "e.data.modal.close();"
+                }], this.draw()
+            }, this.retrieve = function() {
+                jQuery.ajax({
+                    url: this.url,
+                    cache: !1,
+                    method: "GET",
+                    dataType: "json"
+                }).done(this.retrieveSuccess.bind(this)).fail(this.retrieveFail.bind(this))
+            }, this.handleShowEvent = function() {
+                null !== this.callback && this.callback(this)
+            }, this.handleHideEvent = function() {
+                this.returnfocus && void 0 !== this.opener && null !== this.opener && this.opener.focus(), null !== this.closeCallback && this.closeCallback(this), this.$el.off().removeData("bs.modal").find(".modal-content").html(""), jQuery("#" + this.id + " .modal-dialog").removeClass("modal-lg"), this.callback = null, this.closeCallback = null
+            }, this.draw = function() {
+                var t = '<div class="modal-content">';
+                "" !== this.title && (t += '<div class="modal-header"><button id="s-sui-modal-close" type="button" class="close" data-dismiss="modal" aria-label="&times; ' + this.transText.close + '">&times;</button><h4 class="modal-title" id="s-sui-modal-header">' + this.title + "</h4></div>");
+                var e = "";
+                "string" == typeof this.content && (e = this.content), t += '<div class="modal-body">' + e + "</div>", (this.footer || this.modal_buttons.length > 0) && (this.btn_callbacks = {}, t += '<div class="modal-footer">', 0 === this.modal_buttons.length ? t += '<button type="button" class="btn btn-default" data-dismiss="modal">' + this.transText.close + "</button>" : this.modal_buttons.forEach((function(e, i) {
+                    e.links && e.links.length > 0 ? (e.gclass = e.gclass ? e.gclass : "", t += '<div class="btn-group ' + e.gclass + '">', e.bclass = e.bclass ? e.bclass : "btn-default", e.label = e.label ? e.label : "", "" !== e.label && (t += '<button type="button" class="btn ' + e.bclass + " btn-modal-" + i + '" >' + e.label + "</button>", e.callback && (this.btn_callbacks["btn-modal-" + i] = e.callback)), t += '<button type="button" class="btn ' + e.bclass + ' dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span><span class="sr-only">' + this.transText.toggle + "</span></button>", t += '<ul class="dropdown-menu">', e.links.forEach((function(e, i) {
+                        if (e.label = e.label ? e.label : "", "" !== e.label) {
+                            var n = e.url ? e.url : "#";
+                            t += '<li><a href="' + n + '" class="link-modal-' + i + '">' + e.label + "</a></li>", e.callback && (this.btn_callbacks["link-modal-" + i] = e.callback)
+                        }
+                    }), this), t += "</ul>", t += "</div>") : (e.bclass = e.bclass ? e.bclass : "btn-default", e.label = e.label ? e.label : "", "" !== e.label && (t += '<button type="button" class="btn ' + e.bclass + " btn-modal-" + i + '" >' + e.label + "</button>", e.callback && (this.btn_callbacks["btn-modal-" + i] = e.callback)))
+                }), this), t += "</div>"), t += "</div>";
+                var i = jQuery(t);
+                if ("string" != typeof this.content && i.find(".modal-body").html(this.content), this.$el.find(".modal-content").replaceWith(i), this.modal_buttons.length > 0)
+                    for (var n in this.btn_callbacks)
+                        if (this.btn_callbacks.hasOwnProperty(n)) {
+                            if ("string" == typeof this.btn_callbacks[n]) {
+                                var s = new Function("e", this.btn_callbacks[n]);
+                                this.btn_callbacks[n] = s
+                            }
+                            "function" == typeof this.btn_callbacks[n] && this.$el.find("." + n).on("click", {
+                                modal: this
+                            }, this.btn_callbacks[n])
+                        } this.$el.on("show.bs.modal", this.handleShowEvent.bind(this)), this.$el.modal({
+                    backdrop: this.backdrop,
+                    keyboard: this.keyboard
+                }, "show"), this.$el.on("hidden.bs.modal", this.handleHideEvent.bind(this))
+            }, this.close = function() {
+                jQuery("#" + this.id).modal("hide")
+            }, this.redraw = function(t) {
+                this.$el.unbind("show.bs.modal").unbind("hidden.bs.modal"), this.setConfig(t), null !== this.url ? this.retrieve() : this.draw()
+            }, null !== this.url ? this.retrieve() : this.draw()
+        };
+        "undefined" != typeof module ? module.exports = e : (t.springSpace = t.springSpace || {}, t.springSpace.sui = t.springSpace.sui || {}, t.springSpace.sui.modal = t.springSpace.sui.modal || e)
+    }(this);
 var springSpace = springSpace || {};
 springSpace.sui = springSpace.sui || {}, springSpace.sui.helptip = function(t) {
     void 0 === t && (t = {});
@@ -1698,26 +1718,6 @@ function disableButton(t) {
 function enableButton(t) {
     t && (-1 === ["#", "."].indexOf(t.charAt(0)) && (t = "#" + t), jQuery(t).prop("disabled", !1))
 }
-
-function errorAlert(t) {
-    void 0 !== t && "" !== t || (t = "Error: Please try again."), t = '<i class="fa fa-exclamation-triangle"></i> ' + t, springSpace.sui.notify.error(t)
-}
-
-function successAlert(t) {
-    void 0 !== t && "" !== t || (t = "Success."), t = '<i class="fa fa-check-circle"></i> ' + t, springSpace.sui.notify.success(t)
-}
-
-function workingAlert(t) {
-    springSpace.sui.notify.working(t)
-}
-
-function longWorkingAlert(t) {
-    springSpace.sui.notify.working(t)
-}
-
-function stopAlert() {
-    springSpace.sui.notify.hide()
-}
 springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {}, springSpace.util._construct = function() {
     function t() {}
     t.prototype.stringFormat = function(t, e) {
@@ -1745,10 +1745,22 @@ springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {
         }
     }, this.Util = t
 }, springSpace.util._construct(), springSpace.Util = new springSpace.util.Util;
-var jqGetAjaxError = function(t) {
-        var e = "";
+var errorAlert = function(t = "") {
+        window.suiNotify.hideWorking(), window.suiNotify.error(t)
+    },
+    successAlert = function(t = "") {
+        window.suiNotify.hideWorking(), window.suiNotify.success(t)
+    },
+    workingAlert = function(t = "") {
+        window.suiNotify.working(t)
+    },
+    stopAlert = function() {
+        window.suiNotify.hideWorking()
+    },
+    jqGetAjaxError = function(t) {
+        let e = "";
         if (t.responseText) try {
-            var i = JSON.parse(t.responseText);
+            const i = JSON.parse(t.responseText);
             i.error && (e = i.error)
         } catch (t) {
             e = "Invalid response received"
@@ -1756,7 +1768,8 @@ var jqGetAjaxError = function(t) {
         return e
     },
     jqAjaxFailCallback = function(t) {
-        errorAlert(jqGetAjaxError(t))
+        const e = jqGetAjaxError(t);
+        errorAlert(e)
     },
     createDismissableErrorAlert = function(t = "", e = "") {
         return t || (t = "Error"), createDismissableAlert(t, "danger", e)
@@ -2551,7 +2564,7 @@ function(t) {
                     this.validateFieldSet(t)
                 })), this.$form.find(".has-error").length > 0) return this.$form.find("*[aria-invalid=true]:first").trigger("focus"), !1;
             let e = 0;
-            return t.springSpace.queryAnalyzer ? e = t.springSpace.queryAnalyzer.qlog_id || 0 : t.springSpace.la.Page && t.springSpace.la.Page.qlog_id && (e = t.springSpace.la.Page.qlog_id), e > 0 && this.$form.find("input[name=qlog]").val(e), t.springSpace.sui.notify.working(), !0
+            return t.springSpace.queryAnalyzer ? e = t.springSpace.queryAnalyzer.qlog_id || 0 : t.springSpace.la.Page && t.springSpace.la.Page.qlog_id && (e = t.springSpace.la.Page.qlog_id), e > 0 && this.$form.find("input[name=qlog]").val(e), t.suiNotify.working(), !0
         }, this.createDismissableAlert = function(t, e) {
             const i = document.createElement("div");
             i.classList.add("alert", `alert-${e}`, "alert-dismissable"), i.setAttribute("role", "alert");
@@ -2573,7 +2586,7 @@ function(t) {
             supportie9: !1,
             translations: this.translations,
             callback: e => {
-                t.springSpace.sui.notify.hide();
+                t.suiNotify.hide();
                 const i = this.createDismissableAlert(e.message, "success");
                 this.$form[0].querySelector("#s-la-askform-buttons").insertAdjacentElement("beforebegin", i), this.questionform.reset(), this.resetRules(), this.captcha_enabled && this.loadCaptcha(), this.autoreply_enabled && this.$form[0].querySelector(".confem_wrap")?.remove()
             },
@@ -2586,7 +2599,7 @@ function(t) {
                 } catch (t) {
                     i = "Invalid response received"
                 }
-                t.springSpace.sui.notify.hide();
+                t.suiNotify.hide();
                 const s = this.createDismissableAlert(i, "danger");
                 let a = null,
                     r = "beforebegin";
