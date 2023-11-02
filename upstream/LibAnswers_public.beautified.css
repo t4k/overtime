@@ -8264,26 +8264,6 @@ button.close {
     }
 }
 
-#s-ui-notification {
-    background-color: rgba(0, 0, 0, .75);
-    border-radius: 6px;
-    padding: 20px;
-    cursor: pointer;
-    color: #fff;
-    font: bold 14px Helvetica, Arial, sans-serif;
-    text-align: center;
-    white-space: nowrap;
-    position: fixed;
-    z-index: 99999;
-    display: none
-}
-
-#s-ui-notification.s-ui-notification-error {
-    background-color: #f2dede;
-    border: 2px solid #ebccd1;
-    color: #b94a48
-}
-
 .s-ui-helptip {
     display: inline-block
 }
@@ -8471,6 +8451,58 @@ button.close {
 .s-ui-autocomplete-list li[aria-selected=true] {
     background-color: #000;
     color: #fff
+}
+
+#s-ui-notifyarea {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999
+}
+
+#s-ui-notifyarea:empty {
+    display: none
+}
+
+.s-ui-notify {
+    background-color: rgba(0, 0, 0, .75);
+    border-radius: 6px;
+    padding: 20px;
+    cursor: pointer;
+    color: #fff;
+    font: bold 14px Helvetica, Arial, sans-serif;
+    margin-bottom: 1rem;
+    pointer-events: all;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.s-ui-notify-error {
+    background-color: #f2dede;
+    border: 2px solid #ebccd1;
+    color: #b94a48
+}
+
+.s-ui-notification-message {
+    display: flex;
+    align-items: center
+}
+
+.s-ui-notify .btn {
+    background: 0 0;
+    border: none;
+    font-weight: 700
 }
 
 body {
@@ -10185,7 +10217,7 @@ input[name="qid[]"] {
     font-size: 18px;
     font-weight: 700;
     line-height: 24px;
-    color: #666;
+    color: #4b4b4b;
     margin: 1.5em 0 .5em 0;
     border-bottom: 1px solid #e5e5e5;
     padding: 0 0 .2em 0;
@@ -12103,6 +12135,13 @@ caption {
 .s-srch-result-meta span.divider {
     padding: 0 5px;
     color: #424242
+}
+
+.average-box {
+    border-block: 2px solid #424242;
+    border-inline: 6px solid #424242;
+    padding: 8px;
+    border-radius: .5rem
 }
 
 .s-srch-top-header {
