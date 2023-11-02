@@ -63,6 +63,11 @@ springSpace.public = {}, springSpace.public._construct = function() {
             return jQuery(this).val()
         })).get();
         return [...new Set(t)].toString()
+    }, e.prototype.getSelectTexts = function(e) {
+        let t = jQuery(e).find('option[value!=""]:selected').map((function() {
+            return jQuery(this).text().replace(/ \(\d+\)/i, "")
+        })).get();
+        return [...new Set(t)].join("; ")
     }, e.prototype.filterAzByFirst = function(e, t, s) {
         this.quickFilterAzByFirst(e, t, s)
     }, e.prototype.quickFilterAzByFirstBS5 = function(e, t) {
@@ -71,10 +76,10 @@ springSpace.public = {}, springSpace.public._construct = function() {
             site_id: t
         }))
     }, e.prototype.quickFilterAzByFirst = function(e, t, s = "") {
-        if (springSpace.azList.letter_selected = e, jQuery(".s-lg-az-first").removeClass("bold"), "" === e || "all" === e) return jQuery("#s-lg-az-first-all").addClass("bold"), jQuery("#s-lg-az-results .s-lg-db-panel").toggle(!0), jQuery(".s-lg-az-result-featured").toggle(!0), jQuery("#s-lg-db-name-featured").toggle(jQuery(".s-lg-az-result-featured").length > 0), jQuery("#s-lg-az-pager").toggle(!0), history.pushState({}, null, location.pathname + encodeURI(this.buildAzQs(this.getAzFilterValues({
+        if (springSpace.azList.letter_selected = e, jQuery(".s-lg-az-first").removeClass("bold"), "" === e || "all" === e) return jQuery("#s-lg-az-first-all").addClass("bold"), jQuery("#s-lg-az-results .s-lg-db-panel").toggle(!0), jQuery(".s-lg-az-result-featured").toggle(!0), jQuery("#s-lg-db-name-featured").toggle(jQuery(".s-lg-az-result-featured").length > 0), history.pushState({}, null, location.pathname + encodeURI(this.buildAzQs(this.getAzFilterValues({
             first: ""
         })))), void this.refreshResultCountNumeric(total_db_count);
-        jQuery("#s-lg-az-first-" + e).addClass("bold"), jQuery("#s-lg-az-results .s-lg-db-panel").hide(), jQuery(".s-lg-az-result-featured").hide(), "pound" === e && (e = "other"), jQuery("#s-lg-az-name-" + e).show(), jQuery(".s-lg-az-result-featured-" + e).show(), jQuery("#s-lg-db-name-featured").toggle(jQuery(".s-lg-az-result-featured-" + e).length > 0), jQuery("#s-lg-az-pager").hide(), this.refreshResultCountNumeric(), history.pushState({}, null, location.pathname + encodeURI(this.buildAzQs(this.getAzFilterValues({
+        jQuery("#s-lg-az-first-" + e).addClass("bold"), jQuery("#s-lg-az-results .s-lg-db-panel").hide(), jQuery(".s-lg-az-result-featured").hide(), "pound" === e && (e = "other"), jQuery("#s-lg-az-name-" + e).show(), jQuery(".s-lg-az-result-featured-" + e).show(), jQuery("#s-lg-db-name-featured").toggle(jQuery(".s-lg-az-result-featured-" + e).length > 0), this.refreshResultCountNumeric(), history.pushState({}, null, location.pathname + encodeURI(this.buildAzQs(this.getAzFilterValues({
             first: e
         }))))
     }, e.prototype.refreshResultCountNumeric = function(e = 0) {
@@ -88,7 +93,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
         jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             subject_id: Array.isArray(e) ? e.join(",") : e,
             site_id: t
-        }))
+        })), this.recordAzSearchHit()
     }, e.prototype.filterAzBySubjectEdit = function(e, t) {
         let s = jQuery(".s-lg-sel-subjects").val().filter((function(t) {
             return t != e
@@ -98,7 +103,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
         jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             type_id: Array.isArray(e) ? e.join(",") : e,
             site_id: t
-        }))
+        })), this.recordAzSearchHit()
     }, e.prototype.filterAzByTypeEdit = function(e, t) {
         let s = jQuery(".s-lg-sel-az-types").val().filter((function(t) {
             return t != e
@@ -108,7 +113,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
         jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
             vendor_id: Array.isArray(e) ? e.join(",") : e,
             site_id: t
-        }))
+        })), this.recordAzSearchHit()
     }, e.prototype.filterAzByVendorEdit = function(e, t) {
         let s = jQuery(".s-lg-sel-az-vendors").val().filter((function(t) {
             return t != e
@@ -125,27 +130,36 @@ springSpace.public = {}, springSpace.public._construct = function() {
         }));
         this.filterAzByAccessMode(s, t)
     }, e.prototype.changeAzPage = function(e, t) {
-        this.loadAzList(this.getAzFilterValues({
+        jQuery(".lazy-load-link").html('<div class="bold s-lib-color-lt-grey pad-top-med text-center">Loading...</div>'), this.loadAzList(this.getAzFilterValues({
             page: e,
             site_id: t
-        })), jQuery("html, body").animate({
-            scrollTop: jQuery("#s-lg-az-cols").offset().top
-        }, 1e3)
-    }, e.prototype.filterAzBySearch = function(e) {
-        if (jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
-                site_id: e
-            })), void 0 !== springSpace.springTrack) try {
-            let e = this.getSearchTerm();
-            if ("" === e || "*:*" === e) return;
+        }), !1, !0)
+    }, e.prototype.recordAzSearchHit = function() {
+        if (void 0 !== springSpace.springTrack) try {
+            let e = this.getSearchTerm(),
+                t = this.getSelectTexts(".s-lg-sel-subjects"),
+                s = this.getSelectTexts(".s-lg-sel-az-types"),
+                r = this.getSelectTexts(".s-lg-sel-az-vendors"),
+                i = this.getSelectTexts(".s-lg-sel-az-access-modes"),
+                a = e + t + s + r + i;
+            if ("" === a || "*:*" === a) return;
             springSpace.springTrack.trackSearch({
-                _st_type_id: "27",
                 _st_group_id: 0,
                 _st_guide_id: 0,
-                _st_search_terms: e
+                _st_search_az_access_modes: i,
+                _st_search_az_types: s,
+                _st_search_az_vendors: r,
+                _st_search_subjects: t,
+                _st_search_terms: e,
+                _st_type_id: "27"
             })
         } catch (e) {
             searchcontroller.debug(e)
         }
+    }, e.prototype.filterAzBySearch = function(e) {
+        jQuery("#col1.d-none, #col2.d-none").removeClass("d-none"), jQuery(".view-all-databases").addClass("d-none"), jQuery("#az-public-mobile-filters").hide(), this.loadAzList(this.getAzFilterValues({
+            site_id: e
+        })), this.recordAzSearchHit()
     }, e.prototype.filterAzBySearchEdit = function(e) {
         jQuery(".s-lg-az-search").val(""), this.filterAzBySearch(e)
     }, e.prototype.clearAzSelection = function(e) {
@@ -216,7 +230,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 springSpace.UI.error(s)
             }
         })
-    }, e.prototype.loadAzList = function(e, t = !1) {
+    }, e.prototype.loadAzList = function(e, t = !1, s = !1) {
         is_bootstrap || springSpace.UI.notify({
             mode: "load",
             duration: 3e4
@@ -232,19 +246,19 @@ springSpace.public = {}, springSpace.public._construct = function() {
             action: 521,
             site_id: e.site_id
         });
-        var s = this,
-            r = function(e, t) {
+        var r = this,
+            i = function(e, t) {
                 if (!t.length) return;
                 let s = [];
                 t.forEach((function(e, t) {
                     e = (e = e.replace(/ \(\d+\)/i, "")).replace("↳", "").trim(), s.push(springSpace.Util.escapeHtml(e))
                 })), e.push(s.join(", "))
             },
-            i = "" !== this.getSearchTerm(),
-            a = i ? "/process/az/dbsearch" : "/process/az/dblist";
-        let l = window.innerWidth <= 575.98 ? 10 : 0;
+            a = "" !== this.getSearchTerm(),
+            l = a ? "/process/az/dbsearch" : "/process/az/dblist";
+        let o = window.innerWidth <= 575.98 ? 10 : 0;
         xhr = jQuery.ajax({
-            url: a,
+            url: l,
             type: "GET",
             dataType: "json",
             data: {
@@ -258,34 +272,37 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 content_id: e.content_id ? e.content_id : 0,
                 is_widget: springSpace.azList.is_widget,
                 bootstrap5: is_bootstrap,
-                page_size: l,
+                page_size: o,
                 preview: springSpace.azList.az_preview,
                 alpha: e.first
             },
-            success: function(a, l) {
-                if (is_bootstrap || springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(s.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == a.errCode) {
-                    jQuery("#s-lg-az-content").html(a.data.html), a.data.az_index_html && jQuery("#s-lg-az-index").html(a.data.az_index_html), a.data.subjects_html && jQuery(".col-subjects").html(a.data.subjects_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-subjects").select2({
-                        placeholder: a.data.label_all_subjects ?? "Subjects",
-                        theme: "bootstrap5"
-                    }), a.data.az_types_html && jQuery(".col-types").html(a.data.az_types_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-types").select2({
-                        placeholder: a.data.label_all_types ?? "Types",
-                        theme: "bootstrap5"
-                    }), a.data.az_vendors_html && jQuery(".col-vendors").html(a.data.az_vendors_html), is_bootstrap && (jQuery("#s-lg-az-filter-cols .s-lg-sel-az-vendors").select2({
-                        placeholder: a.data.label_all_vendors ?? "Vendors",
-                        theme: "bootstrap5"
-                    }), jQuery("#s-lg-az-filter-cols .s-lg-sel-az-access-modes").select2({
-                        placeholder: a.data.label_all_access_modes ?? "Access Modes",
-                        theme: "bootstrap5"
-                    })), jQuery("#s-lg-az-pager").html(a.data.az_pager_html ?? ""), jQuery("#s-lg-az-index").toggle(!i);
-                    var o = [];
-                    r(o, s.getAZFilterData("s-lg-sel-subjects")), r(o, s.getAZFilterData("s-lg-sel-az-types")), r(o, s.getAZFilterData("s-lg-sel-az-vendors")), r(o, i ? [s.getSearchTerm()] : []);
-                    var n = (o.length > 0 ? ": " : "") + o.join("; "),
-                        c = o.join("; ");
-                    total_db_count = a.data.count ?? 0, is_bootstrap ? (s.writeMobileAzFilters(a.data), s.setMobileAzFormValues(a.data), 0 === (a.data.subjects ?? []).length && 0 === (a.data.types ?? []).length && 0 === (a.data.vendors ?? []).length && "" === (a.data.q ?? "") && (jQuery(".s-lg-az-search").val(""), jQuery(".s-lg-sel-subjects").val([]), jQuery(".s-lg-sel-az-types").val([]), jQuery(".s-lg-sel-az-vendors").val([]), jQuery("#az-public-mobile-filters").show())) : jQuery("#s-lg-az-result-count").html(a.data.list_count + (c.length > 0 ? " " + a.data.list_count_for + " " + c : "")), t && "" !== springSpace.azList.init_filters.alpha && s.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), is_bootstrap || jQuery("#s-lib-public-header-title").html(title_base + n), jQuery("title").html(title_base + n)
-                } else jQuery("#s-lg-az-content").html('Something unexpected happened - please try again and if you continue to receive the error please let us know.<div class="s-ghost" style="margin-top:20px;">' + a.errText + "</div>");
+            success: function(l, o) {
+                if (is_bootstrap || springSpace.UI.notifyStop(), history.pushState && 0 == springSpace.azList.is_widget && "back" !== e.action && "init" !== e.action && history.pushState({}, null, location.pathname + encodeURI(r.buildAzQs(e))), springSpace.azList.historyEdited = !0, 200 == l.errCode)
+                    if (s) jQuery(".lazy-load-link").remove(), jQuery("#s-lg-az-results").append(l.data.html), jQuery("#s-lg-az-content").append(l.data.az_pager_html ?? "");
+                    else {
+                        jQuery("#s-lg-az-content").html(l.data.html), jQuery("#s-lg-az-content").append(l.data.az_pager_html ?? ""), l.data.az_index_html && jQuery("#s-lg-az-index").html(l.data.az_index_html), l.data.subjects_html && jQuery(".col-subjects").html(l.data.subjects_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-subjects").select2({
+                            placeholder: l.data.label_all_subjects ?? "Subjects",
+                            theme: "bootstrap5"
+                        }), l.data.az_types_html && jQuery(".col-types").html(l.data.az_types_html), is_bootstrap && jQuery("#s-lg-az-filter-cols .s-lg-sel-az-types").select2({
+                            placeholder: l.data.label_all_types ?? "Types",
+                            theme: "bootstrap5"
+                        }), l.data.az_vendors_html && jQuery(".col-vendors").html(l.data.az_vendors_html), is_bootstrap && (jQuery("#s-lg-az-filter-cols .s-lg-sel-az-vendors").select2({
+                            placeholder: l.data.label_all_vendors ?? "Vendors",
+                            theme: "bootstrap5"
+                        }), jQuery("#s-lg-az-filter-cols .s-lg-sel-az-access-modes").select2({
+                            placeholder: l.data.label_all_access_modes ?? "Access Modes",
+                            theme: "bootstrap5"
+                        })), jQuery("#s-lg-az-index").toggle(!a);
+                        var n = [];
+                        i(n, r.getAZFilterData("s-lg-sel-subjects")), i(n, r.getAZFilterData("s-lg-sel-az-types")), i(n, r.getAZFilterData("s-lg-sel-az-vendors")), i(n, a ? [r.getSearchTerm()] : []);
+                        var c = (n.length > 0 ? ": " : "") + n.join("; "),
+                            p = n.join("; ");
+                        total_db_count = l.data.count ?? 0, is_bootstrap ? (r.writeMobileAzFilters(l.data), r.setMobileAzFormValues(l.data), 0 === (l.data.subjects ?? []).length && 0 === (l.data.types ?? []).length && 0 === (l.data.vendors ?? []).length && "" === (l.data.q ?? "") && (jQuery(".s-lg-az-search").val(""), jQuery(".s-lg-sel-subjects").val([]), jQuery(".s-lg-sel-az-types").val([]), jQuery(".s-lg-sel-az-vendors").val([]), jQuery("#az-public-mobile-filters").show())) : jQuery("#s-lg-az-result-count").html(l.data.list_count + (p.length > 0 ? " " + l.data.list_count_for + " " + p : "")), t && "" !== springSpace.azList.init_filters.alpha && r.quickFilterAzByFirst(springSpace.azList.init_filters.alpha, e.site_id), is_bootstrap || jQuery("#s-lib-public-header-title").html(title_base + c), jQuery("title").html(title_base + c)
+                    }
+                else jQuery("#s-lg-az-content").html('Something unexpected happened - please try again and if you continue to receive the error please let us know.<div class="s-ghost" style="margin-top:20px;">' + l.errText + "</div>");
                 jQuery(".az-bs-tooltip").tooltip(), jQuery((function() {
                     jQuery('[data-toggle="popover"]').popover()
-                })), is_bootstrap && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && s.transformAzLinks(), is_bootstrap && (s.shortenAZBoxItems("s-lg-az-popular"), s.shortenAZBoxItems("s-lg-az-trials"), s.setReadMoreLink()), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
+                })), is_bootstrap && (tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]'), tooltipList = [...tooltipTriggerList].map((e => new bootstrap.Tooltip(e)))), 1 == springSpace.azList.is_widget && r.transformAzLinks(), is_bootstrap && (r.shortenAZBoxItems("s-lg-az-popular"), r.shortenAZBoxItems("s-lg-az-trials"), r.setReadMoreLink()), jQuery("#s-lg-az-trials-loading").toggle(!1), jQuery("#s-lg-az-trials").toggle(!0), jQuery("#s-lg-az-popular-loading").toggle(!1), jQuery("#s-lg-az-popular").toggle(!0)
             },
             error: function(e, t, s) {
                 springSpace.UI.error(s)
@@ -316,6 +333,8 @@ springSpace.public = {}, springSpace.public._construct = function() {
         return jQuery(".s-lg-az-search").each((function() {
             "" !== jQuery(this).val() && (e[jQuery(this).val()] = "")
         })), Object.keys(e).join(" ")
+    }, e.prototype.getDelimitedFilterSelections = function(e) {
+        return [...new Set(jQuery(e).toArray().map((e => e.text)))].join("; ")
     }, e.prototype.getAZFilterData = function(e) {
         let t = [];
         return jQuery("#" + e + " > option:selected").each((function() {
@@ -328,8 +347,7 @@ springSpace.public = {}, springSpace.public._construct = function() {
                 t: springSpace.Util.setProp(e.type_id, ""),
                 a: springSpace.Util.setProp(e.first, ""),
                 v: springSpace.Util.setProp(e.vendor_id, ""),
-                am: springSpace.Util.setProp(e.access_mode_id, ""),
-                p: springSpace.Util.setProp(e.page, 1)
+                am: springSpace.Util.setProp(e.access_mode_id, "")
             },
             s = [];
         return jQuery.each(t, (function(e, t) {
@@ -1437,6 +1455,7 @@ springSpace.util = {}, springSpace.common = {}, springSpace.validation = {}, spr
             cache: !1,
             data: c,
             async: s,
+            type: t.type ?? "GET",
             success: function(t) {
                 jQuery("#s-lib-alert-content").html(t), e.initPopOvers()
             },
