@@ -3780,6 +3780,133 @@ h6 small {
     text-align: left !important
 }
 
+.s-lc-catalog-item-count {
+    font-size: .7em
+}
+
+.s-lc-yellow-underline {
+    border-bottom: 2px solid #f2a722
+}
+
+.s-lc-catalog-outer-container {
+    margin-right: -22px
+}
+
+.s-lc-catalog-container {
+    overflow: visible;
+    width: 100%;
+    margin: -15px 0 0 -22px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start
+}
+
+.s-lc-catalog-item-container {
+    width: 100%
+}
+
+.s-lc-catalog-item-content {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px 6px 5px 5px;
+    margin: 12px 0 12px 22px;
+    position: relative
+}
+
+.s-lc-catalog-item-content:hover {
+    background: #fff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22)
+}
+
+.s-lc-catalog-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    width: 90%;
+    height: 70%;
+    max-height: 180px;
+    object-fit: contain
+}
+
+.s-lc-catalog-item-details {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.s-lc-catalog-category-name {
+    text-align: center;
+    text-decoration: none;
+    font-size: .9em
+}
+
+.s-lc-item-image {
+    width: 100%;
+    object-fit: contain;
+    max-height: 320px
+}
+
+.s-lc-catalog-suggestion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 30px
+}
+
+.s-lc-catalog-suggestion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 30px
+}
+
+.s-lc-catalog-suggestion hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #bbb
+}
+
+.s-lc-catalog-actions,
+.s-lc-catalog-result {
+    text-align: center
+}
+
+.s-lc-catalog-result-label {
+    font-weight: 700
+}
+
+.s-lc-catalog-cart-success .alert {
+    padding-top: 8px;
+    padding-bottom: 8px
+}
+
+@media (min-width:768px) {
+    .s-lc-catalog-item-container {
+        width: 50%
+    }
+}
+
+@media (max-width:993px) {
+    .s-lc-item-image {
+        max-height: 180px
+    }
+}
+
+@media (min-width:992px) {
+    .s-lc-catalog-item-container {
+        width: 33.333%
+    }
+
+    .s-lc-catalog-suggestion {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto
+    }
+}
+
 .s-lc-eq-co-terms {
     padding: 14px;
     margin: 20px 0;
@@ -3842,8 +3969,7 @@ h6 small {
 }
 
 .s-lc-booking-other-time {
-    margin-bottom: 8px;
-    white-space: nowrap
+    margin-bottom: 8px
 }
 
 .s-lc-booking-other-time i {
