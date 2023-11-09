@@ -1295,11 +1295,11 @@ class Notify {
         };
         t && (i.msg = t), i.msg = `<i class="fa fa-exclamation-triangle mg-right" aria-hidden="true"></i> ${i.msg}`, i.id = e, this.show(i)
     }
-    success(t = "", e = null) {
-        const i = {
+    success(t = "", e = null, i = 0) {
+        const n = {
             ...this.#a
         };
-        t && (i.msg = t), i.msg = `<i class="fa fa-check-circle mg-right" aria-hidden="true"></i> ${i.msg}`, i.id = e, this.show(i)
+        t && (n.msg = t), i > 0 && (n.ms = i), n.msg = `<i class="fa fa-check-circle mg-right" aria-hidden="true"></i> ${n.msg}`, n.id = e, this.show(n)
     }
     working(t = "", e = null) {
         const i = {
@@ -1310,14 +1310,17 @@ class Notify {
     show({
         msg: t = "",
         className: e = null,
-        id: i = null
+        id: i = null,
+        ms: n = 0
     }) {
         if (!t) return null;
-        let n = null;
-        i ? (n = document.getElementById(i), n && n.remove()) : (this.#o++, i = `${this.#i}-${this.#o}`), n = document.createElement("DIV"), n.id = i, n.classList.add(this.#n), e && n.classList.add(e), n.innerHTML = `<div class="s-ui-notification-message">${t}</div><button class="btn" aria-label="${window?.springyText?.modal?.close||"Close"}">&times;</button>`;
-        return this.#d().appendChild(n), n.addEventListener("click", (t => {
+        let s = null;
+        i ? (s = document.getElementById(i), s && s.remove()) : (this.#o++, i = `${this.#i}-${this.#o}`), s = document.createElement("DIV"), s.id = i, s.classList.add(this.#n), e && s.classList.add(e), s.innerHTML = `<div class="s-ui-notification-message">${t}</div><button class="btn" aria-label="${window?.springyText?.modal?.close||"Close"}">&times;</button>`;
+        return this.#d().appendChild(s), s.addEventListener("click", (t => {
             t.preventDefault(), this.hide(t.currentTarget)
-        })), null === this.#l && (this.#l = this.keyboardEvents.bind(this), document.addEventListener("keydown", this.#l, !0)), i
+        })), n > 0 && setTimeout((() => {
+            this.hide(s)
+        }), n), null === this.#l && (this.#l = this.keyboardEvents.bind(this), document.addEventListener("keydown", this.#l, !0)), i
     }
     hide(t = null) {
         t ? t.remove() : this.#t && (this.#t.innerHTML = ""), this.#h()
@@ -1748,8 +1751,8 @@ springSpace.la = springSpace.la || {}, springSpace.util = {}, springSpace.ui = {
 var errorAlert = function(t = "") {
         window.suiNotify.hideWorking(), window.suiNotify.error(t)
     },
-    successAlert = function(t = "") {
-        window.suiNotify.hideWorking(), window.suiNotify.success(t)
+    successAlert = function(t = "", e = 0) {
+        window.suiNotify.hideWorking(), "" === t && (e = 5e3), window.suiNotify.success(t, null, e)
     },
     workingAlert = function(t = "") {
         window.suiNotify.working(t)
