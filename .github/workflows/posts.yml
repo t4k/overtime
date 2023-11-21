@@ -1,8 +1,6 @@
 name: Diff Post Updates
 
 on:
-  schedule:
-    - cron:  '12 8 * * *'
   workflow_dispatch:
 
 jobs:
