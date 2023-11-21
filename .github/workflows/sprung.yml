@@ -32,49 +32,55 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
-      - run: python sprung.py library.caltech.edu lg-public-no-bs.min.css
+      - run: python .github/workflows/sprung.py library.caltech.edu lg-public-no-bs.min.css
       - name: commit libguides css
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libguides css version ${{ env.ASSET_VERSION }}";
           fi
 
-      - run: python sprung.py library.caltech.edu lg-public-no-bs.min.js
+      - run: python .github/workflows/sprung.py library.caltech.edu lg-public-no-bs.min.js
       - name: commit libguides js
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libguides js version ${{ env.ASSET_VERSION }}";
           fi
 
-      - run: python sprung.py libcal.caltech.edu LibCal_public.min.css
+      - run: python .github/workflows/sprung.py libcal.caltech.edu LibCal_public.min.css
       - name: commit libcal css
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libcal css version ${{ env.ASSET_VERSION }}";
           fi
 
-      - run: python sprung.py libcal.caltech.edu LibCal_public.min.js
+      - run: python .github/workflows/sprung.py libcal.caltech.edu LibCal_public.min.js
       - name: commit libcal js
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libcal js version ${{ env.ASSET_VERSION }}";
           fi
 
-      - run: python sprung.py libanswers.caltech.edu LibAnswers_public.min.css
+      - run: python .github/workflows/sprung.py libanswers.caltech.edu LibAnswers_public.min.css
       - name: commit libanswers css
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libanswers css version ${{ env.ASSET_VERSION }}";
           fi
 
-      - run: python sprung.py libanswers.caltech.edu LibAnswers_public.min.js
+      - run: python .github/workflows/sprung.py libanswers.caltech.edu LibAnswers_public.min.js
       - name: commit libanswers js
-        run: if [ -n "$(git ls-files --modified --others)" ];
+        run: |
+          if [ -n "$(git ls-files --modified --others)" ];
           then
             git ls-files --modified --others | xargs git add --all;
             git commit -m "👽️ libanswers js version ${{ env.ASSET_VERSION }}";

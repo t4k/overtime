@@ -1,0 +1,50 @@
+name: Diff Post Updates
+
+on:
+  schedule:
+    - cron:  '12 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  diff:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright/python:v${{ vars.PLAYWRIGHT_VERSION }}
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ vars.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ vars.PYTHON_VERSION }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install bs4 playwright==${{ vars.PLAYWRIGHT_VERSION }} pytest-playwright requests
+      - name: Remove all HTML to track Deleted Posts
+        run: rm -f content/posts/*.html
+      - name: Download Post HTML
+        id: download
+        env:
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
+          API_SITE_ID: ${{ secrets.API_SITE_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+        run: pytest --video on -sv .github/workflows/posts.py
+        continue-on-error: true
+      - name: Commit Changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '--no-ignore-removal -- content/*'
+          default_author: github_actions
+          message: '🌀 track changes to post content'
+      - name: Upload Video
+        if: steps.download.outcome != 'success'
+        uses: actions/upload-artifact@v3
+        with:
+          name: video-${{ github.sha }}
+          path: test-results/github-workflows-posts-py-test-diff-chromium
+      - name: Exit
+        if: steps.download.outcome != 'success'
+        run: exit 1
